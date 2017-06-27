@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= image_tag @harvest.image(:thumb) %>
+</p>
+
+<div id="googleMap" style="width:500px;height:380px;"></div>
+
+<p>
+  <%= @harvest.description %>
+</p>
+<%= link_to 'Edit', edit_harvest_path(@harvest) %> |
+<%= link_to 'Back', harvests_path %>

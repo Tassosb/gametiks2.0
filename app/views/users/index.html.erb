@@ -1,0 +1,10 @@
+<% provide(:title, 'All Users') %>
+<h1>Leaderboard</h1>
+
+<%= will_paginate %>
+
+<ul class="users">
+  <%= render @users.order('points DESC') %>
+</ul>
+
+<%= will_paginate %>
