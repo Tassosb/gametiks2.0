@@ -2,3 +2,6 @@ AWS_ACCESS_KEY_ID: "AKIAJTARHXW6SG36HFMQ"
 AWS_SECRET_ACCESS_KEY: "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"
 S3_BUCKET_NAME: "gametiks"
 AWS_REGION: "us-east-1"
+
+gmail_username: 'eloblein@gmail.com'
+gmail_password: 'Eshliana333'
