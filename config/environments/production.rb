@@ -1,39 +1,32 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  # configure paperclip to upload to Amazon s3 using
-config.paperclip_defaults = {
-  storage: :s3,
-  s3_credentials: {
-    bucket: ENV.fetch('S3_BUCKET_NAME'),
-    access_key_id: ENV.fetch('AWS_ACCESS_KEY_ID'),
-    secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
-    s3_region: ENV.fetch('AWS_REGION'),
+  # configure paperclip to upload to Amazon s3
+  config.paperclip_defaults = {
+    storage: :s3,
+    s3_credentials: {
+      bucket: ENV.fetch('S3_BUCKET_NAME'),
+      access_key_id: ENV.fetch('AWS_ACCESS_KEY_ID'),
+      secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
+      s3_region: ENV.fetch('AWS_REGION'),
+    }
   }
-}
 
-config.action_mailer.raise_delivery_errors = true
+  # Configure Action Mailer using SendGrid
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  host = 'protected-oasis-54280.herokuapp.com'
+  config.action_mailer.perform_deliveries = true
+  host = 'gametiks.herokuapp.com'
   config.action_mailer.default_url_options = { host: host }
 
-  config.action_mailer.smtp_settings = {
-    :address          => 'smtp.gmail.com',
+  ActionMailer::Base.smtp_settings = {
+    :address          => 'smtp.sendgrid.net',
     :port             => 587,
-    :user_name        => ENV['gmail_username'],
-    :password         => ENV['gmail_password'],
+    :user_name        => ENV['SENDGRID_USERNAME'],
+    :password         => ENV['SENDGRID_PASSWORD'],
     :authentication   => 'plain',
     :enable_starttls_auto => true
   }
-  # ActionMailer::Base.smtp_settings = {
-  #   :address        => 'smtp.sendgrid.net',
-  #   :port           => '587',
-  #   :authentication => :plain,
-  #   :user_name      => ENV['SENDGRID_USERNAME'],
-  #   :password       => ENV['SENDGRID_PASSWORD'],
-  #   :domain         => 'heroku.com',
-  #   :enable_starttls_auto => true
-  # }
 
   config.serve_static_assets = true
 
