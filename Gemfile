@@ -29,6 +29,7 @@ gem 'puma'
 gem 'rmagick', '~> 2.13.1'
 gem 'mini_magick'
 gem 'sendgrid-ruby'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'better_errors'
