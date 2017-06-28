@@ -1,4 +1,4 @@
-<%= require 'byebug' %>
+
 <%= provide(:title, @user.name) %>
 <div class="row">
   <aside class="col-lg-4 col-md-4 col-sm-12">
@@ -6,11 +6,11 @@
       <div id="tech-label"><h2>Gamercard</h2>
       </div>
       <div class="user_points">
-       <%= @user.points %> 
+       <%= @user.points %>
       </div>
         <%= @user.avatar.present? ? image_tag(@user.avatar.url(:square)) : image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg") %>
         <div class="user_level">
-          <%= @user.level %>  
+          <%= @user.level %>
         </div>
         <h3>
           <%= @user.name %>
@@ -88,17 +88,17 @@
             attachCoordinates(marker, images[i]);
           };
       }
-      
+
       function initMap(){
         initialize();
       }
-      
+
       function attachCoordinates(marker, image) {
               var formattedImageLink = "<div><img width='200' height='200' src=" + image + "</div>"
               var infowindow = new google.maps.InfoWindow({
                 content: formattedImageLink
               });
-            
+
               marker.addListener('click', function() {
                 infowindow.open(marker.get('map'), marker);
               });
@@ -132,5 +132,3 @@
     <% end %>
   </section>
 </div>
-
-
