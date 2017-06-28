@@ -18,11 +18,11 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'gametiks.herokuapp.com' }
   ActionMailer::Base.smtp_settings = {
     :address          => 'smtp.sendgrid.net',
-    :domain           => 'heroku.com',
     :port             => 587,
+    :authentication   => :plain,
     :user_name        => ENV['SENDGRID_USERNAME'],
     :password         => ENV['SENDGRID_PASSWORD'],
-    :authentication   => :plain,
+    :domain           => 'heroku.com',
     :enable_starttls_auto => true
   }
 
