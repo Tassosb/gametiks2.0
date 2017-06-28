@@ -1,9 +1,8 @@
 @import './variables';
 
 .navbar {
-  background-color: $gametiks-green;
+  background-color: transparent;
   background-image: none;
-  background-repeat: no-repeat;
  }
 
 body {
@@ -23,6 +22,12 @@ pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px;
+}
+
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
 }
 
 a {

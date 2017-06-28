@@ -1,18 +1,19 @@
 
 <div class='container-fluid background-main'>
-  <div class='row'>
+  <div class='row title-container'>
 
     <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
 
     <div class='main-logo-container'>
-      <div class='logo' />
-      <div class='slogan' />
+      <div class='title'></div>
+      <div class='subtitle'></div>
     </div>
+
   </div>
-  <div class='row'>
-    <%= link_to "Sign up with email", signup_path, class: "gt-btn square" %>
-    <%= link_to "Sign up with facebook", signup_path, class: "gt-btn square" %>
+  <div class='row signup-buttons-container'>
+    <%= link_to "Sign up with email", signup_path, class: "gt-btn" %>
+    <%= link_to "Sign up with facebook", signup_path, class: "gt-btn" %>
   </div>
 </div>
