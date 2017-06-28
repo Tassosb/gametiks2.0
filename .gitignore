@@ -13,7 +13,7 @@
 !/log/.keep
 !/tmp/.keep
 
-# Ignore passwords
+# Ignore application configuration
 /config/application.yml
 
 # Ignore Byebug command history file.
