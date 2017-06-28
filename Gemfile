@@ -7,20 +7,12 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.3'
-# Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
-# Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
-
-# Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'fog',                     '1.36.0'
 gem 'sdoc',                    '0.4.0', group: :doc
@@ -34,6 +26,7 @@ gem 'aws-sdk', '~> 2.3'
 gem 'figaro'
 gem 'lodash-rails'
 gem 'puma'
+gem 'rmagick', '~> 2.13.1'
 
 group :development, :test do
   gem 'better_errors'
