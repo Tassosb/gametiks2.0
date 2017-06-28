@@ -27,6 +27,7 @@ gem 'figaro'
 gem 'lodash-rails'
 gem 'puma'
 gem 'rmagick', '~> 2.13.1'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'better_errors'
