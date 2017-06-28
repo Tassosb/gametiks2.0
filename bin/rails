@@ -6,6 +6,6 @@ rescue LoadError => e
 end
 APP_PATH = File.expand_path('../config/application', __dir__)
 require_relative '../config/boot'
-require 'rack/handler'
-Rack::Handler::WEBrick = Rack::Handler.get(:puma)
+# require 'rack/handler'
+# Rack::Handler::WEBrick = Rack::Handler.get(:puma)
 require 'rails/commands'
