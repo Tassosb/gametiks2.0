@@ -28,7 +28,7 @@ Rails.application.configure do
     :enable_starttls_auto => true
   }
 
-  config.serve_static_assets = true
+  config.public_file_server.enabled = true
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -51,7 +51,7 @@ Rails.application.configure do
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
-  config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.public_file_server.enabled = true
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
