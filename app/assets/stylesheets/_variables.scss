@@ -3,6 +3,7 @@ $gametiks-gray: rgb(192,192,192);
 $gametiks-green: #384947;
 $dark-green: rgb(41, 53, 52);
 
+$gray-highlight: rgb(240, 240, 240);
 $gray-light: rgb(220, 220, 220);
 $gray-medium-light: #eaeaea;
 $gray: rgb(150, 150, 150);
@@ -10,7 +11,13 @@ $gray-dark: rgb(100, 100, 100);
 
 $gametiks-orange: #ff9a00;
 $gametiks-tech-green: #65e52c;
+
+$gametiks-semi-transparent-gray: rgba(200, 200, 200, 0.9);
+$gametiks-semi-transparent-green: rgba(56, 73, 71, 0.8);
 $gametiks-transparent-green: rgba(56,73,71,0.4);
 $gametiks-transparent-gray: rgba(0,0,0,0.2);
+
+$shadow: rgba(40, 40, 40, 0.8);
+$dark-shadow: rgba(30, 30, 30, 0.9);
 
 $state-danger-text: red;
