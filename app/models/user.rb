@@ -1,7 +1,14 @@
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+         
+  has_many :authorizations, dependent: :destroy
   has_many :harvests, dependent: :destroy
   has_and_belongs_to_many :badges, dependent: :destroy
 
+  attr_accessor :email, :name, :password, :password_confirmation, :remember_me
   # # This method associates the attribute ":avatar" with a file attachment
   # has_attached_file :avatar, styles: {
   #   square: '220x220#'

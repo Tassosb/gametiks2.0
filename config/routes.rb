@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  # get 'auth/:provider/callback' => 'sessions#create'
+  # get 'auth/failure' => '/'
+  # get 'signout' => 'sessions#destroy', as: 'signout'
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
   #root 'avatars#index'
   root 'static_pages#home'
   #get '/gallery' => 'harvests#index'
@@ -13,5 +18,5 @@ Rails.application.routes.draw do
   resources :users
   resources :account_activations, only: [:edit]
   resources :harvests
-  
+
 end

@@ -4,6 +4,17 @@ class SessionsController < ApplicationController
   end
 
   def create
+    params.empty? ? process_with_omniauth : process_new_session
+  end
+
+  def destroy
+    log_out if logged_in?
+    redirect_to root_url
+  end
+
+  private
+
+  def process_new_session
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       if user.activated?
@@ -22,8 +33,10 @@ class SessionsController < ApplicationController
     end
   end
 
-  def destroy
-    log_out if logged_in?
+  def process_with_omniauth
+    user = User.from_omniauth(env["omniauth.auth"])
+    session[:user_id] = user.id
     redirect_to root_url
   end
+
 end
