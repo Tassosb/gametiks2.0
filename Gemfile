@@ -33,10 +33,7 @@ gem 'mini_magick'
 # for sending email
 gem 'sendgrid-ruby'
 # omniauth essential
-gem 'devise'
-gem 'omniauth'
 gem 'omniauth-facebook'
-gem 'uuidtools'
 
 group :development, :test do
   gem 'better_errors'
