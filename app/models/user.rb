@@ -1,14 +1,8 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
-         
-  has_many :authorizations, dependent: :destroy
+
   has_many :harvests, dependent: :destroy
   has_and_belongs_to_many :badges, dependent: :destroy
 
-  attr_accessor :email, :name, :password, :password_confirmation, :remember_me
   # # This method associates the attribute ":avatar" with a file attachment
   # has_attached_file :avatar, styles: {
   #   square: '220x220#'
@@ -28,13 +22,34 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: false }
-  has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
-  validates :street_address, presence: true
-  validates :city, presence: true, format: /\A[a-zA-Z]+(?:[\s-][a-zA-Z]+)*\z/
-  validates :state, presence: true, format: /[A-Z][A-Z]/
-  validates :zipcode, presence: true, format: /\A[0-9]{5}(-[0-9]{4})?\z/
+                    uniqueness: { case_sensitive: false }, if: :email_required?
+  # has_secure_password
+  validates :password, presence: true, length: { minimum: 6 }, if: :password_required?
+  # validates :street_address, presence: true
+  # validates :city, presence: true, format: /\A[a-zA-Z]+(?:[\s-][a-zA-Z]+)*\z/
+  # validates :state, presence: true, format: /[A-Z][A-Z]/
+  # validates :zipcode, presence: true, format: /\A[0-9]{5}(-[0-9]{4})?\z/
+
+  def password_required?
+    !self.provider.present?
+  end
+
+  def email_required?
+    !self.provider.present?
+  end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first || create_from_omniauth(auth)
+  end
+
+  def self.create_from_omniauth(auth)
+    create! do |user|
+      user.provider = auth['provider']
+      user.uid = auth['uid']
+      user.name = auth['info']['name']
+      user.email = auth['info']['email']
+    end
+  end
 
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    params.empty? ? process_with_omniauth : process_new_session
+    params['provider'] ? process_with_omniauth : process_natively
   end
 
   def destroy
@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
 
   private
 
-  def process_new_session
+  def process_natively
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       if user.activated?
@@ -36,7 +36,7 @@ class SessionsController < ApplicationController
   def process_with_omniauth
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
-    redirect_to root_url
+    redirect_to root_url, notice: "Signed in!"
   end
 
 end
