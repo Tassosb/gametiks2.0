@@ -32,7 +32,8 @@ gem 'rmagick', '~> 2.13.1'
 gem 'mini_magick'
 # for sending email
 gem 'sendgrid-ruby'
-# omniauth essential
+# authentication
+gem 'devise'
 gem 'omniauth-facebook'
 
 group :development, :test do

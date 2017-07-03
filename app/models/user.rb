@@ -1,8 +1,44 @@
 class User < ActiveRecord::Base
 
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable,
+  :trackable, :validatable, :confirmable, :omniauthable, :omniauth_providers => [:facebook]
+
+  attr_accessor :name, :email, :password, :password_confirmation
+
   has_many :harvests, dependent: :destroy
   has_and_belongs_to_many :badges, dependent: :destroy
 
+  validates_presence_of :name, :email
+  validates_uniqueness_of :email
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.email = auth.extra.raw_info.email || ''
+      user.name = auth.extra.raw_info.name
+      user.confirmed_at = Time.now
+      user.save!
+    end
+  end
+
+  def self.new_with_session(params, session)
+    if session['devise.user_attributes']
+      new(session['devise.user_attributes']) do |user|
+        user.attributes = params
+        user.valid?
+      end
+    else
+      super
+    end
+  end
+
+  def password_required?
+    super && provider.blank?
+  end
+
+
+  # attr_accessor :email, :password, :password_confirmation, :remember_me
   # # This method associates the attribute ":avatar" with a file attachment
   # has_attached_file :avatar, styles: {
   #   square: '220x220#'

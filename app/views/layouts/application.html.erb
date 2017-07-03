@@ -10,7 +10,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
       integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
       crossorigin="anonymous"></script>
-    
+
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>
   </head>
@@ -18,7 +18,8 @@
   <body>
     <%= include_gon %>
     <%= render 'layouts/header' %>
-
+    <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
     <%= yield %>
 
     <%= render 'layouts/footer' %>
