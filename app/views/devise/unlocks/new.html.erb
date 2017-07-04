@@ -1,16 +1,30 @@
-<h2>Resend unlock instructions</h2>
+<div class="container-fluid background-main">
+  <row>
+    <div class='auth-form-container'>
 
-<%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+      <div class='auth-form'>
+        <div class='heading-container'>
+          <div class='heading'>UNLOCK ACCOUNT</div>
+        </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+        <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+          <%= devise_error_messages! %>
 
-  <div class="actions">
-    <%= f.submit "Resend unlock instructions" %>
-  </div>
-<% end %>
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true %>
+          </div>
 
-<%= render "devise/shared/links" %>
+          <div class="actions">
+            <%= f.submit "SUBMIT" %>
+          </div>
+        <% end %>
+
+        <hr>
+        <div class='links'>
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </row>
+</div>
