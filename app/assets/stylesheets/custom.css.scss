@@ -1,18 +1,5 @@
-// @import "bootstrap-sprockets";
-@import "./bootstrap/bootstrap";
+
 @import './variables';
-
-@font-face {
-  font-family:'impact';
-  src:font-url('leaguegothic-regular-webfont.eot');
-  src:font-url('leaguegothic-regular-webfont.eot?#iefix') format('embedded-opentype'),
-}
-
-@mixin box_sizing {
-  -moz-box-sizing:    border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
-}
 
 /* universal */
 
@@ -23,12 +10,12 @@ body {
   outline: none;
 }
 
-.jumbotron {
-  background-color: rgba(255,255,255,0);
-}
-
 .red-outline {
   border: 1px solid red;
+}
+
+a {
+  text-decoration: none !important;
 }
 
 section {
@@ -50,32 +37,13 @@ textarea {
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
-  font-family: impact, verdana;
+  font-family: arial;
   text-align: center;
 }
 
-h1 {
-  font-size: 20px;
-  letter-spacing: 2px;
-  margin-bottom: 30px;
-  color: rgba(0,0,0,0.6);
-}
-
-h2 {
-  font-size: 1.2em;
-  letter-spacing: 2px;
-  margin-bottom: 30px;
-  font-weight: normal;
-  color: $gray-light;
-}
-
 p {
-  font-size: 1.1em;
-  line-height: 1.7em;
+
 }
-
-
 
 /* miscellaneous */
 
@@ -84,7 +52,6 @@ p {
   float: left;
   width: 100%;
   margin-top: 45px;
-  @include box_sizing;
 }
 
 /* forms */
@@ -93,7 +60,6 @@ textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
-  @include box_sizing;
 }
 
 
@@ -106,7 +72,6 @@ textarea, select, .uneditable-input {
 }
 
 .field_with_errors {
-  @extend .has-error;
   .form-control {
     color: $state-danger-text;
   }
@@ -118,23 +83,6 @@ textarea, select, .uneditable-input {
   span {
     margin-left: 20px;
     font-weight: normal;
-  }
-}
-
-#session_remember_me {
-  width: auto;
-  margin-left: 0;
-}
-
-/* Users leaderboard */
-
-.users {
-  list-style: none;
-  margin: 0;
-  li {
-    overflow: auto;
-    padding: 10px 0;
-    border-bottom: 1px solid $gray-light;
   }
 }
 

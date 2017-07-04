@@ -1,0 +1,123 @@
+@import '../variables';
+
+.auth-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 700px;
+}
+
+.auth-form {
+  width: 350px;
+  height: auto;
+  padding: 20px;
+  background-color: $gametiks-transparent-gray;
+  border: 2px solid $gametiks-transparent-gray;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px $transparent-black;
+
+  h2, h3, p, label {
+    color: white;
+  }
+
+  .heading-container {
+    display: flex;
+    justify-content: center;
+    height: 46px;
+    background-color: $dark-green-transparent;
+    // box-shadow: inset 2px 2px 30px $gametiks-transparent-gray;
+    margin-bottom: 10px;
+
+    .heading {
+      font-family: 'teko-light';
+      color: white;
+      height: 46px;
+      font-size: 50px;
+      letter-spacing: 3px;
+      padding: 18px 3px 10px 7px;
+    }
+  }
+
+  .field {
+    width: 100%;
+
+    em {
+      color: white;
+    }
+
+    label {
+      width: 100%;
+      font-weight: normal;
+    }
+
+
+
+    input {
+      width: 100%;
+      height: 36px;
+      border-radius: 3px;
+      border: none;
+      outline: none;
+      background-color: $off-white-transparent;
+      text-indent: 10px;
+
+      &:focus {
+        border: 1px solid $gametiks-gray;
+        box-shadow: 0 0 5px $gametiks-gray;
+        background-color: $snow-transparent;
+      }
+
+    }
+
+    input[type="checkbox"] .checkbox {
+      display: inline;
+      outline: none;
+      border: none;
+      margin: 0;
+      float: left;
+    }
+
+    input[type="checkbox"]:focus {
+      border: none;
+      outline: none;
+      box-shadow: none;
+      color: blue;
+    }
+
+  }
+
+  .actions {
+
+    input {
+      font-size: 16px;
+      padding-top: 5px;
+      letter-spacing: 2px;
+      color: white;
+      width: 100%;
+      border: none;
+      outline: none;
+      background-color: $dark-green-transparent;
+      box-shadow: inset 0 0 30px 5px $gametiks-transparent-gray;
+      height: 36px;
+      margin-top: 20px;
+      border-radius: 3px;
+
+      &:hover {
+        background-color: $snow-transparent;
+        box-shadow: inset 0 0 30px 5px $gametiks-semi-transparent-gray;
+        color: $gametiks-green;
+      }
+    }
+  }
+
+  .links {
+    text-align: center;
+    line-height: 20px;
+
+    a {
+      color: white;
+    }
+  }
+
+}

@@ -3,8 +3,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
   :trackable, :validatable, :confirmable, :omniauthable, :omniauth_providers => [:facebook]
 
-  attr_accessor :name, :email, :password, :password_confirmation
-
   has_many :harvests, dependent: :destroy
   has_and_belongs_to_many :badges, dependent: :destroy
 
