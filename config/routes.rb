@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   get '/contact' =>  'static_pages#contact'
 
   resources :users
-  resources :harvests
+  resources :harvests, except: [:index, :show]
 
 end
