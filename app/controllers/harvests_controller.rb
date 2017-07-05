@@ -1,6 +1,6 @@
 class HarvestsController < ApplicationController
   before_action :set_harvest, only: [:show, :edit, :update, :destroy]
-  
+
   # GET /harvests
   # GET /harvests.json
   def index
@@ -17,13 +17,16 @@ class HarvestsController < ApplicationController
   def new
     @harvest = Harvest.new
     @user = current_user
+
+    gon.userLat = @user.latitude;
+    gon.userLng = @user.longitude;
   end
 
   # GET /harvests/1/edit
   def edit
   end
-  
- 
+
+
 
   # POST /harvests
   # POST /harvests.json
@@ -36,7 +39,7 @@ class HarvestsController < ApplicationController
         format.html { redirect_to current_user }
         format.json { render :show, status: :created, location: @harvest }
       else
-        render :new 
+        render :new
       end
     end
   end

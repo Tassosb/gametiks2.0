@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :badges, dependent: :destroy
 
   validates_presence_of :name, :email
-  validates_uniqueness_of :email
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -45,6 +44,10 @@ class User < ActiveRecord::Base
   # # Validate the attached image is image/jpg, image/png, etc
   # validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
+  # def setCoords(lat, lng)
+  #   self.latitude = lat
+  #   self.longitude = lng
+  # end
 
   # Current user points (based on harvests)
   def points

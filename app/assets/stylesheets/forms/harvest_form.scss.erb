@@ -1,0 +1,236 @@
+@import '../variables';
+
+.background-harvest-form {
+  background-image: image-url("foggyMountain.jpg");
+  background-size: cover;
+  background-position: center center;
+  margin: 0;
+  padding: 0;
+  display: block;
+  height: auto;
+}
+
+.harvest-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.harvest-form {
+  margin-top: 30px;
+  margin-bottom: 50px;
+  background-color: $gametiks-transparent-gray;
+  padding: 10px 2px 10px 2px;
+  height: auto;
+  border-radius: 5px;
+  border-color: $gametiks-transparent-gray;
+  border-width: 2px;
+  border-style: solid;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+
+  .heading-container {
+    display: flex;
+    justify-content: center;
+    height: 46px;
+    background-color: $dark-green-transparent;
+    margin-bottom: 10px;
+
+    .heading {
+      font-family: 'teko-light';
+      color: white;
+      height: 46px;
+      font-size: 50px;
+      letter-spacing: 3px;
+      padding: 18px 3px 10px 7px;
+    }
+  }
+
+  .section {
+    background-color: $gametiks-transparent-green;
+    display: block;
+    min-height: 110px;
+    margin: 10px 0 10px 0;
+
+    #new-harvest-map-container {
+      height: 260px;
+
+      #new-harvest-map {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border-radius: 5px;
+      }
+    }
+  }
+
+
+}
+
+
+
+  /* Form Fields */
+  .judes-addition {
+    background-color: $gametiks-transparent-gray;
+    border: 1px solid $gametiks-gray;
+    color: white;
+  }
+
+  textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
+    border: 1px solid $gametiks-gray;
+    box-shadow: 0 0 5px $gametiks-gray;
+    //outline: 1px solid $gametiks-gray;
+    border-radius: 5px;
+}
+
+  label {
+    color: white;
+  }
+
+
+
+  /* To make columns equal height */
+
+  .defined-height {
+    height: 364px;
+    overflow: hidden;
+  }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 60px;
+
+      button {
+        font-size: 16px;
+        letter-spacing: 2px;
+        color: white;
+        width: 300px;
+        border: none;
+        outline: none;
+        background-color: $dark-green-transparent;
+        box-shadow: inset 0 0 30px 5px $gametiks-transparent-gray;
+        height: 36px;
+        border-radius: 3px;
+
+        &:hover {
+          background-color: $snow-transparent;
+          box-shadow: inset 0 0 30px 5px $gametiks-semi-transparent-gray;
+          color: $gametiks-green;
+        }
+      }
+    }
+
+    .image-select-button {
+      height: 60px;
+    width: 180px;
+    color: white;
+    background-color: $gametiks-transparent-gray;
+    margin: 0 auto;
+    }
+
+      h2 {
+      color: $gametiks-tech-green;
+      font-family: tahoma;
+      display: inline;
+      font-size: 12px;
+      vertical-align: bottom;
+      padding: 0 0 0 4px;
+    }
+
+
+
+    .selectables {
+
+      img {
+      width: 110px;
+      height: 110px;
+      }
+
+    }
+
+    #lat-long-fields {
+      text-align: right;
+      padding: 0;
+      margin: 4px 0 0 0;
+
+      #latitude {
+        text-align: right;
+        color: $gametiks-tech-green;
+        background-color: rgba(0,0,0,0.2);
+        border: 1px solid $gametiks-gray;
+        border-radius: 3px;
+        margin: 0;
+      }
+
+      #longitude{
+        text-align: right;
+        color: $gametiks-tech-green;
+        background-color: rgba(0,0,0,0.2);
+        border: 1px solid $gametiks-gray;
+        border-radius: 3px;
+        margin: 0;
+      }
+    }
+
+/* Stylized high tech label */
+
+  #tech-label {
+    width: 160px;
+    height: 24px;
+    background: rgba(0,0,0,0.22);
+    margin: 2px 0 10px 12px;
+    position: relative;
+
+    &:before {
+      content: '';
+      line-height: 0;
+      font-size: 0;
+      width: 0;
+      height: 0;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid rgba(0,0,0,0.22);
+      border-left: 12px solid transparent;
+      border-right: 12px solid rgba(0,0,0,0.22);
+      position: absolute;
+      top: 0;
+      left: -26px;
+    }
+
+    &:after {
+      content: '';
+      line-height: 0;
+      font-size: 0;
+      width: 0;
+      height: 0;
+      border-bottom: 12px solid transparent;
+      border-top: 12px solid rgba(0,0,0,0.22);
+      border-left: 12px solid rgba(0,0,0,0.22);
+      border-right: 12px solid transparent;
+      position: absolute;
+      top: 0;
+      right: -26px;
+    }
+  }
+
+
+
+label > input{ /* HIDE RADIO */
+  visibility: hidden; /* Makes input not-clickable */
+  position: absolute; /* Remove input from document flow */
+  width: auto;
+}
+label > input + img{ /* IMAGE STYLES */
+  cursor:pointer;
+  border:2px solid transparent;
+}
+label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+  border:3px solid $gametiks-tech-green;
+  border-radius: 60px;
+}

@@ -1,0 +1,71 @@
+<section class="col-lg-8 lcd" id="map-container">
+  <div id="map"></div>
+  <script>
+    var userLat = <%= @user.latitude %>;
+    var userLng = <%= @user.longitude %>;
+    var map;
+    function initialize() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat:userLat, lng: userLng},
+        zoom: 8,
+        mapTypeId: 'terrain',
+        styles: [
+          {
+            featureType: 'landscape',
+            stylers: [
+              { saturation: -50 }
+            ]
+          },{
+            featureType: 'water',
+            stylers: [
+              { hue: '#174a67' },
+              { saturation: 50 },
+              { lightness: -80 }
+            ]
+          },{
+            featureType: 'road',
+            elementType: 'geometry',
+            stylers: [
+              { hue: '#00ffee' },
+              { saturation: 50 }
+            ]
+          },{
+            featureType: 'poi',
+            elementType: 'labels',
+            stylers: [
+              { visibility: 'off' }
+            ]
+          }
+        ]
+      });
+      var userHarvests = gon.harvestCoords;
+      var images = gon.images;
+    for(var i = 0; i < userHarvests.length; i++)
+        {
+          var marker = new google.maps.Marker({
+              position: new google.maps.LatLng(userHarvests[i][0], userHarvests[i][1]),
+              map: map,
+              animation: google.maps.Animation.DROP,
+              title: 'test'
+          });
+          attachCoordinates(marker, images[i]);
+        };
+    }
+
+    function initMap(){
+      initialize();
+    }
+
+    function attachCoordinates(marker, image) {
+            var formattedImageLink = "<div><img width='200' height='200' src=" + image + "</div>"
+            var infowindow = new google.maps.InfoWindow({
+              content: formattedImageLink
+            });
+
+            marker.addListener('click', function() {
+              infowindow.open(marker.get('map'), marker);
+            });
+          }
+
+  </script>
+</section>

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!, except: [:update]
 
   def index
     gon.clear
@@ -8,7 +8,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    redirect_to root_url
    # Gather harvest coordinates for map
     @coords = []
     @images = []
@@ -38,14 +37,17 @@ class UsersController < ApplicationController
   end
 
   def update
-
+    @user = current_user
+    user_params = params.require(:user).permit(:latitude, :longitude)
+    @user.update_attributes(user_params)
+    @user.save!
   end
 
   private
 
-    def user_params
-
-    end
+    # def user_params
+    #   params.require(:user).permit(:latitude, :longitude)
+    # end
 
     # Confirms an admin user.
     def admin_user
