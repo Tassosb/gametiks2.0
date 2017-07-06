@@ -1,13 +1,14 @@
 class HarvestsController < ApplicationController
 
   def new
-    @harvest = Harvest.new
     @user = current_user
+    @harvest = Harvest.new
     gon.userLat = @user.latitude;
     gon.userLng = @user.longitude;
   end
 
   def edit
+
   end
 
   def create
@@ -17,7 +18,7 @@ class HarvestsController < ApplicationController
       flash[:success] = "Harvest successfully created"
       redirect_to current_user
     else
-      render @harvest.errors.full_messages
+      flash[:errors] = @harvest.errors.full_messages
       render :new
     end
   end

@@ -3,18 +3,11 @@
     <div class='harvest-form-container'>
       <div class='harvest-form'>
           <%= form_for(@harvest) do |f| %>
-            <% if @harvest.errors.any? %>
-              <div class='errors'>
-                <div id="error_explanation">
-                  <h2><%= pluralize(@harvest.errors.count, "error") %> prohibited this harvest from being saved:</h2>
-                  <ul>
-                  <% @harvest.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                  <% end %>
-                  </ul>
-                </div>
-              </div>
-            <% end %>
+
+          <% flash.each do |message_type, message| %>
+            <div class="alert alert-<%= message_type %>"><%= message %></div>
+          <% end %>
+
             <div class='col-lg-12 heading-container'>
               <div class='heading'>
                 NEW HARVEST
@@ -85,8 +78,7 @@
           <div class="col-lg-6 section defined-height"> <div id="tech-label"><h2>Coordinates</h2>
             </div>
             <div id='new-harvest-map-container'>
-              <div id="new-harvest-map"><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-                <span class="sr-only"></span></div>
+              <div id="new-harvest-map"><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i></div>
             </div>
             <div id="lat-long-fields">
              <%= f.number_field :latitude, id: :latitude, step: 'any' %>
@@ -105,8 +97,8 @@
 
         <script>
         var markers = [];
-        var userLat = <%= @user.latitude || 42 %>;
-        var userLng = <%= @user.longitude || 42 %>;
+        var userLat = <%= current_user.latitude || 42 %>;
+        var userLng = <%= current_user.longitude || 42 %>;
 
         function initialize() {
           var map = new google.maps.Map(document.getElementById('new-harvest-map'), {
