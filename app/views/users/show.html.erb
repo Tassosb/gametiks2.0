@@ -1,27 +1,69 @@
-
-  <%= provide(:title, @user.name) %>
+<!-- <div class='container-fluid upper-shadow'></div> -->
+<div class='container-fluid background-main'>
+  <%#= provide(:title, @user.name) %>
   <div class="row">
-    <aside class="col-lg-4 col-md-4 col-sm-12">
-      <section class="user-info lcd">
-        <div id="tech-label"><h2>Gamercard</h2>
-        </div>
-        <div class="user_points">
-         <%= @user.points %>
-        </div>
-          <%= @user.avatar.present? ? image_tag(@user.avatar.url(:square)) : image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg") %>
-          <div class="user_level">
-            <%= @user.level %>
+    <div class='user-plate-container'>
+      <div class='user-plate'>
+        <div id='avatar'>
+          <div id='corner-pieces-container'>
+            <div id='upper-left'></div>
+            <div id='upper-right'></div>
+            <div id='lower-left'></div>
+            <div id='lower-right'></div>
           </div>
-          <h3>
-            <%= @user.name %>
-            <% if @user.admin %>
-            <%= '(Admin)' %>
-            <% end %>
-          </h3>
+          <% if @user == current_user %>
+            <div id='rollover-uploader'>
+              <i class="fa fa fa-arrow-circle-o-up fa-5x" aria-hidden="true"></i>
+              <h3>UPLOAD NEW</h3>
+            </div>
+          <% end %>
+          <%= @user.avatar.present? ? image_tag(@user.avatar.url(:square)) : image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg") %>
+        </div>
+
+        <div id='user-info'>
+          <div id='name-container'>
+            <h2>
+              <%= @user.name.upcase %>
+              <% if @user.admin %>
+              <%= '(Admin)' %>
+              <% end %>
+            </h2>
+            <div id='square-additive'></div>
+          </div>
+          <div id='user-sub-info'>
+            <h5 id='activated'>Activated: <%= @user.created_at %></h5>
+            <h4>User Points: <span class='field'><%= @user.points %></span></h4>
+            <h4>User Level: <span class='field'><%= level(@user) %></span></h4>
+            <h4>Choice Weapon: <span class='field'><%= favorite_weapon(@user) %></span></h4>
+            <h4>Choice Game Type: <span class='field'><%= favorite_animal(@user) %></span></h4>
+          </div>
+          <% if current_user == @user %>
+            <div id='upload-btn-container'>
+              <div id='btn-panel'>
+                  <%= link_to 'UPLOAD HARVEST', new_harvest_path %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div id='user-level'>
+          <img src='https://s3.amazonaws.com/gametiks/images/badges/lev_00.png' id='level-badge'/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= render 'maps/user_map.erb' %>
+
+</div>
+
+
+
+
+
+
+
           <h4>
-            <% if current_user == @user %>
-              <%= link_to 'Upload New Harvest', new_harvest_path %>
-            <% end %>
+
           </h4>
       </section>
       <section>

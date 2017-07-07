@@ -3,11 +3,7 @@
     <div class='harvest-form-container'>
       <div class='harvest-form'>
           <%= form_for(@harvest) do |f| %>
-
-          <% flash.each do |message_type, message| %>
-            <div class="alert alert-<%= message_type %>"><%= message %></div>
-          <% end %>
-
+            <%= render 'shared/flash_messages' unless flash.empty? %>
             <div class='col-lg-12 heading-container'>
               <div class='heading'>
                 NEW HARVEST

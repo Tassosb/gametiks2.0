@@ -1,11 +1,14 @@
 // variables
 $gametiks-gray: rgb(192,192,192);
 $gametiks-green: #384947;
+$gametiks-red: rgba(227, 119, 104, 0.9);
+// $gametiks-red: rgba(219, 113, 85, 0.6);
 $dark-green: rgb(41, 53, 52);
 
 $off-white: rgb(250, 250, 250);
 $snow-transparent: rgba(250, 250, 250, 0.8);
 $off-white-transparent: rgba(250, 250, 250, 0.7);
+$white-half-transparent: rgba(250, 250, 250, 0.5);
 $gray-highlight: rgb(240, 240, 240);
 $gray-light: rgb(220, 220, 220);
 $gray-medium-light: #eaeaea;
@@ -15,18 +18,19 @@ $gray-dark: rgb(100, 100, 100);
 $gametiks-orange: #ff9a00;
 $gametiks-tech-green: #65e52c;
 
-$gametiks-semi-transparent-gray: rgba(140, 140, 140, 0.8);
-$gametiks-semi-transparent-green: rgba(56, 73, 71, 0.8);
-$gametiks-transparent-green: rgba(56,73,71,0.4);
-$gametiks-transparent-gray: rgba(0,0,0,0.2);
+$semi-transparent-gray: rgba(140, 140, 140, 0.8);
+$semi-transparent-green: rgba(56, 73, 71, 0.8);
+$transparent-green: rgba(56,73,71,0.4);
+$transparent-gray: rgba(0,0,0,0.2);
 $transparent-black: rgba(0, 0, 0, 0.8);
 
 $dark-green-transparent: rgba(56, 73, 71, 0.7);
-
+$dark-gray-transparent: rgba(40, 40, 40, 0.95);
 $shadow: rgba(35, 35, 35, 0.9);
 $dark-shadow: rgba(20, 20, 20, 0.9);
 
 $state-danger-text: red;
+$red: rgba(255, 51, 0, 1);
 
 // fonts
 @font-face {
@@ -43,4 +47,9 @@ $state-danger-text: red;
 @font-face {
   font-family: 'teko-medium';
   src: font-url('teko/teko_medium.ttf');
+}
+
+@font-face {
+  font-family: 'share-tech';
+  src: font-url('sharetech/sharetech.ttf');
 }

@@ -43,36 +43,18 @@ a {
     color: white;
   }
 
-
 }
 
-div {
-  &.field, &.actions {
-    margin-bottom: 10px;
-  }
-}
 
 #notice {
-  color: green;
+  color: magenta;
 }
 
 .field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+  background-color: $gametiks-red;
+  box-shadow: 0 0 5px $gametiks-red;
 }
 
 #error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-
-
-  ul li {
-    font-size: 12px;
-    list-style: square;
-  }
+  border: 2px solid $gametiks-red;
 }

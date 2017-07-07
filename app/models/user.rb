@@ -85,15 +85,6 @@ class User < ActiveRecord::Base
     badges.clear
   end
 
-  # Current user level
-  def level
-    totalLevel = 0
-    harvests.each do |i|
-      totalLevel += 1
-    end
-    sprintf '%02d', totalLevel
-  end
-
   private
 
     # Converts email to all lower-case.

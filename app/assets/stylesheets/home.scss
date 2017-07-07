@@ -52,12 +52,11 @@
 
   .gt-btn-container {
     position: relative;
-    border: 1px solid red;
     width: 300px;
     height: 90px;
     padding: 20px;
-    background-color: $gametiks-transparent-gray;
-    border: 2px solid $gametiks-transparent-gray;
+    background-color: $transparent-gray;
+    border: 2px solid $transparent-gray;
     border-radius: 5px;
     margin: 20px;
     font-weight: 400;
@@ -70,7 +69,7 @@
       height: 100%;
       width: 100%;
       background-color: $dark-green-transparent;
-      box-shadow: inset 0 0 30px 5px $gametiks-transparent-gray;
+      box-shadow: inset 0 0 30px 5px $transparent-gray;
       text-decoration: none;
       color: white;
       font-size: 14px;
