@@ -48,7 +48,7 @@
                 position: new google.maps.LatLng(userHarvests[i][0], userHarvests[i][1]),
                 map: map,
                 animation: google.maps.Animation.DROP,
-                title: 'test'
+                title: 'harvest-plot'
             });
             attachCoordinates(marker, images[i]);
           };
@@ -56,7 +56,8 @@
 
 
       function attachCoordinates(marker, image) {
-        var formattedImageLink = "<div><img width='200' height='200' src=" + image + "</div>"
+        debugger;
+        var formattedImageLink = "<div><img width='200' height='200' src=" + image + "><br></div>"
         var infowindow = new google.maps.InfoWindow({
           content: formattedImageLink
         });

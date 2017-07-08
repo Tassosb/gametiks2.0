@@ -28,7 +28,7 @@
             </button>
           <% end %>
 
-          <%= @user.avatar.present? ? image_tag(@user.avatar.url(:square)) : image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg") %>
+          <%= @user.avatar.present? ? image_tag(@user.avatar.url(:square), id: 'avatar-img') : image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg") %>
         </div>
 
         <div id='user-info'>
