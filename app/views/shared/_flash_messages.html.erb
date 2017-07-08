@@ -1,11 +1,11 @@
 <div id="flash-messages">
-    <% flash.each do |key, value| %>
-      <div class='flash-items'>
-        <% value.each do |message| %>
-          <div class='item'>
-            <%= message %>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
+  <% flash.each do |key, value| %>
+    <div class='flash-items'>
+      <% value.each do |message| %>
+        <div class='item'>
+          <%= message %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
