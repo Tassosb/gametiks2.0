@@ -80,8 +80,6 @@ class User < ActiveRecord::Base
     sprintf '%06d', self.points
   end
 
-
-
   # Set badges
   def load_badges
     if self.points.to_i > 0

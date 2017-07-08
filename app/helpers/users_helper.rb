@@ -29,12 +29,13 @@ def favorite_weapon(user)
     weapons[current_weapon] += 1
   end
 
-  weapons.max_by{|k, v| v}.first.to_s
+  if weapons.values.all? { |weapon| weapon == 0 }
+    return 'null'
+  else
+    return weapons.max_by{|k, v| v}.first.to_s
+  end
 end
 
-def rank(user)
-  1 + User.all.map(&:points).index(user.points)
-end
 
 def favorite_animal(user)
   animals = {
@@ -50,5 +51,13 @@ def favorite_animal(user)
     animals[current_animal] += 1
   end
 
-  animals.max_by{|k, v| v}.first.to_s
+  if animals.values.all? { |animal| animal == 0 }
+    return 'null'
+  else
+    return animals.max_by{|k, v| v}.first.to_s
+  end
+end
+
+def rank(user)
+  1 + User.all.map(&:points).index(user.points)
 end

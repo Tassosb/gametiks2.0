@@ -7,14 +7,15 @@
 // User Info Plate
 .user-plate-container {
   width: 100%;
+  height: 260px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  background-color: $off-white-transparent;
+  align-items: flex-start;
+  background-color: rgba(220, 220, 220, 0.7);
   .user-plate {
     display: flex;
     justify-content: center;
-    margin: 0 50px 50px 50px;
+    margin: 0 50px 0 50px;
     background-color: $transparent-gray;
     padding: 10px;
     border-radius: 0 0 5px 5px;
@@ -94,7 +95,7 @@
       }
     }
     #user-info {
-      
+
       width: 280px;
       #name-container {
         position: relative;
@@ -147,7 +148,7 @@
         }
       }
       #user-sub-info {
-        
+
         width: 270px;
         padding-bottom: 5px;
         background-color: rgba(30, 30, 30, 0.1);
@@ -179,7 +180,7 @@
     #user-level {
       height: 100%;
       width: 220px;
-      
+
       background: none;
       background: -webkit-radial-gradient(white, transparent, transparent);
       background: -o-radial-gradient(white, transparent, transparent);
@@ -231,17 +232,61 @@
   }
 }
 
+// styled separator with industrial-look
+#styled-separator-container {
+  width: 100%;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  position: relative;
+  #left {
+    background-color: transparent;
+  }
+  #center {
+    position: relative;
+    flex-basis: 770px;
+    background-color: rgba(220, 220, 220, 0.7);
+    &:after {
+      position: absolute;
+      right: -20px;
+      content: '';
+      width: 0;
+      height: 0;
+      border-top: 10px solid rgba(220, 220, 220, 0.7);
+      border-right: 10px solid transparent;
+      border-left: 10px solid rgba(220, 220, 220, 0.7);
+      border-bottom: 10px solid transparent;
+    }
+    &:before {
+      position: absolute;
+      content: '';
+      width: 0;
+      height: 0;
+      left: -20px;
+      border-top: 10px solid rgba(220, 220, 220, 0.7);
+      border-right: 10px solid rgba(220, 220, 220, 0.7);
+      border-bottom: 10px solid transparent;
+      border-left: 10px solid transparent;
+    }
+  }
+  #right {
+    background-color: transparent;
+  }
+}
+
 .log-book-mapper {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $semi-transparent-gray;
 
   #log-book-map {
     height: 400px;
-    width: 600px;
-    margin: 50px;
+    width: 730px;
+    margin: 20px;
+    border: 15px solid $frost;
+    border-radius: 5px;
   }
 }
 
