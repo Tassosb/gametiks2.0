@@ -15,6 +15,8 @@ class HarvestsController < ApplicationController
     @harvest = Harvest.new(harvest_params)
     @harvest.user_id = current_user.id
     if @harvest.save
+      @harvest.user.save_points
+      debugger
       flash[:success] = "Harvest successfully created"
       redirect_to current_user
     else

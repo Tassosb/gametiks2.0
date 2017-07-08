@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
 
   validates_presence_of :name, :email
 
+  # CarrierWave gem uploader
+  mount_uploader :avatar, AvatarUploader
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
@@ -50,7 +53,7 @@ class User < ActiveRecord::Base
   # end
 
   # Current user points (based on harvests)
-  def points
+  def calc_points
     totalPoints = 0
     harvests.each do |i|
       if i.animal_type == "bear"
@@ -61,13 +64,25 @@ class User < ActiveRecord::Base
         totalPoints += (i.weight * 10)
       elsif i.animal_type == "deer"
         totalPoints += (i.weight * 4)
+      else
+        totalPoints += i.weight
       end
     end
-    sprintf '%06d', totalPoints
+    totalPoints
   end
 
-  # Set badges
+  def save_points
+    self.points = calc_points
+    self.save!
+  end
 
+  def formatted_points
+    sprintf '%06d', self.points
+  end
+
+
+
+  # Set badges
   def load_badges
     if self.points.to_i > 0
       award(Badge.find(2)) # harvester: first harvest award
@@ -87,7 +102,6 @@ class User < ActiveRecord::Base
 
   private
 
-    # Converts email to all lower-case.
     def downcase_email
       self.email = email.downcase
     end
@@ -97,6 +111,5 @@ class User < ActiveRecord::Base
       self.activation_token  = User.new_token
       self.activation_digest = User.digest(activation_token)
     end
-
 
 end

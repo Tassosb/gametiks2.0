@@ -6,7 +6,7 @@ module UsersHelper
     user.harvests.each do
       totalKills += 1
     end
-    
+
     result = 0
     result = totalKills if totalKills <= 2
     result = (totalKills/2.0) if totalKills >= 3 && totalKills <= 8
@@ -30,6 +30,10 @@ def favorite_weapon(user)
   end
 
   weapons.max_by{|k, v| v}.first.to_s
+end
+
+def rank(user)
+  1 + User.all.map(&:points).index(user.points)
 end
 
 def favorite_animal(user)

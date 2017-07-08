@@ -10,10 +10,14 @@ class Harvest < ActiveRecord::Base
   # validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   # CarrierWave gem uploader
-  mount_uploader :image, ImageUploader
+  mount_uploader :image, HarvestUploader
 
   validates :animal_type, :weapon_type, :weight, :image, :latitude, :longitude, presence: true
   # validates :weapon_type, presence: true
   # validates :image, presence: true
+
+  def save_points
+    self.user.save_points
+  end
 
 end

@@ -18,6 +18,7 @@ class UsersController < ApplicationController
     # coordinates saved using gon gem to talk to javascript
     gon.harvestCoords = @coords
     gon.images = @images
+    gon.userId = @user.id
   end
 
   def new
@@ -38,9 +39,11 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    user_params = params.require(:user).permit(:latitude, :longitude)
-    @user.update_attributes(user_params)
-    @user.save!
+    user_params = params.require(:user).permit(:latitude, :longitude, :avatar)
+
+    if @user.update_attributes(user_params) && params[:user].include?('avatar')
+      redirect_to current_user
+    end
   end
 
   private

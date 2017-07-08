@@ -2,6 +2,9 @@
 <div class='container-fluid background-main'>
   <%#= provide(:title, @user.name) %>
   <div class="row">
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
     <div class='user-plate-container'>
       <div class='user-plate'>
         <div id='avatar'>
@@ -11,12 +14,20 @@
             <div id='lower-left'></div>
             <div id='lower-right'></div>
           </div>
+
           <% if @user == current_user %>
-            <div id='rollover-uploader'>
+            <button id='rollover-uploader' onclick="document.getElementById('user-avatar').click();">
               <i class="fa fa fa-arrow-circle-o-up fa-5x" aria-hidden="true"></i>
-              <h3>UPLOAD NEW</h3>
-            </div>
+              <h3>REPLACE</h3>
+              <!-- hidden form  -->
+              <%= form_for @user do |f| %>
+                <div id="upload-wrap">
+                  <%= f.file_field :avatar, id: 'user-avatar' %>
+                </div>
+              <% end %>
+            </button>
           <% end %>
+
           <%= @user.avatar.present? ? image_tag(@user.avatar.url(:square)) : image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg") %>
         </div>
 
@@ -32,8 +43,8 @@
           </div>
           <div id='user-sub-info'>
             <h5 id='activated'>Activated: <%= @user.created_at %></h5>
-            <h4>User Points: <span class='field'><%= @user.points %></span></h4>
-            <h4>User Level: <span class='field'><%= level(@user) %></span></h4>
+            <h4>User Points: <span class='field'><%= @user.formatted_points %></span></h4>
+            <h4>User Rank: <span class='field'><%= rank(@user) %></span></h4>
             <h4>Choice Weapon: <span class='field'><%= favorite_weapon(@user) %></span></h4>
             <h4>Choice Game Type: <span class='field'><%= favorite_animal(@user) %></span></h4>
           </div>
@@ -56,10 +67,26 @@
 
 </div>
 
+<script>
+  var userId = gon.userId;
 
+  $(document).ready(function() {
+    var avatarForm = document.getElementById(`edit_user_${userId}`);
+    avatarForm.onchange = function() {
+      avatarForm.submit();
+    };
 
+    $(avatarForm).on("submit", function(event) {
+      $.ajax({
+        url: $(this).attr('action'),
+        data: $(this).serialize(),
+        type: "POST"
+      });
+      event.preventDefault();
+    });
+  });
 
-
+</script>
 
 
           <h4>
