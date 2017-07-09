@@ -1,18 +1,17 @@
 @import '../variables';
 
-#user-map-container {
+#badges-container {
   width: 100%;
   position: absolute;
-  left: 0;
+  left: 200%;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  #user-map {
+  #badges {
     height: 430px;
     width: 750px;
     margin: 14px;
-    border: 15px solid $frost;
     border-radius: 3px;
   }
 }

@@ -84,7 +84,11 @@
     </div>
   </div>
   <div id='switchable-window'>
-    <%= render 'maps/user_map.erb' %>
+    <div class='row'>
+      <%= render partial: "maps/user_map" %>
+      <%= render partial: "tiks" %>
+      <%= render partial: "badges" %>
+    </div>
   </div>
 
 </div>
@@ -119,6 +123,26 @@
   var userId = gon.userId;
 
   $(document).ready(function() {
+
+    // auto load windows
+    $('#map-tab').click(function(){
+      $("#user-map-container").css("left", "0");
+      $("#tiks-container").css("left", "100%");
+      $("#badges-container").css("left", "200%");
+    });
+
+    $("#tiks-tab").click(function(){
+      $("#user-map-container").css("left", "-100%");
+      $("#tiks-container").css("left", "0");
+      $("#badges-container").css("left", "100%");
+    });
+
+    $("#badges-tab").click(function(){
+      $("#user-map-container").css("left", "-200%");
+      $("#tiks-container").css("left", "-100%");
+      $("#badges-container").css("left", "0");
+    })
+
     var avatarForm = document.getElementById(`edit_user_${userId}`);
     avatarForm.onchange = function() {
       avatarForm.submit();
