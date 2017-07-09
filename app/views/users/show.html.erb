@@ -1,5 +1,5 @@
 <!-- <div class='container-fluid upper-shadow'></div> -->
-<div class='container-fluid background-main'>
+<div class='container-fluid background-main fixed-height'>
   <%#= provide(:title, @user.name) %>
   <div class="row">
     <% flash.each do |message_type, message| %>
@@ -35,9 +35,6 @@
           <div id='name-container'>
             <h2>
               <%= @user.name.upcase %>
-              <% if @user.admin %>
-              <%= '(Admin)' %>
-              <% end %>
             </h2>
             <div id='square-additive'></div>
           </div>
@@ -64,15 +61,42 @@
   </div>
 
   <div class='row'>
-    <div id='styled-separator-container'>
+    <div id='styled-separator-container-top'>
+      <div id='left'></div>
+      <div id='center'></div>
+      <div id='right'></div>
+    </div>
+  </div>
+  <%= render 'maps/user_map.erb' %>
+  <div class='row'>
+    <div id='styled-separator-container-bottom'>
       <div id='left'></div>
       <div id='center'></div>
       <div id='right'></div>
     </div>
   </div>
 
-  <%= render 'maps/user_map.erb' %>
-
+</div>
+<div class='container-fluid'>
+  <div class='row'>
+    <div id='logbook-container'>
+      <div id='title'>
+        <h3>
+          LOGBOOK
+        </3>
+      </div>
+      <div id='logbook'>
+        <% @user.harvests.order('created_at DESC').each do |harvest| %>
+        <div class='log'>
+          <%= image_tag harvest.image.url(:thumb) %>
+          <%= harvest.description %>
+          <%= harvest.weapon_type %>
+          <%= harvest.animal_type %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -85,12 +109,12 @@
     };
 
     $(avatarForm).on("submit", function(event) {
+      event.preventDefault();
       $.ajax({
         url: $(this).attr('action'),
         data: $(this).serialize(),
         type: "POST"
       });
-      event.preventDefault();
     });
   });
 

@@ -1,0 +1,60 @@
+@import '../variables';
+
+#logbook-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 500px;
+  background-color: $cloudy;
+  padding: 10px;
+  position: relative;
+  #title {
+    position: absolute;
+    top: -2px;
+    width: 600px;
+    height: 40px;
+    h3 {
+      position: absolute;
+      top: -22px;
+      color: $gametiks-green;
+      font-family: 'teko-medium';
+      font-size: 38px;
+      width: 100%;
+      height: 40px;
+      padding-top: 3px;
+      letter-spacing: 3px;
+      &:before {
+        content: '-';
+      }
+      &:after {
+        content: '-';
+      }
+    }
+  }
+    #logbook {
+    display: flex;
+    width: 90%;
+    height: auto;
+    margin-top: 45px;
+    border-radius: 5px;
+    background-color: $gray-green;
+    border: 1px solid $gray;
+    box-shadow: inset 1px 1px 3px $gray-dark;
+    .log {
+      margin: 15px;
+      padding: 10px;
+      width: 100%;
+      height: 240px;
+      border: 1px solid $gray;
+      border-radius: 5px;
+      background-color: $cloudy;
+      box-shadow: 1px 1px 3px $gray-dark;
+      img {
+        float: left;
+        margin: 0 5px 2px 0;
+      }
+    }
+  }
+}
