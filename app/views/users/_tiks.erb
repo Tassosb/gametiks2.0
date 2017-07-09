@@ -3,9 +3,14 @@
     <% all_tiks = count_harvests(@user) %>
     <% all_tiks.each do |key, val| %>
       <ul>
+        <% if val > 0 %>
+          <li>
+          <%= image_tag("https://s3.amazonaws.com/gametiks/images/#{key}_black.png") %>
+          <li>
+        <% end %>
         <% val.times do %>
           <li>
-           <%= image_tag("https://s3.amazonaws.com/gametiks/images/#{key}.png") %>
+            /
           </li>
         <% end %>
       </ul>

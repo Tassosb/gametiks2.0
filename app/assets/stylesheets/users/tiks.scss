@@ -19,13 +19,12 @@
       background-color: rgba(240, 240, 240, 0.9);
       margin-bottom: 5px;
       border-radius: 3px;
+      li {
+        float: left;
+      }
       img {
         width: 100px;
         height: 100px;
-        background: -webkit-radial-gradient($gray-dark, $gray-dark, transparent, transparent);
-        background: -o-radial-gradient($gray-dark, $gray-dark, transparent, transparent);
-        background: -moz-radial-gradient($gray-dark, $gray-dark, transparent, transparent);
-        background: radial-gradient($gray-dark, $gray-dark, transparent, transparent);
         border-radius: 3px 0 0 3px;
       }
     }
