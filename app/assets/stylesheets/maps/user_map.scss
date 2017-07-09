@@ -1,0 +1,16 @@
+@import '../variables';
+
+.user-mapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  #user-map {
+    height: 430px;
+    width: 750px;
+    margin: 14px;
+    border: 15px solid $frost;
+    border-radius: 3px;
+  }
+}

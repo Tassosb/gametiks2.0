@@ -1,23 +1,8 @@
 @import '../variables';
 
 .fixed-height {
-  height: 740px;
+  height: 780px;
 }
-.log-book-mapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  #log-book-map {
-    height: 400px;
-    width: 730px;
-    margin: 20px;
-    border: 15px solid $frost;
-    border-radius: 5px;
-  }
-}
-
 
 .harvest-catalog {
   background-color: $transparent-gray;
@@ -47,4 +32,9 @@
   .harvest_category {
     background-color: $gametiks-green;
   }
+}
+
+#switchable-window {
+  width: 100%;
+  height: 470px;
 }

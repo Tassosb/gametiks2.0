@@ -19,7 +19,7 @@
             <button id='rollover-uploader' onclick="document.getElementById('user-avatar').click();">
               <i class="fa fa fa-arrow-circle-o-up fa-5x" aria-hidden="true"></i>
               <h3>REPLACE</h3>
-              <!-- hidden form  -->
+            <!-- hidden form -->
               <%= form_for @user do |f| %>
                 <div id="upload-wrap">
                   <%= f.file_field :avatar, id: 'user-avatar' %>
@@ -63,23 +63,39 @@
   <div class='row'>
     <div id='styled-separator-container-top'>
       <div id='left'></div>
-      <div id='center'></div>
+      <div id='center'>
+        <nav id='user-records'>
+          <ul>
+            <li id='map-tab'>
+              MAP
+              <div class='square'></div>
+            </li>
+            <li id='tiks-tab'>
+              TIKS
+            </li>
+            <li id='badges-tab'>
+              BADGES
+              <div class='square'></div>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div id='right'></div>
     </div>
   </div>
-  <%= render 'maps/user_map.erb' %>
-  <div class='row'>
-    <div id='styled-separator-container-bottom'>
-      <div id='left'></div>
-      <div id='center'></div>
-      <div id='right'></div>
-    </div>
+  <div id='switchable-window'>
+    <%= render 'maps/user_map.erb' %>
   </div>
 
 </div>
 <div class='container-fluid'>
   <div class='row'>
     <div id='logbook-container'>
+      <div id='styled-separator-container-bottom'>
+        <div id='left'></div>
+        <div id='center'></div>
+        <div id='right'></div>
+      </div>
       <div id='title'>
         <h3>
           LOGBOOK
