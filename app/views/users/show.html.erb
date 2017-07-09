@@ -108,6 +108,11 @@
       <div id='logbook'>
         <% @user.harvests.order('created_at DESC').each do |harvest| %>
         <div class='log'>
+          <% if harvest.animal_type == "moose" %><%= image_tag("https://s3.amazonaws.com/gametiks/images/moose.png") %>
+          <% elsif harvest.animal_type == "bear" %><%= image_tag("https://s3.amazonaws.com/gametiks/images/bear.png") %>
+          <% elsif harvest.animal_type == "deer" %><%= image_tag("https://s3.amazonaws.com/gametiks/images/deer.png") %>
+          <% elsif harvest.animal_type == "turkey" %><%= image_tag("https://s3.amazonaws.com/gametiks/images/turkey.png") %>
+          <% end %>
           <%= image_tag harvest.image.url(:thumb) %>
           <%= harvest.description %>
           <%= harvest.weapon_type %>
@@ -176,30 +181,6 @@
         </div>
       </section>
     </aside>
-    <% render 'maps/user_map.erb' %>
     <br>
-    <section class="col-md-8 harvest-catalog">
-      <% @user.harvests.order('created_at DESC').each do |harvest| %>
-        <table class="harvest_block">
-          <tr>
-          <td>
-            <%= image_tag harvest.image.url(:thumb) %>
-          </td>
-          <td class="harvest_data">
-            <%= harvest.animal_type %> registered on <%= harvest.created_at %><br>
-            Weapon Used: <%= harvest.weapon_type %><br>
-            Description: <%= harvest.description %><br>
-            Weight: <%= harvest.weight %> lbs
-          </td>
-          <td class="harvest_category">
-            <% if harvest.animal_type == "moose" %><%= image_tag("https://s3.amazonaws.com/gametiks/images/moose.png") %>
-            <% elsif harvest.animal_type == "bear" %><%= image_tag("https://s3.amazonaws.com/gametiks/images/bear.png") %>
-            <% elsif harvest.animal_type == "deer" %><%= image_tag("https://s3.amazonaws.com/gametiks/images/deer.png") %>
-            <% elsif harvest.animal_type == "turkey" %><%= image_tag("https://s3.amazonaws.com/gametiks/images/turkey.png") %>
-            <% end %>
-          </td>
-          </tr>
-        </table>
-      <% end %>
-    </section>
+
   </div>

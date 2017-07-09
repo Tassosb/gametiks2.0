@@ -14,4 +14,19 @@
     margin: 14px;
     border-radius: 3px;
   }
+  ul {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    li {
+      background-color: rgba(240, 240, 240, 0.3);
+      border-radius: 3px;
+      margin: 3px;
+      width: 130px;
+      height: 130px;
+    }
+  }
 }
