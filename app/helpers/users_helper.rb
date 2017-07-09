@@ -38,6 +38,20 @@ end
 
 
 def favorite_animal(user)
+  animals = count_harvests(user)
+
+  if animals.values.all? { |animal| animal == 0 }
+    return 'null'
+  else
+    return animals.max_by{|k, v| v}.first.to_s
+  end
+end
+
+def rank(user)
+  1 + User.all.map(&:points).index(user.points)
+end
+
+def count_harvests(user)
   animals = {
     turkey: 0,
     deer: 0,
@@ -51,13 +65,5 @@ def favorite_animal(user)
     animals[current_animal] += 1
   end
 
-  if animals.values.all? { |animal| animal == 0 }
-    return 'null'
-  else
-    return animals.max_by{|k, v| v}.first.to_s
-  end
-end
-
-def rank(user)
-  1 + User.all.map(&:points).index(user.points)
+  animals
 end

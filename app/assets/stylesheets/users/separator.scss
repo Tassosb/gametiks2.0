@@ -17,7 +17,7 @@
     align-items: center;
     position: relative;
     flex-basis: 750px;
-    background-color: $frost;
+    background-color: $cloudy;
     position: relative;
     nav#user-records {
       position: absolute;
@@ -102,9 +102,9 @@
       content: '';
       width: 0;
       height: 0;
-      border-top: 15px solid $frost;
+      border-top: 15px solid $cloudy;
       border-right: 15px solid transparent;
-      border-left: 15px solid $frost;
+      border-left: 15px solid $cloudy;
       border-bottom: 15px solid transparent;
     }
     &:before {
@@ -113,8 +113,8 @@
       width: 0;
       height: 0;
       left: -30px;
-      border-top: 15px solid $frost;
-      border-right: 15px solid $frost;
+      border-top: 15px solid $cloudy;
+      border-right: 15px solid $cloudy;
       border-bottom: 15px solid transparent;
       border-left: 15px solid transparent;
     }

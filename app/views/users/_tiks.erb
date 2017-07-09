@@ -1,5 +1,14 @@
 <div id='tiks-container'>
   <div id='tiks'>
-  
+    <% all_tiks = count_harvests(@user) %>
+    <% all_tiks.each do |key, val| %>
+      <ul>
+        <% val.times do %>
+          <li>
+           <%= image_tag("https://s3.amazonaws.com/gametiks/images/#{key}.png") %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
   </div>
 </div>
