@@ -11,14 +11,19 @@ class UsersController < ApplicationController
    # Gather harvest coordinates for map
     @coords = []
     @images = []
+
     @user.harvests.each do |harvest|
       @coords.push [harvest.latitude, harvest.longitude]
       @images.push harvest.image.url(:thumb)
     end
-    # coordinates saved using gon gem to talk to javascript
+
+    #coordinates saved using gon gem to talk to javascript
     gon.harvestCoords = @coords
     gon.images = @images
     gon.userId = @user.id
+
+    # grab all
+    gon.harvests = @user.harvests
   end
 
   def new

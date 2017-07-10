@@ -39,25 +39,37 @@
         ]
       });
 
-      var userHarvests = gon.harvestCoords;
+      // var userHarvests = gon.harvestCoords;
       var images = gon.images;
-
+      var userHarvests = gon.harvests;
       for(var i = 0; i < userHarvests.length; i++) {
           var marker = new google.maps.Marker({
-              position: new google.maps.LatLng(userHarvests[i][0], userHarvests[i][1]),
+              position: new google.maps.LatLng(userHarvests[i].latitude, userHarvests[i].longitude),
               map: map,
               animation: google.maps.Animation.DROP,
-              title: 'harvest-plot'
+              title: 'title'
           });
-          attachCoordinates(marker, images[i]);
+          attachInfo(marker, userHarvests[i]);
         };
     };
 
-
-    function attachCoordinates(marker, image) {
-      var formattedImageLink = "<div><img width='200' height='200' src=" + image + "><br></div>"
+    function attachInfo(marker, harvest) {
+      var imgUrl = harvest.image.thumb.url;
+      var weight = harvest.weight;
+      var date = harvest.created_at.slice(0, 10);
+      var contentString = "<div>"+
+      "<img width='200' height='200' onclick='myFunc()' src=" + imgUrl + ">"+
+      "<br>"+
+      "<p>Type: " + harvest.animal_type + "</p>"+
+      "<p>Weight: " + harvest.weight + "</p>"+
+      "<p>Harvested: " + date + "</p>"+
+      "<a href=" + harvest.user_id + ">Go To User</a>"+
+      "</div>";
+      myFunc = function() {
+        alert('clicked');
+      };
       var infowindow = new google.maps.InfoWindow({
-        content: formattedImageLink
+        content: contentString
       });
 
       marker.addListener('click', function() {
