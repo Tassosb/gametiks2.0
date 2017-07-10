@@ -8,22 +8,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-   # Gather harvest coordinates for map
-    @coords = []
-    @images = []
 
-    @user.harvests.each do |harvest|
-      @coords.push [harvest.latitude, harvest.longitude]
-      @images.push harvest.image.url(:thumb)
-    end
-
-    #coordinates saved using gon gem to talk to javascript
-    gon.harvestCoords = @coords
-    gon.images = @images
-    gon.userId = @user.id
-
-    # grab all
     gon.harvests = @user.harvests
+    gon.communityHarvests = Harvest.all
+    gon.userId = @user.id
   end
 
   def new
@@ -45,7 +33,6 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     user_params = params.require(:user).permit(:latitude, :longitude, :avatar)
-
     if @user.update_attributes(user_params) && params[:user].include?('avatar')
       redirect_to current_user
     end

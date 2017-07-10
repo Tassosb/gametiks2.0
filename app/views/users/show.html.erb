@@ -149,18 +149,32 @@
     })
 
     var avatarForm = document.getElementById(`edit_user_${userId}`);
-    avatarForm.onchange = function() {
-      avatarForm.submit();
-    };
 
-    $(avatarForm).on("submit", function(event) {
+    $(avatarForm).change(function() {
+      $(avatarForm).submit();
+    });
+
+    $(avatarForm).submit(function(event){
+      alert('submitted');
       event.preventDefault();
       $.ajax({
         url: $(this).attr('action'),
         data: $(this).serialize(),
-        type: "POST"
+        type: "POST",
+        dataType: 'script'
       });
     });
+
+
+
+    // $(avatarForm).on("submit", function(event) {
+    //   event.preventDefault();
+    //   $.ajax({
+    //     url: $(this).attr('action'),
+    //     data: $(this).serialize(),
+    //     type: "POST"
+    //   });
+    // });
   });
 
 </script>

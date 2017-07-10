@@ -39,8 +39,7 @@
         ]
       });
 
-      // var userHarvests = gon.harvestCoords;
-      var images = gon.images;
+      var userId = gon.userId;
       var userHarvests = gon.harvests;
       for(var i = 0; i < userHarvests.length; i++) {
           var marker = new google.maps.Marker({
@@ -51,8 +50,53 @@
           });
           attachInfo(marker, userHarvests[i]);
         };
+
+
+      map.addListener('idle', function() {
+        reloadCommunityMarkers();
+      });
+
+      function reloadCommunityMarkers() {
+        communityHarvests = gon.communityHarvests.filter(function(harvest) {
+          harvest.user_id !== userId;
+        });
+
+        for (var i = 0; i < communityHarvests.length; i++) {
+
+          var image = {
+                    url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                    // This marker is 20 pixels wide by 32 pixels high.
+                    size: new google.maps.Size(20, 32),
+                    // The origin for this image is (0, 0).
+                    origin: new google.maps.Point(0, 0),
+                    // The anchor for this image is the base of the flagpole at (0, 32).
+                    anchor: new google.maps.Point(0, 32)
+                  };
+          var shape = {
+            coords: [1, 1, 1, 20, 18, 20, 18, 1],
+            type: 'poly'
+          };
+
+          if (inBounds(communityHarvests[i].latitude, communityHarvests[i].longitude)) {
+            var marker = new google.maps.Marker({
+              position: new google.maps.LatLng(communityHarvests[i].latitude, communityHarvests[i].longitude),
+              map: map,
+              animation: google.maps.Animation.DROP,
+              icon: image,
+              shape: shape
+            });
+            attachInfo(marker, communityHarvests[i]);
+          };
+        };
+      };
+
+      function inBounds(lat, lng) {
+        position = {lat: parseFloat(lat), lng: parseFloat(lng)};
+        return map.getBounds().contains(position);
+      };
     };
 
+    // format info for clickable markers
     function attachInfo(marker, harvest) {
       var imgUrl = harvest.image.thumb.url;
       var weight = harvest.weight;
@@ -76,6 +120,8 @@
         infowindow.open(marker.get('map'), marker);
       });
     };
+
+
 
     function initMap(){
       initialize();
