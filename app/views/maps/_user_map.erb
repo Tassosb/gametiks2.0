@@ -100,19 +100,20 @@
       var imgUrl = harvest.image.thumb.url;
       var weight = harvest.weight;
       var date = harvest.created_at.slice(0, 10);
-      var contentString = "<div>"+
+      var contentString = "<div class='infowindow'>"+
       "<img width='200' height='200' onclick='myFunc()' src=" + imgUrl + ">"+
       "<br>"+
-      "<p>Type: " + harvest.animal_type + "</p>"+
-      "<p>Weight: " + harvest.weight + "</p>"+
-      "<p>Harvested: " + date + "</p>"+
-      "<a href=" + harvest.user_id + ">Go To User</a>"+
+      "<a href=" + harvest.user_id + ">View User</a>"+
+      "<h4>" + harvest.weight + "lbs / " + Math.round(harvest.weight*0.453592) + "kgs</h4>"+
+      "<h6>" + date + "</h6>"+
+      "<br>"+
       "</div>";
       myFunc = function() {
         alert('clicked');
       };
       var infowindow = new google.maps.InfoWindow({
-        content: contentString
+        content: contentString,
+        maxWidth: 350
       });
 
       marker.addListener('click', function() {
