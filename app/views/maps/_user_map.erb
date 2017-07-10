@@ -57,10 +57,10 @@
       });
 
       function reloadCommunityMarkers() {
-        communityHarvests = gon.communityHarvests.filter(function(harvest) {
-          harvest.user_id !== userId;
+        var allHarvests = gon.allHarvests;
+        var communityHarvests = allHarvests.filter(function(harvest) {
+          return harvest.user_id !== userId;
         });
-
         for (var i = 0; i < communityHarvests.length; i++) {
 
           var image = {

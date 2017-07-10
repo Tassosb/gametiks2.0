@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     gon.harvests = @user.harvests
-    gon.communityHarvests = Harvest.all
+    gon.allHarvests = Harvest.all
     gon.userId = @user.id
   end
 
