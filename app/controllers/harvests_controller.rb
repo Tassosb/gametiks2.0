@@ -8,7 +8,7 @@ class HarvestsController < ApplicationController
   end
 
   def edit
-
+    @harvest = Harvest.find(params[:id])
   end
 
   def create
@@ -25,6 +25,7 @@ class HarvestsController < ApplicationController
   end
 
   def update
+    @harvest = Harvest.find(params[:id])
     if @harvest.update_attributes(harvest_params)
       redirect_to current_user
     else
@@ -33,8 +34,9 @@ class HarvestsController < ApplicationController
   end
 
   def destroy
-    @harvest.destroy
-    redirect_to user_url, notice: 'Harvest was successfully destroyed.'
+    @harvest = Harvest.find(params[:id])
+    @harvest.destroy!
+    redirect_to current_user, notice: 'Harvest was successfully destroyed.'
   end
 
   private

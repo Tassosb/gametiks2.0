@@ -114,6 +114,12 @@
         <div class='log'>
           <%= image_tag harvest.image.url(:thumb) %>
           <h5><%= harvest.created_at %></h5>
+          <% if @user == current_user %>
+            <div class='links'>
+              <%= link_to 'Edit', edit_harvest_path(harvest) %>
+              <%= link_to "Delete", harvest_path(harvest), method: :delete, data: { confirm: 'Confirm Delete?' } %>
+            </div>
+          <% end %>
           <hr>
           <p><%= harvest.description %></p>
           <hr>
