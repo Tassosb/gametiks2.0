@@ -6,54 +6,119 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: 500px;
   background-color: $cloudy;
   padding: 10px;
   position: relative;
-  #title {
+  #title-container {
     position: absolute;
     top: -20px;
     width: 600px;
     height: 40px;
-    h3 {
+    background-color: $gray-green;
+    &:before {
       position: absolute;
-      top: -22px;
-      color: $gametiks-green;
-      font-family: 'teko-medium';
-      font-size: 38px;
-      width: 100%;
-      height: 40px;
-      padding-top: 3px;
-      letter-spacing: 3px;
-      &:before {
-        content: '-';
-      }
-      &:after {
-        content: '-';
+      top: 0px;
+      left: -20px;
+      content: '';
+      border-left: 10px solid transparent;
+      border-right: 10px solid $gray-green;
+      border-bottom: 10px solid $gray-green;
+      border-top: 10px solid transparent;
+    }
+    #square-left {
+      position: absolute;
+      top: 20px;
+      left: -20px;
+      content: '';
+      border-right: 10px solid $gray-green;
+      border-left: 10px solid $gray-green;
+      border-top: 10px solid $gray-green;
+      border-bottom: 10px solid $gray-green;
+    }
+    &:after {
+      position: absolute;
+      top: 0px;
+      right: -20px;
+      content: '';
+      border-right: 10px solid transparent;
+      border-left: 10px solid $gray-green;
+      border-bottom: 10px solid $gray-green;
+      border-top: 10px solid transparent;
+    }
+    #square-right {
+      position: absolute;
+      top: 20px;
+      right: -20px;
+      content: '';
+      border-right: 10px solid $gray-green;
+      border-left: 10px solid $gray-green;
+      border-top: 10px solid $gray-green;
+      border-bottom: 10px solid $gray-green;
+    }
+    #title {
+      h3 {
+        position: absolute;
+        top: -20px;
+        color: white;
+        font-family: 'teko-light';
+        font-size: 34px;
+        width: 100%;
+        height: 40px;
+        padding-top: 3px;
+        letter-spacing: 3px;
+        background: -webkit-radial-gradient($gametiks-green, $gametiks-green, transparent, transparent);
+        background: -o-radial-gradient($gametiks-green, $gametiks-green, transparent, transparent);
+        background: -moz-radial-gradient($gametiks-green, $gametiks-green, transparent, transparent);
+        background: radial-gradient($gametiks-green, $gametiks-green, transparent, transparent);
       }
     }
   }
     #logbook {
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     width: 90%;
+    min-width: 700px;
     height: auto;
-    margin-top: 45px;
+    margin-top: 22px;
     border-radius: 5px;
     background-color: $gray-green;
     border: 1px solid $gray;
     box-shadow: inset 1px 1px 3px $gray-dark;
     .log {
+      flex: 0 0 600px;
+      color: $gray-dark;
       margin: 15px;
       padding: 10px;
       width: 100%;
-      height: 240px;
       border: 1px solid $gray;
       border-radius: 5px;
-      background-color: $cloudy;
       box-shadow: 1px 1px 3px $gray-dark;
+      background-color: $cloudy;
+      padding: 10px;
+      border-radius: 5px;
+      border: 2px solid $transparent-gray;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+      min-width: 400px;
       img {
         float: left;
-        margin: 0 5px 2px 0;
+        margin: 0 10px 5px 0;
+        border-radius: 3px;
+      }
+      p {
+        color: $gray-dark;
+        font-weight: 500;
+      }
+      .stamps-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        img {
+          height: 80px;
+          padding: 5px;
+          margin: 0;
+        }
       }
     }
   }

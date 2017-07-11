@@ -100,23 +100,31 @@
         <div id='center'></div>
         <div id='right'></div>
       </div>
-      <div id='title'>
-        <h3>
-          LOGBOOK
-        </3>
+      <div id='title-container'>
+        <div id='square-left'></div>
+        <div id='square-right'></div>
+        <div id='title'>
+          <h3>
+            LOGBOOK
+          </h3>
+        </div>
       </div>
       <div id='logbook'>
         <% @user.harvests.order('created_at DESC').each do |harvest| %>
         <div class='log'>
-          <% if harvest.animal_type == "moose" %><%= image_tag("https://s3.amazonaws.com/gametiks/images/moose.png") %>
-          <% elsif harvest.animal_type == "bear" %><%= image_tag("https://s3.amazonaws.com/gametiks/images/bear.png") %>
-          <% elsif harvest.animal_type == "deer" %><%= image_tag("https://s3.amazonaws.com/gametiks/images/deer.png") %>
-          <% elsif harvest.animal_type == "turkey" %><%= image_tag("https://s3.amazonaws.com/gametiks/images/turkey.png") %>
-          <% end %>
           <%= image_tag harvest.image.url(:thumb) %>
-          <%= harvest.description %>
-          <%= harvest.weapon_type %>
-          <%= harvest.animal_type %>
+          <h5><%= harvest.created_at %></h5>
+          <hr>
+          <p><%= harvest.description %></p>
+          <hr>
+          <div class='stamps-container'>
+            <div class='stamp'>
+              <%= image_tag("https://s3.amazonaws.com/gametiks/images/#{harvest.weapon_type}_black.png") %>
+            </div>
+            <div class='stamp'>
+              <%= image_tag("https://s3.amazonaws.com/gametiks/images/#{harvest.animal_type}_black.png") %>
+            </div>
+          </div>
         </div>
         <% end %>
       </div>
