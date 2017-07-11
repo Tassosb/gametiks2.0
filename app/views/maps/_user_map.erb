@@ -3,10 +3,29 @@
 
   <script>
     var map;
+    var harvests = gon.harvests;
+
+    var latestHarvest = {created_at: ''};
+    harvests.forEach(function(harvest) {
+      if (harvest.created_at > latestHarvest.created_at) {
+        latestHarvest = harvest;
+      };
+    });
+
+    var userLat;
+    var userLng;
+
+    if (harvests.length > 0) {
+      userLat = parseFloat(latestHarvest.latitude);
+      userLng = parseFloat(latestHarvest.longitude);
+    } else {
+      userLat = <%= current_user.latitude || 44 %>;
+      userLng = <%= current_user.longitude || -69 %>;
+    };
 
     function initialize() {
       map = new google.maps.Map(document.getElementById('user-map'), {
-        center: {lat: 44, lng: -69},
+        center: {lat: userLat, lng: userLng},
         zoom: 8,
         mapTypeId: 'terrain',
         styles: [

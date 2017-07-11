@@ -1,14 +1,19 @@
 class HarvestsController < ApplicationController
 
   def new
+    gon.clear
     @user = current_user
     @harvest = Harvest.new
     gon.userLat = @user.latitude;
     gon.userLng = @user.longitude;
+    gon.action = 'new';
   end
 
   def edit
+    gon.clear
     @harvest = Harvest.find(params[:id])
+    gon.harvest = @harvest
+    gon.action = 'edit';
   end
 
   def create

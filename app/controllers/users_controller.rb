@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-
+    gon.clear
     gon.harvests = @user.harvests
     gon.allHarvests = Harvest.all
     gon.userId = @user.id
