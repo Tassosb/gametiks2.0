@@ -18,6 +18,7 @@
         </div>
       </div>
       <div id='logbook'>
+        <div id="columns">
         <% @harvests.each do |harvest| %>
         <div class='log'>
           <%= image_tag harvest.image.url(:thumb) %>
@@ -41,6 +42,7 @@
           </div>
         </div>
         <% end %>
+      </div>
       </div>
     </div>
   </div>

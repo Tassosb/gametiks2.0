@@ -1,5 +1,13 @@
 @import '../variables';
 
+#columns {
+  column-width: 400px;
+  column-gap: 15px;
+  width: 90%;
+  max-width: 1100px;
+  margin-top: 15px;
+}
+
 #logbook-container {
   display: flex;
   justify-content: flex-start;
@@ -7,7 +15,6 @@
   flex-direction: column;
   width: 100%;
   background-color: $cloudy;
-  padding: 10px;
   position: relative;
   #title-container {
     position: absolute;
@@ -138,29 +145,27 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    width: 90%;
+    width: 100%;
     min-width: 700px;
     height: auto;
-    margin-top: 22px;
+    margin-top: 32px;
     margin-bottom: 50px;
-    border-radius: 5px;
-    background-color: $gray-green;
-    border: 1px solid $gray;
-    box-shadow: inset 1px 1px 3px $gray-dark;
+    background-color: rgb(220, 220, 220);
     .log {
-      flex: 0 0 600px;
+      background: #fefefe;
+      box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+      padding: 15px;
+      transition: opacity .4s ease-in-out;
+      display: inline-block;
+      column-break-inside: avoid;
       color: $gray-dark;
-      margin: 15px;
-      padding: 10px;
+      margin-bottom: 15px;
       width: 100%;
-      border: 1px solid $gray;
       border-radius: 5px;
-      box-shadow: 1px 1px 3px $gray-dark;
-      background-color: $cloudy;
+      background-color: rgb(245, 245, 245);
       padding: 10px;
       border-radius: 5px;
-      border: 2px solid $transparent-gray;
-      box-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+      box-shadow: 1px 1px 6px rgba(200,200,200,0.9);
       min-width: 400px;
       .links {
         text-align: center;
