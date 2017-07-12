@@ -1,0 +1,89 @@
+@import '../variables';
+
+.flashbox-active {
+  left: 12px !important;
+};
+
+#flashbox-container {
+  width: 200px;
+  height: auto;
+  position: absolute;
+  background-color: $transparent-gray;
+  padding: 10px 3px;
+  border-radius: 0 5px 0 0;
+  left: -180px;
+  top: 60px;
+  z-index: 100;
+  text-align: center;
+  #flashbox-handle {
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    right: -16px;
+    top: 20px;
+    height: 60px;
+    padding: 2px;
+    width: 16px;
+    background-color: $handle-gray;
+    border-left: 1px solid $cloudy;
+    border-radius: 0 4px 4px 0;
+    #vertical-line {
+      position: relative;
+      margin-left: 2px;
+      border-left: 1px solid $gray;
+      height: 100%;
+    }
+  }
+  #decor-lower-right {
+    position: absolute;
+    right: 0;
+    bottom: -30px;
+    width: 0;
+    height: 0;
+    content: '';
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid $transparent-gray;
+    border-top: 15px solid $transparent-gray;
+  }
+  #flashbox-label {
+    cursor: pointer;
+    font-family: 'teko-light';
+    font-size: 40px;
+    line-height: 44px;
+    position: relative;
+    background-color: $water-blue-transparent;
+    height: 36px;
+    text-align: center;
+    color: white;
+    margin-bottom: 5px;
+  }
+  #flashbox {
+    position: relative;
+    color: $gray-dark;
+    font-size: 16px;
+    line-height: 26px;
+    .fa {
+      color: $water-blue-transparent;
+    }
+    .alert {
+      background-color: $cloudy;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      border-radius: 0;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  &:after {
+    position: absolute;
+    content: '';
+    bottom: -30px;
+    left: 0;
+    width: 170px;
+    height: 30px;
+    background-color: $transparent-gray;
+  }
+}

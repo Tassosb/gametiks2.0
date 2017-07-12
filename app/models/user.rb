@@ -37,21 +37,6 @@ class User < ActiveRecord::Base
     super && provider.blank?
   end
 
-
-  # attr_accessor :email, :password, :password_confirmation, :remember_me
-  # # This method associates the attribute ":avatar" with a file attachment
-  # has_attached_file :avatar, styles: {
-  #   square: '220x220#'
-  # }
-  #
-  # # Validate the attached image is image/jpg, image/png, etc
-  # validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
-
-  # def setCoords(lat, lng)
-  #   self.latitude = lat
-  #   self.longitude = lng
-  # end
-
   # Current user points (based on harvests)
   def calc_points
     totalPoints = 0

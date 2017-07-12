@@ -2,10 +2,46 @@
 <div class='container-fluid background-main fixed-height'>
   <%#= provide(:title, @user.name) %>
   <div class="row">
-    <% flash.each do |message_type, message| %>
-      <div class="alert alert-<%= message_type %>"><%= message %></div>
-    <% end %>
+
     <div class='user-plate-container'>
+      <div id='flashbox-container'>
+        <div id='flashbox-handle'>
+          <% 3.times do %>
+            <div id='vertical-line'></div>
+          <% end %>
+        </div>
+        <div id='flashbox-label'>
+          NOTICE
+        </div>
+        <div id='flashbox'>
+            <i class="fa fa-exclamation-circle fa-2x" aria-hidden="true"></i>
+          <% flash.each do |message_type, message| %>
+            <div class="alert alert-<%= message_type %>"><%= message %></div>
+          <% end %>
+        </div>
+        <div id='decor-lower-right'></div>
+      </div>
+      <div id='contacts-container'>
+        <div id='contacts-handle'>
+          <% 3.times do %>
+            <div id='vertical-line'></div>
+          <% end %>
+        </div>
+        <div id='contacts-label'>
+          CONTACTS
+        </div>
+        <i class="fa fa-user-circle fa-2x" aria-hidden="true"></i>
+        <div id='contacts'>
+          <% names = ['Bert', 'Sunny', 'Wilbert', 'Nemon', 'Blaney', 'Slushy', 'Cank'] %>
+          <ul>
+            <% names.each do |name| %>
+              <li class='contact'>
+                <%= name %>
+              </li>
+            <% end %>
+        </div>
+        <div id='decor-lower-left'></div>
+      </div>
       <div class='user-plate'>
         <div id='avatar'>
           <div id='corner-pieces-container'>
@@ -20,11 +56,17 @@
               <i class="fa fa fa-arrow-circle-o-up fa-5x" aria-hidden="true"></i>
               <h3>REPLACE</h3>
             <!-- hidden form -->
-              <%= form_for @user do |f| %>
-                <div id="upload-wrap">
-                  <%= f.file_field :avatar, id: 'user-avatar' %>
-                </div>
-              <% end %>
+            <form class="edit_user" id="edit_user_<%= current_user.id %>" enctype="multipart/form-data"
+              action="/users/<%= current_user.id %>" accept-charset="UTF-8" data-remote="true" method="post">
+              <input name="utf8" type="hidden" value="&#x2713;" />
+              <input type="hidden" name="_method" value="patch" />
+              <input name="authenticity_token" value="<%= form_authenticity_token %>"
+                type="hidden">
+              <div id="upload-wrap">
+                <input id="user-avatar" type="file" name="user[avatar]" />
+              </div>
+            </form>
+
             </button>
           <% end %>
 
@@ -40,6 +82,7 @@
           </div>
           <div id='user-sub-info'>
             <h5 id='activated'>Activated: <%= @user.created_at %></h5>
+            <% @user.save_points %>
             <h4>User Points: <span class='field'><%= @user.formatted_points %></span></h4>
             <h4>User Rank: <span class='field'><%= rank(@user) %></span></h4>
             <h4>Choice Weapon: <span class='field'><%= favorite_weapon(@user) %></span></h4>
@@ -92,51 +135,7 @@
   </div>
 
 </div>
-<div class='container-fluid'>
-  <div class='row'>
-    <div id='logbook-container'>
-      <div id='styled-separator-container-bottom'>
-        <div id='left'></div>
-        <div id='center'></div>
-        <div id='right'></div>
-      </div>
-      <div id='title-container'>
-        <div id='square-left'></div>
-        <div id='square-right'></div>
-        <div id='title'>
-          <h3>
-            LOGBOOK
-          </h3>
-        </div>
-      </div>
-      <div id='logbook'>
-        <% @user.harvests.order('created_at DESC').each do |harvest| %>
-        <div class='log'>
-          <%= image_tag harvest.image.url(:thumb) %>
-          <h5><%= harvest.created_at %></h5>
-          <% if @user == current_user %>
-            <div class='links'>
-              <%= link_to 'Edit', edit_harvest_path(harvest) %>
-              <%= link_to "Delete", harvest_path(harvest), method: :delete, data: { confirm: 'Confirm Delete?' } %>
-            </div>
-          <% end %>
-          <hr>
-          <p><%= harvest.description %></p>
-          <hr>
-          <div class='stamps-container'>
-            <div class='stamp'>
-              <%= image_tag("https://s3.amazonaws.com/gametiks/images/#{harvest.weapon_type}_black.png") %>
-            </div>
-            <div class='stamp'>
-              <%= image_tag("https://s3.amazonaws.com/gametiks/images/#{harvest.animal_type}_black.png") %>
-            </div>
-          </div>
-        </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render partial: "logbook" %>
 
 <script>
   var userId = gon.userId;
@@ -164,37 +163,51 @@
 
     var avatarForm = document.getElementById(`edit_user_${userId}`);
 
-    $(avatarForm).change(function() {
-      $(avatarForm).submit();
+    $(avatarForm).change(function(){
+      $("#avatar").append("<i class='fa fa-spinner fa-pulse fa-5x fa-fw middle-middle'></i>");
+      avatarForm.submit();
     });
 
-    $(avatarForm).submit(function(event){
-      alert('submitted');
-      event.preventDefault();
-      $.ajax({
-        url: $(this).attr('action'),
-        data: $(this).serialize(),
-        type: "POST",
-        dataType: 'script'
-      });
+    // display messages if any
+    var innerHTML = $('#flashbox').html();
+    var iconOnly = '<i class="fa fa-exclamation-circle fa-2x" aria-hidden="true"></i>';
+    if ( innerHTML.trim() !== iconOnly ) {
+      $( "#flashbox-container" ).animate({
+        left: '+=192px'
+      }, 100);
+      setTimeout(retract, 2000);
+    };
+
+    function retract(){
+      $( "#flashbox-container" ).animate({
+        left: '-=192px'
+      }, 100);
+    };
+
+    // toggle message box
+    $('#flashbox-handle').click(function() {
+      $('#flashbox-container').toggleClass('flashbox-active');
     });
 
+    $('#flashbox-label').click(function() {
+      $('#flashbox-container').toggleClass('flashbox-active');
+    });
+
+    $('#contacts-handle').click(function() {
+      $('#contacts-container').toggleClass('contacts-active');
+    });
+
+    $('#contacts-label').click(function() {
+      $('#contacts-container').toggleClass('contacts-active');
+    })
 
 
-    // $(avatarForm).on("submit", function(event) {
-    //   event.preventDefault();
-    //   $.ajax({
-    //     url: $(this).attr('action'),
-    //     data: $(this).serialize(),
-    //     type: "POST"
-    //   });
-    // });
   });
 
 </script>
 
 
-          <h4>
+          <!-- <h4>
 
           </h4>
       </section>
@@ -211,4 +224,4 @@
     </aside>
     <br>
 
-  </div>
+  </div> -->

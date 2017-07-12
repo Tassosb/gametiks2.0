@@ -222,6 +222,7 @@ GEM
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     rdoc (4.3.0)
+    remotipart (1.3.1)
     request_store (1.3.2)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
@@ -325,6 +326,7 @@ DEPENDENCIES
   puma
   rails (~> 5.0.3)
   rails_12factor
+  remotipart
   rmagick (~> 2.13.1)
   rspec-rails
   sass-rails (~> 5.0)

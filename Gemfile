@@ -18,6 +18,7 @@ gem 'sdoc',                    '0.4.0', group: :doc
 gem 'bcrypt',                  '3.1.10'
 gem 'faker',                   '1.4.2'
 gem 'carrierwave'
+gem 'remotipart'
 gem 'geocoder'
 gem 'gon'
 gem 'paperclip', git: "git://github.com/thoughtbot/paperclip.git"

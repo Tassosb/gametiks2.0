@@ -88,9 +88,12 @@
           </div>
           <br>
           <div class='col-lg-6 button-container'>
-            <button type="submit" class="submit-btn">
+            <!-- <button type="submit" class="submit-btn">
               SAVE HARVEST
-            </button>
+            </button> -->
+            <%= button_tag 'SUBMIT', class: 'btn btn-primary',
+              data: { disable_with: "<i class='fa fa-refresh fa-spin'>
+              </i> Submitting Changes..."} %>
           </div>
 
         <% end %>

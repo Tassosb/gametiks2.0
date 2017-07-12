@@ -8,6 +8,7 @@
   justify-content: center;
   align-items: flex-start;
   background-color: $cloudy;
+  position: relative;
   .user-plate {
     display: flex;
     justify-content: center;
@@ -26,6 +27,11 @@
       width: 224px;
       height: 224px;
       background-color: $gray-green;
+      i.middle-middle {
+        position: absolute;
+        left: 70px;
+        top: 78px;
+      }
       #corner-pieces-container {
         position: absolute;
         width: 218px;
@@ -74,9 +80,11 @@
           text-align: center;
           color: inherit;
           width: 100%;
-          margin: 20px;
+          margin-top: 10px;
         }
         h3 {
+          font-family: 'teko-medium';
+          font-size: 30px;
           margin: 0;
           color: inherit;
           text-align: center;

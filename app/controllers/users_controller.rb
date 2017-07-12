@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # before_action :authenticate_user!, except: [:update]
+  helper_method :sort_column, :sort_direction
 
   def index
     gon.clear
@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @harvests = @user.harvests.order(sort_column + " " + sort_direction)
     gon.clear
     gon.harvests = @user.harvests
     gon.allHarvests = Harvest.all
@@ -35,19 +36,25 @@ class UsersController < ApplicationController
     user_params = params.require(:user).permit(:latitude, :longitude, :avatar)
     if @user.update_attributes(user_params) && params[:user].include?('avatar')
       redirect_to current_user
+    else
+      render @user.errors.full_messages
     end
   end
 
   private
 
-    # def user_params
-    #   params.require(:user).permit(:latitude, :longitude)
-    # end
+  def sort_column
+    Harvest.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
+  end
 
-    # Confirms an admin user.
-    def admin_user
-      redirect_to(root_url) unless current_user.admin?
-    end
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
+  end
+
+  # Confirms an admin user.
+  def admin_user
+    redirect_to(root_url) unless current_user.admin?
+  end
 
 
 end
