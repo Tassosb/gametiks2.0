@@ -48,7 +48,7 @@ def favorite_animal(user)
 end
 
 def rank(user)
-  1 + User.all.map(&:points).index(user.points)
+  1 + User.all.map(&:points).rindex(user.points)
 end
 
 def count_harvests(user)
