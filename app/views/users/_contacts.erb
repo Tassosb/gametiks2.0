@@ -1,0 +1,31 @@
+<div id='contacts-container'>
+  <div id='contacts-handle'>
+    <% 3.times do %>
+      <div id='vertical-line'></div>
+    <% end %>
+  </div>
+  <div id='contacts-label'>
+    CONTACTS
+  </div>
+  <i class="fa fa-user-circle fa-2x" aria-hidden="true"></i>
+  <div id='contacts'>
+    <% contacts = {} %>
+      <% current_user.contacts.each do |contact| %>
+      <% contacts[contact.id] = contact.name %>
+      <% end %>
+    <ul>
+      <% contacts.each do |id, name| %>
+        <li class='contact'>
+          <div id="arrow-right">
+            <i id='arrow-right-icon' class="fa fa-arrow-circle-o-right fa-lg" aria-hidden="true"></i>
+          </div>
+          <a href='/users/<%= id %>'><%= name %></a>
+          <div class='backing'></div>
+          <div class='second-backing'></div>
+        </li>
+      <% end %>
+    </ul>
+      <div id='list-footer'></div>
+  </div>
+  <div id='decor-lower-left'></div>
+</div>

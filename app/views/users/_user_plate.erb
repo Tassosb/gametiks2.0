@@ -1,0 +1,73 @@
+<div class='user-plate'>
+  <div id='avatar'>
+    <% if @user == current_user %>
+      <button id='rollover-uploader' onclick="document.getElementById('user-avatar').click();">
+        <i class="fa fa fa-arrow-circle-o-up fa-5x" aria-hidden="true"></i>
+        <h3>REPLACE</h3>
+        <form class="edit_user" id="edit_user_<%= current_user.id %>" enctype="multipart/form-data"
+          action="/users/<%= current_user.id %>" accept-charset="UTF-8" data-remote="true" method="post">
+          <input name="utf8" type="hidden" value="&#x2713;" />
+          <input type="hidden" name="_method" value="patch" />
+          <input name="authenticity_token" value="<%= form_authenticity_token %>"
+            type="hidden">
+          <div id="upload-wrap">
+            <input id="user-avatar" type="file" name="user[avatar]" />
+          </div>
+        </form>
+      </button>
+    <% end %>
+    <%= @user.avatar.present? ?
+      image_tag(@user.avatar.url(:square), id: 'avatar-img') :
+      image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg") %>
+  </div>
+
+  <div id='user-info'>
+    <div id='name-container'>
+      <h2>
+        <%= @user.name.upcase %>
+      </h2>
+      <div id='square-additive-left'></div>
+      <div id='square-additive-right'></div>
+    </div>
+    <div id='user-sub-info'>
+      <h5 id='activated'>Activated: <%= @user.created_at %></h5>
+      <% @user.save_points %>
+      <h4>Member Points: <span class='field'><%= @user.formatted_points %></span></h4>
+      <h4>Member Rank: <span class='field'><%= rank(@user) %></span></h4>
+      <h4>Choice Weapon: <span class='field'><%= favorite_weapon(@user) %></span></h4>
+      <h4>Choice Game Type: <span class='field'><%= favorite_animal(@user) %></span></h4>
+    </div>
+    <% if current_user == @user %>
+      <div id='upload-btn-container'>
+        <div id='btn-panel'>
+            <%= link_to 'UPLOAD HARVEST', new_harvest_path %>
+        </div>
+        <div id='square-additive-left'></div>
+        <div id='square-additive-right'></div>
+      </div>
+    <% end %>
+
+    <% if current_user != @user && !current_user.contacts.include?(@user)%>
+      <div id='add-contact-container'>
+        <form class="new_user_contact" id="new_user_contact" enctype="multipart/form-data"
+          action="/user_contacts" accept-charset="UTF-8" method="post">
+          <input name="utf8" type="hidden" value="&#x2713;" />
+          <input type='hidden' name='user_contact[contact_id]' value='<%= @user.id %>' />
+          <input name="authenticity_token" value="<%= form_authenticity_token %>"
+            type="hidden">
+          <input id='add-contact' type='submit' value='ADD TO CONTACTS'/>
+        </form>
+      </div>
+    <% end %>
+
+    <% if current_user.contacts.include?(@user) %>
+      <div id='affirm-contact'>
+        In Contacts <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+      </div>
+    <% end %>
+
+  </div>
+  <div id='user-level'>
+    <img src='https://s3.amazonaws.com/gametiks/images/badges/lev_00.png' id='level-badge'/>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div id='flashbox-container'>
+  <div id='flashbox-handle'>
+    <% 3.times do %>
+      <div id='vertical-line'></div>
+    <% end %>
+  </div>
+  <div id='flashbox-label'>
+    NOTES
+  </div>
+  <div id='flashbox'>
+      <i class="fa fa-exclamation-circle fa-2x" aria-hidden="true"></i>
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
+  </div>
+  <div id='decor-lower-right'></div>
+</div>
