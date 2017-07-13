@@ -5,7 +5,7 @@
 }
 
 #contacts-container {
-  width: 200px;
+  width: 240px;
   position: absolute;
   right: -180px;
   top: 60px;
@@ -57,20 +57,21 @@
     width: 100%;
     height: auto;
     background-color: transparent;
+    ul {
+      position: relative;
+      margin: 3px 0 0 0;
+      background-color: rgba(60, 60, 60, 0.7);
+      max-height: 520px;
+      border-radius: 3px;
+      width: 100%;
+      overflow-y: scroll;
+    }
     .contact {
       position: relative;
-      font-size: 14px;
+      font-size: 15px;
       font-family: 'share-tech';
-      border-top: 1px solid $gray-dark;
-      border-bottom: 1px solid $gray;
-      // background: -webkit-linear-gradient(90deg, $angled-shadow, transparent, $angled-shadow 60%, transparent);
-      // background: -o-linear-gradient(90deg, $angled-shadow, transparent, $angled-shadow 60%, transparent);
-      // background: -moz-linear-gradient(90deg, $angled-shadow, transparent, $angled-shadow 60%, transparent);
-      background: linear-gradient(90deg, $angled-shadow, transparent, $angled-shadow 450%, transparent 75%, $angled-shadow 90%, transparent);
-      box-shadow: inset 1px 4px 8px 25px rgba(30, 30, 30, 0.2);
       height: 36px;
-      border-radius: 3px;
-      margin: 3px 0;
+      margin: 0;
       color: white;
       padding: 10px;
       letter-spacing: 1px;
@@ -81,10 +82,7 @@
         left: 0;
         border-top: 1px solid $gray;
         border-bottom: 1px solid $gray;
-        // background: -webkit-radial-gradient($gametiks-green-transparent, transparent);
-        // background: -o-radial-gradient($contact-gray, transparent);
-        // background: -moz-radial-gradient($contact-gray, transparent);
-        background: radial-gradient($link-blue, transparent);
+
         height: 100%;
         border: 1px solid transparent;
         width: 100%;
@@ -99,7 +97,7 @@
         left: 0;
         border-top: 1px solid $gray;
         border-bottom: 1px solid $gray;
-        background: linear-gradient(181deg, $shade, transparent 40%, $shade 60%, transparent, $shade);
+        // background: linear-gradient(181deg, $shade, transparent 40%, $shade 60%, transparent, $shade);
         height: 100%;
         border: 1px solid transparent;
         width: 100%;
@@ -117,8 +115,8 @@
     position: absolute;
     content: '';
     bottom: -30px;
-    right: 0;
-    width: 170px;
+    left: 30px;
+    width: 210px;
     height: 30px;
     background-color: $deep-ivory;
   }
