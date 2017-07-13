@@ -36,12 +36,12 @@
             <% contacts[contact.id] = contact.name %>
             <% end %>
           <ul>
-            <% contacts.each do |contact| %>
+            <% contacts.each do |id, name| %>
               <li class='contact'>
                 <div id="arrow-right">
                   <i id='arrow-right-icon' class="fa fa-arrow-circle-o-right fa-lg" aria-hidden="true"></i>
                 </div>
-                <%= link_to contact[1], `/users/#{contact[0]}` %>
+                <%= link_to name, `/users/#{id}` %>
                 <div class='backing'></div>
                 <div class='second-backing'></div>
               </li>
@@ -105,7 +105,7 @@
             </div>
           <% end %>
 
-          <% if current_user != @user %>
+          <% if current_user != @user && !current_user.contacts.include?(@user)%>
             <div id='add-contact-container'>
               <form class="new_user_contact" id="new_user_contact" enctype="multipart/form-data"
                 action="/user_contacts" accept-charset="UTF-8" method="post">
@@ -118,11 +118,11 @@
             </div>
           <% end %>
 
-          <!-- <% if current_user.contacts.include?(@user) %>
+          <% if current_user.contacts.include?(@user) %>
             <div id='affirm-contact'>
               In Contacts <i class="fa fa-check-circle-o" aria-hidden="true"></i>
             </div>
-          <% end %> -->
+          <% end %>
 
         </div>
         <div id='user-level'>
