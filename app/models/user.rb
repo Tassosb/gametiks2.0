@@ -7,10 +7,10 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :badges, dependent: :destroy
 
   has_many :contacts, through: :contact_follows, source: :contact
-  has_many :contact_follows, foreign_key: :contact_id, class_name: 'UserContact'
+  has_many :contact_follows, foreign_key: :user_id, class_name: 'UserContact'
 
-  has_many :contactors, through: :contactor_follows, source: :user
-  has_many :contactor_follows, foreign_key: :user_id, class_name: 'UserContact'
+  # has_many :contactors, through: :contactor_follows, source: :user
+  # has_many :contactor_follows, foreign_key: :user_id, class_name: 'UserContact'
 
   validates_presence_of :name, :email
 

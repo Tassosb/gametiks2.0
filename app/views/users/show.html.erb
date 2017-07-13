@@ -105,7 +105,7 @@
             </div>
           <% end %>
 
-          <% if current_user != @user && !current_user.contacts.include?(@user)%>
+          <% if current_user != @user %>
             <div id='add-contact-container'>
               <form class="new_user_contact" id="new_user_contact" enctype="multipart/form-data"
                 action="/user_contacts" accept-charset="UTF-8" method="post">
@@ -118,11 +118,11 @@
             </div>
           <% end %>
 
-          <% if current_user.contacts.include?(@user) %>
+          <!-- <% if current_user.contacts.include?(@user) %>
             <div id='affirm-contact'>
               In Contacts <i class="fa fa-check-circle-o" aria-hidden="true"></i>
             </div>
-          <% end %>
+          <% end %> -->
 
         </div>
         <div id='user-level'>
