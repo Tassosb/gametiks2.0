@@ -61,8 +61,12 @@
     <% end %>
 
     <% if current_user.contacts.include?(@user) %>
-      <div id='affirm-contact'>
-        In Contacts <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+      <div id='registered-contact-container'>
+        <div id='affirm-contact'>
+          <div id='square-additive-left'></div>
+          <h3>Added <i class="fa fa-check-circle-o" aria-hidden="true"></i></h3>
+          <div id='square-additive-right'></div>
+        </div>
       </div>
     <% end %>
 

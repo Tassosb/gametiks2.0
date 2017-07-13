@@ -11,16 +11,88 @@
   }
 }
 
-#affirm-contact {
-  width: 270px;
-  height: 40px;
-  font-family: 'exo2';
-  font-size: 16px;
-  text-align: center;
-  padding: 8px;
-  color: $gray-dark;
-  .fa {
+#registered-contact-container {
+  margin-top: 4px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 34px;
+  padding: 0;
+  &:after {
+    content: '';
+    line-height: 0;
+    font-size: 0;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid $dark-green-transparent;
+    border-left: 10px solid $dark-green-transparent;
+    border-right: 10px solid transparent;
+    position: absolute;
+    top: 0;
+    right: -20px;
+  }
+  #square-additive-right {
+    width: 10px;
+    height: 10px;
+    font-size: 0;
+    line-height: 0;
+    content: '';
+    border: 10px solid $dark-green-transparent;
+    position: absolute;
+    top: 20px;
+    right: -20px;
+  }
+  &:before {
+    content: '';
+    line-height: 0;
+    font-size: 0;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid $dark-green-transparent;
+    border-right: 10px solid $dark-green-transparent;
+    border-left: 10px solid transparent;
+    position: absolute;
+    top: 0;
+    left: -20px;
+  }
+  #square-additive-left {
+    width: 10px;
+    height: 10px;
+    font-size: 0;
+    line-height: 0;
+    content: '';
+    border: 10px solid $dark-green-transparent;
+    position: absolute;
+    top: 20px;
+    left: -20px;
+  }
+  #affirm-contact {
+    font-family: 'teko-light';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
     color: $gametiks-green;
+
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $dark-green-transparent;
+    box-shadow: inset 0 0 30px 5px $transparent-gray;
+    h3 {
+      text-align: center;
+      font-size: 13px;
+      letter-spacing: 2px;
+      margin: 0;
+      padding: 0;
+    }
+    .fa {
+      font-size: 14px;
+    }
   }
 }
 
@@ -195,7 +267,6 @@
         }
         #activated {
           margin: 0 auto;
-
           text-align: center;
           font-size: 14px;
         }
@@ -277,9 +348,6 @@
             box-shadow: inset 0 0 30px 5px $transparent-gray;
             &:hover {
               background-color: $link-blue;
-              // border: 2px solid $gametiks-green;
-              // box-shadow: inset 0 0 30px 5px $semi-transparent-gray;
-              // color: $gametiks-green;
             }
           }
         }
