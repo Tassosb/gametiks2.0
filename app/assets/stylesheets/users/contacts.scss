@@ -58,19 +58,56 @@
     height: auto;
     background-color: transparent;
     .contact {
+      position: relative;
       font-size: 14px;
       font-family: 'share-tech';
-      border-top: 1px solid $gray;
+      border-top: 1px solid $gray-dark;
       border-bottom: 1px solid $gray;
-      background-color: $gametiks-green-transparent;
-      box-shadow: inset 2px 2px 8px rgba(40, 40, 40, 0.8);
+      // background: -webkit-linear-gradient(90deg, $angled-shadow, transparent, $angled-shadow 60%, transparent);
+      // background: -o-linear-gradient(90deg, $angled-shadow, transparent, $angled-shadow 60%, transparent);
+      // background: -moz-linear-gradient(90deg, $angled-shadow, transparent, $angled-shadow 60%, transparent);
+      background: linear-gradient(90deg, $angled-shadow, transparent, $angled-shadow 450%, transparent 75%, $angled-shadow 90%, transparent);
+      box-shadow: inset 1px 4px 8px 25px rgba(30, 30, 30, 0.2);
       height: 36px;
       border-radius: 3px;
       margin: 3px 0;
-      color: $cloudy;
+      color: white;
       padding: 10px;
       letter-spacing: 1px;
       cursor: pointer;
+      .backing {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-top: 1px solid $gray;
+        border-bottom: 1px solid $gray;
+        // background: -webkit-radial-gradient($gametiks-green-transparent, transparent);
+        // background: -o-radial-gradient($contact-gray, transparent);
+        // background: -moz-radial-gradient($contact-gray, transparent);
+        background: radial-gradient($link-blue, transparent);
+        height: 100%;
+        border: 1px solid transparent;
+        width: 100%;
+        border-radius: 3px;
+        color: $cloudy;
+        cursor: pointer;
+        z-index: -2;
+      }
+      .second-backing {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-top: 1px solid $gray;
+        border-bottom: 1px solid $gray;
+        background: linear-gradient(181deg, $shade, transparent 40%, $shade 60%, transparent, $shade);
+        height: 100%;
+        border: 1px solid transparent;
+        width: 100%;
+        border-radius: 3px;
+        color: $cloudy;
+        cursor: pointer;
+        z-index: -3;
+      }
       &:hover {
         color: white;
       }

@@ -152,10 +152,8 @@
     margin-bottom: 50px;
     background-color: rgb(220, 220, 220);
     .log {
-      background: #fefefe;
       box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
       padding: 15px;
-      transition: opacity .4s ease-in-out;
       display: inline-block;
       column-break-inside: avoid;
       color: $gray-dark;
