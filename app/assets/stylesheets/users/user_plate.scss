@@ -13,12 +13,12 @@
     display: flex;
     justify-content: center;
     margin: 0 50px 0 50px;
-    background-color: $transparent-gray;
+    // background-color: $transparent-gray;
     padding: 10px;
     border-radius: 0 0 5px 5px;
-    border: 2px solid $transparent-gray;
+    // border: 1px solid $transparent-gray;
     border-top: none;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+    // box-shadow: 2px 2px 10px rgba(0,0,0,0.8);
     #avatar {
       position: relative;
       display: flex;
