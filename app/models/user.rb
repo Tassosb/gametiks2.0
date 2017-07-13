@@ -6,6 +6,12 @@ class User < ActiveRecord::Base
   has_many :harvests, dependent: :destroy
   has_and_belongs_to_many :badges, dependent: :destroy
 
+  has_many :contacts, through: :contact_follows, source: :contact
+  has_many :contact_follows, foreign_key: :contact_id, class_name: 'UserContact'
+
+  has_many :contactors, through: :contactor_follows, source: :user
+  has_many :contactor_follows, foreign_key: :user_id, class_name: 'UserContact'
+
   validates_presence_of :name, :email
 
   # CarrierWave gem uploader
@@ -62,7 +68,7 @@ class User < ActiveRecord::Base
   end
 
   def formatted_points
-    sprintf '%06d', self.points
+    sprintf '%06d', points
   end
 
   # Set badges
@@ -72,6 +78,14 @@ class User < ActiveRecord::Base
     end
     if true
       award(Badge.find(1)) # gamer: user registered
+    end
+  end
+
+  def add_contact(user)
+    if contacts.include?(user)
+      flash[:notice] = 'Member already in your contacts!'
+    else
+      contacts << user
     end
   end
 
