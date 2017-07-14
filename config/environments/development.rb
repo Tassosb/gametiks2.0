@@ -1,6 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  
+
   config.paperclip_defaults = {
     storage: :s3,
     s3_credentials: {
@@ -11,20 +11,18 @@ Rails.application.configure do
     }
   }
 
-  # Config Action Mailer using Gmail
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.smtp_settings = {
-    address:            'smtp.gmail.com',
-    port:               587,
-    domain:             'gmail.com',
-    authentication:     'plain',
-    enable_starttls_auto: true,
-    user_name:          ENV.fetch('GMAIL_USERNAME'),
-    password:           ENV.fetch('GMAIL_PASSWORD')
-  }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  ActionMailer::Base.smtp_settings = {
+    :user_name => ENV['SENDGRID_USERNAME'],
+    :password => ENV['SENDGRID_PASSWORD'],
+    :domain => 'localhost:3000',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+}
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -48,8 +46,6 @@ Rails.application.configure do
     config.action_controller.perform_caching = false
     config.cache_store = :null_store
   end
-
-  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
