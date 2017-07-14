@@ -18,9 +18,21 @@
   <body>
     <%= include_gon %>
     <%= render 'layouts/header' %>
+
     <%= yield %>
     <%= render 'layouts/footer' %>
-
-    
   </body>
+
+  <script>
+  $(document).ready(function() {
+    $('li#messenger').click(function() {
+      $('#messagebox-container').toggleClass('messagebox-active');
+    })
+
+    $('li#contacts').click(function() {
+      $('#contacts-container').toggleClass('contacts-active')
+    })
+  });
+</script>
+
 </html>

@@ -6,6 +6,10 @@
  }
 
 body {
+  overflow-x: hidden;
+  position: relative;
+  display: block;
+  min-height: calc(100vh - 200px);
   color: #000;
   font-family: sans-serif, helvetica;
   font-size: 13px;

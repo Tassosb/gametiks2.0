@@ -4,11 +4,11 @@
 footer.footer-main {
   background-color: $dark-green;
   padding-top: 5px;
-  border-top: 1px solid $gray-medium-light;
+  border-top: 2px solid $gray;
   color: $gray-light;
-  height: 100px;
+  height: 70px;
   padding: 20px;
-
+  display: block;
   a {
     color: $gray;
     &:hover {

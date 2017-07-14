@@ -1,26 +1,37 @@
 @import '../variables';
 
 .contacts-active {
-  right: 12px !important;
+  right: 0 !important;
 }
 
 #contacts-container {
-  width: 240px;
+  width: 260px;
   position: absolute;
-  right: -220px;
-  top: 60px;
-  height: auto;
-  padding: 10px 3px;
-  border-radius: 5px 0 0 0;
+  right: -250px;
+  top: 0;
+  height: 300px;
+  padding: 3px;
+  border-radius: 3px 0 0 0;
   background-color: $deep-ivory;
   z-index: 100;
   text-align: center;
-  .fa {
+  header#contacts-header {
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: $water-blue-transparent;
+    height: 30px;
+    border-bottom: 1px solid $gray;
+    .fa {
+      margin-left: 3px;
+    }
   }
   #contacts-handle {
     position: absolute;
     display: flex;
+    justify-content: flex-end;
     left: -30px;
     top: 20px;
     height: 120px;
@@ -32,122 +43,98 @@
     cursor: pointer;
     #vertical-line {
       position: relative;
-      margin-left: 2px;
-      border-left: 1px solid $gray;
+      margin-right: 2px;
+      border-right: 1px solid $gray;
       height: 100%;
     }
   }
-  #contacts-label {
-    font-family: 'teko-light';
-    font-size: 40px;
-    line-height: 44px;
+
+  #contact-list-container {
     position: relative;
-    background-color: $water-blue-transparent;
-    height: 36px;
-    text-align: center;
-    color: white;
-    margin-bottom: 5px;
-    cursor: pointer;
-  }
-  #contacts {
-    position: relative;
-    color: $gray-dark;
+    overflow-x: hidden;
     font-size: 14px;
     line-height: 20px;
     width: 100%;
-    min-height: 300px;
-    height: auto;
+    height: 260px;
     background-color: transparent;
-    ul {
-      position: relative;
-      margin: 3px 0 0 0;
-      background-color: rgba(40, 40, 40, 0.7);
-      max-height: 520px;
-      border-radius: 3px;
-      width: 100%;
+    overflow: -moz-scrollbars-none;
+    border-radius: 3px;
+    #contacts {
+      position: absolute;
+      left: -10px;
+      overflow: -moz-scrollbars-none;
+      overflow-x: hidden;
       overflow-y: scroll;
-    }
-    .contact {
-      position: relative;
-      font-size: 15px;
-      font-family: 'share-tech';
-      height: 36px;
-      margin: 0;
-      color: white;
-      padding: 10px;
-      padding-left: 10px;
-      letter-spacing: 1px;
-      cursor: pointer;
-      #arrow-right {
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        left: 0;
-        top: 0;
-        opacity: 0;
-        height: 100%;
-        width: 26px;
-        -webkit-transition: opacity .3s, -webkit-transform .3s;
-        transition: opacity .3s, transform .3s;
-        #arrow-right-icon {
-          color: rgba(180, 180, 180, 0.9);
+      width: 254px;
+      transform: translateX(10px);
+      ul {
+        width: 100%;
+        padding: 2px;
+        li.contact {
+          border-bottom: 1px solid rgba(100, 100, 100, 0.2);
+          position: relative;
+          height: 26px;
+          margin: 0;
+          padding: 6px;
+          a {
+            font-size: 12px;
+            cursor: pointer;
+            color: $water-blue-transparent;
+          }
+          #arrow-right {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            height: 100%;
+            width: 26px;
+            -webkit-transition: opacity .3s, -webkit-transform .3s;
+            transition: opacity .3s, transform .3s;
+            #arrow-right-icon {
+              color: $water-blue-transparent;
+            }
+          }
+          &:hover {
+            color: $water-blue-transparent;
+          }
         }
       }
-      .backing {
-        position: absolute;
-        top: 0;
-        left: 0;
-        border-top: 1px solid $gray;
-        border-bottom: 1px solid $gray;
 
-        height: 100%;
-        border: 1px solid transparent;
-        width: 100%;
-        border-radius: 3px;
-        color: $cloudy;
-        cursor: pointer;
-        z-index: -2;
-      }
-      .second-backing {
-        position: absolute;
-        top: 0;
-        left: 0;
-        border-top: 1px solid $gray;
-        border-bottom: 1px solid $gray;
-        // background: linear-gradient(181deg, $shade, transparent 40%, $shade 60%, transparent, $shade);
-        height: 100%;
-        border: 1px solid transparent;
-        width: 100%;
-        border-radius: 3px;
-        color: $cloudy;
-        cursor: pointer;
-        z-index: -3;
-      }
-      &:hover {
-        color: white;
-      }
     }
   }
+  #contacts::-webkit-scrollbar {
+    display: none;
+    width: 0 !important;
+  }
+  #contact-list-container::-webkit-scrollbar {
+    display: none;
+    width: 0 !important;
+  }
+}
+
+#contacts-container {
   &:after {
     position: absolute;
     content: '';
-    bottom: -30px;
-    left: 30px;
-    width: 210px;
-    height: 30px;
+    bottom: -20px;
+    left: 20px;
+    width: 240px;
+    height: 20px;
     background-color: $deep-ivory;
   }
   #decor-lower-left {
     position: absolute;
     left: 0;
-    bottom: -30px;
+    bottom: -20px;
     width: 0;
     height: 0;
     content: '';
-    border-right: 15px solid $deep-ivory;
-    border-top: 15px solid $deep-ivory;
-    border-left: 15px solid transparent;
-    border-bottom: 15px solid transparent;
+    border-right: 10px solid $deep-ivory;
+    border-top: 10px solid $deep-ivory;
+    border-left: 10px solid transparent;
+    border-bottom: 10px solid transparent;
   }
 }

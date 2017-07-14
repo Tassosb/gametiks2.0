@@ -1,10 +1,14 @@
 
+<div id='side-panel'>
+  <%= render partial: "contacts" %>
+  <%= render partial: "messagebox" %>
+</div>
+
 <div class='container-fluid background-main fixed-height'>
   <div class="row">
     <div class='user-plate-container'>
-      <%= render partial: "user_plate" %>
       <%= render partial: "flashbox" %>
-      <%= render partial: "contacts" %>
+      <%= render partial: "user_plate" %>
     </div>
   </div>
 
@@ -90,11 +94,11 @@
     };
 
     // toggle message box
-    $('#flashbox-handle').click(function() {
+    $('flashbox-label').click(function() {
       $('#flashbox-container').toggleClass('flashbox-active');
     });
 
-    $('#flashbox-label').click(function() {
+    $('#flashbox-handle').click(function() {
       $('#flashbox-container').toggleClass('flashbox-active');
     });
 
@@ -102,8 +106,16 @@
       $('#contacts-container').toggleClass('contacts-active');
     });
 
-    $('#contacts-label').click(function() {
+    $('#messagebox-handle').click(function() {
+      $('#messagebox-container').toggleClass('messagebox-active');
+    })
+
+    $('#contacts-header').click(function() {
       $('#contacts-container').toggleClass('contacts-active');
+    })
+
+    $('#messages-header').click(function() {
+      $('#messagebox-container').toggleClass('messagebox-active');
     })
 
     $('.contact').hover(function() {

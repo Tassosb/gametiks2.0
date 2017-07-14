@@ -7,7 +7,11 @@
   margin: 0;
   padding: 0;
   display: block;
-  height: 900px;
+  min-height: calc(100vh - 120px);
+}
+
+.window-height {
+  min-height: calc(100vh - 189px);
 }
 
 .title-container {

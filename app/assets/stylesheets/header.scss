@@ -2,6 +2,10 @@
 /* header */
 @import './variables';
 
+header {
+
+}
+
 #logo {
   float: left;
   font-family: 'teko-medium';
@@ -22,4 +26,41 @@
   background-color: $gametiks-green;
   height: 50px;
   border-bottom: 2px solid $gray;
+  nav {
+    float: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50px;
+    width: 500px;
+    color: white;
+    font-family: sans-serif;
+    ul.navbar-nav {
+      li {
+        height: 50px;
+        background-color: transparent;
+        color: white;
+        cursor: pointer;
+        .fa {
+          margin: 0 2px;
+        }
+      }
+      li#contacts {
+        height: 100%;
+        padding: 16px;
+      }
+      li#messenger {
+        height: 100%;
+        padding: 16px;
+      }
+      li#settings {
+      }
+    }
+  }
+}
+
+.limit-width {
+  max-width: 1200px;
+  height: 50px;
+  margin: 0 auto;
 }

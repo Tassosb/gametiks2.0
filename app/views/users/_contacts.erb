@@ -4,28 +4,27 @@
       <div id='vertical-line'></div>
     <% end %>
   </div>
-  <div id='contacts-label'>
-    CONTACTS
-  </div>
-  <i class="fa fa-user-circle fa-2x" aria-hidden="true"></i>
-  <div id='contacts'>
-    <% contacts = {} %>
-      <% current_user.contacts.each do |contact| %>
-      <% contacts[contact.id] = contact.name %>
-      <% end %>
-    <ul>
-      <% contacts.each do |id, name| %>
-        <li class='contact'>
-          <div id="arrow-right">
-            <i id='arrow-right-icon' class="fa fa-arrow-circle-o-right fa-lg" aria-hidden="true"></i>
-          </div>
-          <a href='/users/<%= id %>'><%= name %></a>
-          <div class='backing'></div>
-          <div class='second-backing'></div>
-        </li>
-      <% end %>
-    </ul>
-      <div id='list-footer'></div>
-  </div>
+  <header id='contacts-header'>
+    Contacts <i class="fa fa-user-circle" aria-hidden="true"></i>
+  </header>
+  <div id='contact-list-container'>
+    <div id='contacts'>
+      <% contacts = {} %>
+        <% current_user.contacts.each do |contact| %>
+        <% contacts[contact.id] = contact.name %>
+        <% end %>
+      <ul>
+        <% contacts.each do |id, name| %>
+          <li class='contact'>
+            <div id="arrow-right">
+              <i id='arrow-right-icon' class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+            </div>
+            <a href='/users/<%= id %>'><%= name %></a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    </div>
+    <div id='list-footer'></div>
   <div id='decor-lower-left'></div>
 </div>
