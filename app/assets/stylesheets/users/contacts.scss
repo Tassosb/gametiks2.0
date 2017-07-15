@@ -11,8 +11,8 @@
   top: 0;
   height: 300px;
   padding: 3px;
-  border-radius: 3px 0 0 0;
-  background-color: $deep-ivory;
+  background-color: $side-panel;
+  box-shadow: -2px 0 30px rgba(50, 50, 50, .2);
   z-index: 100;
   text-align: center;
   header#contacts-header {
@@ -23,7 +23,7 @@
     align-items: center;
     color: $water-blue-transparent;
     height: 30px;
-    border-bottom: 1px solid $gray;
+    border-bottom: 1px solid $logger-gray;
     .fa {
       margin-left: 3px;
     }
@@ -33,19 +33,42 @@
     display: flex;
     justify-content: flex-end;
     left: -30px;
-    top: 20px;
+    top: 30px;
     height: 120px;
     padding: 2px;
     width: 30px;
     background-color: $handle-gray;
-    border-right: 1px solid $cloudy;
-    border-radius: 4px 0 0 4px;
     cursor: pointer;
+    box-shadow: -2px 0 30px rgba(50, 50, 50, .1);
     #vertical-line {
       position: relative;
       margin-right: 2px;
-      border-right: 1px solid $gray;
+      border-right: 1px solid rgb(170, 170, 170);
       height: 100%;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-right: 15px solid $side-panel;
+      border-bottom: 15px solid $side-panel;
+      border-top: 15px solid transparent;
+      border-left: 15px solid transparent;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-right: 15px solid $side-panel;
+      border-top: 15px solid $side-panel;
+      border-bottom: 15px solid transparent;
+      border-left: 15px solid transparent;
     }
   }
 
@@ -71,7 +94,7 @@
         width: 100%;
         padding: 2px;
         li.contact {
-          border-bottom: 1px solid rgba(100, 100, 100, 0.2);
+          border-bottom: 1px solid $logger-gray;
           position: relative;
           height: 26px;
           margin: 0;
@@ -123,7 +146,7 @@
     left: 20px;
     width: 240px;
     height: 20px;
-    background-color: $deep-ivory;
+    background-color: $handle-gray;
   }
   #decor-lower-left {
     position: absolute;
@@ -132,8 +155,8 @@
     width: 0;
     height: 0;
     content: '';
-    border-right: 10px solid $deep-ivory;
-    border-top: 10px solid $deep-ivory;
+    border-right: 10px solid $handle-gray;
+    border-top: 10px solid $handle-gray;
     border-left: 10px solid transparent;
     border-bottom: 10px solid transparent;
   }

@@ -9,19 +9,41 @@
   display: flex;
   justify-content: flex-end;
   left: -30px;
-  top: 20px;
+  top: 30px;
   height: 120px;
   padding: 2px;
   width: 30px;
   background-color: $handle-gray;
-  border-right: 1px solid $cloudy;
-  border-radius: 4px 0 0 4px;
   cursor: pointer;
   #vertical-line {
     position: relative;
     margin-right: 2px;
-    border-right: 1px solid $gray;
+    border-right: 1px solid rgb(170, 170, 170);
     height: 100%;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-right: 15px solid $side-panel;
+    border-bottom: 15px solid $side-panel;
+    border-top: 15px solid transparent;
+    border-left: 15px solid transparent;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-right: 15px solid $side-panel;
+    border-top: 15px solid $side-panel;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid transparent;
   }
 }
 
@@ -33,8 +55,7 @@
   top: 324px;
   right: -250px;
   z-index: 90;
-  border-radius: 3px 0 0 0;
-  background-color: $deep-ivory;
+  background-color: $side-panel;
   header#messages-header {
     cursor: pointer;
     width: 100%;
@@ -43,7 +64,7 @@
     align-items: center;
     color: $water-blue-transparent;
     height: 30px;
-    border-bottom: 1px solid $gray;
+    border-bottom: 1px solid $logger-gray;
     .fa {
       margin-left: 3px;
     }
@@ -73,7 +94,7 @@
         padding: 2px;
         li {
           height: 40px;
-          border-bottom: 1px solid $gray;
+          border-bottom: 1px solid $logger-gray;
         }
       }
     }
@@ -87,12 +108,12 @@
     bottom: -20px;
     border-left: 10px solid transparent;
     border-bottom: 10px solid transparent;
-    border-top: 10px solid $deep-ivory;
-    border-right: 10px solid $deep-ivory;
+    border-top: 10px solid $handle-gray;
+    border-right: 10px solid $handle-gray;
   }
   &:after {
     height: 20px;
-    background-color: $deep-ivory;
+    background-color: $handle-gray;
     width: 270px;
     position: absolute;
     border-radius: 0 0 5px 0;
