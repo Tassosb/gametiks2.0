@@ -10,21 +10,23 @@
   justify-content: flex-end;
   left: -30px;
   top: 30px;
-  height: 120px;
+  height: 110px;
   padding: 2px;
   width: 30px;
   background-color: $handle-gray;
+  border-top: 10px solid $side-panel;
+  border-bottom: 10px solid $side-panel;
   cursor: pointer;
   #vertical-line {
     position: relative;
-    margin-right: 2px;
-    border-right: 1px solid rgb(170, 170, 170);
+    margin-right: 3px;
+    border-right: 1px solid rgba(170, 170, 170, .6);
     height: 100%;
   }
   &:before {
     content: '';
     position: absolute;
-    top: -30px;
+    top: -40px;
     right: 0;
     width: 0;
     height: 0;
@@ -36,7 +38,7 @@
   &:after {
     content: '';
     position: absolute;
-    bottom: -30px;
+    bottom: -40px;
     right: 0;
     width: 0;
     height: 0;
@@ -56,6 +58,7 @@
   right: -250px;
   z-index: 90;
   background-color: $side-panel;
+  // box-shadow: -2px 0 50px rgba(50, 50, 50, .2);
   header#messages-header {
     cursor: pointer;
     width: 100%;
