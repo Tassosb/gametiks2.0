@@ -41,7 +41,6 @@
     border-top: 10px solid $side-panel;
     border-bottom: 10px solid $side-panel;
     cursor: pointer;
-    // box-shadow: -2px 0 30px rgba(50, 50, 50, .1);
     #vertical-line {
       position: relative;
       margin-right: 3px;
@@ -98,11 +97,19 @@
         li.contact {
           border-bottom: 1px solid $logger-gray;
           position: relative;
-          height: 26px;
+          height: 24px;
           margin: 0;
           padding: 6px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
           a {
             font-size: 12px;
+            cursor: pointer;
+            color: $water-blue-transparent;
+          }
+          i#message-bubble {
+            margin-left: 10px;
             cursor: pointer;
             color: $water-blue-transparent;
           }

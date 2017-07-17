@@ -26,7 +26,6 @@ gem 'aws-sdk', '~> 2.3'
 gem 'lodash-rails'
 gem 'puma'
 gem 'font-awesome-rails'
-gem 'mailboxer', '~> 0.15.1'
 # passwords
 gem 'figaro'
 # photo uploading and manipulation

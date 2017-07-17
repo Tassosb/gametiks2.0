@@ -131,3 +131,16 @@
   display: none;
   width: 0 !important;
 }
+
+// CONVERSATION BOX
+.conversation-container {
+  position: fixed;
+  bottom: 0;
+  right: 300px;
+  width: 280px;
+  height: 340px;
+  background-color: $side-panel;
+  .conversation-box {
+
+  }
+}
