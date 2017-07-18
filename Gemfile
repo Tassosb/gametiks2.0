@@ -39,6 +39,7 @@ gem 'omniauth-facebook'
 # for chat
 gem 'private_pub'
 gem 'thin'
+gem 'foreman'
 
 group :development, :test do
   gem 'better_errors'
