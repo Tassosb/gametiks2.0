@@ -6,5 +6,5 @@ test:
   secret_token: "secret"
 production:
   server: "https://gametiks.herokuapp.com/faye"
-  secret_token: ENV['FAYE_SECRET_TOKEN']
+  secret_token: "5e361621d64c3cac35e1b486f9f1ea6e068e19c417380ed6a9860d7caacedc9f"
   signature_expiration: 3600 # one hour
