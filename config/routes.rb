@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   # get '/forum'    =>  'static_pages#forum'
   get '/contact' =>  'static_pages#contact'
 
-  resources :users do
-    resources :conversations, only: [:create, :destroy]
+  resources :users
+  resources :conversations do
+    resources :messages
   end
   resources :harvests, except: [:show]
   resources :user_contacts, only: [:create, :destroy]

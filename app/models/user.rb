@@ -3,11 +3,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
   :trackable, :validatable, :confirmable, :omniauthable, :omniauth_providers => [:facebook]
 
-  has_many :harvests, dependent: :destroy
   has_and_belongs_to_many :badges, dependent: :destroy
-
+  has_many :harvests, dependent: :destroy
   has_many :contacts, through: :contact_follows, source: :contact
   has_many :contact_follows, foreign_key: :user_id, class_name: 'UserContact'
+  has_many :conversations, foreign_key: :sender_id
 
   # has_many :contactors, through: :contactor_follows, source: :user
   # has_many :contactor_follows, foreign_key: :user_id, class_name: 'UserContact'
@@ -16,8 +16,6 @@ class User < ActiveRecord::Base
 
   # CarrierWave gem uploader
   mount_uploader :avatar, AvatarUploader
-  # for mailboxer gem
-
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

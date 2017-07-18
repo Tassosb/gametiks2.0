@@ -36,6 +36,9 @@ gem 'sendgrid-ruby'
 # authentication
 gem 'devise'
 gem 'omniauth-facebook'
+# for chat
+gem 'private_pub'
+gem 'thin'
 
 group :development, :test do
   gem 'better_errors'

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- hold user id for chat -->
+    <meta content='<%= user_signed_in? ? current_user.id : "" %>' name='user-id'/>
+
     <title><%= full_title(yield(:title)) %></title>
     <%= stylesheet_link_tag 'application', media: 'all',
                                          'data-turbolinks-track' => true %>
@@ -18,9 +21,9 @@
   <body>
     <%= include_gon %>
     <%= render 'layouts/header' %>
-
     <%= yield %>
     <%= render 'layouts/footer' %>
+    <!-- <audio id="chatAudio"><source src="/sounds/notification.mp3" type="audio/mpeg"></audio> -->
   </body>
 
   <script>
