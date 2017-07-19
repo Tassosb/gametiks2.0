@@ -17,6 +17,15 @@ class User < ActiveRecord::Base
   # CarrierWave gem uploader
   mount_uploader :avatar, AvatarUploader
 
+  acts_as_messageable
+  def mailboxer_email(object)
+    self.email
+  end
+
+  def mailboxer_name
+    self.name
+  end
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider

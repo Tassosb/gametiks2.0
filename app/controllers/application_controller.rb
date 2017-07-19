@@ -2,19 +2,16 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
-  # helper_method :current_user
-  #
-  # private
-  #
-  # def current_user
-  #   @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  # end
-  # before_action :configure_permitted_parameters, if: :devise_controller?
-  #
-  # protected
-  #
-  # def configure_permitted_parameters
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email])
-  # end
+  helper_method :mailbox, :conversation
+
+ private
+
+ def mailbox
+   @mailbox ||= current_user.mailbox
+ end
+
+ def conversation
+    @conversation ||= mailbox.conversations.find(params[:id])
+  end
 
 end

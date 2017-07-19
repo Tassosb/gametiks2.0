@@ -1,0 +1,147 @@
+@import '../../variables';
+
+.media {
+  .media-left {
+    .media-object {
+      width: 64px;
+      height: 64px;
+    }
+  }
+}
+
+#mailbox-nav-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 30px;
+  background-color: transparent;
+  #left {
+    background-color: transparent;
+  }
+  #mailbox-nav {
+    position: relative;
+    margin-top: 0;
+    height: 30px;
+    flex-basis: 750px;
+    display: flex;
+    justify-content: center;
+    background-color: $cloudy;
+    &:before {
+      position: absolute;
+      left: -30px;
+      bottom: 0;
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 15px solid transparent;
+      border-right: 15px solid $cloudy;
+      border-top: 15px solid $cloudy;
+      border-bottom: 15px solid transparent;
+    }
+    &:after {
+      position: absolute;
+      right: -30px;
+      bottom: 0;
+      content: '';
+      width: 0;
+      height: 0;
+      border-right: 15px solid transparent;
+      border-left: 15px solid $cloudy;
+      border-top: 15px solid $cloudy;
+      border-bottom: 15px solid transparent;
+    }
+    nav#mail-tabs {
+      display: flex;
+      width: 700px;
+      ul {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        width: 616px;
+        height: 24px;
+        text-align: center;
+        margin: 0 auto;
+        padding: 1px;
+        li {
+          position: relative;
+          height: 20px;
+          letter-spacing: 2px;
+          color: white;
+          width: 200px;
+          padding: 1px;
+          cursor: pointer;
+          margin: 0 .5px;
+          background-color: $semi-transparent-green;
+          &:hover {
+            background-color: $link-blue;
+          }
+        }
+        li#inbox {
+          &:before {
+            position: absolute;
+            top: 10px;
+            left: -11px;
+            content: '';
+            border-left: 5px solid transparent;
+            border-right: 5px solid $semi-transparent-green;
+            border-top: 5px solid $semi-transparent-green;
+            border-bottom: 5px solid transparent;
+          }
+          .square {
+            position: absolute;
+            top: 0;
+            left: -11px;
+            width: 10px;
+            height: 10px;
+            background-color: $semi-transparent-green;
+          }
+        }
+        li#sent {
+
+        }
+        li#trash {
+          &:after {
+            position: absolute;
+            top: 10px;
+            right: -11px;
+            content: '';
+            border-right: 5px solid transparent;
+            border-left: 5px solid $semi-transparent-green;
+            border-top: 5px solid $semi-transparent-green;
+            border-bottom: 5px solid transparent;
+          }
+          .square {
+            position: absolute;
+            top: 0;
+            right: -11px;
+            width: 10px;
+            height: 10px;
+            background-color: $semi-transparent-green;
+          }
+        }
+
+      }
+    }
+  }
+  #right {
+    background-color: transparent;
+  }
+}
+
+#compose-btn-container {
+  width: 100%;
+  height: 40px;
+  background-color: $cloudy;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  #compose-btn {
+    width: 400px;
+    height: 24px;
+    line-height: 6px;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    background-color: $semi-transparent-green;
+  }
+}

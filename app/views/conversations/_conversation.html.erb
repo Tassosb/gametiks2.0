@@ -1,0 +1,30 @@
+<div class="media">
+  <div class="media-left">
+    <% @sender = conversation.originator %>
+    <a href="/users/<%= @sender.id %>">
+      <%= @sender.avatar.present? ?
+        image_tag(@sender.avatar.url(:square), id: 'avatar-img', class: 'media-object') :
+        image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg", class: 'media-object') %>
+    </a>
+    <a href="/conversations/<%= conversation.id %>"
+      class="view-message-btn"
+      id="<%= conversation.is_read?(current_user) ? 'read' : 'unread' %>" >
+      VIEW
+    </a>
+    <%#= link_to "VIEW", conversation_path(conversation), class: 'view-message-btn' %>
+  </div>
+  <div>
+
+  </div>
+  <div class="media-body">
+    <div class="media-heading">
+      <h4><%= @sender.name %><small> <%=  conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small></h4>
+      <span class='subheader'><%= conversation.subject %></span>
+    </div>
+
+    <div class='truncated-body'>
+      <%= truncate conversation.messages.last.body, length: 145 %>
+    </div>
+
+  </div>
+</div>

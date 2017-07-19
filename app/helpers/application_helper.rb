@@ -16,4 +16,7 @@ module ApplicationHelper
     link_to title, {:sort => column, :direction => direction}
   end
 
+  def active_page(active_page)
+    @active == active_page ? "active" : ""
+  end
 end

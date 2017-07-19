@@ -8,8 +8,8 @@
             <li id='contacts'>
               Contacts <i class="fa fa-user-circle" aria-hidden="true"></i>
             </li>
-              <li id='messenger'>
-                Messenger <i class="fa fa-commenting" aria-hidden="true"></i>
+              <li id='mailbox'>
+                <%= link_to "Mailbox", mailbox_inbox_path %>
               </li>
               <li id="profile">
                 <a href='/users/<%= current_user.id %>'>Profile <i class="fa fa-user" aria-hidden="true"></i></a>

@@ -81,7 +81,7 @@
 #                 state: "ME",
 #                 zipcode: "04915")
 
-User.delete_all
+# User.delete_all
 
 Badge.create!(title: 'gamer',
               image: 'https://s3.amazonaws.com/gametiks/images/badges/gamer.jpg')
