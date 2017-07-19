@@ -2,17 +2,22 @@
     <% message = receipt.message %>
     <div class="media">
       <div class="media-left">
-        <a href="#">
-          <img class="media-object" src="http://placehold.it/64x64" alt="...">
+        <% @sender = conversation.originator %>
+        <a href="/users/<%= @sender.id %>">
+          <%= @sender.avatar.present? ?
+            image_tag(@sender.avatar.url(:square), id: 'avatar-img', class: 'media-object') :
+            image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg", class: 'media-object') %>
         </a>
       </div>
       <div class="media-body">
-        <h4 class="media-heading">
-          <%= message.sender.name %> <br>
-          <small><b>Subject: </b><%= message.subject %></small><br>
-          <small><b>Date: </b><%=  message.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small>
+        <div class="media-heading">
+          <h4><%= @sender.name %><small> <%=  conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small></h4>
+          <span class='subheader'><%= conversation.subject %></span>
+        </div>
         </h4>
-        <%= message.body %>
+        <div class='full-body'>
+          <%= message.body %>
+        </div>
       </div>
     </div>
 <% end %>

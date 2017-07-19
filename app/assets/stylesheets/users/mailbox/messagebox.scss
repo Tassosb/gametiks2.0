@@ -1,147 +1,147 @@
-@import '../../variables';
-
-.messagebox-active {
-  right: 0 !important;
-}
-
-#messagebox-handle {
-  position: absolute;
-  display: flex;
-  justify-content: flex-end;
-  left: -30px;
-  top: 30px;
-  height: 110px;
-  padding: 2px;
-  width: 30px;
-  background-color: $handle-gray;
-  border-top: 10px solid $side-panel;
-  border-bottom: 10px solid $side-panel;
-  cursor: pointer;
-  #vertical-line {
-    position: relative;
-    margin-right: 3px;
-    border-right: 1px solid rgba(170, 170, 170, .6);
-    height: 100%;
-  }
-  &:before {
-    content: '';
-    position: absolute;
-    top: -40px;
-    right: 0;
-    width: 0;
-    height: 0;
-    border-right: 15px solid $side-panel;
-    border-bottom: 15px solid $side-panel;
-    border-top: 15px solid transparent;
-    border-left: 15px solid transparent;
-  }
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: -40px;
-    right: 0;
-    width: 0;
-    height: 0;
-    border-right: 15px solid $side-panel;
-    border-top: 15px solid $side-panel;
-    border-bottom: 15px solid transparent;
-    border-left: 15px solid transparent;
-  }
-}
-
-#messagebox-container {
-  display: none;
-  width: 260px;
-  height: 300px;
-  position: absolute;
-  padding: 6px;
-  top: 324px;
-  right: -250px;
-  z-index: 90;
-  background-color: $side-panel;
-  box-shadow: -2px 0 50px rgba(50, 50, 50, .2);
-  header#messages-header {
-    cursor: pointer;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: $water-blue-transparent;
-    height: 30px;
-    border-bottom: 1px solid $logger-gray;
-    .fa {
-      margin-left: 3px;
-    }
-  }
-  #message-list-container {
-    position: relative;
-    overflow-x: hidden;
-    border-radius: 3px;
-    color: $gray-dark;
-    font-size: 14px;
-    line-height: 20px;
-    width: 100%;
-    height: 260px;
-    background-color: transparent;
-    overflow: -moz-scrollbars-none;
-    border-radius: 3px;
-    #messages {
-      position: absolute;
-      left: -10px;
-      overflow: -moz-scrollbars-none;
-      overflow-x: hidden;
-      overflow-y: scroll;
-      width: 270px;
-      transform: translateX(10px);
-      ul {
-        width: 100%;
-        padding: 2px;
-        li {
-          height: 40px;
-          border-bottom: 1px solid $logger-gray;
-        }
-      }
-    }
-  }
-  &:before {
-    width: 0;
-    height: 0;
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -20px;
-    border-left: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-top: 10px solid $handle-gray;
-    border-right: 10px solid $handle-gray;
-  }
-  &:after {
-    height: 20px;
-    background-color: $handle-gray;
-    width: 270px;
-    position: absolute;
-    border-radius: 0 0 5px 0;
-    bottom: -20px;
-    left: 20px;
-    content: '';
-
-  }
-}
-
-#message-list-container::-webkit-scrollbar {
-  display: none;
-  width: 0 !important;
-}
-
-// CONVERSATION BOX
-.conversation-container {
-  position: fixed;
-  bottom: 0;
-  right: 300px;
-  width: 280px;
-  height: 340px;
-  background-color: $side-panel;
-  .conversation-box {
-
-  }
-}
+// @import '../../variables';
+//
+// .messagebox-active {
+//   right: 0 !important;
+// }
+//
+// #messagebox-handle {
+//   position: absolute;
+//   display: flex;
+//   justify-content: flex-end;
+//   left: -30px;
+//   top: 30px;
+//   height: 110px;
+//   padding: 2px;
+//   width: 30px;
+//   background-color: $handle-gray;
+//   border-top: 10px solid $side-panel;
+//   border-bottom: 10px solid $side-panel;
+//   cursor: pointer;
+//   #vertical-line {
+//     position: relative;
+//     margin-right: 3px;
+//     border-right: 1px solid rgba(170, 170, 170, .6);
+//     height: 100%;
+//   }
+//   &:before {
+//     content: '';
+//     position: absolute;
+//     top: -40px;
+//     right: 0;
+//     width: 0;
+//     height: 0;
+//     border-right: 15px solid $side-panel;
+//     border-bottom: 15px solid $side-panel;
+//     border-top: 15px solid transparent;
+//     border-left: 15px solid transparent;
+//   }
+//   &:after {
+//     content: '';
+//     position: absolute;
+//     bottom: -40px;
+//     right: 0;
+//     width: 0;
+//     height: 0;
+//     border-right: 15px solid $side-panel;
+//     border-top: 15px solid $side-panel;
+//     border-bottom: 15px solid transparent;
+//     border-left: 15px solid transparent;
+//   }
+// }
+//
+// #messagebox-container {
+//   display: none;
+//   width: 260px;
+//   height: 300px;
+//   position: absolute;
+//   padding: 6px;
+//   top: 324px;
+//   right: -250px;
+//   z-index: 90;
+//   background-color: $side-panel;
+//   box-shadow: -2px 0 50px rgba(50, 50, 50, .2);
+//   header#messages-header {
+//     cursor: pointer;
+//     width: 100%;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     color: $water-blue-transparent;
+//     height: 30px;
+//     border-bottom: 1px solid $logger-gray;
+//     .fa {
+//       margin-left: 3px;
+//     }
+//   }
+//   #message-list-container {
+//     position: relative;
+//     overflow-x: hidden;
+//     border-radius: 3px;
+//     color: $gray-dark;
+//     font-size: 14px;
+//     line-height: 20px;
+//     width: 100%;
+//     height: 260px;
+//     background-color: transparent;
+//     overflow: -moz-scrollbars-none;
+//     border-radius: 3px;
+//     #messages {
+//       position: absolute;
+//       left: -10px;
+//       overflow: -moz-scrollbars-none;
+//       overflow-x: hidden;
+//       overflow-y: scroll;
+//       width: 270px;
+//       transform: translateX(10px);
+//       ul {
+//         width: 100%;
+//         padding: 2px;
+//         li {
+//           height: 40px;
+//           border-bottom: 1px solid $logger-gray;
+//         }
+//       }
+//     }
+//   }
+//   &:before {
+//     width: 0;
+//     height: 0;
+//     content: '';
+//     position: absolute;
+//     left: 0;
+//     bottom: -20px;
+//     border-left: 10px solid transparent;
+//     border-bottom: 10px solid transparent;
+//     border-top: 10px solid $handle-gray;
+//     border-right: 10px solid $handle-gray;
+//   }
+//   &:after {
+//     height: 20px;
+//     background-color: $handle-gray;
+//     width: 270px;
+//     position: absolute;
+//     border-radius: 0 0 5px 0;
+//     bottom: -20px;
+//     left: 20px;
+//     content: '';
+//
+//   }
+// }
+//
+// #message-list-container::-webkit-scrollbar {
+//   display: none;
+//   width: 0 !important;
+// }
+//
+// // CONVERSATION BOX
+// .conversation-container {
+//   position: fixed;
+//   bottom: 0;
+//   right: 300px;
+//   width: 280px;
+//   height: 340px;
+//   background-color: $side-panel;
+//   .conversation-box {
+//
+//   }
+// }

@@ -1,4 +1,4 @@
-<%= form_for :conversation, url: :conversations, html: { class: "" } do |f| %>
+<%= form_for :conversation, url: :conversations, html: { id: "new-conversation-form" } do |f| %>
     <div class="form-group">
       <%= f.label :recipients %>
       <%= f.select(:recipients, current_user.contacts.collect {|p| [ p.name, p.id ] }, {}, { multiple: true , class: "chosen-select form-control" })%>

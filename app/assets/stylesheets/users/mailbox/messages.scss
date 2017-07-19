@@ -7,7 +7,6 @@
   min-height: 500px;
   margin-top: 20px;
   margin-bottom: 20px;
-
   #messages {
     background-color: $transparent-gray;
     border: 2px solid $transparent-gray;
@@ -17,6 +16,7 @@
     justify-content: center;
     align-items: flex-start;
     box-shadow: 2px 2px 10px $transparent-black;
+    padding: 0;
     .media {
       background-color: $dark-green-transparent;
       box-shadow: inset 0 0 30px 5px $transparent-gray;
@@ -28,14 +28,45 @@
         padding: 2px;
         display: flex;
         justify-content: space-around;
-        width: 70px;
-        height: 100px;
+        width: 80px;
+        height: auto;
         flex-wrap: wrap;
         float: left;
         .media-object {
           border-radius: 100%;
         }
-
+        .trash-btn {
+          background-color: transparent;
+          width: 20px;
+          height: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: $gametiks-green;
+          background-color: rgba(230, 229, 228, 0.4);
+          border-radius: 3px;
+          margin-top: 5px;
+        }
+        .untrash-btn {
+          width: 70px;
+          height: 20px;
+          background-color: rgba(230, 229, 228, 0.4);
+          color: $gametiks-green;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 5px;
+          border-radius: 3px;
+        }
+        .view-message-btn {
+          padding-left: 10px;
+          padding-right: 10px;
+          margin-top: 5px;
+          height: 20px;
+          color: $gametiks-green;
+          border-radius: 3px;
+          line-height: 21px;
+        }
       }
       .media-body {
         .media-heading {
@@ -68,14 +99,8 @@
   }
 }
 
-.view-message-btn {
-  padding-left: 10px;
-  padding-right: 10px;
-  height: 20px;
-  color: $gametiks-green;
-  border-radius: 3px;
-  margin-top: 8px;
-  line-height: 21px;
+.message-list {
+  padding: 0;
 }
 
 #read {
@@ -83,4 +108,40 @@
 }
 #unread {
   background-color: $gametiks-orange;
+}
+
+.reply-panel {
+  padding: 10px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  textarea {
+    box-shadow: 0 0 5px $gametiks-gray;
+    border-radius: 5px;
+    background-color: $transparent-gray;
+    color: white;
+  }
+  textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
+    border: 1px solid $gametiks-gray;
+    box-shadow: 0 0 5px $gametiks-gray;
+    border-radius: 5px;
+    background-color: $transparent-gray;
+    color: white;
+  }
+}
+
+.full-body {
+  font-weight: 200;
+  margin-left: 10px;
+}
+
+#new-conversation-form {
+  position: relative;
+  display: block;
+  width: 100% !important;
+  height: 100%;
+  padding: 10px;
+  input {
+    width: 500px;
+  }
 }

@@ -62,7 +62,7 @@
         text-align: center;
         margin: 0 auto;
         padding: 1px;
-        li {
+        a {
           position: relative;
           height: 20px;
           letter-spacing: 2px;
@@ -76,7 +76,7 @@
             background-color: $link-blue;
           }
         }
-        li#inbox {
+        a#inbox {
           &:before {
             position: absolute;
             top: 10px;
@@ -96,10 +96,10 @@
             background-color: $semi-transparent-green;
           }
         }
-        li#sent {
+        a#sent {
 
         }
-        li#trash {
+        a#trash {
           &:after {
             position: absolute;
             top: 10px;

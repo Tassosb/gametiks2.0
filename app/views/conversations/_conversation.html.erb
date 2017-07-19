@@ -6,12 +6,21 @@
         image_tag(@sender.avatar.url(:square), id: 'avatar-img', class: 'media-object') :
         image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg", class: 'media-object') %>
     </a>
-    <a href="/conversations/<%= conversation.id %>"
-      class="view-message-btn"
-      id="<%= conversation.is_read?(current_user) ? 'read' : 'unread' %>" >
-      VIEW
-    </a>
-    <%#= link_to "VIEW", conversation_path(conversation), class: 'view-message-btn' %>
+    <% if !conversation.is_trashed?(current_user) %>
+      <a href="/conversations/<%= conversation.id %>"
+        class="view-message-btn"
+        id="<%= conversation.is_read?(current_user) ? 'read' : 'unread' %>" >
+        VIEW
+      </a>
+    <% end %>
+    <% if conversation.is_trashed?(current_user) %>
+        <%= link_to 'RESCUE', untrash_conversation_path(conversation), class: 'untrash-btn', method: :post %>
+    <% else %>
+        <%= link_to trash_conversation_path(conversation), class: 'trash-btn', method: :post,
+                    data: {confirm: 'Are you sure?'} do %>
+                    <i class="fa fa-trash-o"></i>
+                    <% end %>
+    <% end %>
   </div>
   <div>
 
