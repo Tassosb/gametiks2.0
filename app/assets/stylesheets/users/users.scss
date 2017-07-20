@@ -1,7 +1,7 @@
 @import '../variables';
 
 .fixed-height {
-  height: 780px;
+  height: 820px;
 }
 
 .harvest-catalog {
@@ -32,11 +32,4 @@
   .harvest_category {
     background-color: $gametiks-green;
   }
-}
-
-#switchable-window {
-  position: relative;
-  width: 100%;
-  height: 470px;
-  overflow: hidden;
 }

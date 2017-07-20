@@ -1,8 +1,6 @@
 
 <div id='side-panel'>
   <%= render partial: "contacts" %>
-  <%#= render partial: "messagebox" %>
-  <%= render partial: "conversationbox" %>
 </div>
 
 <div class='container-fluid background-main fixed-height'>
@@ -12,39 +10,10 @@
       <%= render partial: "user_plate" %>
     </div>
   </div>
-
   <div class='row'>
-    <div id='styled-separator-container-top'>
-      <div id='left'></div>
-      <div id='center'>
-        <nav id='user-records'>
-          <ul>
-            <li id='map-tab'>
-              MAP
-              <div class='square'></div>
-            </li>
-            <li id='tiks-tab'>
-              TIKS
-            </li>
-            <li id='badges-tab'>
-              BADGES
-              <div class='square'></div>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <div id='right'></div>
-    </div>
+    <%= render partial: "user_nav" %>
   </div>
-  <div id='switchable-window'>
-    <%= render partial: "harvest_inspector" %>
-    <div class='row'>
-      <%= render partial: "maps/user_map" %>
-      <%= render partial: "tiks" %>
-      <%= render partial: "badges" %>
-    </div>
-  </div>
-
+  <%= render partial: "switchable_window" %>
 </div>
 <%= render partial: "logbook" %>
 

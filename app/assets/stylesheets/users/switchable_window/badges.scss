@@ -1,4 +1,4 @@
-@import '../variables';
+@import '../../variables';
 
 #badges-container {
   width: 100%;
@@ -7,7 +7,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
   #badges {
     height: 430px;
     width: 750px;

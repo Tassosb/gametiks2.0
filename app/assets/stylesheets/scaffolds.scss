@@ -6,12 +6,13 @@
  }
 
 body {
+  width: 100%;
   overflow-x: hidden;
   position: relative;
   display: block;
   min-height: calc(100vh - 200px);
   color: #000;
-  font-family: sans-serif, helvetica;
+  font-family: 'open-sans-regular', sans-serif, helvetica;
   font-size: 13px;
   line-height: 18px;
 }
@@ -23,9 +24,13 @@ ul,li { list-style-type: none;
       }
 
 p, ol, ul, td {
-  font-family: sans-serif, helvetica;
+  font-family: 'open-sans-bold', sans-serif, helvetica;
   font-size: 13px;
   line-height: 18px;
+}
+
+p {
+  line-height: 22px;
 }
 
 pre {

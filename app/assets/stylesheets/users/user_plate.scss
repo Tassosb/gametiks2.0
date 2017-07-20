@@ -95,6 +95,8 @@
   }
 }
 
+// outer wrapper
+
 .user-plate-container {
   width: 100%;
   height: 260px;
@@ -105,7 +107,7 @@
   position: relative;
   .user-plate {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     margin: 5px 50px 0 50px;
     padding: 10px;
     #avatar {
@@ -117,7 +119,6 @@
       height: 220px;
       background-color: $gray-green;
       border-radius: 100%;
-      margin-right: 10px;
       i.middle-middle {
         position: absolute;
         left: 70px;
@@ -168,7 +169,7 @@
 
 
     #user-info {
-      width: 300px;
+      min-width: 300px;
       #name-container {
         position: relative;
         margin-top: 2px;
@@ -176,11 +177,8 @@
         width: 100%;
         border-bottom: 1px solid $transparent-gray;
         background-color: $dark-green-transparent;
-        background: -webkit-radial-gradient($gametiks-green, $gametiks-green, $gray-green, $gray-green);
-        background: -o-radial-gradient($gametiks-green, $gametiks-green, $gray-green, $gray-green);
-        background: -moz-radial-gradient($gametiks-green, $gametiks-green, $gray-green, $gray-green);
-        background: radial-gradient($gametiks-green, $gametiks-green, $gray-green, $gray-green);
         text-align: center;
+        box-shadow: inset 0 0 30px 5px $transparent-gray;
         padding: 3px;
         h2 {
           color: white;
@@ -196,24 +194,21 @@
           font-size: 0;
           width: 0;
           height: 0;
-          border-bottom: 10px solid transparent;
-          border-top: 10px solid $dark-green-transparent;
-          border-left: 10px solid $dark-green-transparent;
-          border-right: 10px solid transparent;
+          border-bottom: 12px solid transparent;
+          border-top: 12px solid $dark-green-transparent;
+          border-left: 12px solid $dark-green-transparent;
+          border-right: 12px solid transparent;
           position: absolute;
-          top: 20px;
-          right: -20px;
+          top: 16px;
+          right: -24px;
         }
         #square-additive-right {
-          width: 10px;
-          height: 10px;
-          font-size: 0;
-          line-height: 0;
-          content: '';
-          border: 10px solid $dark-green-transparent;
+          width: 24px;
+          height: 24px;
+          background-color: $dark-green-transparent;
           position: absolute;
-          top: 0;
-          right: -20px;
+          top: -8px;
+          right: -24px;
         }
         &:before {
           content: '';
@@ -221,24 +216,21 @@
           font-size: 0;
           width: 0;
           height: 0;
-          border-bottom: 10px solid transparent;
-          border-top: 10px solid $dark-green-transparent;
-          border-right: 10px solid $dark-green-transparent;
-          border-left: 10px solid transparent;
+          border-bottom: 12px solid transparent;
+          border-top: 12px solid $dark-green-transparent;
+          border-right: 12px solid $dark-green-transparent;
+          border-left: 12px solid transparent;
           position: absolute;
-          top: 20px;
-          left: -20px;
+          top: 16px;
+          left: -24px;
         }
         #square-additive-left {
-          width: 10px;
-          height: 10px;
-          font-size: 0;
-          line-height: 0;
-          content: '';
-          border: 10px solid $dark-green-transparent;
+          width: 24px;
+          height: 24px;
+          background-color: $dark-green-transparent;
           position: absolute;
-          top: 0;
-          left: -20px;
+          top: -8px;
+          left: -24px;
         }
       }
 
@@ -356,7 +348,6 @@
     #user-level {
       height: 100%;
       width: 220px;
-      margin-left: 10px;
       background: none;
       background: -webkit-radial-gradient(white, transparent, transparent);
       background: -o-radial-gradient(white, transparent, transparent);

@@ -1,5 +1,16 @@
 <div id='user-map-container'>
-  <div id="user-map"></div>
+  <div id='map-harvest-inspector-container' class='col-lg-8 col-md-9 col-sm-10'>
+    <div id='harvest-inspector'></div>
+    <div id='filter-btn-container'>
+      <div id='filter-user' class='filter-btn'>
+        MEMBER HARVESTS
+      </div>
+      <div id='filter-all' class='filter-btn'>
+        ALL HARVESTS
+      </div>
+    </div>
+    <div id="user-map" >
+    </div>
 
   <script>
     var map;
@@ -69,8 +80,12 @@
               title: 'title'
           });
           attachInfo(marker, userHarvests[i]);
-        };
 
+          // grab the latest user marker or someone elses if none exist
+          if (i == userHarvests.length - 1) {
+            google.maps.event.trigger(marker, 'click');
+          };
+        };
 
       map.addListener('idle', function() {
         reloadCommunityMarkers();
@@ -106,7 +121,11 @@
               shape: shape
             });
             attachInfo(marker, communityHarvests[i]);
+            if (i == communityHarvests.length - 1 && $('#harvest-inspector').empty()) {
+              google.maps.event.trigger(marker, 'click');
+            };
           };
+
         };
       };
 
@@ -135,18 +154,10 @@
       "<img class='avatar' src=" + avatarUrl + ">"+
       "<a id='user-link' href=" + `/users/${userId}` + ">" + `${harvestOwner.name}` + "</a>"+
       "<h4>" + weight + "lbs / " + Math.round(weight*0.453592) + "kgs</h4>"+
-      // "<h6>" + date + "</h6>"+
       "<p>" + description + "</p>";
 
-      // var infowindow = new google.maps.InfoWindow({
-      //   content: contentString,
-      //   maxWidth: 350
-      // });
-
       marker.addListener('click', function() {
-        $('#harvest-inspector-container').toggle();
         $('#harvest-inspector').html(contentString);
-        // infowindow.open(marker.get('map'), marker);
       });
     };
 
@@ -158,4 +169,5 @@
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwtrmNvPxpJU6tbz577Ll--lDxDiDLGVg&callback=initMap">
   </script>
+
 </div>

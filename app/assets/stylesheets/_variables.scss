@@ -52,9 +52,18 @@ $red: rgba(255, 51, 0, 1);
 
 // fonts
 @font-face {
-  font-family: 'impact';
-  src: font-url('leaguegothic-regular-webfont.eot');
-  src: font-url('leaguegothic-regular-webfont.eot?#iefix') format('embedded-opentype');
+  font-family: 'open-sans-regular';
+  src: font-url('open_sans/OpenSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'open-sans-semibold';
+  src: font-url('open_sans/OpenSans-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: 'open-sans-bold';
+  src: font-url('open_sans/OpenSans-Bold.ttf');
 }
 
 @font-face {
@@ -68,11 +77,11 @@ $red: rgba(255, 51, 0, 1);
 }
 
 @font-face {
-  font-family: 'share-tech';
-  src: font-url('sharetech/sharetech.ttf');
+  font-family: 'exo2';
+  src: font-url('exo2_medium.ttf');
 }
 
 @font-face {
-  font-family: 'exo2';
-  src: font-url('exo2_medium.ttf');
+  font-family: 'share-tech';
+  src: font-url('sharetech/sharetech.ttf');
 }

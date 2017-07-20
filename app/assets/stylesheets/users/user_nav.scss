@@ -1,7 +1,7 @@
 @import '../variables';
 
 // styled separator with industrial-look
-#styled-separator-container-top {
+#user-nav {
   width: 100%;
   height: 30px;
   display: flex;
@@ -15,8 +15,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    flex-basis: 750px;
+    min-width: 670px;
     background-color: $cloudy;
     position: relative;
     nav#user-records {
@@ -115,49 +114,6 @@
       border-top: 15px solid $cloudy;
       border-right: 15px solid $cloudy;
       border-bottom: 15px solid transparent;
-      border-left: 15px solid transparent;
-    }
-  }
-  #right {
-    background-color: transparent;
-  }
-}
-
-#styled-separator-container-bottom {
-  width: 100%;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  background-color: transparent;
-  position: absolute;
-  top: -30px;
-  #left {
-    background-color: transparent;
-  }
-  #center {
-    position: relative;
-    flex-basis: 750px;
-    background-color: $cloudy;
-    &:after {
-      position: absolute;
-      right: -30px;
-      content: '';
-      width: 0;
-      height: 0;
-      border-top: 15px solid transparent;
-      border-right: 15px solid transparent;
-      border-left: 15px solid $cloudy;
-      border-bottom: 15px solid $cloudy;
-    }
-    &:before {
-      position: absolute;
-      content: '';
-      width: 0;
-      height: 0;
-      left: -30px;
-      border-top: 15px solid transparent;
-      border-right: 15px solid $cloudy;
-      border-bottom: 15px solid $cloudy;
       border-left: 15px solid transparent;
     }
   }
