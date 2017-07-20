@@ -1,7 +1,7 @@
 
 <div id='side-panel'>
   <%= render partial: "contacts" %>
-  <%= render partial: "messagebox" %>
+  <%#= render partial: "messagebox" %>
   <%= render partial: "conversationbox" %>
 </div>
 
@@ -37,6 +37,7 @@
     </div>
   </div>
   <div id='switchable-window'>
+    <%= render partial: "harvest_inspector" %>
     <div class='row'>
       <%= render partial: "maps/user_map" %>
       <%= render partial: "tiks" %>

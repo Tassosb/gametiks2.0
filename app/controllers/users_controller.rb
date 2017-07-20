@@ -10,8 +10,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @harvests = @user.harvests.order(sort_column + " " + sort_direction)
     gon.clear
-    gon.harvests = @user.harvests
-    gon.allHarvests = Harvest.all
+    userHarvests = @user.harvests.includes(:user)
+    gon.harvests = userHarvests.to_json(include: [ :user ])
+    allHarvests = Harvest.includes(:user).all
+    gon.allHarvests = allHarvests.to_json(include: [ :user ])
     gon.userId = @user.id
   end
 

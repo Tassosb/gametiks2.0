@@ -1,4 +1,5 @@
 class HarvestsController < ApplicationController
+  # respond_to :html, :js
 
   def new
     gon.clear
@@ -36,6 +37,9 @@ class HarvestsController < ApplicationController
     else
       render @harvest.errors.full_messages
     end
+  end
+
+  def show
   end
 
   def destroy
