@@ -59,6 +59,8 @@ def count_harvests(user)
     deer: 0,
     bear: 0,
     moose: 0,
+    canine: 0,
+    water_fowl: 0,
     misc: 0
   }
 

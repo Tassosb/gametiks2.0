@@ -1,7 +1,7 @@
 <div class='container-fluid background-harvest-form'>
   <row>
     <div class='harvest-form-container'>
-      <div class='harvest-form'>
+      <div class='harvest-form col-lg-11 col-md-11 col-sm-11 col-12'>
           <%= form_for(@harvest) do |f| %>
             <%= render 'shared/flash_messages' unless flash.empty? %>
             <div class='col-lg-12 heading-container'>
@@ -13,84 +13,89 @@
                 <% end %>
               </div>
             </div>
-            <div class="col-lg-6 section">
-              <div id="tech-label"><h2>Game Type</h2></div>
-              <div class="selectables">
-                <label>
-                  <input type="radio" value="turkey" name="harvest[animal_type]" id="harvest_animal_type_turkey" />
-                  <img src="https://s3.amazonaws.com/gametiks/images/turkey.png">
-                </label>
-                <label>
-                  <input type="radio" value="deer" name="harvest[animal_type]" id="harvest_animal_type_deer" />
-                  <img src="https://s3.amazonaws.com/gametiks/images/deer.png">
-                </label>
-                <label>
-                  <input type="radio" value="moose" name="harvest[animal_type]" id="harvest_animal_type_moose" />
-                  <img src="https://s3.amazonaws.com/gametiks/images/moose.png">
-                </label>
-                <label>
-                  <input type="radio" value="bear" name="harvest[animal_type]" id="harvest_animal_type_bear" />
-                  <img src="https://s3.amazonaws.com/gametiks/images/bear.png">
-                </label>
-                <label>
-                  <input type="radio" value="miscellaneous" name="harvest[animal_type]" id="harvest_animal_type_miscellaneous" />
-                  <img src="https://s3.amazonaws.com/gametiks/images/question_mark.png">
-                </label>
+              <div class="col-lg-12 section">
+                <div id="tech-label"><h2>Game Type</h2></div>
+                <div class="selectables">
+                  <label>
+                    <input type="radio" value="turkey" name="harvest[animal_type]" id="harvest_animal_type_turkey" />
+                    <img src="https://s3.amazonaws.com/gametiks/images/turkey.png">
+                  </label>
+                  <label>
+                    <input type="radio" value="deer" name="harvest[animal_type]" id="harvest_animal_type_deer" />
+                    <img src="https://s3.amazonaws.com/gametiks/images/deer.png">
+                  </label>
+                  <label>
+                    <input type="radio" value="moose" name="harvest[animal_type]" id="harvest_animal_type_moose" />
+                    <img src="https://s3.amazonaws.com/gametiks/images/moose.png">
+                  </label>
+                  <label>
+                    <input type="radio" value="bear" name="harvest[animal_type]" id="harvest_animal_type_bear" />
+                    <img src="https://s3.amazonaws.com/gametiks/images/bear.png">
+                  </label>
+                  <label>
+                    <input type="radio" value="canine" name="harvest[animal_type]" id="harvest_animal_type_canine" />
+                    <img src="https://s3.amazonaws.com/gametiks/images/canine_white.png">
+                  </label>
+                  <label>
+                    <input type="radio" value="water_fowl" name="harvest[animal_type]" id="harvest_animal_type_water_fowl" />
+                    <img src="https://s3.amazonaws.com/gametiks/images/water_fowl_white.png">
+                  </label>
+                  <label>
+                    <input type="radio" value="miscellaneous" name="harvest[animal_type]" id="harvest_animal_type_miscellaneous" />
+                    <img src="https://s3.amazonaws.com/gametiks/images/question_mark.png">
+                  </label>
+                </div>
               </div>
-            </div>
-            <div class="col-lg-6 section">
-              <div id="tech-label"><h2>Weapon Type</h2></div>
-              <div class="selectables">
-                <label>
-                  <input type="radio" value="rifle" name="harvest[weapon_type]" id="harvest_weapon_type_rifle"/>
-                  <img src="https://s3.amazonaws.com/gametiks/images/rifle.png">
-                </label>
-                <label>
-                  <input type="radio" value="shotgun" name="harvest[weapon_type]" id="harvest_weapon_type_shotgun" />
-                  <img src="https://s3.amazonaws.com/gametiks/images/shotgun.png">
-                </label>
-                <label>
-                  <input type="radio" value="pistol" name="harvest[weapon_type]" id="harvest_weapon_type_pistol" />
-                  <img src="https://s3.amazonaws.com/gametiks/images/pistol.png">
-                </label>
-                <label>
-                  <input type="radio" value="bow" name="harvest[weapon_type]" id="harvest_weapon_type_bow" />
-                  <img src="https://s3.amazonaws.com/gametiks/images/bow.png">
-                </label>
+              <div class="col-lg-12 section">
+                <div id="tech-label"><h2>Weapon Type</h2></div>
+                <div class="selectables">
+                  <label>
+                    <input type="radio" value="rifle" name="harvest[weapon_type]" id="harvest_weapon_type_rifle"/>
+                    <img src="https://s3.amazonaws.com/gametiks/images/rifle.png">
+                  </label>
+                  <label>
+                    <input type="radio" value="shotgun" name="harvest[weapon_type]" id="harvest_weapon_type_shotgun" />
+                    <img src="https://s3.amazonaws.com/gametiks/images/shotgun.png">
+                  </label>
+                  <label>
+                    <input type="radio" value="pistol" name="harvest[weapon_type]" id="harvest_weapon_type_pistol" />
+                    <img src="https://s3.amazonaws.com/gametiks/images/pistol.png">
+                  </label>
+                  <label>
+                    <input type="radio" value="bow" name="harvest[weapon_type]" id="harvest_weapon_type_bow" />
+                    <img src="https://s3.amazonaws.com/gametiks/images/bow.png">
+                  </label>
+                </div>
               </div>
-            </div>
             <br>
-          <div class="col-lg-6 section defined-height" id="harvest_details">
-            <div id="tech-label"><h2>Weight (lbs)</h2>
-            </div>
-            <%= f.label 'Weight', class: "sr-only" %><%= f.text_field :weight, class: 'form-control judes-addition' %>
-            <br>
-            <div id="tech-label"><h2>Details (optional)</h2>
-            </div>
-            <%= f.label 'Details (Optional)', class: "sr-only" %><%= f.text_area(:description, :maxlength => 500, rows: 6, class: 'form-control judes-addition') %>
-            <div id="tech-label"><h2>Image Upload</h2>
-            </div>
-            <%= f.label :image, class: "sr-only" %>
-            <%= f.file_field :image%>
-            <br>
-          </div>
-          <br>
-          <div class="col-lg-6 section defined-height"> <div id="tech-label"><h2>Coordinates</h2>
-            </div>
-            <div id='new-harvest-map-container'>
-              <div id="new-harvest-map"><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i></div>
-            </div>
-            <div id="lat-long-fields">
-             <%= f.number_field :latitude, id: :latitude, step: 'any' %>
-             <%= f.number_field :longitude, id: :longitude, step: 'any' %>
-             </div>
-             <br>
-          </div>
-          <br>
+              <div class="col-lg-6 col-md-12 col-sm-12 section defined-height" id="harvest_details">
+                <div id="tech-label"><h2>Weight (lbs)</h2>
+                </div>
+                <%= f.label 'Weight', class: "sr-only" %><%= f.text_field :weight, class: 'form-control judes-addition' %>
+                <br>
+                <div id="tech-label"><h2>Details (optional)</h2>
+                </div>
+                <%= f.label 'Details (Optional)', class: "sr-only" %><%= f.text_area(:description, :maxlength => 500, rows: 6, class: 'form-control judes-addition') %>
+                <div id="tech-label"><h2>Image Upload</h2>
+                </div>
+                <%= f.label :image, class: "sr-only" %>
+                <%= f.file_field :image%>
+                <br>
+              </div>
+              <br>
+              <div class="col-lg-6 col-md-12 col-sm-12 section defined-height"> <div id="tech-label"><h2>Coordinates</h2>
+                </div>
+                <div id='new-harvest-map-container'>
+                  <div id="new-harvest-map"><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i></div>
+                </div>
+                <div id="lat-long-fields">
+                 <%= f.number_field :latitude, id: :latitude, step: 'any' %>
+                 <%= f.number_field :longitude, id: :longitude, step: 'any' %>
+                 </div>
+                 <br>
+              </div>
+              <br>
           <div class='col-lg-6 button-container'>
-            <!-- <button type="submit" class="submit-btn">
-              SAVE HARVEST
-            </button> -->
             <%= button_tag 'SUBMIT', class: 'btn btn-primary',
               data: { disable_with: "<i class='fa fa-refresh fa-spin'>
               </i> Submitting Changes..."} %>
@@ -193,12 +198,6 @@
           markers.push(marker);
         };
 
-        // function initMap(){
-        //   initialize();
-        // };
-
-        // $(document).ready(function(){
-
           function getUserCoordinates() {
             if (navigator.geolocation) {
               navigator.geolocation.getCurrentPosition(setCoords, displayError, { enableHighAccuracy: true });
@@ -206,7 +205,7 @@
           };
 
           function displayError(error) {
-          
+
           }
 
           function setCoords(position) {
@@ -234,9 +233,7 @@
               document.getElementById("longitude").value = userLng;
               initialize();
             };
-          };
-
-        // });
+          };2
 
         </script>
         <script async defer

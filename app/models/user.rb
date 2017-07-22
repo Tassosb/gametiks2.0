@@ -56,18 +56,23 @@ class User < ActiveRecord::Base
   def calc_points
     totalPoints = 0
     harvests.each do |i|
-      if i.animal_type == "bear"
+      case i.animal_type
+      when 'bear'
         totalPoints += (i.weight * 4)
-      elsif i.animal_type == "moose"
+      when 'moose'
         totalPoints += (i.weight * 0.75).round
-      elsif i.animal_type == "turkey"
+      when 'turkey'
         totalPoints += (i.weight * 10)
-      elsif i.animal_type == "deer"
+      when 'deer'
         totalPoints += (i.weight * 4)
+      when 'canine'
+        totalPoints += (i.weight * 6)
+      when 'water_fowl'
+        totalPoints += (i.weight * 12)
       else
-        totalPoints += i.weight
+        totalPoints += (i.weight * 3)
       end
-    end
+    end 
     totalPoints
   end
 
