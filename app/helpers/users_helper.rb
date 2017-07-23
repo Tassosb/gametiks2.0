@@ -16,6 +16,12 @@ module UsersHelper
 
 end
 
+def first_name(user)
+  name = user.name
+  space_index = name.index(' ') - 1
+  name.slice(0..space_index).capitalize
+end
+
 def favorite_weapon(user)
   weapons = {
     rifle: 0,

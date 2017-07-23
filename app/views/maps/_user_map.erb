@@ -2,14 +2,16 @@
   <div id='user-map-container-flex'>
     <div id='map-harvest-inspector-container' class='col-lg-8 col-md-9 col-sm-10 max-width-1000'>
       <div id='harvest-inspector'></div>
-      <!-- <div id='filter-btn-container'>
-        <div id='filter-user' class='filter-btn'>
-          MEMBER HARVESTS
+      <div id='filter-btn-container'>
+        <div class='filter-btn'>
+          <%= first_name(@user).upcase %>'S HARVESTS
+          <img src='http://maps.google.com/mapfiles/ms/icons/red-dot.png' />
         </div>
-        <div id='filter-all' class='filter-btn'>
+        <div class='filter-btn'>
           ALL HARVESTS
+          <img id='flag' src='https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png' />
         </div>
-      </div> -->
+      </div>
       <div id="user-map" ></div>
 
     <script>
