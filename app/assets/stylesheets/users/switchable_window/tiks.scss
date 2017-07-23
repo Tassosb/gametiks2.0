@@ -11,7 +11,8 @@
   justify-content: center;
   align-items: center;
   #tiks {
-    max-height: 430px;
+    border: 5px solid $cloudy;
+    height: 430px;
     min-width: 700px;
     margin: 14px;
     border-radius: 3px;
