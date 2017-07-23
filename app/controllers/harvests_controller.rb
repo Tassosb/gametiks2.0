@@ -5,16 +5,16 @@ class HarvestsController < ApplicationController
     gon.clear
     @user = current_user
     @harvest = Harvest.new
-    gon.userLat = @user.latitude;
-    gon.userLng = @user.longitude;
-    gon.action = 'new';
+    gon.userLat = @user.latitude
+    gon.userLng = @user.longitude
+    gon.action = 'new'
   end
 
   def edit
     gon.clear
     @harvest = Harvest.find(params[:id])
     gon.harvest = @harvest
-    gon.action = 'edit';
+    gon.action = 'edit'
   end
 
   def create
@@ -26,7 +26,7 @@ class HarvestsController < ApplicationController
       redirect_to current_user
     else
       flash[:errors] = @harvest.errors.full_messages
-      render :new
+      render 'new'
     end
   end
 

@@ -73,6 +73,7 @@
 
   </div>
   <div id='user-level'>
-    <img src='https://s3.amazonaws.com/gametiks/images/badges/lev_00.png' id='level-badge'/>
+    <% level = level(@user) %>
+    <%= image_tag "https://s3.amazonaws.com/gametiks/images/badges/lev_#{level}.png", id: 'level-badge' %>
   </div>
 </div>
