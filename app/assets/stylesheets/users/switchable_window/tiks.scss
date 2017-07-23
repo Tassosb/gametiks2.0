@@ -1,46 +1,50 @@
 @import '../../variables';
 
-#tiks-container {
-  width: 100%;
-  height: 470px;
+#tiks-container-block {
+  display: none;
   position: absolute;
-  z-index: 20;
-  left: 100%;
+  left: 0;
   top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  #tiks {
-    border: 5px solid $cloudy;
-    height: 430px;
-    min-width: 700px;
-    margin: 14px;
-    border-radius: 3px;
-    padding: 10px;
-    overflow-y: scroll;
-    background-color: $cloudy;
-    ul {
-      display: flex;
-      justify-content: flex-start;
-      width: 100%;
-      background-color: rgba(220, 220, 220, 1);
-      margin-bottom: 5px;
-      border-radius: 5px;
-      h3 {
-        padding: 0;
-        margin: 0;
-        img {
-          width: 90px;
-          height: 90px;
-          border-radius: 3px 0 0 3px;
-          margin: 5px;
+  width: 100%;
+  height: 100%;
+  #tiks-container-flex {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    #tiks {
+      border: 5px solid $cloudy;
+      height: 460px;
+      min-width: 700px;
+      margin: 14px;
+      border-radius: 3px;
+      padding: 10px;
+      overflow-y: scroll;
+      background-color: $cloudy;
+      ul {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        background-color: rgba(220, 220, 220, 1);
+        margin-bottom: 5px;
+        border-radius: 5px;
+        h3 {
+          padding: 0;
+          margin: 0;
+          img {
+            width: 90px;
+            height: 90px;
+            border-radius: 3px 0 0 3px;
+            margin: 5px;
+          }
         }
-      }
-      li {
-        margin-left: 5px;
-        margin-top: 5px;
-        img {
-          height: 90px;
+        li {
+          margin-left: 5px;
+          margin-top: 5px;
+          img {
+            height: 90px;
+          }
         }
       }
     }

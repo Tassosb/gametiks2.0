@@ -1,36 +1,40 @@
 @import '../../variables';
 
-#badges-container {
+#badges-container-block {
   width: 100%;
-  height: 470px;
+  height: 100%;
+  display: none;
   position: absolute;
-  left: 200%;
   top: 0;
-  z-index: 20;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  #badges {
-    background-color: $cloudy;
-    height: 430px;
-    margin: 14px;
-    border: 5px solid $cloudy;
-    border-radius: 3px;
-    overflow-y: scroll;
-  }
-  ul {
-    height: 100%;
+  left: 0;
+  #badges-container-flex {
     width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    li {
-      background-color: rgb(220, 220, 220);
+    #badges {
+      background-color: $cloudy;
+      height: 460px;
+      margin: 14px;
+      border: 5px solid $cloudy;
       border-radius: 3px;
-      margin: 3px;
-      width: 110px;
-      height: 110px;
+      overflow-y: scroll;
+    }
+    ul {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      li {
+        background-color: rgb(220, 220, 220);
+        border-radius: 3px;
+        margin: 3px;
+        width: 110px;
+        height: 110px;
+      }
     }
   }
 }

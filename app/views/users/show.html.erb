@@ -24,21 +24,21 @@
 
     // auto load windows
     $('#map-tab').click(function(){
-      $("#user-map-container").css("left", "0");
-      $("#tiks-container").css("left", "100%");
-      $("#badges-container").css("left", "200%");
+      $("#user-map-container-block").show();
+      $("#tiks-container-block").hide();
+      $("#badges-container-block").hide();
     });
 
     $("#tiks-tab").click(function(){
-      $("#user-map-container").css("left", "-100%");
-      $("#tiks-container").css("left", "100%");
-      $("#badges-container").css("left", "200%");
+      $("#user-map-container-block").hide();
+      $("#tiks-container-block").show();
+      $("#badges-container-block").hide();
     });
 
     $("#badges-tab").click(function(){
-      $("#user-map-container").css("left", "-200%");
-      $("#tiks-container").css("left", "-100%");
-      $("#badges-container").css("left", "200%");
+      $("#user-map-container-block").hide();
+      $("#tiks-container-block").hide();
+      $("#badges-container-block").show();
     })
 
     var avatarForm = document.getElementById(`edit_user_${userId}`);

@@ -1,173 +1,175 @@
-<div id='user-map-container'>
-  <div id='map-harvest-inspector-container' class='col-lg-8 col-md-9 col-sm-10'>
-    <div id='harvest-inspector'></div>
-    <div id='filter-btn-container'>
-      <div id='filter-user' class='filter-btn'>
-        MEMBER HARVESTS
-      </div>
-      <div id='filter-all' class='filter-btn'>
-        ALL HARVESTS
-      </div>
-    </div>
-    <div id="user-map" >
-    </div>
+<div id='user-map-container-block'>
+  <div id='user-map-container-flex'>
+    <div id='map-harvest-inspector-container' class='col-lg-8 col-md-9 col-sm-10 max-width-1000'>
+      <div id='harvest-inspector'></div>
+      <!-- <div id='filter-btn-container'>
+        <div id='filter-user' class='filter-btn'>
+          MEMBER HARVESTS
+        </div>
+        <div id='filter-all' class='filter-btn'>
+          ALL HARVESTS
+        </div>
+      </div> -->
+      <div id="user-map" ></div>
 
-  <script>
-    var map;
-    var harvests = JSON.parse(gon.harvests);
+    <script>
+      var map;
+      var harvests = JSON.parse(gon.harvests);
 
-    var latestHarvest = {created_at: ''};
-    harvests.forEach(function(harvest) {
-      if (harvest.created_at > latestHarvest.created_at) {
-        latestHarvest = harvest;
-      };
-    });
-
-    var userLat;
-    var userLng;
-
-    // Use to center map by 1) latest harvest or 2) current user position
-    if (harvests.length > 0) {
-      userLat = parseFloat(latestHarvest.latitude);
-      userLng = parseFloat(latestHarvest.longitude);
-    } else {
-      userLat = <%= current_user.latitude || 44 %>;
-      userLng = <%= current_user.longitude || -69 %>;
-    };
-
-    function initialize() {
-      map = new google.maps.Map(document.getElementById('user-map'), {
-        center: {lat: userLat, lng: userLng},
-        zoom: 8,
-        mapTypeId: 'terrain',
-        styles: [
-          {
-            featureType: 'landscape',
-            stylers: [
-              { saturation: -50 }
-            ]
-          },{
-            featureType: 'water',
-            stylers: [
-              { hue: '#174a67' },
-              { saturation: 50 },
-              { lightness: -80 }
-            ]
-          },{
-            featureType: 'road',
-            elementType: 'geometry',
-            stylers: [
-              { hue: '#00ffee' },
-              { saturation: 50 }
-            ]
-          },{
-            featureType: 'poi',
-            elementType: 'labels',
-            stylers: [
-              { visibility: 'off' }
-            ]
-          }
-        ]
-      });
-
-      var userId = gon.userId;
-      var userHarvests = JSON.parse(gon.harvests);
-      for(var i = 0; i < userHarvests.length; i++) {
-          var marker = new google.maps.Marker({
-              position: new google.maps.LatLng(userHarvests[i].latitude, userHarvests[i].longitude),
-              map: map,
-              animation: google.maps.Animation.DROP,
-              title: 'title'
-          });
-          attachInfo(marker, userHarvests[i]);
-
-          // grab the latest user marker or someone elses if none exist
-          if (i == userHarvests.length - 1) {
-            google.maps.event.trigger(marker, 'click');
-          };
+      var latestHarvest = {created_at: ''};
+      harvests.forEach(function(harvest) {
+        if (harvest.created_at > latestHarvest.created_at) {
+          latestHarvest = harvest;
         };
-
-      map.addListener('idle', function() {
-        reloadCommunityMarkers();
       });
 
-      function reloadCommunityMarkers() {
-        var allHarvests = gon.allHarvests;
-        allHarvests = JSON.parse(allHarvests);
-        var communityHarvests = allHarvests.filter(function(harvest) {
-          return harvest.user_id !== userId;
+      var userLat;
+      var userLng;
+
+      // Use to center map by 1) latest harvest or 2) current user position
+      if (harvests.length > 0) {
+        userLat = parseFloat(latestHarvest.latitude);
+        userLng = parseFloat(latestHarvest.longitude);
+      } else {
+        userLat = <%= current_user.latitude || 44 %>;
+        userLng = <%= current_user.longitude || -69 %>;
+      };
+
+      function initialize() {
+        map = new google.maps.Map(document.getElementById('user-map'), {
+          center: {lat: userLat, lng: userLng},
+          zoom: 8,
+          mapTypeId: 'terrain',
+          styles: [
+            {
+              featureType: 'landscape',
+              stylers: [
+                { saturation: -50 }
+              ]
+            },{
+              featureType: 'water',
+              stylers: [
+                { hue: '#174a67' },
+                { saturation: 50 },
+                { lightness: -80 }
+              ]
+            },{
+              featureType: 'road',
+              elementType: 'geometry',
+              stylers: [
+                { hue: '#00ffee' },
+                { saturation: 50 }
+              ]
+            },{
+              featureType: 'poi',
+              elementType: 'labels',
+              stylers: [
+                { visibility: 'off' }
+              ]
+            }
+          ]
         });
-        for (var i = 0; i < communityHarvests.length; i++) {
 
-          var image = {
-                    url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-                    // This marker is 20 pixels wide by 32 pixels high.
-                    size: new google.maps.Size(20, 32),
-                    // The origin for this image is (0, 0).
-                    origin: new google.maps.Point(0, 0),
-                    // The anchor for this image is the base of the flagpole at (0, 32).
-                    anchor: new google.maps.Point(0, 32)
-                  };
-          var shape = {
-            coords: [1, 1, 1, 20, 18, 20, 18, 1],
-            type: 'poly'
-          };
-
-          if (inBounds(communityHarvests[i].latitude, communityHarvests[i].longitude)) {
+        var userId = gon.userId;
+        var userHarvests = JSON.parse(gon.harvests);
+        for(var i = 0; i < userHarvests.length; i++) {
             var marker = new google.maps.Marker({
-              position: new google.maps.LatLng(communityHarvests[i].latitude, communityHarvests[i].longitude),
-              map: map,
-              icon: image,
-              shape: shape
+                position: new google.maps.LatLng(userHarvests[i].latitude, userHarvests[i].longitude),
+                map: map,
+                animation: google.maps.Animation.DROP,
+                title: 'title'
             });
-            attachInfo(marker, communityHarvests[i]);
-            if (i == communityHarvests.length - 1 && $('#harvest-inspector').empty()) {
+            attachInfo(marker, userHarvests[i]);
+
+            // grab the latest user marker or someone elses if none exist
+            if (i == userHarvests.length - 1) {
               google.maps.event.trigger(marker, 'click');
             };
           };
 
+        map.addListener('idle', function() {
+          reloadCommunityMarkers();
+        });
+
+        function reloadCommunityMarkers() {
+          var allHarvests = gon.allHarvests;
+          allHarvests = JSON.parse(allHarvests);
+          var communityHarvests = allHarvests.filter(function(harvest) {
+            return harvest.user_id !== userId;
+          });
+          for (var i = 0; i < communityHarvests.length; i++) {
+
+            var image = {
+                      url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                      // This marker is 20 pixels wide by 32 pixels high.
+                      size: new google.maps.Size(20, 32),
+                      // The origin for this image is (0, 0).
+                      origin: new google.maps.Point(0, 0),
+                      // The anchor for this image is the base of the flagpole at (0, 32).
+                      anchor: new google.maps.Point(0, 32)
+                    };
+            var shape = {
+              coords: [1, 1, 1, 20, 18, 20, 18, 1],
+              type: 'poly'
+            };
+
+            if (inBounds(communityHarvests[i].latitude, communityHarvests[i].longitude)) {
+              var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(communityHarvests[i].latitude, communityHarvests[i].longitude),
+                map: map,
+                icon: image,
+                shape: shape
+              });
+              attachInfo(marker, communityHarvests[i]);
+              if (i == communityHarvests.length - 1 && $('#harvest-inspector').empty()) {
+                google.maps.event.trigger(marker, 'click');
+              };
+            };
+
+          };
+        };
+
+        function inBounds(lat, lng) {
+          position = {lat: parseFloat(lat), lng: parseFloat(lng)};
+          return map.getBounds().contains(position);
         };
       };
 
-      function inBounds(lat, lng) {
-        position = {lat: parseFloat(lat), lng: parseFloat(lng)};
-        return map.getBounds().contains(position);
+      // format info for clickable markers
+      function attachInfo(marker, harvest) {
+        var imgUrl = harvest.image.thumb.url;
+        var weight = harvest.weight;
+        var description = harvest.description;
+        var date = harvest.created_at.slice(0, 10);
+        var harvestOwner = harvest.user;
+        var userId = harvestOwner.id;
+        var avatarUrl;
+        if (harvestOwner.avatar.url === null) {
+          avatarUrl = 'https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg';
+        } else {
+          avatarUrl = harvestOwner.avatar.square.url;
+        }
+        var contentString =
+        "<img src=" + imgUrl + ">"+
+        "<img class='avatar' src=" + avatarUrl + ">"+
+        "<a id='user-link' href=" + `/users/${userId}` + ">" + `${harvestOwner.name}` + "</a>"+
+        "<h4>" + weight + "lbs / " + Math.round(weight*0.453592) + "kgs</h4>"+
+        "<p>" + description + "</p>";
+
+        marker.addListener('click', function() {
+          $('#harvest-inspector').html(contentString);
+        });
       };
-    };
 
-    // format info for clickable markers
-    function attachInfo(marker, harvest) {
-      var imgUrl = harvest.image.thumb.url;
-      var weight = harvest.weight;
-      var description = harvest.description;
-      var date = harvest.created_at.slice(0, 10);
-      var harvestOwner = harvest.user;
-      var userId = harvestOwner.id;
-      var avatarUrl;
-      if (harvestOwner.avatar.url === null) {
-        avatarUrl = 'https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg';
-      } else {
-        avatarUrl = harvestOwner.avatar.square.url;
+      function initMap(){
+        initialize();
       }
-      var contentString =
-      "<img src=" + imgUrl + ">"+
-      "<img class='avatar' src=" + avatarUrl + ">"+
-      "<a id='user-link' href=" + `/users/${userId}` + ">" + `${harvestOwner.name}` + "</a>"+
-      "<h4>" + weight + "lbs / " + Math.round(weight*0.453592) + "kgs</h4>"+
-      "<p>" + description + "</p>";
 
-      marker.addListener('click', function() {
-        $('#harvest-inspector').html(contentString);
-      });
-    };
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwtrmNvPxpJU6tbz577Ll--lDxDiDLGVg&callback=initMap">
+    </script>
 
-    function initMap(){
-      initialize();
-    }
-
-  </script>
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwtrmNvPxpJU6tbz577Ll--lDxDiDLGVg&callback=initMap">
-  </script>
-
+    </div>
+  </div>
 </div>
