@@ -121,7 +121,7 @@
                 shape: shape
               });
               attachInfo(marker, communityHarvests[i]);
-              if (i == communityHarvests.length - 1 && $('#harvest-inspector').empty()) {
+              if (i === communityHarvests.length - 1 && userHarvests.length === 0) {
                 google.maps.event.trigger(marker, 'click');
               };
             };
