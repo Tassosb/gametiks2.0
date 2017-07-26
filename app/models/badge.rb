@@ -12,6 +12,8 @@ class Badge < ActiveRecord::Base
     all_badges << Badge.find_by_title('Bear Hunter') if harvests.include?('bear')
     all_badges << Badge.find_by_title('Turkey Hunter') if harvests.include?('turkey')
     all_badges << Badge.find_by_title('Moose Hunter') if harvests.include?('moose')
+    all_badges << Badge.find_by_title('Duck Hunter') if harvests.include?('water_fowl')
+    all_badges << Badge.find_by_title('Canine Hunter') if harvests.include?('canine')
     all_badges
   end
 
