@@ -2,19 +2,20 @@ module UsersHelper
 
   # Current user level
   def level(user)
-    totalKills = 0
+    total_kills = 0
     user.harvests.each do
-      totalKills += 1
+      total_kills += 1
     end
 
-    result = 0
-    result = totalKills if totalKills <= 2
-    result = (totalKills/2.0) if totalKills >= 3 && totalKills <= 8
-    result = Math::log(totalKills, 1.6) if totalKills >= 9
-    sprintf '%02d', result.ceil
-  end
+    sum = 0
+    counter = 0
+    while sum < total_kills do
+      counter += 1
+      sum += counter
+    end
 
-end
+    sprintf '%02d', counter
+  end
 
 def first_name(user)
   name = user.name
@@ -53,27 +54,29 @@ def favorite_animal(user)
   end
 end
 
-def rank(user)
-  ordered = User.order(:points)
-  userIndex = ordered.reverse.index(user)
-  userIndex + 1
-end
-
-def count_harvests(user)
-  animals = {
-    turkey: 0,
-    deer: 0,
-    bear: 0,
-    moose: 0,
-    canine: 0,
-    water_fowl: 0,
-    miscellaneous: 0
-  }
-
-  user.harvests.each do |harvest|
-    current_animal = harvest.animal_type.to_sym
-    animals[current_animal] += 1
+  def rank(user)
+    ordered = User.order(:points)
+    userIndex = ordered.reverse.index(user)
+    userIndex + 1
   end
 
-  animals
+  def count_harvests(user)
+    animals = {
+      turkey: 0,
+      deer: 0,
+      bear: 0,
+      moose: 0,
+      canine: 0,
+      water_fowl: 0,
+      miscellaneous: 0
+    }
+
+    user.harvests.each do |harvest|
+      current_animal = harvest.animal_type.to_sym
+      animals[current_animal] += 1
+    end
+
+    animals
+  end
+
 end

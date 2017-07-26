@@ -82,9 +82,10 @@
 #                 zipcode: "04915")
 
 # User.delete_all
+Badge.delete_all
 
-Badge.create!(title: 'gamer',
-              image: 'https://s3.amazonaws.com/gametiks/images/badges/gamer.jpg')
+Badge.create!(title: 'Deer Hunter',
+              image: 'https://s3.amazonaws.com/gametiks/images/badges/first_deer.png')
 
-Badge.create!(title: 'harvester',
-              image: 'https://s3.amazonaws.com/gametiks/images/badges/harvester.jpg')
+Badge.create!(title: 'Bear Hunter',
+              image: 'https://s3.amazonaws.com/gametiks/images/badges/first_bear.jpg')

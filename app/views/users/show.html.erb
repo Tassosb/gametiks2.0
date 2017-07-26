@@ -99,11 +99,11 @@
       </section>
       <section>
         <div class="badges"><h3>BADGES</h3>
-            <% @user.clear_all_badges %>
-          <ul><% @user.load_badges %>
-              <% @user.badges.each do |badge| %>
-              <li><%= image_tag badge.image %></li>
-              <% end %>
+            <%# @user.clear_all_badges %>
+          <ul><%# @user.load_badges %>
+              <%# @user.badges.each do |badge| %>
+              <li><%#= image_tag badge.image %></li>
+              <%# end %>
           </ul>
         </div>
       </section>

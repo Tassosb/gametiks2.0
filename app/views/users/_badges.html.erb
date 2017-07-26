@@ -2,10 +2,10 @@
   <div id='badges-container-flex'>
     <div id='badges' class='col-lg-8 col-md-9 col-sm-10 max-width-1000'>
       <ul>
-      <% 15.times do |badge| %>
-        <li>
+        <% @user.badges.length.times do |i| %>
+        <li><%= image_tag(@user.badges[i].image) %>
         </li>
-      <% end %>
+        <% end %>
       </ul>
     </div>
   </div>
