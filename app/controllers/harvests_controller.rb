@@ -23,7 +23,8 @@ class HarvestsController < ApplicationController
     if @harvest.save
       @harvest.user.save_points
       flash[:success] = "Harvest successfully created"
-      flash[:notice] = "You earned these badges: " + @harvest.reward_badges_if_won
+      badge_titles = @harvest.reward_badges_if_won
+      flash[:notice] = "You earned these badges: " + badge_titles unless badge_titles == nil
       redirect_to current_user
     else
       flash[:errors] = @harvest.errors.full_messages

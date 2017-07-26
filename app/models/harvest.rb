@@ -10,24 +10,25 @@ class Harvest < ActiveRecord::Base
   def reward_badges_if_won
     new_badges = compare_badges
     if new_badges.length == 0
-      return 'None'
+      return
     else
       new_badges.each do |badge|
-        self.user.badges << badge
+        user.award(badge)
       end
+      # return for flash
       return new_badges.map(&:title).join(", ")
     end
   end
 
   def save_points
-    self.user.save_points
+    user.save_points
   end
 
   private
 
   def review_earned_badges
     @earned_badges = []
-    self.user.badges.each do |badge|
+    user.badges.each do |badge|
       @earned_badges << badge
     end
     delete_duplicates
@@ -36,11 +37,11 @@ class Harvest < ActiveRecord::Base
 
   def delete_duplicates
     #  TODO // Not working
-    self.user.badges = self.user.badges.distinct!
+    user.badges = user.badges.distinct!
   end
 
   def compare_badges
-    all_badges = Badge.return_badges(self.user)
+    all_badges = Badge.return_badges(user)
     new_badges = all_badges - @earned_badges
   end
 

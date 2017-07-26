@@ -88,4 +88,4 @@ Badge.create!(title: 'Deer Hunter',
               image: 'https://s3.amazonaws.com/gametiks/images/badges/first_deer.png')
 
 Badge.create!(title: 'Bear Hunter',
-              image: 'https://s3.amazonaws.com/gametiks/images/badges/first_bear.jpg')
+              image: 'https://s3.amazonaws.com/gametiks/images/badges/first_bear.png')

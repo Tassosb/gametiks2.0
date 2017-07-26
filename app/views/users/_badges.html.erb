@@ -6,6 +6,10 @@
         <li><%= image_tag(@user.badges[i].image) %>
         </li>
         <% end %>
+        <% (15 - @user.badges.length).times do |i| %>
+        <li>
+        </li>
+        <% end %>
       </ul>
     </div>
   </div>
