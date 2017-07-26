@@ -81,7 +81,6 @@
 #                 state: "ME",
 #                 zipcode: "04915")
 
-# User.delete_all
 Badge.delete_all
 
 Badge.create!(title: 'Deer Hunter',
@@ -89,3 +88,9 @@ Badge.create!(title: 'Deer Hunter',
 
 Badge.create!(title: 'Bear Hunter',
               image: 'https://s3.amazonaws.com/gametiks/images/badges/first_bear.png')
+
+Badge.create!(title: 'Turkey Hunter',
+              image: 'https://s3.amazonaws.com/gametiks/images/badges/first_turkey.png')
+
+Badge.create!(title: 'Moose Hunter',
+              image: 'https://s3.amazonaws.com/gametiks/images/badges/first_moose.png')
