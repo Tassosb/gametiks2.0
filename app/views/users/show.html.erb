@@ -53,14 +53,14 @@
     var iconOnly = '<i class="fa fa-exclamation-circle fa-2x" aria-hidden="true"></i>';
     if ( innerHTML.trim() !== iconOnly ) {
       $( "#flashbox-container" ).animate({
-        left: '+=192px'
+        left: '+=255px'
       }, 100);
-      setTimeout(retract, 2000);
+      setTimeout(retract, 4000);
     };
 
     function retract(){
       $( "#flashbox-container" ).animate({
-        left: '-=192px'
+        left: '-=255px'
       }, 100);
     };
 
@@ -91,23 +91,3 @@
   });
 
 </script>
-
-
-          <!-- <h4>
-
-          </h4>
-      </section>
-      <section>
-        <div class="badges"><h3>BADGES</h3>
-            <%# @user.clear_all_badges %>
-          <ul><%# @user.load_badges %>
-              <%# @user.badges.each do |badge| %>
-              <li><%#= image_tag badge.image %></li>
-              <%# end %>
-          </ul>
-        </div>
-      </section>
-    </aside>
-    <br>
-
-  </div> -->

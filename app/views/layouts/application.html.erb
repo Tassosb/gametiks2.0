@@ -23,15 +23,10 @@
     <%= render 'layouts/header' %>
     <%= yield %>
     <%= render 'layouts/footer' %>
-    <!-- <audio id="chatAudio"><source src="/sounds/notification.mp3" type="audio/mpeg"></audio> -->
   </body>
 
   <script>
   $(document).ready(function() {
-    $('li#messenger').click(function() {
-      $('#messagebox-container').toggleClass('messagebox-active');
-    })
-
     $('li#contacts').click(function() {
       $('#contacts-container').toggleClass('contacts-active')
     })
