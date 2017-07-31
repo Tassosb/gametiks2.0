@@ -32,11 +32,11 @@ header {
     justify-content: flex-end;
     align-items: center;
     height: 50px;
-    width: 500px;
+    width: 600px;
     color: white;
-    font-family: sans-serif;
     ul.navbar-nav {
       li {
+        font-family: 'open-sans-semibold';
         height: 50px;
         background-color: transparent;
         color: white;
@@ -52,6 +52,8 @@ header {
       li#mailbox {
       }
       li#settings {
+      }
+      li#leaderboard {
       }
     }
   }

@@ -21,7 +21,6 @@ gem 'carrierwave'
 gem 'remotipart'
 gem 'geocoder'
 gem 'gon'
-gem 'paperclip', git: "git://github.com/thoughtbot/paperclip.git"
 gem 'aws-sdk', '~> 2.3'
 gem 'lodash-rails'
 gem 'puma'
@@ -36,8 +35,11 @@ gem 'sendgrid-ruby'
 # authentication
 gem 'devise'
 gem 'omniauth-facebook'
+# messaging
 gem 'mailboxer'
 gem 'chosen-rails'
+
+gem 'will_paginate'
 
 group :development, :test do
   gem 'better_errors'

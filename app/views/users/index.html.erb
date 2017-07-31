@@ -1,10 +1,19 @@
-<% @users.each_with_index do |user, index| %>
-    <tr>
-      <td><%= index +=1 %></td>
-      <td><%= user.name %></td>
-      <td>
-        <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
-                    "data-sid" => current_user.id, "data-rip" => user.id %>
-      </td>
-    </tr>
-<% end %>
+<div id='leaderboard-container'>
+  <div id='leaderboard-header' class='col-sm-12 col-md-10 col-lg-8'>
+    <span>PLACE</span><span>MEMBER</span><span>POINTS</span>
+  </div>
+  <ul id='leaderboard' class='col-sm-12 col-md-10 col-lg-8'>
+    <% @users.each_with_index do |user, index| %>
+        <li>
+          <span class='place'><%= index + 1 %></span>
+          <span class='user-link'>
+            <a href="/users/<%= user.id %>"><%= user.name %></a>
+          </span>
+          <span class='points'><%= sprintf '%06d', user.points %></span>
+        </li>
+    <% end %>
+    <div class='paginate'>
+      <%= will_paginate @users %>
+    </div>
+  </ul>
+</div>

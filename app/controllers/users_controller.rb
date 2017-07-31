@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def index
     gon.clear
-    @users = User.all
+    @users = User.all.order('points DESC').paginate(:page => params[:page], per_page: 1)
   end
 
   def show
