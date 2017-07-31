@@ -11,44 +11,46 @@
 ul#leaderboard {
   font-family: 'open-sans-semibold';
   border-radius: 5px;
-  // border: 1px solid rgb(200, 200, 200);
   margin-bottom: 50px;
   li {
     padding-top: 5px;
     padding-bottom: 5px;
-    text-transform: uppercase;
+    text-transform: capitalize;
     border-bottom: 1px solid rgb(200, 200, 200);
     display: flex;
     justify-content: space-between;
     color: $gray-dark;
     font-size: 16px;
-
     .place {
       font-family: 'share-tech';
       margin-right: 30px;
       margin-left: 5px;
+      display: block;
+      line-height: 30px;
     }
     .user-link {
-      height: 10px;
-      padding-top: 2px;
-      margin-left: 10px;
+      height: 30px;
       position: relative;
-      img {
-        position: absolute;
-        left: -30px;
-        top: -4px;
-        border-radius: 100%;
-        height: 26px;
-      }
+      padding: 6px;
+      padding-left: 25px;
+      text-align: center;
       a {
-        font-family: 'teko-light';
-        font-size: 24px;
         color: $gray-dark;
+        position: relative;
+        img {
+          position: absolute;
+          left: -32px;
+          top: -2px;
+          border-radius: 100%;
+          height: 26px;
+        }
       }
     }
     .points {
       font-family: 'share-tech';
       margin-right: 5px;
+      display: block;
+      line-height: 30px;
     }
   }
 

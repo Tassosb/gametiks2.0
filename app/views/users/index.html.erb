@@ -7,10 +7,12 @@
           <li>
             <span class='place'><%= @users.offset + index + 1 %></span>
             <span class='user-link'>
-              <%= user.avatar.present? ?
-                image_tag(user.avatar.url(:square), id: 'avatar-img') :
-                image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg") %>
-              <a href="/users/<%= user.id %>"><%= user.name %></a>
+              <a href="/users/<%= user.id %>">
+                <%= user.avatar.present? ?
+                  image_tag(user.avatar.url(:square), id: 'avatar-img') :
+                  image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg") %>
+                <%= user.name %>
+              </a>
             </span>
             <span class='points'><%= sprintf '%06d', user.points %></span>
           </li>
