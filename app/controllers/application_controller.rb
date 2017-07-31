@@ -11,7 +11,11 @@ class ApplicationController < ActionController::Base
  end
 
  def conversation
-    @conversation ||= mailbox.conversations.find(params[:id])
-  end
+   @conversation ||= mailbox.conversations.find(params[:id])
+ end
+
+ def require_login
+   redirect_to user_session_url unless current_user
+ end
 
 end

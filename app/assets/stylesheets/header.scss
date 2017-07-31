@@ -26,32 +26,65 @@ header {
   background-color: $gametiks-green;
   height: 50px;
   border-bottom: 2px solid $gray;
+  min-width: 600px;
   nav {
     float: right;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
     height: 50px;
-    width: 600px;
-    color: white;
-    ul.navbar-nav {
+    width: 400px;
+    ul.nav-links {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      font-family: 'open-sans-semibold';
       li {
-        font-family: 'open-sans-semibold';
-        height: 50px;
-        background-color: transparent;
         color: white;
+        display: inline;
+        line-height: 46px;
+        padding: 0 8px;
+        white-space: nowrap;
+        text-transform: uppercase;
+        height: 46px;
+        background-color: transparent;
         cursor: pointer;
+        &:hover {
+          background-color: $gray-50;
+        }
         .fa {
           margin: 0 2px;
+          display: inline;
+        }
+        a {
+          display: block;
+          width: 100%;
+          height: 50px;
+          margin: 0;
+          color: white;
         }
       }
-      li#contacts {
-        height: 100%;
-        padding: 16px;
-      }
-      li#mailbox {
-      }
-      li#settings {
+      li#user-dropdown {
+        ul.dropdown-menu {
+          border: none;
+          background-color: $side-panel;
+          width: 100%;
+          li {
+            width: 100%;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            a {
+              color: $gray-dark;
+              padding-top: 6px;
+              width: 100%;
+              height: 100%;
+              text-align: center;
+            }
+          }
+        }
       }
       li#leaderboard {
       }

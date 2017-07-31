@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
   helper_method :sort_column, :sort_direction
+  before_filter :require_login, except: :index
 
   def index
     gon.clear
-    @users = User.all.order('points DESC').paginate(:page => params[:page], per_page: 1)
+    @users = User.all.order('points DESC').paginate(:page => params[:page], per_page: 50)
   end
 
   def show
