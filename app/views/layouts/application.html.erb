@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- hold user id for chat -->
-    <meta content='<%= user_signed_in? ? current_user.id : "" %>' name='user-id'/>
+    <%= favicon_link_tag %>
 
     <title><%= full_title(yield(:title)) %></title>
     <%= stylesheet_link_tag 'application', media: 'all',
@@ -16,6 +15,7 @@
 
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>
+
   </head>
 
   <body>
