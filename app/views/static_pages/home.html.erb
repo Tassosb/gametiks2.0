@@ -12,12 +12,14 @@
     </div>
 
   </div>
-  <div class='row signup-buttons-container'>
-    <div class='gt-btn-container'>
-      <a class='gt-btn email' href='/users/sign_up'>SIGN UP WITH EMAIL<i class="fa fa-envelope fa-3x" aria-hidden="true"></i></a>
-    </div>
-    <div class='gt-btn-container'>
-      <a class='gt-btn' href='/users/auth/facebook'>CONTINUE WITH FACEBOOK<i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
+  <div class='row'>
+    <div class='signup-buttons-container'>
+      <div class='gt-btn-container'>
+        <a class='gt-btn email' href='/users/sign_up'>SIGN UP WITH EMAIL<i class="fa fa-envelope fa-3x" aria-hidden="true"></i></a>
+      </div>
+      <div class='gt-btn-container'>
+        <a class='gt-btn' href='/users/auth/facebook'>CONTINUE WITH FACEBOOK<i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
+      </div>
     </div>
   </div>
 </div>
@@ -28,22 +30,11 @@
         <p>CONNECT WITH HUNTERS IN THE COMMUNITY</p>
       </div>
     </div>
-      <%= render partial: 'sampled_users' %>
-
   </div>
-</div>
-<div class='container-fluid'>
   <div class='row'>
-    <!-- <div class='elevator-pitch-container'>
-      <div class='elevator-pitch'>
-        <p>Gametiks enables members to log their harvests,
-          earn points and badges,
-          and connect with other hunting enthusiasts from around the world.</p>
-      </div>
-    </div> -->
+    <%= render partial: 'sampled_users' %>
   </div>
 </div>
-
 <div class='container-fluid'>
   <div class='row'>
     <div class='elevator-pitch-container'>
@@ -51,6 +42,8 @@
         <p>AND EXPLORE HARVESTS AROUND THE GLOBE</p>
       </div>
     </div>
+  </div>
+  <div class='row'>
     <%= render partial: 'maps/main_map' %>
   </div>
 </div>
