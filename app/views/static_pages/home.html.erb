@@ -1,5 +1,5 @@
 
-<div class='container-fluid background-main'>
+<div class='container-fluid splash-main'>
   <div class='row title-container'>
 
     <% flash.each do |message_type, message| %>
@@ -19,5 +19,21 @@
     <div class='gt-btn-container'>
       <a class='gt-btn' href='/users/auth/facebook'>CONTINUE WITH FACEBOOK<i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
     </div>
+  </div>
+</div>
+<div class='container-fluid'>
+  <div class='row'>
+    <div id='elevator-pitch-container'>
+      <div id='elevator-pitch'>
+        <p>Gametiks enables members to log their harvests,
+          earn points and badges,
+          and connect with other hunting enthusiasts from around the world.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='container-fluid'>
+  <div class='row'>
+    <%= render partial: 'maps/main_map' %>
   </div>
 </div>

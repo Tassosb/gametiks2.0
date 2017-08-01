@@ -1,0 +1,144 @@
+<div id='main-map-container'>
+    <div id='map-harvest-inspector-container'>
+      <div id='harvest-inspector' class='col-xs-5 col-sm-4 col-md-3'></div>
+      <div id="main-map" class='col-xs-7 col-sm-8 col-md-9'></div>
+
+    <script>
+      var map;
+      var allHarvests = JSON.parse(gon.allHarvests);
+
+      var latestHarvest = {created_at: ''};
+      allHarvests.forEach(function(harvest) {
+        if ((latestHarvest == {created_at: ''}) || (harvest.created_at > latestHarvest.created_at)) {
+          latestHarvest = harvest;
+        };
+      });
+
+      var userLat;
+      var userLng;
+
+      // Use to center map by 1) latest harvest or 2) default position
+      if (latestHarvest != '') {
+        userLat = parseFloat(latestHarvest.latitude);
+        userLng = parseFloat(latestHarvest.longitude);
+      } else {
+        userLat = 44;
+        userLng = -69;
+      };
+
+      function initialize() {
+        map = new google.maps.Map(document.getElementById('main-map'), {
+          center: {lat: userLat, lng: userLng},
+          zoom: 8,
+          mapTypeId: 'terrain',
+          styles: [
+            {
+              featureType: 'landscape',
+              stylers: [
+                { saturation: -50 }
+              ]
+            },{
+              featureType: 'water',
+              stylers: [
+                { hue: '#174a67' },
+                { saturation: 50 },
+                { lightness: -80 }
+              ]
+            },{
+              featureType: 'road',
+              elementType: 'geometry',
+              stylers: [
+                { hue: '#00ffee' },
+                { saturation: 50 }
+              ]
+            },{
+              featureType: 'poi',
+              elementType: 'labels',
+              stylers: [
+                { visibility: 'off' }
+              ]
+            }
+          ]
+        });
+
+        map.addListener('idle', function() {
+          reloadCommunityMarkers();
+        });
+
+        function reloadCommunityMarkers() {
+          var communityHarvests = allHarvests;
+          for (var i = 0; i < communityHarvests.length; i++) {
+            var image = {
+                      url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                      // This marker is 20 pixels wide by 32 pixels high.
+                      size: new google.maps.Size(20, 32),
+                      // The origin for this image is (0, 0).
+                      origin: new google.maps.Point(0, 0),
+                      // The anchor for this image is the base of the flagpole at (0, 32).
+                      anchor: new google.maps.Point(0, 32)
+                    };
+            var shape = {
+              coords: [1, 1, 1, 20, 18, 20, 18, 1],
+              type: 'poly'
+            };
+
+            if (inBounds(communityHarvests[i].latitude, communityHarvests[i].longitude)) {
+              var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(communityHarvests[i].latitude, communityHarvests[i].longitude),
+                map: map,
+                icon: image,
+                shape: shape
+              });
+              attachInfo(marker, communityHarvests[i]);
+              // display latest harvest
+              if (i == communityHarvests.length - 1) {
+                google.maps.event.trigger(marker, 'click');
+              };
+            };
+
+          };
+        };
+
+        function inBounds(lat, lng) {
+          position = {lat: parseFloat(lat), lng: parseFloat(lng)};
+          return map.getBounds().contains(position);
+        };
+      };
+
+      // format info for clickable markers
+      function attachInfo(marker, harvest) {
+        var imgUrl = harvest.image.thumb.url;
+        var weight = harvest.weight;
+        var description = harvest.description;
+        var date = harvest.created_at.slice(0, 10);
+        var harvestOwner = harvest.user;
+        var userId = harvestOwner.id;
+        var avatarUrl;
+        if (harvestOwner.avatar.url === null) {
+          avatarUrl = 'https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg';
+        } else {
+          avatarUrl = harvestOwner.avatar.square.url;
+        }
+        var contentString =
+        "<img src=" + imgUrl + ">"+
+        "<img class='avatar' src=" + avatarUrl + ">"+
+        "<a id='user-link' href=" + `/users/${userId}` + ">" + `${harvestOwner.name}` + "</a>"+
+        "<h4>" + weight + "lbs / " + Math.round(weight*0.453592) + "kgs</h4>"+
+        "<p>" + description + "</p>";
+
+        marker.addListener('click', function() {
+          $('#harvest-inspector').html(contentString);
+        });
+      };
+
+      function initMap(){
+        initialize();
+      }
+
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwtrmNvPxpJU6tbz577Ll--lDxDiDLGVg&callback=initMap">
+    </script>
+
+    </div>
+</div>
