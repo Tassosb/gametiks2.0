@@ -168,50 +168,55 @@
   padding-top: 20px;
   padding-bottom: 20px;
   background-color: $cloudy;
-  #tallies {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    background-color: $cloudy;
-    ul {
-      margin: 10px;
-      width: 400px;
-      height: 120px;
-      background-color: white;
-      display: flex;
-      justify-content: flex-start;
-      border-radius: 10px;
-      padding: 5px;
-      box-shadow: 1px 1px 10px rgba(150, 150, 150, 0.3);
-      header {
-        img {
-          height: 110px;
-          width: 110px;
-        }
-      }
-      li {
-        img {
-          height: 110px;
-        }
-      }
-    }
-  }
-  #badges {
-    background-color: $cloudy;
-    ul {
+  #tallies-badges {
+    max-width: 900px;
+    margin: 0 auto;
+
+    #tallies {
+      position: relative;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      li {
+      background-color: $cloudy;
+      ul {
         margin: 10px;
+        width: 400px;
         height: 120px;
-        width: 120px;
         background-color: white;
+        display: flex;
+        justify-content: flex-start;
+        border-radius: 10px;
+        padding: 5px;
         box-shadow: 1px 1px 10px rgba(150, 150, 150, 0.3);
-        img {
-          height: 100%;
-          margin: 0 auto;
+        header {
+          img {
+            height: 110px;
+            width: 110px;
+          }
+        }
+        li {
+          img {
+            height: 110px;
+          }
+        }
+      }
+    }
+    #badges {
+      background-color: $cloudy;
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        li {
+          margin: 10px;
+          height: 120px;
+          width: 120px;
+          background-color: white;
+          box-shadow: 1px 1px 10px rgba(150, 150, 150, 0.3);
+          img {
+            height: 100%;
+            margin: 0 auto;
+          }
         }
       }
     }

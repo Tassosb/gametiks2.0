@@ -1,39 +1,41 @@
 <div id='tallies-badges-container'>
   <div class='row'>
-    <div id='tallies' class='col-xs-12 col-md-6'>
-      <% categories = [
-        'https://s3.amazonaws.com/gametiks/images/deer_black.png',
-        'https://s3.amazonaws.com/gametiks/images/turkey_black.png'
-        ] %>
-        <% categories.each do |category| %>
+    <div id='tallies-badges'>
+      <div id='tallies' class='col-xs-12 col-md-6'>
+        <% categories = [
+          'https://s3.amazonaws.com/gametiks/images/deer_black.png',
+          'https://s3.amazonaws.com/gametiks/images/turkey_black.png'
+          ] %>
+          <% categories.each do |category| %>
+            <ul>
+              <header>
+                <%= image_tag(category) %>
+              </header>
+              <% 6.times do %>
+                <li>
+                  <%= image_tag('https://s3.amazonaws.com/gametiks/images/tik_black.png') %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+      </div>
+      <div id='badges' class='col-xs-12 col-md-6'>
+        <% badges = [
+          'https://s3.amazonaws.com/gametiks/images/badges/first_bear.png',
+          'https://s3.amazonaws.com/gametiks/images/badges/first_deer.png',
+          'https://s3.amazonaws.com/gametiks/images/badges/first_turkey.png',
+          'https://s3.amazonaws.com/gametiks/images/badges/first_canine.png',
+          'https://s3.amazonaws.com/gametiks/images/badges/first_moose.png',
+          'https://s3.amazonaws.com/gametiks/images/badges/first_water_fowl.png'
+          ] %>
           <ul>
-            <header>
-              <%= image_tag(category) %>
-            </header>
-            <% 6.times do %>
-              <li>
-                <%= image_tag('https://s3.amazonaws.com/gametiks/images/tik_black.png') %>
-              </li>
-            <% end %>
+          <% badges.each do |badge| %>
+            <li class='badge'>
+              <%= image_tag(badge) %>
+            </li>
+          <% end %>
           </ul>
-        <% end %>
-    </div>
-    <div id='badges' class='col-xs-12 col-md-6'>
-      <% badges = [
-        'https://s3.amazonaws.com/gametiks/images/badges/first_bear.png',
-        'https://s3.amazonaws.com/gametiks/images/badges/first_deer.png',
-        'https://s3.amazonaws.com/gametiks/images/badges/first_turkey.png',
-        'https://s3.amazonaws.com/gametiks/images/badges/first_canine.png',
-        'https://s3.amazonaws.com/gametiks/images/badges/first_moose.png',
-        'https://s3.amazonaws.com/gametiks/images/badges/first_water_fowl.png'
-        ] %>
-        <ul>
-        <% badges.each do |badge| %>
-          <li class='badge'>
-            <%= image_tag(badge) %>
-          </li>
-        <% end %>
-        </ul>
+      </div>
     </div>
   </div>
 </div>
