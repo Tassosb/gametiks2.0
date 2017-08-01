@@ -122,22 +122,45 @@
     }
   }
 }
-
-// PITCH
-#elevator-pitch-container {
+// sampled users
+.sampled-users-container {
   width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+#placeholder {
+  background-color: $gray-green;
+  height: 34px;
+  width: 100%;
+}
+// PITCH
+.elevator-pitch-container {
+  width: 100%;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: $gametiks-green;
-  #elevator-pitch {
-    width: 70%;
+  .elevator-pitch {
+    width: 100%;
     margin: 40px;
+    text-align: center;
+    white-space: nowrap;
     p {
-      font-size: 22px;
-      line-height: 40px;
+      font-size: 42px;
+      line-height: 70px;
+      padding-top: 15px;
       color: white;
-      font-family: 'open-sans-regular';
+      font-family: 'teko-light';
+      letter-spacing: 2px;
     }
   }
+}
+
+.home-plate {
+  height: auto !important;
+  padding: 20px 0 28px 0;
+  position: relative;
+  display: block;
 }

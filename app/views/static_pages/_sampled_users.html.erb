@@ -1,0 +1,84 @@
+<div class='user-plate-container home-plate'>
+  <% @sampled_users.length.times do |i| %>
+    <div id="content-<%= i + 1 %>" class='sampled-users-container'>
+      <div class='user-plate col-sm-10 col-md-9 col-lg-8'>
+        <div id='avatar'>
+          <%= @sampled_users[i].avatar.present? ?
+            image_tag(@sampled_users[i].avatar.url(:square), id: 'avatar-img') :
+            image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg") %>
+        </div>
+        <div id='user-info' class='col-md-6 col-lg-5'>
+          <div id='name-container'>
+            <h2>
+              <a href='/users/<%= @sampled_users[i].id %>'>
+                <%= @sampled_users[i].name.upcase %>
+              </a>
+            </h2>
+            <div id='square-additive-left'></div>
+            <div id='square-additive-right'></div>
+          </div>
+          <div id='user-sub-info'>
+            <h5 id='activated'>Active: <%= @sampled_users[i].created_at %></h5>
+            <% @sampled_users[i].save_points %>
+            <h4>Member Points: <span class='field'><%= @sampled_users[i].formatted_points %></span></h4>
+            <h4>Member Rank: <span class='field'><%= rank(@sampled_users[i]) %></span></h4>
+            <h4>Common Weapon: <span class='field'><%= favorite_weapon(@sampled_users[i]) %></span></h4>
+            <h4>Common Game: <span class='field'><%= favorite_animal(@sampled_users[i]) %></span></h4>
+          </div>
+
+          <% if !current_user %>
+            <div id='upload-btn-container'>
+              <div id='btn-panel'>
+                <div id='placeholder'></div>
+              </div>
+              <div id='square-additive-left'></div>
+              <div id='square-additive-right'></div>
+            </div>
+          <% end %>
+
+          <% if current_user && (current_user != @sampled_users[i]) && (!current_user.contacts.include?(@sampled_users[i])) %>
+            <div id='add-contact-container'>
+              <form class="new_user_contact" id="new_user_contact" enctype="multipart/form-data"
+                action="/user_contacts" accept-charset="UTF-8" method="post">
+                <input name="utf8" type="hidden" value="&#x2713;" />
+                <input type='hidden' name='user_contact[contact_id]' value='<%= @user.id %>' />
+                <input name="authenticity_token" value="<%= form_authenticity_token %>"
+                  type="hidden">
+                <input id='add-contact' type='submit' value='ADD TO CONTACTS'/>
+              </form>
+            </div>
+          <% end %>
+
+          <% if current_user && current_user.contacts.include?(@sampled_users[i]) %>
+            <div id='registered-contact-container'>
+              <div id='affirm-contact'>
+                <div id='square-additive-left'></div>
+                <h3>Added <i class="fa fa-check-circle-o" aria-hidden="true"></i></h3>
+                <div id='square-additive-right'></div>
+              </div>
+            </div>
+          <% end %>
+
+          </div>
+        <div id='user-level'>
+          <% level = level(@sampled_users[i]) %>
+          <%= image_tag "https://s3.amazonaws.com/gametiks/images/badges/lev_#{level}.png", id: 'level-badge' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<script>
+var divs = $('div[id^="content-"]').hide(),
+    i = 0;
+
+(function cycle() {
+    divs.eq(i).fadeIn(400)
+              .delay(5000)
+              .fadeOut(400, cycle);
+
+    i = ++i % divs.length; // increment i,
+                           //   and reset to 0 when it equals divs.length
+})();
+</script>
