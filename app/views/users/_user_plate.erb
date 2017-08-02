@@ -2,7 +2,7 @@
   <div id='avatar'>
     <% if @user == current_user %>
       <button id='rollover-uploader' onclick="document.getElementById('user-avatar').click();">
-        <i class="fa fa fa-arrow-circle-o-up fa-5x" aria-hidden="true"></i>
+        <i class="fa fa fa-arrow-up fa-5x" aria-hidden="true"></i>
         <h3>REPLACE</h3>
         <form class="edit_user" id="edit_user_<%= current_user.id %>" enctype="multipart/form-data"
           action="/users/<%= current_user.id %>" accept-charset="UTF-8" data-remote="true" method="post">
@@ -26,16 +26,16 @@
       <h2>
         <%= @user.name.upcase %>
       </h2>
-      <div id='square-additive-left'></div>
-      <div id='square-additive-right'></div>
+      <!-- <div id='square-additive-left'></div>
+      <div id='square-additive-right'></div> -->
     </div>
     <div id='user-sub-info'>
       <h5 id='activated'>Active: <%= @user.created_at %></h5>
       <% @user.save_points %>
-      <h4>Member Points: <span class='field'><%= @user.formatted_points %></span></h4>
-      <h4>Member Rank: <span class='field'><%= rank(@user) %></span></h4>
-      <h4>Common Weapon: <span class='field'><%= favorite_weapon(@user) %></span></h4>
-      <h4>Common Game: <span class='field'><%= favorite_animal(@user) %></span></h4>
+      <h4><span class='label'>Member Points: </span><span class='field'><%= @user.formatted_points %></span></h4>
+      <h4><span class='label'>Member Rank: </span><span class='field'><%= rank(@user) %></span></h4>
+      <h4><span class='label'>Common Weapon: </span><span class='field'><%= favorite_weapon(@user) %></span></h4>
+      <h4><span class='label'>Common Game: </span><span class='field'><%= favorite_animal(@user) %></span></h4>
     </div>
 
     <% if current_user == @user %>
@@ -43,8 +43,8 @@
         <div id='btn-panel'>
             <%= link_to 'UPLOAD HARVEST', new_harvest_path %>
         </div>
-        <div id='square-additive-left'></div>
-        <div id='square-additive-right'></div>
+        <!-- <div id='square-additive-left'></div>
+        <div id='square-additive-right'></div> -->
       </div>
     <% end %>
 
