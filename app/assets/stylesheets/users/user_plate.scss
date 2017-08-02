@@ -10,70 +10,11 @@
   }
 }
 
-#registered-contact-container {
-  margin-top: 3px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 34px;
-  padding: 0;
-  &:after {
-    content: '';
-    line-height: 0;
-    font-size: 0;
-    width: 0;
-    height: 0;
-    border-top: 17px solid transparent;
-    border-bottom: 17px solid $dark-green-transparent;
-    border-left: 17px solid $dark-green-transparent;
-    border-right: 17px solid transparent;
-    position: absolute;
-    top: 0;
-    right: -34px;
-  }
-  &:before {
-    content: '';
-    line-height: 0;
-    font-size: 0;
-    width: 0;
-    height: 0;
-    border-top: 17px solid transparent;
-    border-bottom: 17px solid $dark-green-transparent;
-    border-right: 17px solid $dark-green-transparent;
-    border-left: 17px solid transparent;
-    position: absolute;
-    top: 0;
-    left: -34px;
-  }
-  #affirm-contact {
-    font-family: 'teko-light';
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    color: $gametiks-green;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    background-color: $dark-green-transparent;
-    box-shadow: inset 0 0 30px 5px $transparent-gray;
-    h3 {
-      text-align: center;
-      font-size: 13px;
-      letter-spacing: 2px;
-      margin: 0;
-      padding: 0;
-    }
-    .fa {
-      font-size: 14px;
-    }
-  }
-}
+
+
+
 
 // outer wrapper
-
 .user-plate-container {
   width: 100%;
   height: 260px;
@@ -122,7 +63,7 @@
         outline: none;
         border-radius: 100%;
         h3 {
-          font-family: 'open-sans-regular';
+          font-family: 'open-sans-bold';
           margin: 0;
         }
         &:hover {
@@ -144,56 +85,68 @@
       }
     }
 
-
+    .ribbon-container {
+      position: relative;
+      display: block;
+      height: 34px;
+      z-index: 10;
+      .ribbon {
+        position: absolute;
+        display: block;
+        height: 34px;
+        width: 100%;
+        text-align: center;
+        background-color: $gray-green-highlight;
+        padding: 3px;
+        &:before, &:after {
+          content: '';
+          border: 17px solid $gray-green-shadow;
+          position: absolute;
+          top: -8px;
+          z-index: -10;
+        }
+        &:before {
+          left: -28px;
+          border-right-width: 1.5em;
+          border-left-color: transparent;
+        }
+        &:after {
+          right: -28px;
+          border-left-width: 1.5em;
+          border-right-color: transparent;
+        }
+        .ribbon-content {
+          &:before, &:after {
+            content: '';
+            border: 4px solid transparent;
+            position: absolute;
+            top: -8px;
+          }
+          &:before {
+            left: 0;
+            border-right: 4px solid $gray-green-dark-shadow;
+            border-bottom: 4px solid $gray-green-dark-shadow;
+          }
+          &:after {
+            right: 0;
+            border-left: 4px solid $gray-green-dark-shadow;
+            border-bottom: 4px solid $gray-green-dark-shadow;
+          }
+        }
+      }
+    }
 
     #user-info {
       min-width: 350px;
       #name-container {
-        position: relative;
-        margin-top: 2px;
-        height: 34px;
-        width: 100%;
-        border-bottom: 1px solid $transparent-gray;
-        background-color: $dark-green-transparent;
-        text-align: center;
-        box-shadow: inset 0 0 30px 5px $transparent-gray;
-        padding: 3px;
         h2 {
           color: white;
           font-family: 'teko-light';
           font-size: 34px;
           width: 100%;
-          height: 34px;
+          height: 100%;
           line-height: 34px;
           overflow: hidden;
-        }
-        &:after {
-          content: '';
-          line-height: 0;
-          font-size: 0;
-          width: 0;
-          height: 0;
-          border-bottom: 17px solid transparent;
-          border-top: 17px solid $gray-green;
-          border-left: 17px solid $gray-green;
-          border-right: 17px solid transparent;
-          position: absolute;
-          top: 0;
-          right: -34px;
-        }
-        &:before {
-          content: '';
-          line-height: 0;
-          font-size: 0;
-          width: 0;
-          height: 0;
-          border-bottom: 17px solid transparent;
-          border-top: 17px solid $gray-green;
-          border-right: 17px solid $gray-green;
-          border-left: 17px solid transparent;
-          position: absolute;
-          top: 0;
-          left: -34px;
         }
       }
 
@@ -238,49 +191,17 @@
           padding-top: 3px;
         }
       }
-      #upload-btn-container {
-        margin-top: 3px;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
+      .btn-container {
         height: 34px;
-        &:after {
-          content: '';
-          line-height: 0;
-          font-size: 0;
-          width: 0;
-          height: 0;
-          border-top: 17px solid transparent;
-          border-bottom: 17px solid $gray-green;
-          border-left: 17px solid $gray-green;
-          border-right: 17px solid transparent;
-          position: absolute;
-          top: 0;
-          right: -34px;
-        }
-        &:before {
-          content: '';
-          line-height: 0;
-          font-size: 0;
-          width: 0;
-          height: 0;
-          border-top: 17px solid transparent;
-          border-bottom: 17px solid $gray-green;
-          border-right: 17px solid $gray-green;
-          border-left: 17px solid transparent;
-          position: absolute;
-          top: 0;
-          left: -34px;
-        }
-        #btn-panel {
+        width: 100%;
+        .btn-panel {
           font-family: 'teko-light';
           display: flex;
           justify-content: center;
           align-items: center;
           width: 100%;
           height: 100%;
+          background-color: $gray-green;
           a {
             width: 100%;
             height: 100%;
@@ -289,10 +210,41 @@
             letter-spacing: 2px;
             line-height: 36px;
             color: white;
-            background-color: $gray-green;
             box-shadow: inset 0 0 30px 5px $transparent-gray;
             &:hover {
               background-color: $link-blue;
+            }
+          }
+          h3 {
+            font-family: 'open-sans-semibold';
+            color: $gametiks-green;
+            text-align: center;
+            font-size: 13px;
+            letter-spacing: 2px;
+            width: 100%;
+            margin: 0;
+          }
+          .fa {
+            font-size: 14px;
+          }
+          form {
+            width: 100%;
+            input#add-contact {
+              height: 34px;
+              width: 100%;
+              background-color: transparent;
+              color: white;
+              font-size: 24px;
+              letter-spacing: 2px;
+              line-height: 33px;
+              color: white;
+              outline: none;
+              border: none;
+              border-radius: 0;
+              margin: 0;
+              &:hover {
+                background-color: $link-blue;
+              }
             }
           }
         }
@@ -312,59 +264,5 @@
         height: 220px;
       }
     }
-  }
-}
-
-#add-contact-container {
-  margin-top: 3px;
-  height: 34px;
-  width: 100%;
-  position: relative;
-  input#add-contact {
-    height: 34px;
-    width: 100%;
-    background-color: transparent;
-    color: white;
-    font-size: 24px;
-    letter-spacing: 2px;
-    line-height: 33px;
-    color: white;
-    outline: none;
-    border: none;
-    font-family: 'teko-light';
-    background-color: $gray-green;
-    box-shadow: inset 0 0 30px 5px $transparent-gray;
-    border-radius: 0;
-    &:hover {
-      background-color: $link-blue;
-    }
-  }
-  &:after {
-    content: '';
-    line-height: 0;
-    font-size: 0;
-    width: 0;
-    height: 0;
-    border-top: 17px solid transparent;
-    border-bottom: 17px solid $dark-green-transparent;
-    border-left: 17px solid $dark-green-transparent;
-    border-right: 17px solid transparent;
-    position: absolute;
-    top: 0;
-    right: -34px;
-  }
-  &:before {
-    content: '';
-    line-height: 0;
-    font-size: 0;
-    width: 0;
-    height: 0;
-    border-top: 17px solid transparent;
-    border-bottom: 17px solid $dark-green-transparent;
-    border-right: 17px solid $dark-green-transparent;
-    border-left: 17px solid transparent;
-    position: absolute;
-    top: 0;
-    left: -34px;
   }
 }

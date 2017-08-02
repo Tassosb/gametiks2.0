@@ -19,14 +19,19 @@
 
   h2, h3, p, label {
     color: white;
+    font-family: 'open-sans-semibold';
   }
 
+  i {
+    font-family: 'open-sans-light';
+    color: white;
+    font-size: 12px;
+  }
   .heading-container {
     display: flex;
     justify-content: center;
     height: 46px;
     background-color: $dark-green-transparent;
-    // box-shadow: inset 2px 2px 30px $transparent-gray;
     margin-bottom: 10px;
 
     .heading {
@@ -61,7 +66,8 @@
       outline: none;
       background-color: $off-white-transparent;
       text-indent: 10px;
-
+      color: $gray-dark;
+      font-family: 'open-sans-semibold';
       &:focus {
         border: 1px solid $gametiks-gray;
         box-shadow: 0 0 5px $gametiks-gray;

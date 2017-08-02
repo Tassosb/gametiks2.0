@@ -7,13 +7,17 @@
             image_tag(@sampled_users[i].avatar.url(:square), id: 'avatar-img') :
             image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg") %>
         </div>
+
+        <!-- Middle Section -->
         <div id='user-info' class='col-md-6 col-lg-5'>
-          <div id='name-container'>
-            <h2>
-              <a href='/users/<%= @sampled_users[i].id %>'>
-                <%= @sampled_users[i].name.upcase %>
-              </a>
-            </h2>
+          <div id='name-container' class='ribbon-container'>
+            <div class='ribbon'>
+              <h2 class='ribbon-content'>
+                <a href='/users/<%= @sampled_users[i].id %>'>
+                  <%= @sampled_users[i].name.upcase %>
+                </a>
+              </h2>
+            </div>
           </div>
           <div id='user-sub-info'>
             <h5 id='activated'>Active: <%= @sampled_users[i].created_at %></h5>
@@ -24,36 +28,34 @@
             <h4><span class='label'>Common Game: </span><span class='field'><%= favorite_animal(@sampled_users[i]) %></span></h4>
           </div>
 
-          <% if !current_user %>
-            <div id='upload-btn-container'>
-              <div id='btn-panel'>
-                <div id='placeholder'></div>
-              </div>
-            </div>
-          <% end %>
+          <div class='btn-container'>
+            <div class='btn-panel'>
+              <% if !current_user %>
+                    <%= link_to 'SIGN UP', new_user_registration_url  %>
+              <% end %>
 
-          <% if current_user && (current_user != @sampled_users[i]) && (!current_user.contacts.include?(@sampled_users[i])) %>
-            <div id='add-contact-container'>
-              <form class="new_user_contact" id="new_user_contact" enctype="multipart/form-data"
-                action="/user_contacts" accept-charset="UTF-8" method="post">
-                <input name="utf8" type="hidden" value="&#x2713;" />
-                <input type='hidden' name='user_contact[contact_id]' value='<%= @sampled_users[i].id %>' />
-                <input name="authenticity_token" value="<%= form_authenticity_token %>"
-                  type="hidden">
-                <input id='add-contact' type='submit' value='ADD TO CONTACTS'/>
-              </form>
-            </div>
-          <% end %>
+              <% if current_user && current_user == @sampled_users[i] %>
+                    <%= link_to 'UPLOAD HARVEST', new_harvest_path %>
+              <% end %>
 
-          <% if current_user && current_user.contacts.include?(@sampled_users[i]) %>
-            <div id='registered-contact-container'>
-              <div id='affirm-contact'>
-                <h3>Added <i class="fa fa-check-circle-o" aria-hidden="true"></i></h3>
-              </div>
-            </div>
-          <% end %>
+              <% if current_user && (current_user != @sampled_users[i]) && (!current_user.contacts.include?(@sampled_users[i])) %>
+                  <form class="new_user_contact" id="new_user_contact" enctype="multipart/form-data"
+                    action="/user_contacts" accept-charset="UTF-8" method="post">
+                    <input name="utf8" type="hidden" value="&#x2713;" />
+                    <input type='hidden' name='user_contact[contact_id]' value='<%= @sampled_users[i].id %>' />
+                    <input name="authenticity_token" value="<%= form_authenticity_token %>"
+                      type="hidden">
+                    <input id='add-contact' type='submit' value='ADD TO CONTACTS'/>
+                  </form>
+              <% end %>
 
+              <% if current_user && current_user.contacts.include?(@sampled_users[i]) %>
+                    <h3>Added <i class="fa fa-check-circle-o" aria-hidden="true"></i></h3>
+              <% end %>
+            </div>
           </div>
+        </div>
+
         <div id='user-level'>
           <% level = level(@sampled_users[i]) %>
           <%= image_tag "https://s3.amazonaws.com/gametiks/images/badges/lev_#{level}.png", id: 'level-badge' %>

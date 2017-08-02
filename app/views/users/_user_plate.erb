@@ -22,12 +22,12 @@
   </div>
 
   <div id='user-info' class='col-md-6 col-lg-5'>
-    <div id='name-container'>
-      <h2>
-        <%= @user.name.upcase %>
-      </h2>
-      <!-- <div id='square-additive-left'></div>
-      <div id='square-additive-right'></div> -->
+    <div id='name-container' class='ribbon-container'>
+      <div class='ribbon'>
+        <h2 class='ribbon-content'>
+          <%= @user.name.upcase %>
+        </h2>
+      </div>
     </div>
     <div id='user-sub-info'>
       <h5 id='activated'>Active: <%= @user.created_at %></h5>
@@ -39,34 +39,32 @@
     </div>
 
     <% if current_user == @user %>
-      <div id='upload-btn-container'>
-        <div id='btn-panel'>
-            <%= link_to 'UPLOAD HARVEST', new_harvest_path %>
-        </div>
-        <!-- <div id='square-additive-left'></div>
-        <div id='square-additive-right'></div> -->
+      <div class='btn-container'>
+          <div class='btn-panel'>
+              <%= link_to 'UPLOAD HARVEST', new_harvest_path %>
+          </div>
       </div>
     <% end %>
 
     <% if current_user != @user && !current_user.contacts.include?(@user)%>
-      <div id='add-contact-container'>
-        <form class="new_user_contact" id="new_user_contact" enctype="multipart/form-data"
-          action="/user_contacts" accept-charset="UTF-8" method="post">
-          <input name="utf8" type="hidden" value="&#x2713;" />
-          <input type='hidden' name='user_contact[contact_id]' value='<%= @user.id %>' />
-          <input name="authenticity_token" value="<%= form_authenticity_token %>"
-            type="hidden">
-          <input id='add-contact' type='submit' value='ADD TO CONTACTS'/>
-        </form>
+      <div class='btn-container'>
+        <div class='btn-panel'>
+          <form class="new_user_contact" id="new_user_contact" enctype="multipart/form-data"
+            action="/user_contacts" accept-charset="UTF-8" method="post">
+            <input name="utf8" type="hidden" value="&#x2713;" />
+            <input type='hidden' name='user_contact[contact_id]' value='<%= @user.id %>' />
+            <input name="authenticity_token" value="<%= form_authenticity_token %>"
+              type="hidden">
+            <input id='add-contact' type='submit' value='ADD TO CONTACTS'/>
+          </form>
+        </div>
       </div>
     <% end %>
 
     <% if current_user.contacts.include?(@user) %>
-      <div id='registered-contact-container'>
-        <div id='affirm-contact'>
-          <div id='square-additive-left'></div>
+      <div class='btn-container'>
+        <div class='btn-panel'>
           <h3>Added <i class="fa fa-check-circle-o" aria-hidden="true"></i></h3>
-          <div id='square-additive-right'></div>
         </div>
       </div>
     <% end %>
