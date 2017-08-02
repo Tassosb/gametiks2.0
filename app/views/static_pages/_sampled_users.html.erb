@@ -37,7 +37,7 @@
               <form class="new_user_contact" id="new_user_contact" enctype="multipart/form-data"
                 action="/user_contacts" accept-charset="UTF-8" method="post">
                 <input name="utf8" type="hidden" value="&#x2713;" />
-                <input type='hidden' name='user_contact[contact_id]' value='<%= @user.id %>' />
+                <input type='hidden' name='user_contact[contact_id]' value='<%= @sampled_users[i].id %>' />
                 <input name="authenticity_token" value="<%= form_authenticity_token %>"
                   type="hidden">
                 <input id='add-contact' type='submit' value='ADD TO CONTACTS'/>
