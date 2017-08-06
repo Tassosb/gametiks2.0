@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   helper_method :sort_column, :sort_direction
   before_filter :require_login, except: :index
-
+  
   def index
     gon.clear
     @users = User.all.order('points DESC').paginate(:page => params[:page], per_page: 50)
@@ -19,15 +19,12 @@ class UsersController < ApplicationController
   end
 
   def new
-    # @user = User.new
   end
 
   def create
-
   end
 
   def destroy
-
   end
 
   def edit

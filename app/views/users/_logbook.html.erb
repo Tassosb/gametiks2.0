@@ -20,30 +20,67 @@
       <div id='logbook'>
         <div id="columns">
         <% @harvests.each do |harvest| %>
-        <div class='log'>
-          <%= image_tag harvest.image.url(:thumb) %>
-          <h5><%= harvest.created_at %></h5>
-          <% if @user == current_user %>
-            <div class='links'>
-              <%= link_to 'Edit', edit_harvest_path(harvest) %>
-              <%= link_to "Delete", harvest_path(harvest), method: :delete, data: { confirm: 'Confirm Delete?' } %>
+          <div class='log'>
+            <%= image_tag harvest.image.url(:thumb) %>
+            <h5><%= harvest.created_at %></h5>
+            <% if @user == current_user %>
+              <div class='links'>
+                <%= link_to 'Edit', edit_harvest_path(harvest) %>
+                <%= link_to "Delete", harvest_path(harvest), method: :delete, data: { confirm: 'Confirm Delete?' } %>
+              </div>
+            <% end %>
+            <hr>
+            <p><%= harvest.description %></p>
+            <hr>
+            <div class='stamps-container'>
+              <div class='stamp'>
+                <%= image_tag("https://s3.amazonaws.com/gametiks/images/#{harvest.weapon_type}_black.png") %>
+              </div>
+              <div class='stamp'>
+                <%= image_tag("https://s3.amazonaws.com/gametiks/images/#{harvest.animal_type}_black.png") %>
+              </div>
             </div>
-          <% end %>
-          <hr>
-          <p><%= harvest.description %></p>
-          <hr>
-          <div class='stamps-container'>
-            <div class='stamp'>
-              <%= image_tag("https://s3.amazonaws.com/gametiks/images/#{harvest.weapon_type}_black.png") %>
+            <div class='comments-container'>
+              <ul id='comments-list-<%= harvest.id %>'>
+               <% harvest.comments.each do |comment| %>
+                <li class='comment'>
+                  <div class='author-img-container'><%= comment.user.avatar.present? ?
+                    image_tag(comment.user.avatar.url(:square), class: 'comment-author-img') :
+                    image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg", class: 'comment-author-img') %>
+                  </div>
+                  <div class='author-name'><%= link_to comment.user.name.upcase, comment.user %></div>
+                  <div><%= comment.body %></div>
+                </li>
+               <% end %>
+              </ul>
             </div>
-            <div class='stamp'>
-              <%= image_tag("https://s3.amazonaws.com/gametiks/images/#{harvest.animal_type}_black.png") %>
-            </div>
+            <%= form_for [harvest, harvest.comments.new], :remote => true do |f| %>
+              <%= f.label :body, "New Comment" %>
+              <%= f.text_area :body %>
+              <p><%= f.submit "Add Comment"%></p>
+            <% end %>
           </div>
-        </div>
         <% end %>
       </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- <script>
+var userId = gon.userId;
+$('#shareBtn').click(function(event) {
+  // var image_url = event.target.children.img.innerText.replace(/\s/g, '');
+  FB.ui({
+    method: 'share',
+    display: 'popup',
+    // picture: `${image_url}`,
+    href: `https://localhost:3000/users/${userId}`,
+  }, function(response){});
+});
+
+$( document ).ready(function() {
+  $('#shareBtn').click();
+})
+
+</script> -->

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170718211728) do
+ActiveRecord::Schema.define(version: 20170806193309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(version: 20170718211728) do
   create_table "badges_users", id: false, force: :cascade do |t|
     t.integer "badge_id"
     t.integer "user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "harvest_id"
+    t.integer "user_id"
+    t.text    "body"
+    t.index ["harvest_id"], name: "index_comments_on_harvest_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
   create_table "harvests", force: :cascade do |t|

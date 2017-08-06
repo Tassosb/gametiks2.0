@@ -1,6 +1,7 @@
 class Harvest < ActiveRecord::Base
   belongs_to :user
-
+  has_many :comments, dependent: :destroy
+  
   # CarrierWave gem uploader
   mount_uploader :image, HarvestUploader
 
