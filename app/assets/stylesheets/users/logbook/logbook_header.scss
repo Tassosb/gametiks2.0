@@ -40,6 +40,133 @@
       border-bottom: 15px solid $cloudy;
       border-left: 15px solid transparent;
     }
+
+    #title-container {
+      position: absolute;
+      top: 10px;
+      width: 400px;
+      height: 40px;
+      background-color: $gray-green;
+      z-index: 1000;
+      &:before {
+        position: absolute;
+        top: 0px;
+        left: -20px;
+        content: '';
+        border-left: 10px solid transparent;
+        border-right: 10px solid $gray-green;
+        border-bottom: 10px solid $gray-green;
+        border-top: 10px solid transparent;
+      }
+      #triangle-left {
+        position: absolute;
+        top: 20px;
+        left: -20px;
+        content: '';
+        border-right: 10px solid $gray-green;
+        border-left: 10px solid transparent;
+        border-top: 10px solid $gray-green;
+        border-bottom: 10px solid transparent;
+      }
+      &:after {
+        position: absolute;
+        top: 0px;
+        right: -20px;
+        content: '';
+        border-right: 10px solid transparent;
+        border-left: 10px solid $gray-green;
+        border-bottom: 10px solid $gray-green;
+        border-top: 10px solid transparent;
+      }
+      #triangle-right {
+        position: absolute;
+        top: 20px;
+        right: -20px;
+        content: '';
+        border-right: 10px solid transparent;
+        border-left: 10px solid $gray-green;
+        border-top: 10px solid $gray-green;
+        border-bottom: 10px solid transparent;
+      }
+      #button-left-container {
+        position: absolute;
+        top: 0;
+        left: -149px;
+        width: 138px;
+        height: 20px;
+        background-color: $gametiks-green;
+        -webkit-transform: skew(-45deg);
+  	    -moz-transform: skew(-45deg);
+  	    -o-transform: skew(-45deg);
+        &:hover {
+          background-color: $link-blue;
+        }
+        #button-left {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 138px;
+          height: 20px;
+          text-align: center;
+          padding: 2px;
+          cursor: pointer;
+          letter-spacing: 2px;
+          overflow: hidden;
+          color: white;
+          -webkit-transform: skew(45deg);
+          -moz-transform: skew(45deg);
+          -o-transform: skew(45deg);
+        }
+      }
+      #button-right-container {
+        position: absolute;
+        top: 0;
+        right: -149px;
+        width: 138px;
+        height: 20px;
+        background-color: $gametiks-green;
+        -webkit-transform: skew(45deg);
+  	    -moz-transform: skew(45deg);
+  	    -o-transform: skew(45deg);
+        &:hover {
+          background-color: $link-blue;
+        }
+        #button-right {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 138px;
+          height: 20px;
+          text-align: center;
+          padding: 2px;
+          cursor: pointer;
+          letter-spacing: 2px;
+          overflow: hidden;
+          color: white;
+          -webkit-transform: skew(-45deg);
+          -moz-transform: skew(-45deg);
+          -o-transform: skew(-45deg);
+        }
+      }
+      #title {
+        h3 {
+          position: absolute;
+          top: -20px;
+          color: white;
+          font-family: 'teko-light';
+          font-size: 34px;
+          width: 100%;
+          height: 40px;
+          padding-top: 3px;
+          letter-spacing: 3px;
+          background: -webkit-radial-gradient($gametiks-green, $gametiks-green, transparent, transparent);
+          background: -o-radial-gradient($gametiks-green, $gametiks-green, transparent, transparent);
+          background: -moz-radial-gradient($gametiks-green, $gametiks-green, transparent, transparent);
+          background: radial-gradient($gametiks-green, $gametiks-green, transparent, transparent);
+        }
+      }
+    }
+
   }
   #right {
     background-color: transparent;
