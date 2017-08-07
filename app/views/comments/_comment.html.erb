@@ -1,9 +1,22 @@
 <li class='comment'>
   <div class='author-img-container'>
+    <% if comment %>
+      <% @comment = comment %>
+    <% end %>
     <%= @comment.user.avatar.present? ?
       image_tag(@comment.user.avatar.url(:square), class: 'comment-author-img') :
       image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg", class: 'comment-author-img') %>
   </div>
-  <div class='author-name'><%= link_to @comment.user.name.upcase, @comment.user %></div>
+  <div id='author-name'><%= link_to @comment.user.name.upcase, @comment.user %>
+    <% if @comment.user == current_user || @user == current_user %>
+      <div class='delete-btn-container'>
+        <%= link_to harvest_comment_path(comment.harvest, comment), method: :delete, id: 'delete', data: {confirm: "Delete this comment?"}, remote: true  do %>
+          <i class="fa fa-times-circle fa-lg" aria-hidden="true"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
   <%= @comment.body %>
+
 </li>

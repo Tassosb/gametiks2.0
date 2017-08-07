@@ -1,0 +1,51 @@
+@import '../../variables';
+
+.comments-container {
+  clear: both;
+}
+
+li.comment {
+  margin-top: 5px;
+  display: block;
+  position: relative;
+  width: 100%;
+  min-height: 55px;
+  border-bottom: 1px solid rgb(200, 200, 200);
+
+  .author-img-container {
+    height: 100%;
+    width: 70px;
+    .comment-author-img {
+      border-radius: 100% !important;
+      width: 50px;
+      height: 50px;
+      float: left;
+    }
+  }
+  #author-name {
+    width: 100%;
+    a {
+      color: $link-blue;
+    }
+    .delete-btn-container {
+      float: right;
+      display: none;
+      a#delete {
+        color: red;
+      }
+    }
+  }
+  &:hover {
+    #author-name .delete-btn-container {
+      display: block;
+    }
+  }
+}
+
+form#new_comment {
+  label {
+    font-weight: 500;
+    font-family: 'open-sans-semibold';
+    color: rgb(80, 80, 80);
+  }
+}

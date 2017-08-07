@@ -8,12 +8,25 @@ class CommentsController < ApplicationController
       respond_to do |format|
         format.html do
           flash[:success] = 'Comment posted.'
-          redirect_to @post
+          redirect_to @harvest.user
         end
-        format.js 
+        format.js
       end
     else
-      redirect_to @harvest.user
+      format.js
+    end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @harvest = @comment.harvest
+    @comment.destroy
+    respond_to do |format|
+      format.html do
+        flash[:success] = 'Comment deleted.'
+        redirect_to @harvest.user
+      end
+      format.js 
     end
   end
 

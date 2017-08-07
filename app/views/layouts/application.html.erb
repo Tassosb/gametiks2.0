@@ -19,27 +19,6 @@
   </head>
 
   <body>
-
-  <script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId            : '312117159238027',
-        autoLogAppEvents : true,
-        xfbml            : true,
-        version          : 'v2.10'
-      });
-      FB.AppEvents.logPageView();
-    };
-
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "//connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-   </script>
-
     <%= include_gon %>
     <%= render 'layouts/header' %>
     <%= yield %>
@@ -47,11 +26,11 @@
   </body>
 
   <script>
-  $(document).ready(function() {
-    $('li#contacts').click(function() {
-      $('#contacts-container').toggleClass('contacts-active')
-    })
-  });
-</script>
+    $(document).ready(function() {
+      $('li#contacts').click(function() {
+        $('#contacts-container').toggleClass('contacts-active')
+      })
+    });
+  </script>
 
 </html>

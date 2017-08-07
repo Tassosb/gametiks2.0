@@ -1,5 +1,4 @@
 var comments_list = $('#comments-list-<%= @comment.harvest.id %>');
 comments_list.append('<%= escape_javascript(render partial: @comment) %>');
-// comments_list.find('div:last-child').addClass('last-comment');
 
 $('#comment_body').val('');

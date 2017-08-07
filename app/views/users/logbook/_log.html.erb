@@ -1,0 +1,34 @@
+<div class='log'>
+  <%= image_tag harvest.image.url(:thumb) %>
+  <h5><%= harvest.created_at %></h5>
+  <% if @user == current_user %>
+    <div class='links'>
+      <%= link_to 'Edit', edit_harvest_path(harvest) %>
+      <%= link_to "Delete", harvest_path(harvest), method: :delete, data: { confirm: 'Confirm Delete?' } %>
+    </div>
+  <% end %>
+  <hr>
+  <p><%= harvest.description %></p>
+  <hr>
+  <div class='stamps-container'>
+    <div class='stamp'>
+      <%= image_tag("https://s3.amazonaws.com/gametiks/images/#{harvest.weapon_type}_black.png") %>
+    </div>
+    <div class='stamp'>
+      <%= image_tag("https://s3.amazonaws.com/gametiks/images/#{harvest.animal_type}_black.png") %>
+    </div>
+  </div>
+  
+  <div class='comments-container'>
+    <ul id='comments-list-<%= harvest.id %>'>
+     <% harvest.comments.each do |comment| %>
+      <%= render 'comments/comment', comment: comment %>
+     <% end %>
+    </ul>
+  </div>
+  <%= form_for [harvest, harvest.comments.new], :remote => true do |f| %>
+    <%= f.label :body, "New Comment" %>
+    <%= f.text_area :body %>
+    <p><%= f.submit "Add Comment"%></p>
+  <% end %>
+</div>
