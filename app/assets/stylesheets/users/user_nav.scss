@@ -20,7 +20,7 @@
     position: relative;
     nav#user-records {
       position: absolute;
-      top: -2px;
+      top: -5px;
       width: 700px;
       height: 100%;
       ul {
@@ -28,7 +28,7 @@
         justify-content: center;
         align-items: flex-start;
         width: 616px;
-        height: 24px;
+        height: 28px;
         text-align: center;
         margin: 0 auto;
         padding: 1px;
@@ -37,9 +37,14 @@
           letter-spacing: 2px;
           color: white;
           width: 200px;
+          height: 100%;
           padding: 1px;
           cursor: pointer;
           margin: 0 .5px;
+          text-align: center;
+          line-height: 24px;
+          font-size: 14px;
+          font-family: 'open-sans-semibold';
           background-color: $semi-transparent-green;
           &:hover {
             background-color: $link-blue;
@@ -49,12 +54,12 @@
           &:before {
             position: absolute;
             top: 0;
-            left: -21px;
+            left: -27px;
             content: '';
-            border-left: 10px solid transparent;
-            border-right: 10px solid $semi-transparent-green;
-            border-top: 10px solid $semi-transparent-green;
-            border-bottom: 10px solid transparent;
+            border-left: 13px solid transparent;
+            border-right: 13px solid $semi-transparent-green;
+            border-top: 13px solid $semi-transparent-green;
+            border-bottom: 13px solid transparent;
           }
         }
         li#tiks-tab {
@@ -64,12 +69,12 @@
           &:after {
             position: absolute;
             top: 0;
-            right: -21px;
+            right: -27px;
             content: '';
-            border-right: 10px solid transparent;
-            border-left: 10px solid $semi-transparent-green;
-            border-top: 10px solid $semi-transparent-green;
-            border-bottom: 10px solid transparent;
+            border-right: 13px solid transparent;
+            border-left: 13px solid $semi-transparent-green;
+            border-top: 13px solid $semi-transparent-green;
+            border-bottom: 13px solid transparent;
           }
         }
       }

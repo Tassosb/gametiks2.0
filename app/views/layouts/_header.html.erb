@@ -1,47 +1,48 @@
-<header class='container-fluid header-main'>
-  <row>
-    <!-- <div class="navbar navbar-inverse limit-width"> -->
-    <div class='navbar limit-width'>
-        <%= link_to "gametiks", root_path, id: "logo" %>
-        <nav>
-          <ul class='nav-links'>
-            <li id='leaderboard'>
-              <a href='/users'>
-                Leaderboard <i class="fa fa-list-ul" aria-hidden="true"></i>
-              </a>
-            </li>
-            <% if user_signed_in? %>
-              <% if controller.controller_name == 'users' && controller.action_name == 'show' %>
-                <li id='contacts'>
-                  Contacts <i class="fa fa-user-circle" aria-hidden="true"></i>
-                </li>
-              <% end %>
-              <li id='mailbox'>
-                <a href='/mailbox/inbox'>
-                  Mailbox <i class="fa fa-envelope" aria-hidden="true"></i>
+<div class='container-fluid'>
+  <div class='row'>
+    <header class='header-main'>
+      <div class='navbar limit-width'>
+          <%= link_to "gametiks", root_path, id: "logo" %>
+          <nav>
+            <ul class='nav-links'>
+              <li>
+                <a href='/users'>
+                  Leaderboard <i class="fa fa-list-ul" aria-hidden="true"></i>
                 </a>
               </li>
+              <% if user_signed_in? %>
+                <% if controller.controller_name == 'users' && controller.action_name == 'show' %>
+                  <li id='contacts'>
+                    Contacts <i class="fa fa-user-circle" aria-hidden="true"></i>
+                  </li>
+                <% end %>
+                <li>
+                  <a href='/mailbox/inbox'>
+                    Mailbox <i class="fa fa-envelope" aria-hidden="true"></i>
+                  </a>
+                </li>
 
-              <li id='user-dropdown' class="dropdown pull-right">
-                <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span><i class='fa fa-user'></i></span><b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a href="/users/<%= current_user.id %>" title="Profile">PROFILE</a>
-                  </li>
-                  <li>
-                    <%= link_to "Settings", edit_user_registration_path %>
-                  </li>
-                  <li>
-                    <%= link_to "LOGOUT", destroy_user_session_url, method: :delete %>
-                  </li>
-                </ul>
-              </li>
+                <li id='user-dropdown' class="dropdown pull-right">
+                  <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span><i class='fa fa-user'></i></span><b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a href="/users/<%= current_user.id %>" title="Profile">PROFILE</a>
+                    </li>
+                    <li>
+                      <%= link_to "Settings", edit_user_registration_path %>
+                    </li>
+                    <li>
+                      <%= link_to "LOGOUT", destroy_user_session_url, method: :delete %>
+                    </li>
+                  </ul>
+                </li>
 
-            <% else %>
-              <li id="login"><%= link_to "Login", new_user_session_url %></li>
-            <% end %>
-          </ul>
-        </nav>
-    </div>
-  </row>
-</header>
+              <% else %>
+                <li id="login"><%= link_to "Login", new_user_session_url %></li>
+              <% end %>
+            </ul>
+          </nav>
+      </div>
+    </header>
+  </div>
+</div>

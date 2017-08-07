@@ -1,10 +1,12 @@
 <div class='container-fluid background-main'>
-  <row>
+  <div class='row'>
     <div class='auth-form-container'>
 
       <div class='auth-form'>
         <div class='heading-container'>
-          <div class='heading'>LOG IN</div>
+          <div class='heading'>
+            LOG IN
+          </div>
         </div>
 
         <%= form_for(:session, url: login_path) do |f| %>
@@ -25,4 +27,7 @@
 
         <p>New user? <%= link_to "Sign up now!", signup_path %></p>
 
+      </div>
+    </div>
+  </div>
 </div>

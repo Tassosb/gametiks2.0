@@ -21,10 +21,11 @@
   position: relative;
   .user-plate {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     margin: 5px 50px 0 50px;
     max-width: 1050px;
     padding: 10px;
+    height: 100%;
     #avatar {
       position: relative;
       display: flex;

@@ -1,24 +1,32 @@
 <div id='leaderboard-container'>
-    <div id='leaderboard-header' class='col-xs-12 col-sm-12 col-md-10 col-lg-8'>
-      <span>RANK</span><span>MEMBER</span><span>POINTS</span>
+    <div class='col-xs-12 col-sm-12 col-md-10 col-lg-8'>
+      <div class='row'>
+        <div id='leaderboard-header'>
+          <span>RANK</span><span>MEMBER</span><span>POINTS</span>
+        </div>
+      </div>
     </div>
-    <ul id='leaderboard' class='col-xs-12 col-sm-12 col-md-10 col-lg-8'>
-      <% @users.each_with_index do |user, index| %>
-          <li>
-            <span class='place'><%= @users.offset + index + 1 %></span>
-            <span class='user-link'>
-              <a href="/users/<%= user.id %>">
-                <%= user.avatar.present? ?
-                  image_tag(user.avatar.url(:square), id: 'avatar-img') :
-                  image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg") %>
-                <%= user.name %>
-              </a>
-            </span>
-            <span class='points'><%= sprintf '%06d', user.points %></span>
-          </li>
-      <% end %>
-      <div class='paginate'>
-        <%= will_paginate @users %>
+    <ul class='col-xs-12 col-sm-12 col-md-10 col-lg-8'>
+      <div class='row'>
+        <div id='leaderboard'>
+          <% @users.each_with_index do |user, index| %>
+              <li>
+                <span class='place'><%= @users.offset + index + 1 %></span>
+                <span class='user-link'>
+                  <a href="/users/<%= user.id %>">
+                    <%= user.avatar.present? ?
+                      image_tag(user.avatar.url(:square), id: 'avatar-img') :
+                      image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg") %>
+                    <%= user.name %>
+                  </a>
+                </span>
+                <span class='points'><%= sprintf '%06d', user.points %></span>
+              </li>
+          <% end %>
+        </div>
+        <div class='paginate'>
+          <%= will_paginate @users %>
+        </div>
       </div>
     </ul>
 </div>

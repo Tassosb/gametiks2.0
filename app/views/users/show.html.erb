@@ -5,15 +5,17 @@
 
 <div class='container-fluid background-main fixed-height'>
   <div class="row">
-    <div class='user-plate-container'>
-      <%= render partial: "flashbox" %>
-      <%= render partial: "user_plate" %>
-    </div>
+      <div class='user-plate-container'>
+        <%= render partial: "flashbox" %>
+        <%= render partial: "user_plate" %>
+      </div>
   </div>
   <div class='row'>
     <%= render partial: "user_nav" %>
   </div>
-  <%= render partial: "switchable_window" %>
+  <div class='row'>
+    <%= render partial: "switchable_window" %>
+  </div>
 </div>
 <%= render partial: "users/logbook/logbook" %>
 

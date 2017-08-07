@@ -7,11 +7,12 @@
   flex-direction: column;
   min-height: calc(100vh - 120px);
   width: 100%;
+  background-color: white;
 }
-ul#leaderboard {
+ul #leaderboard {
   font-family: 'open-sans-semibold';
   border-radius: 5px;
-  margin-bottom: 50px;
+  margin: 10px 20px 50px 20px;
   li {
     padding-top: 5px;
     padding-bottom: 5px;
