@@ -6,14 +6,21 @@
       <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
 
-    <div class='main-logo-container'>
-      <div class='title'></div>
+    <div class='title-container col-xs-12 col-md-6'>
+        <img src='https://s3.amazonaws.com/gametiks/images/gametiks_logo.png' class='title'/>
       <div class='subtitle'></div>
     </div>
 
-  </div>
-  <div class='row'>
-    <div class='signup-buttons-container'>
+    <!-- Display different buttons based on screen type -->
+
+    <div id='sign-up-btns-mobile-container' class='visible-xs'>
+      <div class='flex'>
+        <a href='/users/sign_up' class='main-btn-mobile gametiks-gradient-warm'>SIGN UP WITH EMAIL</a>
+        <a href='/users/auth/facebook' class='main-btn-mobile gametiks-gradient-warm'>CONTINUE WITH FACEBOOK</a>
+      </div>
+    </div>
+
+    <div id='sign-up-buttons-container' class='col-sm-12 hidden-xs'>
       <div class='gt-btn-container'>
         <a class='gt-btn email' href='/users/sign_up'>SIGN UP WITH EMAIL<i class="fa fa-envelope fa-3x" aria-hidden="true"></i></a>
       </div>
@@ -21,11 +28,13 @@
         <a class='gt-btn' href='/users/auth/facebook'>CONTINUE WITH FACEBOOK<i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
       </div>
     </div>
+
+
   </div>
 </div>
 <div class='container-fluid'>
   <div class='row'>
-    <div class='elevator-pitch-container'>
+    <div class='elevator-pitch-container col-xs-12'>
       <div class='elevator-pitch'>
         <p>TRACK AND TALLY YOUR HARVESTS</p>
       </div>

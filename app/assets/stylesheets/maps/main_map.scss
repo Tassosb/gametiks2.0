@@ -16,12 +16,20 @@
      margin: 0;
      max-width: 1100px;
      margin: 0 auto;
-     #harvest-inspector {
-       height: 480px;
-     }
      #main-map {
        height: 480px;
        border: 10px solid $side-panel;
+     }
+   }
+   // mobile
+   @media (max-width: 768px) {
+     #map-harvest-inspector-container {
+       flex-direction: column;
+       width: 100%;
+       #main-map {
+         height: 300px;
+         border: 8px solid rgb(244, 244, 244);
+       }
      }
    }
  }

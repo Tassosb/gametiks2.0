@@ -2,14 +2,14 @@
   <% @sampled_users.length.times do |i| %>
     <div id="content-<%= i + 1 %>" class='sampled-users-container'>
       <div class='user-plate col-sm-10 col-md-9 col-lg-8'>
-        <div id='avatar'>
+        <div id='avatar' class='hidden-xs'>
           <%= @sampled_users[i].avatar.present? ?
             image_tag(@sampled_users[i].avatar.url(:square), id: 'avatar-img') :
             image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg") %>
         </div>
 
         <!-- Middle Section -->
-        <div id='user-info' class='col-md-6 col-lg-5'>
+        <div id='user-info' class='col-xs-12 col-sm-8 col-md-6 col-lg-5'>
           <div id='name-container' class='ribbon-container'>
             <div class='ribbon'>
               <h2 class='ribbon-content'>
@@ -56,7 +56,7 @@
           </div>
         </div>
 
-        <div id='user-level'>
+        <div id='user-level' class='hidden-xs'>
           <% level = level(@sampled_users[i]) %>
           <%= image_tag "https://s3.amazonaws.com/gametiks/images/badges/lev_#{level}.png", id: 'level-badge' %>
         </div>

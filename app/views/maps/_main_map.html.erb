@@ -1,7 +1,7 @@
 <div id='main-map-container'>
     <div id='map-harvest-inspector-container'>
       <div id='harvest-inspector' class='col-xs-5 col-sm-4 col-md-3'></div>
-      <div id="main-map" class='col-xs-7 col-sm-8 col-md-9'></div>
+      <div id="main-map" class='col-xs-12 col-sm-8 col-md-9'></div>
 
     <script>
       var map;
@@ -122,7 +122,10 @@
         var contentString =
         "<img src=" + imgUrl + ">"+
         "<img class='avatar' src=" + avatarUrl + ">"+
-        "<a id='user-link' href=" + `/users/${userId}` + ">" + `${harvestOwner.name}` + "</a>"+
+        "<a id='user-link' href=" + `/users/${userId}` + ">" +
+        "<img class='avatar-mobile visible-xs' src=" + avatarUrl + ">"+
+        "<h3>" + `${harvestOwner.name}` + "</h3>" +
+        "</a>"+
         "<h4>" + weight + "lbs / " + Math.round(weight*0.453592) + "kgs</h4>"+
         "<p>" + description + "</p>";
 
