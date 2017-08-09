@@ -288,12 +288,20 @@
 
 // for mobile
 
+// fix for discrepancy between sampled_users and user_pages
+
 #bubble-spacer {
-  height: 100px;
+  height: 120px;
   width: 100%;
   display: block;
   background-color: $cloudy;
   position: relative;
+}
+.adjust-y-pos {
+  top: -100px !important;
+}
+.adjust-bubble-height {
+  height: 105px !important;
 }
 #bubble-images-container-block {
   height: 100px;

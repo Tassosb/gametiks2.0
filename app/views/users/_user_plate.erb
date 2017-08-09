@@ -1,5 +1,21 @@
-<div class='user-plate col-sm-10 col-md-9 col-lg-8'>
-    <div id='avatar'>
+<div id='bubble-images-container-block' class='visible-xs adjust-y-pos'>
+  <div id='bubble-images-container-flex'>
+    <div id='centered-div' class='col-xs-8'>
+      <div id='left-img-container'>
+        <%= avatar_img = @user.avatar.present? ?
+          image_tag(@user.avatar.url(:square), id: 'avatar-img-mobile') :
+          image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg", id: 'avatar-img-mobile') %>
+      </div>
+      <div id='right-img-container'>
+        <% level = level(@user) %>
+        <%= image_tag "https://s3.amazonaws.com/gametiks/images/badges/lev_#{level}.png", id: 'level-badge-mobile' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class='user-plate col-xs-8 col-sm-10 col-md-9 col-lg-8' >
+    <div id='avatar' class='hidden-xs'>
       <% if @user == current_user %>
         <button id='rollover-uploader' onclick="document.getElementById('user-avatar').click();">
           <i class="fa fa fa-arrow-up fa-5x" aria-hidden="true"></i>
@@ -21,7 +37,7 @@
         image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg") %>
     </div>
 
-    <div id='user-info' class='col-md-6 col-lg-5'>
+    <div id='user-info' class='col-xs-12 col-md-6 col-lg-5'>
       <div id='name-container' class='ribbon-container'>
         <div class='ribbon'>
           <h2 class='ribbon-content'>
@@ -70,7 +86,7 @@
       <% end %>
     </div>
 
-    <div id='user-level'>
+    <div id='user-level' class='hidden-xs'>
       <% level = level(@user) %>
       <%= image_tag "https://s3.amazonaws.com/gametiks/images/badges/lev_#{level}.png", id: 'level-badge' %>
     </div>
