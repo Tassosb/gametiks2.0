@@ -1,11 +1,25 @@
+<div id='bubble-spacer' class='visible-xs'></div>
 <div class='user-plate-container home-plate'>
   <% @sampled_users.length.times do |i| %>
     <div id="content-<%= i + 1 %>" class='sampled-users-container'>
-      <div class='user-plate col-sm-10 col-md-9 col-lg-8'>
+      <div id='bubble-images-container-block' class='visible-xs'>
+        <div id='bubble-images-container-flex'>
+          <div id='centered-div' class='col-xs-8'>
+            <div id='left-img-container'>
+              <%= avatar_img = @sampled_users[i].avatar.present? ?
+                image_tag(@sampled_users[i].avatar.url(:square), id: 'avatar-img-mobile') :
+                image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg", id: 'avatar-img-mobile') %>
+            </div>
+            <div id='right-img-container'>
+              <% level = level(@sampled_users[i]) %>
+              <%= image_tag "https://s3.amazonaws.com/gametiks/images/badges/lev_#{level}.png", id: 'level-badge-mobile' %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='user-plate col-xs-8 col-sm-10 col-md-9 col-lg-8'>
         <div id='avatar' class='hidden-xs'>
-          <%= @sampled_users[i].avatar.present? ?
-            image_tag(@sampled_users[i].avatar.url(:square), id: 'avatar-img') :
-            image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg") %>
+          <%= avatar_img %>
         </div>
 
         <!-- Middle Section -->
