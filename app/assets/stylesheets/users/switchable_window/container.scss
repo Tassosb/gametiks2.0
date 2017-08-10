@@ -1,8 +1,13 @@
 #switchable-window {
   position: relative;
-  width: 100%;
-  height: 500px;
+  height: 522px;
   overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  #switchable-window {
+    height: 600px;
+  }
 }
 
 .max-width-1000 {
