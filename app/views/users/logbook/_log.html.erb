@@ -1,24 +1,25 @@
 <div class='log'>
-  <%= image_tag harvest.image.url(:thumb) %>
-  <h5><%= harvest.created_at %></h5>
-  <% if @user == current_user %>
-    <div class='links'>
-      <%= link_to 'Edit', edit_harvest_path(harvest) %>
-      <%= link_to "Delete", harvest_path(harvest), method: :delete, data: { confirm: 'Confirm Delete?' } %>
-    </div>
-  <% end %>
-  <hr>
-  <p><%= harvest.description %></p>
-  <hr>
-  <div class='stamps-container'>
-    <div class='stamp'>
-      <%= image_tag("https://s3.amazonaws.com/gametiks/images/#{harvest.weapon_type}_black.png") %>
-    </div>
-    <div class='stamp'>
-      <%= image_tag("https://s3.amazonaws.com/gametiks/images/#{harvest.animal_type}_black.png") %>
+  <%= image_tag harvest.image.url(:square), class: 'harvest-img'%>
+  <div class='img-infoscreen'>
+    <div id='text-wrapper'>
+      <h5>Registered <%= harvest.created_at %></h5>
+      <% if @user == current_user %>
+      <div class='links'>
+        <%= link_to 'Edit', edit_harvest_path(harvest) %>
+        <%= link_to "Delete", harvest_path(harvest), method: :delete, data: { confirm: 'Confirm Delete?' } %>
+      </div>
+      <% end %>
+      <h4><span class='label'>Game Type: </span><span class='field'><%= harvest.animal_type %></span></h4>
+      <h4><span class='label'>Weapon Used: </span><span class='field'><%= harvest.weapon_type %></span></h4>
+      <h4><span class='label'>Points Awarded: </span><span class='field'><%= harvest.formatted_points %></span></h4>
+      <% if !harvest.description.blank? %>
+      <p>
+        <%= harvest.description %>
+      </p>
+      <% end %>
     </div>
   </div>
-  
+
   <div class='comments-container'>
     <ul id='comments-list-<%= harvest.id %>'>
      <% harvest.comments.each do |comment| %>

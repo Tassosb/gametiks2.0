@@ -2,6 +2,8 @@
 
 .comments-container {
   clear: both;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 li.comment {
@@ -43,6 +45,9 @@ li.comment {
 }
 
 form#new_comment {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 10px;
   label {
     font-weight: 500;
     font-family: 'open-sans-semibold';

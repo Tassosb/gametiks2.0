@@ -1,7 +1,7 @@
 class Harvest < ActiveRecord::Base
   belongs_to :user
   has_many :comments, dependent: :destroy
-  
+
   # CarrierWave gem uploader
   mount_uploader :image, HarvestUploader
 
@@ -19,6 +19,27 @@ class Harvest < ActiveRecord::Base
       # return for flash
       return new_badges.map(&:title).join(", ")
     end
+  end
+
+  def formatted_points
+    totalPoints = 0
+      case self.animal_type
+      when 'bear'
+        totalPoints += (weight * 4)
+      when 'moose'
+        totalPoints += (weight * 0.75).round
+      when 'turkey'
+        totalPoints += (weight * 10)
+      when 'deer'
+        totalPoints += (weight * 4)
+      when 'canine'
+        totalPoints += 200
+      when 'water_fowl'
+        totalPoints += 100
+      else
+        totalPoints += 200
+      end
+    sprintf '%06d', totalPoints
   end
 
   def save_points

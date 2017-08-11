@@ -25,10 +25,10 @@
       </div>
       <div id='logbook'>
         <div id="columns">
-        <% @harvests.each do |harvest| %>
-          <%= render 'users/logbook/log', harvest: harvest %>
-        <% end %>
-      </div>
+          <% @harvests.each do |harvest| %>
+            <%= render 'users/logbook/log', harvest: harvest %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
