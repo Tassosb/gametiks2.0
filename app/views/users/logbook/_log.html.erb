@@ -12,6 +12,7 @@
       <h4><span class='label'>Game Type: </span><span class='field'><%= harvest.animal_type %></span></h4>
       <h4><span class='label'>Weapon Used: </span><span class='field'><%= harvest.weapon_type %></span></h4>
       <h4><span class='label'>Points Awarded: </span><span class='field'><%= harvest.formatted_points %></span></h4>
+      <h4><span class='label'>Weight: </span><span class='field'><%= formatted_weight(harvest.weight) %></span></h4>
       <% if !harvest.description.blank? %>
       <p>
         <%= harvest.description %>
