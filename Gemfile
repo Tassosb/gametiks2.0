@@ -38,7 +38,7 @@ gem 'omniauth-facebook'
 # messaging
 gem 'mailboxer'
 gem 'chosen-rails'
-gem 'tzinfo-data'
+gem 'tzinfo', '~> 1.2', '>= 1.2.2'
 gem 'will_paginate'
 
 group :development, :test do
