@@ -1,6 +1,6 @@
 <div id='badges-container-block'>
   <div id='badges-container-flex'>
-    <div id='badges' class='col-lg-8 col-md-9 col-sm-10 max-width-1000'>
+    <div id='badges' class='col-xs-10 col-lg-8 col-md-9 max-width-1000'>
       <ul>
         <% @user.badges.length.times do |i| %>
         <li><%= image_tag(@user.badges[i].image) %>
