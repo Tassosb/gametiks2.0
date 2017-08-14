@@ -39,6 +39,7 @@ gem 'omniauth-facebook'
 gem 'mailboxer'
 gem 'chosen-rails'
 gem 'will_paginate'
+gem 'tzinfo-data'
 
 group :development, :test do
   gem 'better_errors'
