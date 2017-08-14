@@ -8,6 +8,7 @@
   background-color: transparent;
   position: absolute;
   top: -30px;
+  border: 1px solid blue;
   #left {
     background-color: transparent;
   }
@@ -17,6 +18,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: blue;
     &:after {
       position: absolute;
       right: -30px;
@@ -41,11 +43,11 @@
     }
 
     #title-container {
-      position: absolute;
+      position: relative;
       top: 10px;
       height: 40px;
       background-color: $gray-green;
-      z-index: 1000;
+      z-index: 30;
       &:before {
         position: absolute;
         top: 0px;
