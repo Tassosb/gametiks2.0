@@ -14,7 +14,7 @@
     align-items: center;
     #tiks {
       border: 5px solid $cloudy;
-      height: 535px;
+      height: 460px;
       margin-bottom: 35px;
       border-radius: 3px;
       padding: 10px;
@@ -44,6 +44,14 @@
             height: 90px;
           }
         }
+      }
+    }
+
+    @media (max-width: 768px) {
+      #tiks {
+        height: 535px;
+        margin: 0;
+        margin-bottom: 35px;
       }
     }
   }
