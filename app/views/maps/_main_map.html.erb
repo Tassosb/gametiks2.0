@@ -120,8 +120,17 @@
           avatarUrl = harvestOwner.avatar.square.url;
         }
         var contentString =
-        "<img src=" + imgUrl + ">"+
-        "<img class='avatar' src=" + avatarUrl + ">"+
+
+        "<div id='images-container'>" +
+          "<img class='harvest' src=" + imgUrl + ">" +
+          "<div id='avatar-container'>" +
+            "<img class='avatar' src=" + avatarUrl + "></img>" +
+          "</div>" +
+          "</img>" +
+        "</div>" +
+
+        // "<img src=" + imgUrl + ">"+
+        // "<img class='avatar' src=" + avatarUrl + ">"+
         "<a id='user-link' href=" + `/users/${userId}` + ">" +
         "<img class='avatar-mobile visible-xs' src=" + avatarUrl + ">"+
         "<h3>" + `${harvestOwner.name}` + "</h3>" +
