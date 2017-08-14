@@ -1,7 +1,7 @@
 <div id='user-map-container-block'>
   <div id='user-map-container-flex'>
     <div id='map-harvest-inspector-container' class='col-xs-10 col-lg-8 col-md-9 max-width-1000'>
-      <div id='harvest-inspector' class='col-xs-12 col-sm-4 col-md-3'></div>
+      <div id='harvest-inspector' class='col-xs-12 col-sm-5 col-md-4'></div>
       <div id='filter-btn-container'>
         <div class='filter-btn'>
           <%= first_name(@user).upcase %>'S HARVESTS
@@ -152,12 +152,19 @@
           avatarUrl = harvestOwner.avatar.square.url;
         }
         var contentString =
-        "<img src=" + imgUrl + ">"+
-        "<img class='avatar' src=" + avatarUrl + ">"+
+        "<div id='images-container'>" +
+          "<img class='harvest' src=" + imgUrl + ">" +
+          "<div id='avatar-container'>" +
+            "<img class='avatar' src=" + avatarUrl + "></img>" +
+          "</div>" +
+          "</img>" +
+        "</div>" +
+
         "<a id='user-link' href=" + `/users/${userId}` + ">" +
-        "<img class='avatar-mobile visible-xs' src=" + avatarUrl + ">"+
-        "<h3>" + `${harvestOwner.name}` + "</h3>" +
+          "<img class='avatar-mobile visible-xs' src=" + avatarUrl + ">"+
+          "<h3>" + `${harvestOwner.name}` + "</h3>" +
         "</a>"+
+
         "<h4>" + weight + "lbs / " + Math.round(weight*0.453592) + "kgs</h4>"+
         "<p>" + description + "</p>";
 
