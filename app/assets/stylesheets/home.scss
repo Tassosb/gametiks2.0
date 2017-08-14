@@ -153,9 +153,18 @@
 // sampled users
 .sampled-users-container {
   width: 100%;
-  height: 100%;
+  height: auto;
   display: flex;
   justify-content: center;
+  .user-plate {
+
+  }
+}
+@media (max-width: 768px) {
+  .sampled-users-container {
+    display: block;
+
+  }
 }
 #placeholder {
   background-color: $gray-green;
@@ -192,10 +201,13 @@
 
 // overrides default settings in user_plate.scss
 .home-plate {
-  height: auto !important;
-  padding: 20px 0 28px 0;
-  position: relative;
-  display: block;
+  height: 260px;
+  padding: 10px 0 20px 0;
+}
+@media (max-width: 768px) {
+  .home-plate {
+    height: 400px !important;
+  }
 }
 
 #tallies-badges-container {
