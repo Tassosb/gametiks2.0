@@ -310,15 +310,13 @@
   // left: 0;
   #bubble-images-container-flex {
     height: 100%;
-    // width: 100%;
     display: flex;
     justify-content: center;
     #centered-div {
-      position: absolute;
-      bottom: -30px;
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
       width: 310px;
       img {
         height: 145px;
