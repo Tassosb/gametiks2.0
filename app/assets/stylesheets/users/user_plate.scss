@@ -12,11 +12,10 @@
 
 // outer wrapper
 .user-plate-container {
-  // width: 100%;
-  height: 260px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  // height: 260px;
+  // display: flex;
+  // justify-content: center;
+  // align-items: flex-start;
   background-color: $cloudy;
   position: relative;
   .user-plate {
@@ -26,6 +25,8 @@
     max-width: 1050px;
     padding: 10px;
     height: 100%;
+    border: 1px solid blue;
+    margin: 0 auto;
     #avatar {
       position: relative;
       display: flex;
@@ -302,11 +303,11 @@
   height: 105px !important;
 }
 #bubble-images-container-block {
-  height: 100px;
+  height: 130px;
   display: block;
-  position: absolute;
-  top: -80px;
-  left: 0;
+  // position: absolute;
+  // top: -80px;
+  // left: 0;
   #bubble-images-container-flex {
     height: 100%;
     // width: 100%;
