@@ -17,7 +17,7 @@
         </li>
         <% if user_signed_in? %>
           <% if controller.controller_name == 'users' && controller.action_name == 'show' %>
-            <li>
+            <li id='contacts'>
               Contacts <i class="fa fa-user-circle" aria-hidden="true"></i>
             </li>
           <% end %>
