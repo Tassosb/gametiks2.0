@@ -14,10 +14,10 @@
 .user-plate-container {
   background-color: $cloudy;
   position: relative;
+  display: flex;
   .user-plate {
     display: flex;
     justify-content: center;
-    margin: 5px 20px 0 20px;
     max-width: 1050px;
     padding: 10px;
     height: 100%;
@@ -130,6 +130,7 @@
 
     #user-info {
       min-width: 340px;
+      max-width: 500px;
       #name-container {
         h2 {
           color: white;
@@ -281,16 +282,13 @@
   }
 }
 
+@media (max-width: 768px) {
+  .user-plate-container {
+    display: block;
+  }
+}
+
 // for mobile
-
-// fix for discrepancy between sampled_users and user_pages
-
-.adjust-y-pos {
-  top: -100px !important;
-}
-.adjust-bubble-height {
-  height: 105px !important;
-}
 #bubble-images-container-block {
   height: 140px;
   display: block;
