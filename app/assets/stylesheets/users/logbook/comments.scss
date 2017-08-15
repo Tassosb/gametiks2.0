@@ -13,7 +13,6 @@ li.comment {
   width: 100%;
   min-height: 55px;
   border-bottom: 1px solid rgb(200, 200, 200);
-
   .author-img-container {
     height: 100%;
     width: 70px;
@@ -27,7 +26,8 @@ li.comment {
   #author-name {
     width: 100%;
     a {
-      color: $link-blue;
+      color: $water-blue;
+      font-family: 'open-sans-bold';
     }
     .delete-btn-container {
       float: right;
@@ -41,6 +41,9 @@ li.comment {
     #author-name .delete-btn-container {
       display: block;
     }
+  }
+  p {
+    font-family: 'open-sans-semibold';
   }
 }
 
