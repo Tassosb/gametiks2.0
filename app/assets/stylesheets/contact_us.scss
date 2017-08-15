@@ -1,0 +1,29 @@
+@import 'variables';
+
+.contact-us-container {
+  background-color: $cloudy;
+  min-height: calc(100vh - 120px);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .contact-us {
+    background-color: white;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    p {
+      font-family: 'open-sans-bold';
+      color: rgb(80, 80, 80);
+      font-size: 20px;
+      line-height: 40px;
+      width: 100%;
+      text-align: center;
+
+    }
+  }
+}
