@@ -43,6 +43,7 @@
         left: 70px;
         top: 78px;
       }
+
       #rollover-uploader {
         position: absolute;
         display: flex;
@@ -322,6 +323,26 @@
         height: 150px;
         width: 150px;
         position: relative;
+        i.fa-spinner {
+          position: absolute;
+          padding: 0;
+          left: 46px;
+          top: 60px;
+          z-index: 50;
+        }
+        #mobile-uploader {
+          position: absolute;
+          color: rgba(240, 240, 240, 0.6);
+          bottom: 0;
+          left: 65px;
+          z-index: 49;
+          background-color: transparent;
+          border: 2px solid rgba(240, 240, 240, 0.6);
+          border-radius: 100%;
+          width: 30px;
+          height: 30px;
+          outline: none;
+        }
         img#avatar-img-mobile {
           position: absolute;
           left: 0;

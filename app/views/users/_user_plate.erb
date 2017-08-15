@@ -6,6 +6,11 @@
         <%= avatar_img = @user.avatar.present? ?
           image_tag(@user.avatar.url(:square), id: 'avatar-img-mobile') :
           image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg", id: 'avatar-img-mobile') %>
+        <% if @user == current_user %>
+          <button id='mobile-uploader' onclick="document.getElementById('user-avatar').click();">
+            <i class="fa fa fa-arrow-up fa-lg" aria-hidden="true"></i>
+          </button>
+        <% end %>
       </div>
       <div id='right-img-container'>
         <% level = level(@user) %>
