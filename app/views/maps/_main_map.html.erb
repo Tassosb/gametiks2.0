@@ -91,9 +91,9 @@
               });
               attachInfo(marker, communityHarvests[i]);
               // display latest harvest
-              if (i == communityHarvests.length - 1) {
+              // if (i == communityHarvests.length - 1) {
                 google.maps.event.trigger(marker, 'click');
-              };
+              // };
             };
 
           };
@@ -120,7 +120,6 @@
           avatarUrl = harvestOwner.avatar.square.url;
         }
         var contentString =
-
         "<div id='images-container'>" +
           "<img class='harvest' src=" + imgUrl + ">" +
           "<div id='avatar-container'>" +
@@ -128,9 +127,6 @@
           "</div>" +
           "</img>" +
         "</div>" +
-
-        // "<img src=" + imgUrl + ">"+
-        // "<img class='avatar' src=" + avatarUrl + ">"+
         "<a id='user-link' href=" + `/users/${userId}` + ">" +
         "<img class='avatar-mobile visible-xs' src=" + avatarUrl + ">"+
         "<h3>" + `${harvestOwner.name}` + "</h3>" +
