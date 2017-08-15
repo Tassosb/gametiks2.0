@@ -4,7 +4,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  min-height: 500px;
+  min-height: calc(100vh - 220px);
   margin-top: 20px;
   margin-bottom: 20px;
   #messages {
@@ -138,10 +138,13 @@
 #new-conversation-form {
   position: relative;
   display: block;
-  width: 100% !important;
   height: 100%;
   padding: 10px;
+  width: 100%;
   input {
-    width: 500px;
+  }
+  .indent {
+    width: 150px;
+    margin-left: 15px;
   }
 }

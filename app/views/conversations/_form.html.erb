@@ -1,17 +1,17 @@
-<%= form_for :conversation, url: :conversations, html: { id: "new-conversation-form" } do |f| %>
-    <div class="form-group">
+<%= form_for :conversation, url: :conversations, html: { id: "new-conversation-form", class: 'col-xs-12' } do |f| %>
+    <div id='recipients' class="form-group col-xs-12">
       <%= f.label :recipients %>
       <%= f.select(:recipients, current_user.contacts.collect {|p| [ p.name, p.id ] }, {}, { multiple: true , class: "chosen-select form-control" })%>
     </div>
-    <div class="form-group">
+    <div id='subject' class="form-group col-xs-12">
       <%= f.label :subject %>
       <%= f.text_field :subject, placeholder: "Subject", class: "form-control" %>
     </div>
-    <div class="form-group">
+    <div id='message-body' class="form-group col-xs-12">
       <%= f.label :message %>
-      <%= f.text_area :body, class: 'form-control',placeholder: "Type your message here", rows: 4  %>
+      <%= f.text_area :body, class: 'form-control', placeholder: "Type your message here", rows: 4  %>
     </div>
 
-    <%= f.submit "Send Message", class: "btn btn-success" %>
+    <%= f.submit "Send Message", class: "btn indent" %>
 
 <% end %>
