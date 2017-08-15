@@ -2,7 +2,7 @@
     <% message = receipt.message %>
     <div class="media">
       <div class="media-left">
-        <% @sender = conversation.originator %>
+        <% @sender = message.sender %>
         <a href="/users/<%= @sender.id %>">
           <%= @sender.avatar.present? ?
             image_tag(@sender.avatar.url(:square), id: 'avatar-img', class: 'media-object') :
