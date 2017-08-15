@@ -6,6 +6,7 @@ class Harvest < ActiveRecord::Base
   mount_uploader :image, HarvestUploader
 
   validates :animal_type, :weapon_type, :weight, :image, :latitude, :longitude, presence: true
+  validate :latitude_exists, :longitude_exists
   before_save :review_earned_badges
 
   def reward_badges_if_won
@@ -65,6 +66,22 @@ class Harvest < ActiveRecord::Base
   def compare_badges
     all_badges = Badge.return_badges(user)
     new_badges = all_badges - @earned_badges
+  end
+
+  def latitude_exists
+    unless (is_number?(latitude) && latitude.to_f.abs <= 90)
+      errors.add(:latitude, 'must be between -90 and 90')
+    end
+  end
+
+  def longitude_exists
+    unless (is_number?(longitude) && longitude.to_f.abs <= 180)
+      errors.add(:longitude, 'must be between -180 and 180')
+    end
+  end
+
+  def is_number?(string)
+    true if Float(string) rescue false
   end
 
 end
