@@ -69,15 +69,17 @@ class Harvest < ActiveRecord::Base
   end
 
   def latitude_exists
-    unless (is_number?(latitude) && latitude.to_f.abs <= 90)
-      errors.add(:latitude, 'must be between -90 and 90')
-    end
+    # unless (is_number?(latitude) && latitude.to_f.abs <= 90)
+    #   errors.add(:latitude, 'must be between -90 and 90')
+    # end
+    true
   end
 
   def longitude_exists
-    unless (is_number?(longitude) && longitude.to_f.abs <= 180)
-      errors.add(:longitude, 'must be between -180 and 180')
-    end
+    # unless (is_number?(longitude) && longitude.to_f.abs <= 180)
+    #   errors.add(:longitude, 'must be between -180 and 180')
+    # end
+    true
   end
 
   def is_number?(string)
