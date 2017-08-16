@@ -12,7 +12,7 @@
     <div id='contacts'>
       <% contacts = {} %>
         <% current_user.contacts.each do |contact| %>
-        <% contacts[contact.id] = contact.name %>
+          <% contacts[contact.id] = contact.name %>
         <% end %>
       <ul>
         <% contacts.each do |id, name| %>
@@ -21,11 +21,26 @@
               <i id='arrow-right-icon' class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
             </div>
             <a href='/users/<%= id %>'><%= name %></a>
+            <div id="delete-user">
+              <%= button_to "", {:controller => :user_contacts,
+                :action => 'destroy', :id => id }, :method => :delete, data: {confirm: "Delete contact?"} %>
+              <i id='deleter-icon' class='fa fa-times fa-lg' aria-hidden="true"></i>
+            </div>
           </li>
         <% end %>
       </ul>
     </div>
-    </div>
-    <div id='list-footer'></div>
+  </div>
+  <div id='list-footer'></div>
   <div id='decor-lower-left'></div>
 </div>
+
+<script>
+  $(document).ready(function() {
+    $('li.contact').hover(function() {
+      $(this).children().last().show();
+    }, function() {
+      $(this).children().last().hide();
+    });
+  });
+</script>

@@ -12,7 +12,13 @@ class UserContactsController < ApplicationController
   end
 
   def destroy
-
+    @user = current_user.contacts.find(params[:id])
+    if current_user.contacts.delete(@user)
+      flash[:success] = "Contact successfully deleted"
+      redirect_to current_user
+    else
+      render @user.errors.full_messages
+    end
   end
 
   private

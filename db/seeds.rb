@@ -1019,29 +1019,29 @@
 #             user.skip_confirmation!
 #             user.save!
 
-
-Badge.delete_all
-
-Badge.create!(title: 'Deer Hunter',
-              description: 'Harvest at least one deer',
-              image: 'https://s3.amazonaws.com/gametiks/images/badges/first_deer.png')
-
-Badge.create!(title: 'Bear Hunter',
-              description: 'Harvest at least one bear',
-              image: 'https://s3.amazonaws.com/gametiks/images/badges/first_bear.png')
-
-Badge.create!(title: 'Turkey Hunter',
-              description: 'Harvest at least one turkey',
-              image: 'https://s3.amazonaws.com/gametiks/images/badges/first_turkey.png')
-
-Badge.create!(title: 'Moose Hunter',
-              description: 'Harvest at least one moose',
-              image: 'https://s3.amazonaws.com/gametiks/images/badges/first_moose.png')
-
-Badge.create!(title: 'Canine Hunter',
-              description: 'Harvest at least one canine',
-              image: 'https://s3.amazonaws.com/gametiks/images/badges/first_canine.png')
-
-Badge.create!(title: 'Duck Hunter',
-              description: 'Harvest at least one waterfowl',
-              image: 'https://s3.amazonaws.com/gametiks/images/badges/first_water_fowl.png')
+# 
+# Badge.delete_all
+#
+# Badge.create!(title: 'Deer Hunter',
+#               description: 'Harvest at least one deer',
+#               image: 'https://s3.amazonaws.com/gametiks/images/badges/first_deer.png')
+#
+# Badge.create!(title: 'Bear Hunter',
+#               description: 'Harvest at least one bear',
+#               image: 'https://s3.amazonaws.com/gametiks/images/badges/first_bear.png')
+#
+# Badge.create!(title: 'Turkey Hunter',
+#               description: 'Harvest at least one turkey',
+#               image: 'https://s3.amazonaws.com/gametiks/images/badges/first_turkey.png')
+#
+# Badge.create!(title: 'Moose Hunter',
+#               description: 'Harvest at least one moose',
+#               image: 'https://s3.amazonaws.com/gametiks/images/badges/first_moose.png')
+#
+# Badge.create!(title: 'Canine Hunter',
+#               description: 'Harvest at least one canine',
+#               image: 'https://s3.amazonaws.com/gametiks/images/badges/first_canine.png')
+#
+# Badge.create!(title: 'Duck Hunter',
+#               description: 'Harvest at least one waterfowl',
+#               image: 'https://s3.amazonaws.com/gametiks/images/badges/first_water_fowl.png')

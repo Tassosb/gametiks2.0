@@ -116,6 +116,36 @@
           }
           &:hover {
             color: $water-blue-transparent;
+
+          }
+          #delete-user {
+            display: none;
+            position: absolute;
+            right: 2px;
+            top: 3px;
+            width: 15px;
+            height: 15px;
+            form {
+              position: absolute;
+              top: 0;
+              left: 0;
+              z-index: 2;
+              input {
+                background: transparent;
+                border: none;
+                height: 15px;
+                width: 15px;
+                margin-bottom: 5px;
+              }
+            }
+            #deleter-icon {
+              color: $gametiks-red;
+              position: absolute;
+              z-index: 1;
+              top: 1px;
+              right: 1px;
+              cursor: pointer;
+            }
           }
         }
       }
