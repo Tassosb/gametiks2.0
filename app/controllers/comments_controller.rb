@@ -6,14 +6,8 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     if @comment.save
       respond_to do |format|
-        format.html do
-          flash[:success] = 'Comment posted.'
-          redirect_to @harvest.user
-        end
         format.js
       end
-    else
-      format.js
     end
   end
 
@@ -26,7 +20,7 @@ class CommentsController < ApplicationController
         flash[:success] = 'Comment deleted.'
         redirect_to @harvest.user
       end
-      format.js 
+      format.js
     end
   end
 
