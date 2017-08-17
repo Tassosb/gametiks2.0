@@ -16,10 +16,6 @@ class CommentsController < ApplicationController
     @harvest = @comment.harvest
     @comment.destroy
     respond_to do |format|
-      format.html do
-        flash[:success] = 'Comment deleted.'
-        redirect_to @harvest.user
-      end
       format.js
     end
   end
