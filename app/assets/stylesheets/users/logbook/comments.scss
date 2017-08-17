@@ -36,6 +36,11 @@ li.comment {
         color: red;
       }
     }
+    @media (max-width: 768px) {
+      .delete-btn-container {
+        display: block;
+      }
+    }
   }
   &:hover {
     #author-name .delete-btn-container {
