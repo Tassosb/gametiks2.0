@@ -109,6 +109,7 @@
         var harvestLat = harvest.latitude || false;
         var harvestLng = harvest.longitude || false;
         var action = gon.action;
+        var user_id = gon.user_id
 
         var userLat;
         if (harvestLat) {
@@ -220,7 +221,8 @@
           function updateUserCoords(lat, lng) {
             $.ajax({
               type: 'PATCH',
-              url: '/users/:id',
+              beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+              url: `/users/${user_id}`,
               data: {'user[latitude]': lat, 'user[longitude]': lng}
             });
           };

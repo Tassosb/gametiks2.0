@@ -1,10 +1,10 @@
 class HarvestsController < ApplicationController
-  # respond_to :html, :js
 
   def new
     gon.clear
     @user = current_user
     @harvest = Harvest.new
+    gon.user_id = @user.id
     gon.userLat = @user.latitude
     gon.userLng = @user.longitude
     gon.action = 'new'
@@ -13,6 +13,9 @@ class HarvestsController < ApplicationController
   def edit
     gon.clear
     @harvest = Harvest.find(params[:id])
+    gon.user_id = @user.id
+    gon.userLat = @user.latitude
+    gon.userLng = @user.longitude
     gon.harvest = @harvest
     gon.action = 'edit'
   end
