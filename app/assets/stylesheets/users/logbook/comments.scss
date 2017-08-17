@@ -33,7 +33,7 @@ li.comment {
       float: right;
       display: none;
       a#delete {
-        color: red;
+        color: $gametiks-red;
       }
     }
     @media (max-width: 768px) {

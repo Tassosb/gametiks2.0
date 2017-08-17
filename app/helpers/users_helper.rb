@@ -19,8 +19,12 @@ module UsersHelper
 
 def first_name(user)
   name = user.name
-  space_index = name.index(' ') - 1
-  name.slice(0..space_index).capitalize
+  if name.index(' ') == nil
+    return name
+  else
+    space_index = name.index(' ') - 1
+    return name.slice(0..space_index).capitalize
+  end
 end
 
 def favorite_weapon(user)

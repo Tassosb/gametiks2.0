@@ -13,8 +13,7 @@ class ConversationsController < ApplicationController
   end
 
   def show
-    @receipts = conversation.receipts_for(current_user)
-    # mark conversation as read
+    @receipts = conversation.receipts_for(current_user).order(:updated_at)
     conversation.mark_as_read(current_user)
   end
 

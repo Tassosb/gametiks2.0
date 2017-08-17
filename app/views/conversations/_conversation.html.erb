@@ -17,9 +17,9 @@
         <%= link_to 'RESCUE', untrash_conversation_path(conversation), class: 'untrash-btn', method: :post %>
     <% else %>
         <%= link_to trash_conversation_path(conversation), class: 'trash-btn', method: :post,
-                    data: {confirm: 'Are you sure?'} do %>
-                    <i class="fa fa-trash-o"></i>
-                    <% end %>
+            data: {confirm: 'Are you sure?'} do %>
+              <i class="fa fa-trash-o"></i>
+            <% end %>
     <% end %>
   </div>
   <div>
@@ -27,7 +27,7 @@
   </div>
   <div class="media-body">
     <div class="media-heading">
-      <h4><%= @sender.name %><small> <%=  conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small></h4>
+      <h4><%= @sender.name %><small> <%=  conversation.messages.last.created_at.strftime("%A, %b %d, %Y") %></small></h4>
       <span class='subheader'><%= conversation.subject %></span>
     </div>
 
