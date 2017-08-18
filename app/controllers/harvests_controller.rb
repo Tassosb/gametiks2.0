@@ -12,6 +12,7 @@ class HarvestsController < ApplicationController
 
   def edit
     gon.clear
+    @user = current_user
     @harvest = Harvest.find(params[:id])
     gon.user_id = @user.id
     gon.userLat = @user.latitude
