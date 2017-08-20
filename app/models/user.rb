@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :badges
   before_destroy { badges.clear }
-  
+
   has_many :harvests, dependent: :destroy
   has_many :contacts, through: :contact_follows, source: :contact
   has_many :contact_follows, foreign_key: :user_id, class_name: 'UserContact'
