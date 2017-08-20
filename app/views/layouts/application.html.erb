@@ -8,6 +8,7 @@
                                          'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!-- JavaScript for Bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
       integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
@@ -15,6 +16,12 @@
 
     <%= csrf_meta_tag %>
     <%= render 'layouts/shim' %>
+
+    <!-- Facebook sharing (Open Graph Markup) -->
+    <meta property="og:title" content="Gametiks" />
+    <meta property="og:description" content="Create a free hunter profile with Gametiks.com.
+      Track and tally your harvests, earn badges, and browse harvests around the globe." />
+    <meta property="og:image" content="https://s3.amazonaws.com/gametiks/images/gametiks_logo_splash.jpg" />
 
   </head>
 
