@@ -169,8 +169,6 @@
             var latitude = event.latLng.lat().toFixed(6);
         		var longitude = event.latLng.lng().toFixed(6);
             updateCoordinateFields(latitude, longitude);
-        		document.getElementById("latitude").value = latitude;
-        		document.getElementById("longitude").value = longitude;
           });
         } // end initialize
 
@@ -225,7 +223,7 @@
             lat = position.coords.latitude;
             lng = position.coords.longitude;
             updateUserCoords(lat, lng);
-            updateCoordinateFields(lat, lng);
+            // updateCoordinateFields(lat, lng);
             initialize();
           };
 
@@ -235,6 +233,10 @@
               beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
               url: `/users/${user_id}`,
               data: {'user[latitude]': lat, 'user[longitude]': lng}
+            }).done(function() {
+              updateCoordinateFields(lat, lng);
+            }).always(function() {
+              initialize();
             });
           };
 
