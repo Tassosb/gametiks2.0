@@ -6,11 +6,13 @@ class UsersController < ApplicationController
     gon.clear
     respond_to do |format|
       format.html {@users = User.all.order('points DESC').paginate(:page => params[:page], per_page: 50)}
-      search_string = params['search']
-      if search_string.length >= 1
-        format.js {@users =  User.where("lower(name) LIKE ?", "#{search_string.downcase}%").limit(10)}
-      else
-        format.js {@users = []}
+      if params['search']
+        search_string = params['search']
+        if search_string.length >= 1
+          format.js {@users =  User.where("lower(name) LIKE ?", "#{search_string.downcase}%").limit(10)}
+        else
+          format.js {@users = []}
+        end
       end
     end
   end
