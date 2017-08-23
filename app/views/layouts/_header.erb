@@ -26,7 +26,13 @@
               Mailbox <i class="fa fa-envelope" aria-hidden="true"></i>
             </a>
           </li>
-
+        <li id='search-container'>
+          <%= form_tag(users_path, :method => "get", id: "search-form", remote: true) do %>
+            <%= text_field_tag :search, params[:search], placeholder: "Search Members", autocomplete: "off" %>
+          <% end %>
+          <ul id='search-results'>
+          </ul>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -52,3 +58,15 @@
     </div>
   </div>
 </nav>
+
+<script>
+  $(document).ready(function() {
+    $('#search').bind('keyup', function() {
+      $('#search-form').delay(200).submit();
+    });
+
+    $('#search-form').submit(function(event) {
+      event.preventDefault();
+    });
+  });
+</script>

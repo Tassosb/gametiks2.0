@@ -4,7 +4,15 @@ class UsersController < ApplicationController
 
   def index
     gon.clear
-    @users = User.all.order('points DESC').paginate(:page => params[:page], per_page: 50)
+    respond_to do |format|
+      format.html {@users = User.all.order('points DESC').paginate(:page => params[:page], per_page: 50)}
+      search_string = params['search']
+      if search_string.length >= 1
+        format.js {@users =  User.where("lower(name) LIKE ?", "#{search_string.downcase}%").limit(10)}
+      else
+        format.js {@users = []}
+      end
+    end
   end
 
   def show
@@ -50,11 +58,5 @@ class UsersController < ApplicationController
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
   end
-
-  # Confirms an admin user.
-  def admin_user
-    redirect_to(root_url) unless current_user.admin?
-  end
-
 
 end
