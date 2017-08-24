@@ -1,0 +1,41 @@
+
+<div id='staff-pick-container'>
+  <div id='first-row'>
+    <div id='name-container' class='ribbon-container'>
+      <div class='ribbon'>
+        <% @user = User.find_by(name: 'Kimmi Guest') %>
+        <%= link_to @user.name.upcase, user_path(@user), class: 'ribbon-content' %>
+      </div>
+    </div>
+  </div>
+  <div id='second-row'>
+    <div class='stars hidden-xs' >
+      <img src="https://s3.amazonaws.com/gametiks/images/star_decor_left.png" />
+    </div>
+    <div id='staff-pick'>
+      <div id='log-wrapper'>
+        <div class='log'>
+          <% harvest = Harvest.find(83) %>
+          <%= image_tag harvest.image.url(:square), class: 'harvest-img'%>
+          <div class='img-infoscreen'>
+            <div id='text-wrapper'>
+              <h5>Registered <%= harvest.created_at %></h5>
+              <h4><span class='label'>Game Type: </span><span class='field'><%= harvest.animal_type %></span></h4>
+              <h4><span class='label'>Weapon Used: </span><span class='field'><%= harvest.weapon_type %></span></h4>
+              <h4><span class='label'>Points Awarded: </span><span class='field'><%= harvest.formatted_points %></span></h4>
+              <h4><span class='label'>Weight: </span><span class='field'><%= formatted_weight(harvest.weight) %></span></h4>
+              <% if !harvest.description.blank? %>
+                <p>
+                  <%= harvest.description %>
+                </p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='stars hidden-xs' >
+      <img src="https://s3.amazonaws.com/gametiks/images/star_decor_right.png" />
+    </div>
+  </div>
+</div>
