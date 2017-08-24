@@ -284,12 +284,25 @@
 #staff-pick-container {
   width: 100%;
   background-color: #222;
-  padding-top: 30px;
+  padding-bottom: 20px;
   #first-row {
-    width: 400px;
-    height: 20px;
-    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    display: block;
+    text-align: center;
+    #three-stars {
+      height: 60px;
+      padding-top: 10px;
+      img {
+        margin: 0 auto;
+        display: block;
+        height: 40px;
+      }
+    }
     #name-container {
+      width: 320px;
+      max-width: 90%;
+      margin: 0 auto;
       a {
         color: white;
         font-family: 'teko-light';
@@ -307,7 +320,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 5px 20px;
     #staff-pick {
       #log-wrapper {
         height: 100%;

@@ -1,6 +1,9 @@
 
 <div id='staff-pick-container'>
-  <div id='first-row'>
+  <div id='first-row' class='col-xs-12'>
+    <div id='three-stars'>
+      <img src="https://s3.amazonaws.com/gametiks/images/stars_inline.png" />
+    </div>
     <div id='name-container' class='ribbon-container'>
       <div class='ribbon'>
         <% username = Rails.env.development? ? 'Jason Loblein' : 'Kimmi Guest' %>
@@ -28,7 +31,7 @@
               <h4><span class='label'>Weight: </span><span class='field'><%= formatted_weight(harvest.weight) %></span></h4>
               <% if !harvest.description.blank? %>
                 <p>
-                  <%= harvest.description %>
+                  <%= harvest.description.truncate(110) %>
                 </p>
               <% end %>
             </div>
