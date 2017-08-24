@@ -166,7 +166,7 @@
         "</a>"+
 
         "<h4>" + weight + "lbs / " + Math.round(weight*0.453592) + "kgs</h4>"+
-        "<p>" + description + "</p>";
+        "<p>" + description.substring(0, 110) + "..." + "</p>";
 
         marker.addListener('click', function() {
           $('#harvest-inspector').html(contentString);

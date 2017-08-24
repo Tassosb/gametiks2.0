@@ -3,7 +3,8 @@
   <div id='first-row'>
     <div id='name-container' class='ribbon-container'>
       <div class='ribbon'>
-        <% @user = User.find_by(name: 'Kimmi Guest') %>
+        <% username = Rails.env.development? ? 'Jason Loblein' : 'Kimmi Guest' %>
+        <% @user = User.where('lower(name) = ?', username.downcase).first  %>
         <%= link_to @user.name.upcase, user_path(@user), class: 'ribbon-content' %>
       </div>
     </div>
@@ -15,7 +16,8 @@
     <div id='staff-pick'>
       <div id='log-wrapper'>
         <div class='log'>
-          <% harvest = Harvest.find(83) %>
+          <% harvest_id = Rails.env.development? ? 1 : 83 %>
+          <% harvest = Harvest.find(harvest_id) %>
           <%= image_tag harvest.image.url(:square), class: 'harvest-img'%>
           <div class='img-infoscreen'>
             <div id='text-wrapper'>
