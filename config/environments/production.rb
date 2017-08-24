@@ -12,7 +12,7 @@ Rails.application.configure do
     }
   }
 
-  config.action_mailer.default_url_options = { host: 'gametiks.com' }
+  config.action_mailer.default_url_options = { host: 'www.gametiks.com' }
   ActionMailer::Base.smtp_settings = {
     :address          => 'smtp.sendgrid.net',
     :port             => 587,
