@@ -19,7 +19,7 @@
           <% if harvest.credits.any? { |credit| credit.user == current_user } %>
             <img id='coin' src='https://s3.amazonaws.com/gametiks/images/coin.png' />
           <% else %>
-            <%= button_to "Credit", credit_path(harvest_id: harvest.id), remote: true %>
+            <%= button_to "Credit", credit_path(harvest_id: harvest.id), data: { disable_with: "" }, remote: true %>
           <% end %>
         </div>
       <% end %>
