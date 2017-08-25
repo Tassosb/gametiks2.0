@@ -1,4 +1,4 @@
-<div class='log'>
+<div class='log' id='log-<%= harvest.id %>'>
   <%= image_tag harvest.image.url(:square), class: 'harvest-img'%>
   <div class='img-infoscreen'>
     <div id='text-wrapper'>
@@ -13,10 +13,20 @@
       <h4><span class='label'>Weapon Used: </span><span class='field'><%= harvest.weapon_type %></span></h4>
       <h4><span class='label'>Points Awarded: </span><span class='field'><%= harvest.formatted_points %></span></h4>
       <h4><span class='label'>Weight: </span><span class='field'><%= formatted_weight(harvest.weight) %></span></h4>
+      <h4><span class='label'>Credits: </span><span class='field' id='credit-count'><%= harvest.credits.length %></span></h4>
+      <% if @user != current_user %>
+        <div class='creditor' id='creditor-<%= harvest.id %>'>
+          <% if harvest.credits.any? { |credit| credit.user == current_user } %>
+            <img id='coin' src='https://s3.amazonaws.com/gametiks/images/coin.png' />
+          <% else %>
+            <%= button_to "Credit", credit_path(harvest_id: harvest.id), remote: true %>
+          <% end %>
+        </div>
+      <% end %>
       <% if !harvest.description.blank? %>
-      <p>
-        <%= harvest.description %>
-      </p>
+        <p>
+          <%= harvest.description %>
+        </p>
       <% end %>
     </div>
   </div>
@@ -34,3 +44,10 @@
     <p><%= f.submit "Add Comment"%></p>
   <% end %>
 </div>
+<script>
+  $(document).ready(function() {
+    $('#credit').click(function() {
+      alert('clicked');
+    })
+  });
+</script>

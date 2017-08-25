@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   before_destroy { badges.clear }
 
   has_many :harvests, dependent: :destroy
+  has_many :credits, dependent: :destroy
+  has_many :credited_harvests, through: :credits, source: :harvest
   has_many :contacts, through: :contact_follows, source: :contact
   has_many :contact_follows, foreign_key: :user_id, class_name: 'UserContact'
   has_many :conversations, foreign_key: :sender_id

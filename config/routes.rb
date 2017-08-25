@@ -9,10 +9,12 @@ Rails.application.routes.draw do
   resources :harvests, except: [:show] do
     resources :comments, only: [:create, :destroy]
   end
+  match 'credit', to: 'credits#credit', via: :post
   resources :user_contacts, only: [:create, :destroy]
   get "mailbox/inbox" => "mailbox#inbox", as: :mailbox_inbox
   get "mailbox/sent" => "mailbox#sent", as: :mailbox_sent
   get "mailbox/trash" => "mailbox#trash", as: :mailbox_trash
+
 
   resources :conversations do
     member do
@@ -21,5 +23,5 @@ Rails.application.routes.draw do
       post :untrash
     end
   end
-  
+
 end

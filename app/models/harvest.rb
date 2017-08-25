@@ -1,6 +1,7 @@
 class Harvest < ActiveRecord::Base
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_many :credits, dependent: :destroy
 
   # CarrierWave gem uploader
   mount_uploader :image, HarvestUploader
@@ -8,6 +9,10 @@ class Harvest < ActiveRecord::Base
   validates :animal_type, :weapon_type, :weight, :image, :latitude, :longitude, presence: true
   validate :latitude_exists, :longitude_exists
   before_save :review_earned_badges
+
+  def credit(user)
+    credits << Credit.new(user: user)
+  end
 
   def reward_badges_if_won
     new_badges = compare_badges
