@@ -1018,8 +1018,18 @@
 #             user = User.new(user_attrs)
 #             user.skip_confirmation!
 #             user.save!
-
 # 
+# user_attrs = {name:  "Jason Loblein",
+#             email: "jason@loblein.com",
+#             password:              "password",
+#             password_confirmation: "password"
+#            }
+#
+#             user = User.new(user_attrs)
+#             user.skip_confirmation!
+#             user.save!
+#
+#
 # Badge.delete_all
 #
 # Badge.create!(title: 'Deer Hunter',
@@ -1045,3 +1055,7 @@
 # Badge.create!(title: 'Duck Hunter',
 #               description: 'Harvest at least one waterfowl',
 #               image: 'https://s3.amazonaws.com/gametiks/images/badges/first_water_fowl.png')
+
+
+Spree::Core::Engine.load_seed if defined?(Spree::Core)
+Spree::Auth::Engine.load_seed if defined?(Spree::Auth)

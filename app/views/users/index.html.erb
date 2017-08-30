@@ -11,7 +11,7 @@
         <div id='leaderboard'>
           <% @users.each_with_index do |user, index| %>
               <li>
-                <span class='place'><%= @users.offset + index + 1 %></span>
+                <span class='place'><%= ((@users.current_page - 1) * 50) + index + 1 %></span>
                 <span class='user-link'>
                   <a href="/users/<%= user.id %>">
                     <%= user.avatar.present? ?
@@ -25,7 +25,7 @@
           <% end %>
         </div>
         <div class='paginate'>
-          <%= will_paginate @users %>
+          <%= paginate @users %>
         </div>
       </div>
     </ul>

@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def index
     gon.clear
     respond_to do |format|
-      format.html {@users = User.all.order('points DESC').paginate(:page => params[:page], per_page: 50)}
+      format.html { @users = User.all.order('points DESC').page(params[:page]).per(50) }
       if params['search']
         search_string = params['search']
         if search_string.length >= 1
