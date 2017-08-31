@@ -17,11 +17,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   process resize_to_fit: [800, 800]
 
-  def auto_orient
-    manipulate! do |img|
-      img = img.auto_orient
-    end
-  end
+
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
@@ -30,18 +26,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
-  # Process files as they are uploaded:
-  # process :scale => [200, 300]
-  #
-  # def scale(width, height)
-  #   # do something
-  # end
-  # version :circle do
-  #
-  # end
-  # Create different versions of your uploaded files:
+  # Process files as they are uploaded
   version :square do
     process :auto_orient
+    process :quality => 85
     process :resize_to_fill => [218, 218]
   end
 
