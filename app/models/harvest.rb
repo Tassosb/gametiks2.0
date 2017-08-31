@@ -14,6 +14,10 @@ class Harvest < ActiveRecord::Base
     credits << Credit.new(user: user)
   end
 
+  def reset_counter
+    
+  end
+
   def reward_badges_if_won
     new_badges = compare_badges
     if new_badges.length == 0
