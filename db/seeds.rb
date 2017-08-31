@@ -1018,7 +1018,7 @@
 #             user = User.new(user_attrs)
 #             user.skip_confirmation!
 #             user.save!
-# 
+#
 # user_attrs = {name:  "Jason Loblein",
 #             email: "jason@loblein.com",
 #             password:              "password",
@@ -1056,6 +1056,22 @@
 #               description: 'Harvest at least one waterfowl',
 #               image: 'https://s3.amazonaws.com/gametiks/images/badges/first_water_fowl.png')
 
+Badge.create!(title: 'Rifleman',
+              description: 'Harvest three or more animals using rifle',
+              image: 'https://s3.amazonaws.com/gametiks/images/badges/rifleman.png')
 
-Spree::Core::Engine.load_seed if defined?(Spree::Core)
-Spree::Auth::Engine.load_seed if defined?(Spree::Auth)
+Badge.create!(title: 'Shotgunner',
+              description: 'Harvest three or more animals using shotgun',
+              image: 'https://s3.amazonaws.com/gametiks/images/badges/shotgunner.png')
+
+Badge.create!(title: 'Gunslinger',
+              description: 'Harvest three or more animals using pistol',
+              image: 'https://s3.amazonaws.com/gametiks/images/badges/gunslinger.png')
+
+# Badge.create!(title: 'Archer',
+#               description: 'Harvest three or more animals using bow',
+#               image: 'https://s3.amazonaws.com/gametiks/images/badges/archer.png')
+#
+#
+# Spree::Core::Engine.load_seed if defined?(Spree::Core)
+# Spree::Auth::Engine.load_seed if defined?(Spree::Auth)

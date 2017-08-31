@@ -27,6 +27,8 @@ class HarvestsController < ApplicationController
     if @harvest.save
       @harvest.user.save_points
       flash[:success] = "Harvest successfully created"
+      # runs entire badge comparisons before rewarding badges
+      # has side effect of returning names of newly-won badges
       badge_titles = @harvest.reward_badges_if_won
       flash[:notice] = "You earned these badges: " + badge_titles unless badge_titles == nil
       redirect_to current_user
@@ -39,6 +41,10 @@ class HarvestsController < ApplicationController
   def update
     @harvest = Harvest.find(params[:id])
     if @harvest.update_attributes(harvest_params)
+      @harvest.user.save_points
+      flash[:success] = "Harvest successfully updated"
+      badge_titles = @harvest.reward_badges_if_won
+      flash[:notice] = "You earned these badges: " + badge_titles unless badge_titles == nil
       redirect_to current_user
     else
       render @harvest.errors.full_messages
