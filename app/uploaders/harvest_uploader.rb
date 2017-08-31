@@ -24,7 +24,14 @@ class HarvestUploader < CarrierWave::Uploader::Base
 
   # Process files as they are uploaded:
   version :square do
+    process :auto_orient
     process resize_to_fill: [800, 800]
+  end
+
+  def auto_orient
+    manipulate! do |img|
+      img = img.auto_orient
+    end
   end
   #
   # def scale(width, height)
@@ -33,6 +40,7 @@ class HarvestUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
+    process :auto_orient
     process :resize_to_fill => [220, 220]
   end
 

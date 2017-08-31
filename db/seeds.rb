@@ -1072,9 +1072,9 @@
 #               description: 'Harvest three or more animals using bow',
 #               image: 'https://s3.amazonaws.com/gametiks/images/badges/archer.png')
 
-Badge.create!(title: 'Staff Pick',
-              description: 'Photo of the week!',
-              image: 'https://s3.amazonaws.com/gametiks/images/badges/staff_pick.png')
+# Badge.create!(title: 'Staff Pick',
+#               description: 'Photo of the week!',
+#               image: 'https://s3.amazonaws.com/gametiks/images/badges/staff_pick.png')
 
 #
 #
