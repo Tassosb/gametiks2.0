@@ -9,7 +9,7 @@ CarrierWave.configure do |config|
     region:                ENV['AWS_REGION']
   }
   config.fog_directory  = 'gametiks'
-  config.aws_attributes = { :cache_control => 'max-age=604800', :expires => 1.week.from_now.httpdate }
+  config.fog_attributes = { :cache_control => 'max-age=1200000' }
 end
 
 module CarrierWave
