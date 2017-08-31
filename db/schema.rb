@@ -41,8 +41,10 @@ ActiveRecord::Schema.define(version: 201708251555305) do
   end
 
   create_table "credits", force: :cascade do |t|
-    t.integer "harvest_id"
-    t.integer "user_id"
+    t.integer  "harvest_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["harvest_id"], name: "index_credits_on_harvest_id", using: :btree
     t.index ["user_id"], name: "index_credits_on_user_id", using: :btree
   end
@@ -73,6 +75,7 @@ ActiveRecord::Schema.define(version: 201708251555305) do
     t.string   "image"
     t.string   "latitude"
     t.string   "longitude"
+    t.integer  "credits_count",   default: 0
     t.index ["user_id"], name: "index_harvests_on_user_id", using: :btree
   end
 

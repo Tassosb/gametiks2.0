@@ -51,6 +51,10 @@ class HarvestsController < ApplicationController
     end
   end
 
+  def index
+    @harvests = Harvest.all.order('credits_count DESC')
+  end
+
   def show
   end
 

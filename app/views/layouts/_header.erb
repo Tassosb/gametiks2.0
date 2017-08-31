@@ -15,6 +15,11 @@
             Leaderboard <i class="fa fa-list-ul" aria-hidden="true"></i>
           </a>
         </li>
+        <li>
+          <a href='/gallery'>
+            Gallery <i class="fa fa-camera" aria-hidden="true"></i>
+          </a>
+        </li>
         <% if user_signed_in? %>
           <% if controller.controller_name == 'users' && controller.action_name == 'show' %>
             <li id='contacts'>

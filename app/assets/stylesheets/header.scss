@@ -2,6 +2,10 @@
 /* header */
 @import './variables';
 
+#myNavbar {
+  li {
+  }
+}
 #logo {
   font-family: 'teko-medium';
   font-size: 40px;
@@ -32,7 +36,7 @@ li#search-container {
   height: 50px;
   padding: 10px;
   input#search {
-    width: 260px;
+    width: 177px;
     height: 30px;
     text-indent: 10px;
     box-shadow: none;
@@ -45,8 +49,9 @@ li#search-container {
   ul#search-results {
     position: absolute;
     background-color: transparent;
-    width: 260px;
+    width: 200px;
     z-index: 100;
+    left: 0px;
     top: 48px;
     border-radius: 5px;
     box-shadow: 1px 1px 10px $gray-50;
