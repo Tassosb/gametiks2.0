@@ -1055,22 +1055,27 @@
 # Badge.create!(title: 'Duck Hunter',
 #               description: 'Harvest at least one waterfowl',
 #               image: 'https://s3.amazonaws.com/gametiks/images/badges/first_water_fowl.png')
-
-Badge.create!(title: 'Rifleman',
-              description: 'Harvest three or more animals using rifle',
-              image: 'https://s3.amazonaws.com/gametiks/images/badges/rifleman.png')
-
-Badge.create!(title: 'Shotgunner',
-              description: 'Harvest three or more animals using shotgun',
-              image: 'https://s3.amazonaws.com/gametiks/images/badges/shotgunner.png')
-
-Badge.create!(title: 'Gunslinger',
-              description: 'Harvest three or more animals using pistol',
-              image: 'https://s3.amazonaws.com/gametiks/images/badges/gunslinger.png')
-
+#
+# Badge.create!(title: 'Rifleman',
+#               description: 'Harvest three or more animals using rifle',
+#               image: 'https://s3.amazonaws.com/gametiks/images/badges/rifleman.png')
+#
+# Badge.create!(title: 'Shotgunner',
+#               description: 'Harvest three or more animals using shotgun',
+#               image: 'https://s3.amazonaws.com/gametiks/images/badges/shotgunner.png')
+#
+# Badge.create!(title: 'Gunslinger',
+#               description: 'Harvest three or more animals using pistol',
+#               image: 'https://s3.amazonaws.com/gametiks/images/badges/gunslinger.png')
+#
 # Badge.create!(title: 'Archer',
 #               description: 'Harvest three or more animals using bow',
 #               image: 'https://s3.amazonaws.com/gametiks/images/badges/archer.png')
+
+Badge.create!(title: 'Staff Pick',
+              description: 'Photo of the week!',
+              image: 'https://s3.amazonaws.com/gametiks/images/badges/staff_pick.png')
+
 #
 #
 # Spree::Core::Engine.load_seed if defined?(Spree::Core)
