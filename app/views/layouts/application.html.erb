@@ -13,7 +13,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
       integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
       crossorigin="anonymous"></script>
-    <script src="pinterest_grid.js"></script>
     <%= csrf_meta_tag %>
     <%= render 'layouts/shim' %>
 
@@ -56,14 +55,6 @@
 
     <script>
       $(document).ready(function() {
-          $('#gallery').pinterest_grid({
-              no_columns: 4,
-              padding_x: 10,
-              padding_y: 10,
-              margin_bottom: 100,
-              single_column_breakpoint: 740
-          });
-
     // Contacts Popout Window
       $('li#contacts').click(function() {
         $('#contacts-container').toggleClass('contacts-active')

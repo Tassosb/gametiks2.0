@@ -1,9 +1,7 @@
 <div class='container-fluid'>
   <div class='row'>
     <div id='gallery-container'>
-      <div id='gallery-padding-fix'>
         <div id='gallery'>
-          <!-- <div id='columns'> -->
             <% @harvests.each do |harvest| %>
             <% @user = harvest.user %>
               <article class='log' id='log-<%= harvest.id %>'>
@@ -31,9 +29,7 @@
                 </div>
               </article>
             <% end %>
-          <!-- </div> -->
         </div>
-      </div>
       <div class='paginate'>
         <%= paginate @harvests %>
       </div>
