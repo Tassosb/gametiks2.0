@@ -52,7 +52,7 @@ class HarvestsController < ApplicationController
   end
 
   def index
-    @harvests = Harvest.all.order('credits_count DESC')
+    @harvests = Harvest.all.order('credits_count DESC').page(params[:page]).per(2)
   end
 
   def show
