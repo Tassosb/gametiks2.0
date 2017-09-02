@@ -29,19 +29,19 @@
               <h4><span class='label'>Weapon Used: </span><span class='field'><%= harvest.weapon_type %></span></h4>
               <h4><span class='label'>Points Awarded: </span><span class='field'><%= harvest.formatted_points %></span></h4>
               <h4><span class='label'>Weight: </span><span class='field'><%= formatted_weight(harvest.weight) %></span></h4>
+              <% if current_user && @user != current_user %>
+              <div class='creditor' id='creditor-<%= harvest.id %>'>
+                <% if harvest.credits.any? { |credit| credit.user == current_user } %>
+                <img id='coin' src='https://d2m6u6shu0evoe.cloudfront.net/images/coin.png' />
+                <% else %>
+                <%= button_to "Credit", credit_path(harvest_id: harvest.id), data: { disable_with: "" }, remote: true %>
+                <% end %>
+              </div>
+              <% end %>
               <% if !harvest.description.blank? %>
                 <p>
                   <%= harvest.description.truncate(110) %>
                 </p>
-              <% end %>
-              <% if current_user && @user != current_user %>
-                <div class='creditor' id='creditor-<%= harvest.id %>'>
-                  <% if harvest.credits.any? { |credit| credit.user == current_user } %>
-                    <img id='coin' src='https://d2m6u6shu0evoe.cloudfront.net/images/coin.png' />
-                  <% else %>
-                    <%= button_to "Credit", credit_path(harvest_id: harvest.id), data: { disable_with: "" }, remote: true %>
-                  <% end %>
-                </div>
               <% end %>
             </div>
           </div>
