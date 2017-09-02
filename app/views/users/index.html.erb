@@ -16,7 +16,7 @@
                   <a href="/users/<%= user.id %>">
                     <%= user.avatar.present? ?
                       image_tag(user.avatar.url(:square), id: 'avatar-img') :
-                      image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg") %>
+                      image_tag("https://d2m6u6shu0evoe.cloudfront.net/users/avatars/Gametiks_Gamercard.jpg") %>
                     <%= user.name %>
                   </a>
                 </span>

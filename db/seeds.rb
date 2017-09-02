@@ -1034,47 +1034,47 @@
 #
 # Badge.create!(title: 'Deer Hunter',
 #               description: 'Harvest at least one deer',
-#               image: 'https://s3.amazonaws.com/gametiks/images/badges/first_deer.png')
+#               image: 'https://d2m6u6shu0evoe.cloudfront.net/images/badges/first_deer.png')
 #
 # Badge.create!(title: 'Bear Hunter',
 #               description: 'Harvest at least one bear',
-#               image: 'https://s3.amazonaws.com/gametiks/images/badges/first_bear.png')
+#               image: 'https://d2m6u6shu0evoe.cloudfront.net/images/badges/first_bear.png')
 #
 # Badge.create!(title: 'Turkey Hunter',
 #               description: 'Harvest at least one turkey',
-#               image: 'https://s3.amazonaws.com/gametiks/images/badges/first_turkey.png')
+#               image: 'https://d2m6u6shu0evoe.cloudfront.net/images/badges/first_turkey.png')
 #
 # Badge.create!(title: 'Moose Hunter',
 #               description: 'Harvest at least one moose',
-#               image: 'https://s3.amazonaws.com/gametiks/images/badges/first_moose.png')
+#               image: 'https://d2m6u6shu0evoe.cloudfront.net/images/badges/first_moose.png')
 #
 # Badge.create!(title: 'Canine Hunter',
 #               description: 'Harvest at least one canine',
-#               image: 'https://s3.amazonaws.com/gametiks/images/badges/first_canine.png')
+#               image: 'https://d2m6u6shu0evoe.cloudfront.net/images/badges/first_canine.png')
 #
 # Badge.create!(title: 'Duck Hunter',
 #               description: 'Harvest at least one waterfowl',
-#               image: 'https://s3.amazonaws.com/gametiks/images/badges/first_water_fowl.png')
+#               image: 'https://d2m6u6shu0evoe.cloudfront.net/images/badges/first_water_fowl.png')
 #
 # Badge.create!(title: 'Rifleman',
 #               description: 'Harvest three or more animals using rifle',
-#               image: 'https://s3.amazonaws.com/gametiks/images/badges/rifleman.png')
+#               image: 'https://d2m6u6shu0evoe.cloudfront.net/images/badges/rifleman.png')
 #
 # Badge.create!(title: 'Shotgunner',
 #               description: 'Harvest three or more animals using shotgun',
-#               image: 'https://s3.amazonaws.com/gametiks/images/badges/shotgunner.png')
+#               image: 'https://d2m6u6shu0evoe.cloudfront.net/images/badges/shotgunner.png')
 #
 # Badge.create!(title: 'Gunslinger',
 #               description: 'Harvest three or more animals using pistol',
-#               image: 'https://s3.amazonaws.com/gametiks/images/badges/gunslinger.png')
+#               image: 'https://d2m6u6shu0evoe.cloudfront.net/images/badges/gunslinger.png')
 #
 # Badge.create!(title: 'Archer',
 #               description: 'Harvest three or more animals using bow',
-#               image: 'https://s3.amazonaws.com/gametiks/images/badges/archer.png')
+#               image: 'https://d2m6u6shu0evoe.cloudfront.net/images/badges/archer.png')
 
 # Badge.create!(title: 'Staff Pick',
 #               description: 'Photo of the week!',
-#               image: 'https://s3.amazonaws.com/gametiks/images/badges/staff_pick.png')
+#               image: 'https://d2m6u6shu0evoe.cloudfront.net/images/badges/staff_pick.png')
 
 #
 #

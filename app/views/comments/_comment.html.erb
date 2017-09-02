@@ -5,7 +5,7 @@
     <% end %>
     <%= @comment.user.avatar.present? ?
       image_tag(@comment.user.avatar.url(:square), class: 'comment-author-img') :
-      image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg", class: 'comment-author-img') %>
+      image_tag("https://d2m6u6shu0evoe.cloudfront.net/users/avatars/Gametiks_Gamercard.jpg", class: 'comment-author-img') %>
   </div>
   <div id='author-name'><%= link_to @comment.user.name.upcase, @comment.user %>
     <% if @comment.user == current_user || @user == current_user %>

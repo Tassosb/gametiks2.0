@@ -8,11 +8,11 @@
             <div id='left-img-container'>
               <%= avatar_img = @sampled_users[i].avatar.present? ?
                 image_tag(@sampled_users[i].avatar.url(:square), id: 'avatar-img-mobile') :
-                image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg", id: 'avatar-img-mobile') %>
+                image_tag("https://d2m6u6shu0evoe.cloudfront.net/users/avatars/Gametiks_Gamercard.jpg", id: 'avatar-img-mobile') %>
             </div>
             <div id='right-img-container'>
               <% level = level(@sampled_users[i]) %>
-              <%= image_tag "https://s3.amazonaws.com/gametiks/images/badges/lev_#{level}.png", id: 'level-badge-mobile' %>
+              <%= image_tag "https://d2m6u6shu0evoe.cloudfront.net/images/badges/lev_#{level}.png", id: 'level-badge-mobile' %>
             </div>
           </div>
         </div>
@@ -72,7 +72,7 @@
 
         <div id='user-level' class='hidden-xs'>
           <% level = level(@sampled_users[i]) %>
-          <%= image_tag "https://s3.amazonaws.com/gametiks/images/badges/lev_#{level}.png", id: 'level-badge' %>
+          <%= image_tag "https://d2m6u6shu0evoe.cloudfront.net/images/badges/lev_#{level}.png", id: 'level-badge' %>
         </div>
       </div>
     </div>

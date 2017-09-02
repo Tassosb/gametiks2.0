@@ -6,7 +6,7 @@
         <a href="/users/<%= @sender.id %>">
           <%= @sender.avatar.present? ?
             image_tag(@sender.avatar.url(:square), id: 'avatar-img', class: 'media-object') :
-            image_tag("https://s3.amazonaws.com/gametiks/users/avatars/Gametiks_Gamercard.jpg", class: 'media-object') %>
+            image_tag("https://d2m6u6shu0evoe.cloudfront.net/users/avatars/Gametiks_Gamercard.jpg", class: 'media-object') %>
         </a>
       </div>
       <div class="media-body">

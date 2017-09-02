@@ -1,4 +1,4 @@
 var buttonContainer = $("#creditor-<%= @harvest.id %>");
 buttonContainer.empty();
-buttonContainer.append("<img id='coin' src='https://s3.amazonaws.com/gametiks/images/coin.png' />");
+buttonContainer.append("<img id='coin' src='https://d2m6u6shu0evoe.cloudfront.net/images/coin.png' />");
 $('#log-<%= @harvest.id %>').find('#credit-count').html('<%= @harvest.credits.uniq.length %>')
