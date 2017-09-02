@@ -2,37 +2,31 @@
   <div class='row'>
     <div id='gallery-container'>
         <div id='gallery'>
-            <% @harvests.each do |harvest| %>
-            <% @user = harvest.user %>
-              <article class='log' id='log-<%= harvest.id %>'>
-                <%= image_tag harvest.image.url(:thumb), class: 'harvest' %>
-                <div class='user-nametag'>
-                  <%= link_to @user.name, @user %>
-                </div>
-                <div class='img-infoscreen clearfix'>
-                  <div id='text-wrapper'>
-                    <h4><span class='label'>Game: </span><span class='field'><%= harvest.animal_type %></span></h4>
-                    <h4><span class='label'>Weapon: </span><span class='field'><%= harvest.weapon_type %></span></h4>
-                    <h4><span class='label'>Points: </span><span class='field'><%= harvest.formatted_points %></span></h4>
-                    <h4><span class='label'>Weight: </span><span class='field'><%= formatted_weight(harvest.weight) %></span></h4>
-                    <h4><span class='label'>Credits: </span><span class='field' id='credit-count'><%= harvest.credits.length %></span></h4>
-                    <% if current_user && @user != current_user %>
-                      <div class='creditor' id='creditor-<%= harvest.id %>'>
-                        <% if harvest.credits.any? { |credit| credit.user == current_user } %>
-                          <img id='coin' src='https://s3.amazonaws.com/gametiks/images/coin.png' />
-                        <% else %>
-                          <%= button_to "Credit", credit_path(harvest_id: harvest.id), data: { disable_with: "" }, remote: true %>
-                        <% end %>
-                      </div>
-                    <% end %>
-                  </div>
-                </div>
-              </article>
-            <% end %>
+          <%= render @harvests %>
         </div>
       <div class='paginate'>
-        <%= paginate @harvests %>
+        <a rel="next" id="next" data-remote="true" href="/gallery?page=2" hidden='true'>Next Page</a>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  $(document).ready(function() {
+      $(window).scroll(function() {
+        var nextPageURL = $('#next').attr('href');
+        if (nextPageURL && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+          var currentPage = parseInt(nextPageURL.substr(nextPageURL.length - 1));
+          $.ajax({
+            url: nextPageURL,
+            type: 'GET',
+            dataType: 'script',
+          }).done(function() {
+            newPage = currentPage + 1;
+            $('#next').attr("href", `/gallery?page=${newPage}`);
+          });
+        }
+      });
+      return $(window).scroll();
+  })
+</script>

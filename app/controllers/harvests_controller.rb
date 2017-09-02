@@ -52,7 +52,7 @@ class HarvestsController < ApplicationController
   end
 
   def index
-    @harvests = Harvest.all.order('credits_count DESC').page(params[:page]).per(50)
+    @harvests = Harvest.all.order('credits_count DESC').includes(:user).page(params[:page]).per(2)
   end
 
   def show
@@ -69,7 +69,7 @@ class HarvestsController < ApplicationController
 
 
   def harvest_params
-    params.require(:harvest).permit(:weapon_type, :animal_type, :weight, :description, :image, :latitude, :longitude)
+    params.require(:harvest).permit(:page, :weapon_type, :animal_type, :weight, :description, :image, :latitude, :longitude)
   end
 
 end
