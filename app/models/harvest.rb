@@ -15,7 +15,7 @@ class Harvest < ActiveRecord::Base
   end
 
   def reset_counter
-    
+
   end
 
   def reward_badges_if_won
@@ -37,17 +37,17 @@ class Harvest < ActiveRecord::Base
       when 'bear'
         totalPoints += (weight * 4)
       when 'moose'
-        totalPoints += (weight * 0.75).round
+        totalPoints += (weight * 0.9).round
       when 'turkey'
         totalPoints += (weight * 10)
       when 'deer'
-        totalPoints += (weight * 4)
+        totalPoints += (weight * 3.8)
       when 'canine'
-        totalPoints += 200
+        totalPoints += 250
       when 'water_fowl'
-        totalPoints += 100
+        totalPoints += 250
       else
-        totalPoints += 200
+        totalPoints += 250
       end
     sprintf '%06d', totalPoints
   end
