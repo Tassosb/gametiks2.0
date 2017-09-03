@@ -65,17 +65,17 @@ class User < ActiveRecord::Base
       when 'bear'
         totalPoints += (i.weight * 4)
       when 'moose'
-        totalPoints += (i.weight * 0.75).round
+        totalPoints += (i.weight * 0.9).round
       when 'turkey'
         totalPoints += (i.weight * 10)
       when 'deer'
-        totalPoints += (i.weight * 4)
+        totalPoints += (i.weight * 3.8)
       when 'canine'
-        totalPoints += 200
+        totalPoints += 250
       when 'water_fowl'
-        totalPoints += 100
+        totalPoints += 250
       else
-        totalPoints += 200
+        totalPoints += 250
       end
     end
     totalPoints
