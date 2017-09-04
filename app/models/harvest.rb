@@ -41,7 +41,9 @@ class Harvest < ActiveRecord::Base
       when 'turkey'
         totalPoints += (weight * 10)
       when 'deer'
-        totalPoints += (weight * 3.8)
+        totalPoints += (weight * 3.8).round
+      when 'bovid'
+        totalPoints += (weight * 3.9).round
       when 'canine'
         totalPoints += 250
       when 'water_fowl'

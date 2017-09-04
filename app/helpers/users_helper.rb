@@ -70,6 +70,7 @@ end
       deer: 0,
       bear: 0,
       moose: 0,
+      bovid: 0,
       canine: 0,
       water_fowl: 0,
       miscellaneous: 0

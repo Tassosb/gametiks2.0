@@ -70,6 +70,8 @@ class User < ActiveRecord::Base
         totalPoints += (i.weight * 10)
       when 'deer'
         totalPoints += (i.weight * 3.8)
+      when 'bovid'
+        totalPoints += (i.weight * 4.2)
       when 'canine'
         totalPoints += 250
       when 'water_fowl'
