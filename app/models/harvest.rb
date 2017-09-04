@@ -8,18 +8,15 @@ class Harvest < ActiveRecord::Base
 
   validates :animal_type, :weapon_type, :weight, :image, :latitude, :longitude, presence: true
   validate :latitude_exists, :longitude_exists
+
   before_save :review_earned_badges
+  after_save :delete_unearned_badges!
 
   def credit(user)
     credits << Credit.new(user: user)
   end
 
-  def reset_counter
-
-  end
-
   def reward_badges_if_won
-    new_badges = compare_badges
     if new_badges.length == 0
       return
     else
@@ -65,16 +62,18 @@ class Harvest < ActiveRecord::Base
     user.badges.each do |badge|
       @earned_badges << badge
     end
-    delete_duplicates
     @earned_badges
   end
 
-  def delete_duplicates
-    #  TODO // Not working
-    user.badges = user.badges.distinct!
+  def delete_unearned_badges!
+    user.badges.each do |badge|
+      unless user.has_earned?(badge)
+        user.badges.delete(badge)
+      end
+    end
   end
 
-  def compare_badges
+  def new_badges
     all_badges = Badge.return_badges(user)
     new_badges = all_badges - @earned_badges
   end

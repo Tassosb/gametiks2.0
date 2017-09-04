@@ -83,6 +83,37 @@ class User < ActiveRecord::Base
     totalPoints
   end
 
+  def has_earned?(badge)
+    case badge.title
+      when 'Deer Hunter'
+        self.harvests.any? { |harvest| harvest.animal_type == 'deer' }
+      when 'Bear Hunter'
+        self.harvests.any? { |harvest| harvest.animal_type == 'bear' }
+      when 'Turkey Hunter'
+        self.harvests.any? { |harvest| harvest.animal_type == 'turkey' }
+      when 'Moose Hunter'
+        self.harvests.any? { |harvest| harvest.animal_type == 'moose' }
+      when 'Duck Hunter'
+        self.harvests.any? { |harvest| harvest.animal_type == 'water_fowl' }
+      when 'Canine Hunter'
+        self.harvests.any? { |harvest| harvest.animal_type == 'canine' }
+      when 'Bovid Hunter'
+        self.harvests.any? { |harvest| harvest.animal_type == 'bovid' }
+      when 'Archer'
+        self.harvests.select { |harvest| harvest.weapon_type == 'bow' }.length >= 3
+      when 'Gunslinger'
+        self.harvests.select { |harvest| harvest.weapon_type == 'pistol' }.length >= 3
+      when 'Shotgunner'
+        self.harvests.select { |harvest| harvest.weapon_type == 'shotgun' }.length >= 3
+      when 'Rifleman'
+        self.harvests.select { |harvest| harvest.weapon_type == 'rifle' }.length >= 3
+      when 'Staff Pick'
+        true
+      else
+        false
+    end
+  end
+
   def save_points
     self.points = calc_points
     self.save!
