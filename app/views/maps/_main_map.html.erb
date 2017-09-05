@@ -123,7 +123,7 @@
         }
       }
 
-      // format info for clickable markers
+      // format info for clickable markers and bind to click handler
       function attachInfo(marker, harvest) {
         var imgUrl = harvest.image.thumb.url;
         var weight = harvest.weight;
@@ -150,7 +150,7 @@
         "<h3>" + `${harvestOwner.name}` + "</h3>" +
         "</a>"+
         "<h4>" + weight + "lbs / " + Math.round(weight*0.453592) + "kgs</h4>"+
-        "<p>" + description.substring(0, 110) + "..." + "</p>";
+        "<p>" + description.substring(0, 70) + "..." + "</p>";
 
         marker.addListener('click', function() {
           $('#harvest-inspector').html(contentString);

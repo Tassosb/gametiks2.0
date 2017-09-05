@@ -1,7 +1,7 @@
 <div id='user-map-container-block'>
   <div id='user-map-container-flex'>
     <div id='map-harvest-inspector-container' class='col-xs-10 col-lg-8 col-md-9 max-width-1000'>
-      <div id='harvest-inspector' class='col-xs-12 col-sm-5 col-md-4'></div>
+      <div id='harvest-inspector' class='col-xs-12 col-sm-4'></div>
       <div id='filter-btn-container'>
         <div class='filter-btn'>
           <%= first_name(@user).upcase %>'S HARVESTS
@@ -166,7 +166,7 @@
         "</a>"+
 
         "<h4>" + weight + "lbs / " + Math.round(weight*0.453592) + "kgs</h4>"+
-        "<p>" + description.substring(0, 110) + "..." + "</p>";
+        "<p>" + description.substring(0, 70) + "..." + "</p>";
 
         marker.addListener('click', function() {
           $('#harvest-inspector').html(contentString);
