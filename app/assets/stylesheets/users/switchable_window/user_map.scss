@@ -48,6 +48,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            color: $gametiks-orange;
+            text-shadow: 0 0 4px $gametiks-orange-shadow;
             background-color: #333;
           }
           #other_harvests_switch {
