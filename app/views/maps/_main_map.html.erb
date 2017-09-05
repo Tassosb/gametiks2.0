@@ -5,6 +5,7 @@
 
     <script>
       var map;
+      var communityMarkers = [];
       var allHarvests = JSON.parse(gon.allHarvests);
 
       var latestHarvest = {created_at: ''};
@@ -61,7 +62,9 @@
           ]
         });
 
+        // refreshes markers within the scope of the map
         map.addListener('idle', function() {
+          deleteMarkers();
           reloadCommunityMarkers();
         });
 
@@ -90,12 +93,10 @@
                 shape: shape
               });
               attachInfo(marker, communityHarvests[i]);
+              communityMarkers.push(marker);
               // display latest harvest
-              // if (i == communityHarvests.length - 1) {
-                google.maps.event.trigger(marker, 'click');
-              // };
+              google.maps.event.trigger(marker, 'click');
             };
-
           };
         };
 
@@ -104,6 +105,23 @@
           return map.getBounds().contains(position);
         };
       };
+
+      function deleteMarkers() {
+        clearMarkers();
+        communityMarkers = [];
+      }
+
+      // Removes the markers from the map, but keeps them in the array.
+      function clearMarkers() {
+        setMapOnAll(null);
+      }
+
+      // Sets the map on all markers in the array.
+      function setMapOnAll(map) {
+        for (var i = 0; i < communityMarkers.length; i++) {
+          communityMarkers[i].setMap(map);
+        }
+      }
 
       // format info for clickable markers
       function attachInfo(marker, harvest) {
@@ -142,6 +160,7 @@
       function initMap(){
         initialize();
       }
+
 
     </script>
     <script async defer
