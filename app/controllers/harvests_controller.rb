@@ -52,7 +52,7 @@ class HarvestsController < ApplicationController
   end
 
   def index
-    @harvests = Harvest.all.order('credits_count DESC').includes(:user).page(params[:page]).per(30)
+    @harvests = Harvest.all.order("credits_count DESC, id DESC").includes(:user).page(params[:page]).per(30)
     gon.total_pages = @harvests.total_pages
   end
 
