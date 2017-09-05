@@ -36,7 +36,6 @@ class User < ActiveRecord::Base
       user.provider = auth.provider
       user.uid = auth.uid
       user.email = auth.extra.raw_info.email || ''
-      user.avatar = auth.info.image
       user.name = auth.extra.raw_info.name
       user.confirmed_at = Time.now
       user.save!

@@ -29,6 +29,7 @@
         height: 60px;
         z-index: 1;
         .filter-btn {
+          position: relative;
           background-color: $gray-green;
           border-top: 1px solid $gametiks-gray;
           height: 30px;
@@ -37,6 +38,21 @@
           justify-content: center;
           align-items: center;
           padding: 0 10px 0 30px;
+          cursor: pointer;
+          .switch {
+            position: absolute;
+            left: -30px;
+            top: 0;
+            height: 29px;
+            width: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #333;
+          }
+          #other_harvests_switch {
+
+          }
           img {
             height: 24px;
           }

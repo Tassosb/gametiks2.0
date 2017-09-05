@@ -3,12 +3,16 @@
     <div id='map-harvest-inspector-container' class='col-xs-10 col-lg-8 col-md-9 max-width-1000'>
       <div id='harvest-inspector' class='col-xs-12 col-sm-4'></div>
       <div id='filter-btn-container'>
-        <div class='filter-btn'>
+        <div class='filter-btn' id='toggle_user_harvests' data-state="true">
+          <div id='user_harvests_switch' class='switch'>
+          </div>
           <%= first_name(@user).upcase %>'S HARVESTS
           <img src='https://maps.google.com/mapfiles/ms/icons/red-dot.png' />
         </div>
-        <div class='filter-btn'>
-          ALL HARVESTS
+        <div class='filter-btn' id='toggle_other_harvests' data-state="true">
+          <div id='other_harvests_switch' class='switch'>
+          </div>
+            OTHER HARVESTS
           <img id='flag' src='https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png' />
         </div>
       </div>
@@ -16,6 +20,10 @@
 
     <script>
       var map;
+      var communityMarkers = [];
+      var userMarkers = [];
+      var reloadCommunityMarkers;
+
       var harvests = JSON.parse(gon.harvests);
 
       var latestHarvest = {created_at: ''};
@@ -90,10 +98,13 @@
           };
 
         map.addListener('idle', function() {
-          reloadCommunityMarkers();
+          deleteMarkers();
+          if (document.getElementById('toggle_other_harvests').dataset.state === 'true') {
+            reloadCommunityMarkers();
+          }
         });
 
-        function reloadCommunityMarkers() {
+        reloadCommunityMarkers = function() {
           var allHarvests = gon.allHarvests;
           allHarvests = JSON.parse(allHarvests);
           var communityHarvests = allHarvests.filter(function(harvest) {
@@ -123,7 +134,8 @@
                 shape: shape
               });
               attachInfo(marker, communityHarvests[i]);
-              if (i == communityHarvests.length - 1 && userHarvests.length == 0) {
+              communityMarkers.push(marker);
+              if (userHarvests.length == 0) {
                 google.maps.event.trigger(marker, 'click');
               };
             };
@@ -136,6 +148,23 @@
           return map.getBounds().contains(position);
         };
       };
+
+      function deleteMarkers() {
+        clearMarkers();
+        communityMarkers = [];
+      }
+
+      // Removes the markers from the map, but keeps them in the array.
+      function clearMarkers() {
+        setMapOnAll(null);
+      }
+
+      // Sets the map on all markers in the array.
+      function setMapOnAll(map) {
+        for (var i = 0; i < communityMarkers.length; i++) {
+          communityMarkers[i].setMap(map);
+        }
+      }
 
       // format info for clickable markers
       function attachInfo(marker, harvest) {
@@ -176,6 +205,25 @@
       function initMap(){
         initialize();
       }
+
+      $(document).ready(function() {
+        $('#other_harvests_switch').text('ON');
+        var toggleOtherHarvests = document.getElementById('toggle_other_harvests');
+        $(toggleOtherHarvests).click(function() {
+          if (toggleOtherHarvests.dataset.state == 'true') {
+            $(toggleOtherHarvests).attr('data-state', 'false');
+            $('#other_harvests_switch').text('OFF');
+            clearMarkers();
+            communityMarkers = [];
+          } else {
+            $(toggleOtherHarvests).attr('data-state', 'true');
+            $('#other_harvests_switch').text('ON');
+            reloadCommunityMarkers();
+          }
+        });
+        $('#user_harvests_switch').text('ON');
+
+      })
 
     </script>
     <script async defer
