@@ -13,17 +13,17 @@
 
 <script>
   $(document).ready(function() {
+    var total_pages = gon.total_pages;
       $(window).scroll(function() {
         var nextPageURL = $('#next').attr('href');
-        if (nextPageURL && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
-          var currentPage = parseInt(nextPageURL.substr(nextPageURL.length - 1));
+        var currentPage = parseInt(nextPageURL.substr(nextPageURL.length - 1));
+        newPage = currentPage + 1;
+        if (newPage <= total_pages && ($(window).scrollTop() > $(document).height() - $(window).height() - 50)) {
+          $('#next').attr("href", `/gallery?page=${newPage}`);
           $.ajax({
             url: nextPageURL,
             type: 'GET',
             dataType: 'script',
-          }).done(function() {
-            newPage = currentPage + 1;
-            $('#next').attr("href", `/gallery?page=${newPage}`);
           });
         }
       });
