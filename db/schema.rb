@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170831235459) do
+ActiveRecord::Schema.define(version: 20170906153541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20170831235459) do
     t.string   "latitude"
     t.string   "longitude"
     t.integer  "credits_count",   default: 0
+    t.date     "date"
     t.index ["user_id"], name: "index_harvests_on_user_id", using: :btree
   end
 

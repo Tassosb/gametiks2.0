@@ -4,7 +4,7 @@
       <div class='harvest-form col-xs-11'>
           <%= form_for(@harvest) do |f| %>
             <%= render 'shared/flash_messages' unless flash.empty? %>
-            <div class='col-lg-12 heading-container'>
+            <div class='heading-container'>
               <div class='heading'>
                 <% if params[:action] == 'edit' %>
                   EDIT HARVEST
@@ -13,7 +13,7 @@
                 <% end %>
               </div>
             </div>
-              <div class="col-lg-12 section">
+              <div class="section">
                 <div class="tech-label"><h2 id='game-type'>Game Type</h2></div>
                 <div class="selectables">
                   <label>
@@ -50,7 +50,7 @@
                   </label>
                 </div>
               </div>
-              <div class="col-lg-12 section">
+              <div class="section">
                 <div class="tech-label"><h2 id='weapon-type'>Weapon Type</h2></div>
                 <div class="selectables">
                   <label>
@@ -72,7 +72,7 @@
                 </div>
               </div>
             <br>
-              <div class="col-lg-6 col-md-12 col-sm-12 section defined-height" id="harvest_details">
+              <div class="col-xs-12 col-md-6 section defined-height" id="harvest_details">
                 <div class="tech-label"><h2>Weight (lbs)</h2>
                 </div>
                 <%= f.label 'Weight', class: "sr-only" %><%= f.text_field :weight, class: 'form-control judes-addition' %>
@@ -80,14 +80,21 @@
                 <div class="tech-label"><h2>Details (optional)</h2>
                 </div>
                 <%= f.label 'Details (Optional)', class: "sr-only" %><%= f.text_area(:description, :maxlength => 500, rows: 6, class: 'form-control judes-addition', id: 'optional-details' ) %>
-                <div class="tech-label"><h2>Image Upload</h2>
+                <div class='col-xs-6 modified-margin'>
+                  <div class="tech-label tech-label-small"><h2>Image Upload</h2>
+                  </div>
+                  <%= f.label :image, class: "sr-only" %>
+                  <%= f.file_field :image%>
                 </div>
-                <%= f.label :image, class: "sr-only" %>
-                <%= f.file_field :image%>
+                <div class='col-xs-6'>
+                  <div class="tech-label tech-label-small"><h2>Date</h2>
+                  </div>
+                  <%= f.label :date, class: "sr-only" %>
+                  <%= f.text_field :date, class: 'form-control judes-addition', :data => {provide: "datepicker"}, :value => Time.now.strftime('%m-%d-%Y') %>
+                </div>
                 <br>
               </div>
-              <br>
-              <div class="col-lg-6 col-md-12 col-sm-12 section defined-height">
+              <div class="col-xs-12 col-md-6 section defined-height">
                 <div class="tech-label"><h2>Coordinates</h2></div>
                 <div id='new-harvest-map-container'>
                   <div id="new-harvest-map"><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i></div>
