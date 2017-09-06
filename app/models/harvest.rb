@@ -9,7 +9,7 @@ class Harvest < ActiveRecord::Base
   validates :animal_type, :weapon_type, :weight, :image, :latitude, :longitude, presence: true
   validate :latitude_exists, :longitude_exists
 
-  before_save :review_earned_badges
+  before_save :review_earned_badges, :rectify_date
   after_save :delete_unearned_badges!
 
   def credit(user)
@@ -87,6 +87,18 @@ class Harvest < ActiveRecord::Base
   def longitude_exists
     unless (is_number?(longitude) && longitude.to_f.abs <= 180)
       errors.add(:longitude, 'must be between -180 and 180')
+    end
+  end
+
+  def rectify_date
+    if self.date.instance_of? Date
+      split_date = self.date.to_s.split('-')
+      month = split_date.last
+      day = split_date[1]
+      year = split_date.first
+      self.date = year + '-' + month + '-' + day
+    else
+      self.date = nil
     end
   end
 

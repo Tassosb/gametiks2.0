@@ -70,7 +70,7 @@ class HarvestsController < ApplicationController
 
 
   def harvest_params
-    params.require(:harvest).permit(:page, :weapon_type, :animal_type, :weight, :description, :image, :latitude, :longitude)
+    params.require(:harvest).permit(:page, :weapon_type, :animal_type, :weight, :description, :image, :date, :latitude, :longitude)
   end
 
 end

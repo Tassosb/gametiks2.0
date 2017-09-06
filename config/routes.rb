@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/gallery' => 'harvests#index'
 
   resources :users
+  get '/user-harvests' => 'users#harvests'
   resources :harvests, except: [:show] do
     resources :comments, only: [:create, :destroy]
   end

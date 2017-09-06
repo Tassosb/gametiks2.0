@@ -1,0 +1,65 @@
+<div class='container-fluid'>
+  <div class='row'>
+    <div id='logbook-container'>
+      <div id='logbook-header'>
+        <div id='left' class='hidden-xs'></div>
+        <div id='center' class='col-xs-10 col-lg-8 col-md-9 max-width-1000'>
+
+          <div id='title-container' class='col-xs-3 col-sm-5'>
+            <div id='button-left-container'>
+              <div id='button-left'>
+                NEWEST
+              </div>
+            </div>
+            <div id='triangle-left'></div>
+            <div id='triangle-right'></div>
+            <div id='title'>
+              <h3 class='hidden-xs'>
+                LOGBOOK
+              </h3>
+              <h3 class='visible-xs'>
+                LOGS
+              </h3>
+            </div>
+            <div id='button-right-container' class='col-xs-12'>
+              <div id='button-right'>
+                OLDEST
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div id='right' class='hidden-xs'></div>
+      </div>
+      <div id='logbook'>
+        <div id="columns" data-order='forward'>
+          <% @harvests.each do |harvest| %>
+            <%= render partial: 'log', locals: {harvest: harvest} %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+var userId = gon.userId;
+$(document).ready(function() {
+  $('#button-right').click(function() {
+    var list = document.getElementById('columns');
+    if (list.dataset.order === 'forward') {
+      $(list).attr('data-order', 'backward');
+      var listItems = $(list).children();
+      $(list).append(listItems.get().reverse());
+    };
+  });
+  $('#button-left').click(function() {
+    var list = document.getElementById('columns');
+    if (list.dataset.order === 'backward') {
+      $(list).attr('data-order', 'forward');
+      var listItems = $(list).children();
+      $(list).append(listItems.get().reverse());
+    };
+  })
+});
+</script>

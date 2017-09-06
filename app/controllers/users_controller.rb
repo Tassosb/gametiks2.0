@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @harvests = @user.harvests.order(sort_column + " " + sort_direction)
+    @harvests = @user.harvests.order('COALESCE(date, created_at) DESC')
     gon.clear
     userHarvests = @user.harvests.includes(:user)
     gon.harvests = userHarvests.to_json(include: [ :user ])
@@ -54,11 +54,11 @@ class UsersController < ApplicationController
   private
 
   def sort_column
-    Harvest.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
+    # Harvest.column_names.include?(params[:sort]) ? "COALESCE(#{params[:sort]}, created_at)" : "COALESCE(date, created_at)"
   end
 
   def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
+    # %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
   end
 
 end

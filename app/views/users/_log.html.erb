@@ -1,8 +1,8 @@
-<div class='log' id='log-<%= harvest.id %>'>
+<article class='log' id='log-<%= harvest.id %>'>
   <%= image_tag harvest.image.url(:square), class: 'harvest-img'%>
   <div class='img-infoscreen'>
     <div id='text-wrapper'>
-      <h5>Registered <%= harvest.created_at %></h5>
+      <h5>Harvested <%= harvest.date != nil ? harvest.date.strftime("%d %b %Y") : harvest.created_at.strftime("%d %b %Y") %></h5>
       <% if @user == current_user %>
       <div class='links'>
         <%= link_to 'Edit', edit_harvest_path(harvest) %>
@@ -43,11 +43,4 @@
     <%= f.text_area :body %>
     <p><%= f.submit "Add Comment"%></p>
   <% end %>
-</div>
-<script>
-  $(document).ready(function() {
-    $('#credit').click(function() {
-      alert('clicked');
-    })
-  });
-</script>
+</article>
