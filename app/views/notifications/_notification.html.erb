@@ -5,20 +5,37 @@
         $('#notifications').addClass('pulse');
       </script>
     <% end %>
+    <!-- who is the actor of the event? -->
+    <% actor = notification.notifiable.user %>
+    <a href='/users/<%= actor.id %>' id='avatar-container'>
+      <%= image_tag(actor.avatar.url(:square), id: 'actor-img')  %>
+    </a>
     <p>
     <a href='/users/<%= notification.notifiable.user.id %>'>
-      <%= notification.notifiable.user.name %>
+      <%= actor.name %>
     </a>
+      <!-- who does the harvest belong to? -->
+      <% harvest_owner = notification.notifiable.harvest.user %>
+      <!-- did they comment on their own harvest? -->
+      <% their_own = (harvest_owner == actor) %>
+      <% if their_own == true %>
+        <% target = 'their' %>
+      <% else %>
+        <% target = (harvest_owner == current_user) ? 'your' : harvest_owner.name + '\'s' %>
+      <% end %>
+      <!-- was the action a comment or a credit? -->
       <%= notification.notifiable_type.downcase == 'comment' ?
-        'commented on your' : 'credited your' %>
-    <a href='/users/<%= current_user.id %>#log-<%= notification.notifiable.harvest.id %>'>
+        'commented on ' + target : 'credited ' + target %>
+    <a href='/users/<%= harvest_owner.id %>#log-<%= notification.notifiable.harvest.id %>'>
       <%= notification.notifiable.harvest.animal_type + ' harvest' %>
     </a>
       <% time_passed_in_mins = ((Time.now - notification.created_at.to_time) / 60).round %>
       <% if time_passed_in_mins < 60 %>
         <%= pluralize(time_passed_in_mins, 'minute') + ' ago' %>
-      <% else %>
+      <% elsif time_passed_in_mins >= 60 && time_passed_in_mins < 1440 %>
         <%= pluralize((time_passed_in_mins / 60).round, 'hour') + ' ago' %>
+      <% else %>
+        <%= pluralize((time_passed_in_mins / 1440).round, 'day') + ' ago' %>
       <% end %>
     </p>
   </li>

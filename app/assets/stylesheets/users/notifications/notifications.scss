@@ -12,6 +12,16 @@
   box-shadow: 0 0 10px #333;
   background-color: $side-panel;
   padding: 5px;
+  #avatar-container {
+    height: 100%;
+    width: 55px;
+    float: left;
+    img#actor-img {
+      width: 44px;
+      border-radius: 100%;
+      margin: 5px;
+    }
+  }
   p {
     background-color: white;
     padding: 5px;

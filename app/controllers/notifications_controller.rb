@@ -1,7 +1,7 @@
 class NotificationsController < ApplicationController
 
   def index
-    @notifications = current_user.notifications.order('created_at').limit(7)
+    @notifications = current_user.notifications.order('created_at DESC').limit(7)
   end
 
   def mark_read
