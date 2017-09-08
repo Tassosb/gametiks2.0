@@ -1,0 +1,25 @@
+<% unless notification.user == notification.notifiable.user %>
+  <li class='notification-item' id='<%= notification.id %>'>
+    <% if notification.is_read? == false %>
+      <script>
+        $('#notifications').addClass('pulse');
+      </script>
+    <% end %>
+    <p>
+    <a href='/users/<%= notification.notifiable.user.id %>'>
+      <%= notification.notifiable.user.name %>
+    </a>
+      <%= notification.notifiable_type.downcase == 'comment' ?
+        'commented on your' : 'credited your' %>
+    <a href='/users/<%= current_user.id %>#log-<%= notification.notifiable.harvest.id %>'>
+      <%= notification.notifiable.harvest.animal_type + ' harvest' %>
+    </a>
+      <% time_passed_in_mins = ((Time.now - notification.created_at.to_time) / 60).round %>
+      <% if time_passed_in_mins < 60 %>
+        <%= pluralize(time_passed_in_mins, 'minute') + ' ago' %>
+      <% else %>
+        <%= pluralize((time_passed_in_mins / 60).round, 'hour') + ' ago' %>
+      <% end %>
+    </p>
+  </li>
+<% end %>

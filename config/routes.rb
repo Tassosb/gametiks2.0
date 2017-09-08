@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   resources :harvests, except: [:show] do
     resources :comments, only: [:create, :destroy]
   end
-
+  resources :notifications, only: [:index]
+  match 'mark_read' => 'notifications#mark_read', via: :post
   match 'credit', to: 'credits#credit', via: :post
   resources :user_contacts, only: [:create, :destroy]
   get "mailbox/inbox" => "mailbox#inbox", as: :mailbox_inbox

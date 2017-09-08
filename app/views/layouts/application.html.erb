@@ -32,12 +32,13 @@
       and browse harvests around the globe. Create a free profile today!" />
 
     <meta http-equiv="Expires" content="7" />
-      
+
   </head>
 
   <body>
     <%= include_gon %>
     <%= render 'layouts/header' %>
+    <%= render 'users/notifications_container' %>
     <%= yield %>
     <%= render 'layouts/footer' %>
   </body>
@@ -59,9 +60,6 @@
       $('li#contacts').click(function() {
         $('#contacts-container').toggleClass('contacts-active')
       })
-
-    // pagination
-
     });
   </script>
 

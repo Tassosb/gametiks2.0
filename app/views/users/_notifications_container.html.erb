@@ -1,0 +1,15 @@
+<div id='notifications-container'>
+  <ul id='notifications-list'>
+    <!-- Auto-fills with handful of notifications -->
+  <ul>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $.ajax({
+      url: '/notifications',
+      type: 'GET',
+      dataType: 'script'
+    });
+  });
+</script>

@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_many :contact_follows, foreign_key: :user_id, class_name: 'UserContact'
   has_many :conversations, foreign_key: :sender_id
   has_many :comments, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   # has_many :contactors, through: :contactor_follows, source: :user
   # has_many :contactor_follows, foreign_key: :user_id, class_name: 'UserContact'

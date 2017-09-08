@@ -21,16 +21,6 @@
           </a>
         </li>
         <% if user_signed_in? %>
-          <% if controller.controller_name == 'users' && controller.action_name == 'show' %>
-            <li id='contacts'>
-              Contacts <i class="fa fa-user-circle" aria-hidden="true"></i>
-            </li>
-          <% end %>
-          <li>
-            <a href='/mailbox/inbox'>
-              Mailbox <i class="fa fa-envelope" aria-hidden="true"></i>
-            </a>
-          </li>
         <li id='search-container'>
           <%= form_tag(users_path, :method => "get", id: "search-form", remote: true) do %>
             <%= text_field_tag :search, params[:search], placeholder: "Search Members", autocomplete: "off" %>
@@ -40,6 +30,25 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+        <li>
+          <ul id='icons'>
+            <li id='mailbox'>
+              <a href='/mailbox/inbox'>
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li id='notifications'>
+              <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+            </li>
+              <% if controller.controller_name == 'users' && controller.action_name == 'show' %>
+                <li id='contacts'>
+                  <i class="fa fa-user-circle" aria-hidden="true"></i>
+                </li>
+              <% end %>
+          </ul>
+        </li>
+        <% end %>
         <li class="dropdown">
           <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span><i class='fa fa-user'></i></span><b class="caret"></b></a>
           <ul class="dropdown-menu">
@@ -73,5 +82,20 @@
     $('#search-form').submit(function(event) {
       event.preventDefault();
     });
+
+    $('#notifications').click(function() {
+      $('#notifications-container').toggle();
+      $(this).removeClass('pulse');
+      var notifications = [];
+      $('.notification-item').each(function() {
+        notifications.push(this.id);
+      });
+      $.ajax({
+        url: '/mark_read',
+        type: 'POST',
+        dataType: 'script',
+        data: {notifications: notifications}
+      })
+    })
   });
 </script>

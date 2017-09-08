@@ -1,0 +1,22 @@
+@import 'variables';
+#notifications-container {
+  position: absolute;
+  display: none;
+  top: 48px;
+  right: 50px;
+  width: 300px;
+  height: 500px;
+  z-index: 100;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #333;
+  background-color: $side-panel;
+  padding: 5px;
+  p {
+    background-color: white;
+    padding: 5px;
+    color: #555;
+  }
+  a {
+    color: $water-blue;
+  }
+}
