@@ -73,6 +73,8 @@
   </div>
 </nav>
 
+
+
 <script>
   $(document).ready(function() {
     $('#search').bind('keyup', function() {
@@ -90,12 +92,16 @@
       $('.notification-item').each(function() {
         notifications.push(this.id);
       });
-      $.ajax({
-        url: '/mark_read',
-        type: 'POST',
-        dataType: 'script',
-        data: {notifications: notifications}
-      })
-    })
+      if (notifications.length === 1) {
+        $('#empty').show();
+      } else {
+        $.ajax({
+          url: '/mark_read',
+          type: 'POST',
+          dataType: 'script',
+          data: {notifications: notifications}
+        });
+      }
+    });
   });
 </script>
