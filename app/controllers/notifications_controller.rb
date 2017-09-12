@@ -7,6 +7,7 @@ class NotificationsController < ApplicationController
   def mark_read
     notification_ids = params[:notifications] || []
     notification_ids.each do |id|
+      next if id == 'empty'
       notification = Notification.find(id.to_i)
       notification.mark_as_read!
     end

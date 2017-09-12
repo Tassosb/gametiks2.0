@@ -92,16 +92,19 @@
       $('.notification-item').each(function() {
         notifications.push(this.id);
       });
-      if (notifications.length === 1) {
-        $('#empty').show();
-      } else {
-        $.ajax({
-          url: '/mark_read',
-          type: 'POST',
-          dataType: 'script',
-          data: {notifications: notifications}
+
+      $.ajax({
+        url: '/mark_read',
+        type: 'POST',
+        dataType: 'script',
+        data: {notifications: notifications}
+      }).done(function() {
+          if (notifications.length === 1) {
+            $('#empty').show();
+          }
         });
-      }
+
+      }); // end click function
+
     });
-  });
 </script>
