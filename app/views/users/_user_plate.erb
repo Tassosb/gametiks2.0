@@ -52,12 +52,12 @@
         </div>
       </div>
       <div id='user-sub-info'>
-        <h5 id='activated'>Active: <%= @user.created_at %></h5>
         <% @user.save_points %>
         <h4><span class='label'>Member Points: </span><span class='field'><%= @user.formatted_points %></span></h4>
         <h4><span class='label'>Member Rank: </span><span class='field'><%= rank(@user) %></span></h4>
         <h4><span class='label'>Common Weapon: </span><span class='field'><%= favorite_weapon(@user) %></span></h4>
         <h4><span class='label'>Common Game: </span><span class='field'><%= favorite_animal(@user) %></span></h4>
+        <h4><span class='label'>Total Credits: </span><span class='field'><%= total_credits(@user) %></span></h4>
       </div>
 
       <% if current_user == @user %>

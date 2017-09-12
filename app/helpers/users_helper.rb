@@ -27,6 +27,14 @@ def first_name(user)
   end
 end
 
+def total_credits(user)
+  credits = 0
+  user.harvests.each do |harvest|
+    credits += harvest.credits_count
+  end
+  credits.to_s
+end
+
 def favorite_weapon(user)
   weapons = {
     rifle: 0,
