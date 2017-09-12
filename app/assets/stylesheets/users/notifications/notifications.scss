@@ -11,7 +11,23 @@
   border-radius: 10px;
   box-shadow: 0 0 10px #333;
   background-color: $side-panel;
-  padding: 5px;
+  padding: 10px 5px 0;
+  #close-button {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 100%;
+    text-align: center;
+    padding-top: 2px;
+    box-shadow: 0 0 8px #666;
+    cursor: pointer;
+    .fa {
+      color: $gametiks-red;
+    }
+  }
   #avatar-container {
     height: 100%;
     width: 55px;
@@ -33,5 +49,11 @@
   #empty {
     text-align: center;
     display: none;
+  }
+}
+@media (max-width: 768px) {
+  #notifications-container {
+    left: 70px;
+    top: 240px;
   }
 }

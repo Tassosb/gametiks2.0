@@ -1,4 +1,7 @@
 <div id='notifications-container'>
+  <div id='close-button'>
+    <i class="fa fa-times-circle fa-2x" aria-hidden="true"></i>
+  </div>
   <ul id='notifications-list'>
     <li id='empty' class='notification-item'>
       <p>
@@ -15,6 +18,10 @@
       url: '/notifications',
       type: 'GET',
       dataType: 'script'
+    });
+
+    $('#close-button').click(function() {
+      $('#notifications-container').hide();
     });
   });
 </script>
