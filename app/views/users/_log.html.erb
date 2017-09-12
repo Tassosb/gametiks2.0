@@ -2,7 +2,6 @@
   <%= image_tag harvest.image.url(:square), class: 'harvest-img'%>
   <div class='img-infoscreen'>
     <div id='text-wrapper'>
-      <h5>Harvested <%= harvest.date != nil ? harvest.date.strftime("%d %b %Y") : harvest.created_at.strftime("%d %b %Y") %></h5>
       <% if @user == current_user %>
       <div class='links'>
         <%= link_to 'Edit', edit_harvest_path(harvest) %>
