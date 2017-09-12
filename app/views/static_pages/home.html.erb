@@ -8,28 +8,26 @@
 
     <div class='title-container col-xs-12 col-md-6'>
         <img src='https://d2m6u6shu0evoe.cloudfront.net/images/gametiks_logo.png' class='title'/>
-      <div class='subtitle'></div>
     </div>
 
-    <!-- Display different buttons based on screen type
-      Hide buttons if already signed in -->
-    <% if !current_user %>
-      <div id='sign-up-btns-mobile-container' class='visible-xs'>
-        <div class='flex'>
-          <a href='/users/sign_up' class='main-btn-mobile gametiks-gradient-warm'>SIGN UP WITH EMAIL</a>
-          <a href='/users/auth/facebook' class='main-btn-mobile gametiks-gradient-warm'>CONTINUE WITH FACEBOOK</a>
-        </div>
+      <div id='splash-buttons-container' class='col-xs-11 col-sm-7'>
+        <a href='/gallery' id='gallery-button'>
+          VISIT GALLERY
+        </a>
+        <% if !current_user %>
+          <div id='sign-up-buttons-container' class='col-xs-12'>
+            <a href='/users/sign_up' class='main-btn gametiks-gradient-warm'>
+              SIGN UP WITH EMAIL
+              <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
+            </a>
+            <a class='main-btn gametiks-gradient-warm' href='/users/auth/facebook' data-confirm="If you have already signed up by email, this will create another account!">
+              CONTINUE WITH FACEBOOK
+              <i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
+            </a>
+          </div>
+        <% end %>
       </div>
 
-      <div id='sign-up-buttons-container' class='col-sm-12 hidden-xs'>
-        <div class='gt-btn-container'>
-          <a class='gt-btn email' href='/users/sign_up'>SIGN UP WITH EMAIL<i class="fa fa-envelope fa-3x" aria-hidden="true"></i></a>
-        </div>
-        <div class='gt-btn-container'>
-          <a class='gt-btn' href='/users/auth/facebook' data-confirm="WARNING: If you have already signed up by email, this will create another account!">CONTINUE WITH FACEBOOK<i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
-        </div>
-      </div>
-      <% end %>
 
   </div>
 </div>
