@@ -9,6 +9,15 @@
         <%= link_to "Delete", harvest_path(harvest), method: :delete, data: { confirm: 'Confirm Delete?' } %>
       </div>
       <% end %>
+      <h4><span class='label'>Date Harvested: </span>
+        <span class='field'>
+          <% if harvest.date != nil %>
+            <%= harvest.date.strftime('%d %b %Y') %>
+          <% else  %>
+            <%= harvest.created_at.strftime('%d %b %Y') %>
+          <% end %>
+        </span>
+      </h4>
       <h4><span class='label'>Game Type: </span><span class='field'><%= harvest.animal_type == 'water_fowl' ? 'waterfowl' : harvest.animal_type %></span></h4>
       <h4><span class='label'>Weapon Used: </span><span class='field'><%= harvest.weapon_type %></span></h4>
       <h4><span class='label'>Points Awarded: </span><span class='field'><%= harvest.formatted_points %></span></h4>
