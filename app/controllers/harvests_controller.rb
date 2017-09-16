@@ -22,9 +22,12 @@ class HarvestsController < ApplicationController
   end
 
   def create
+    @date = Date.strptime(harvest_params[:date], '%m/%d/%Y')
     @harvest = Harvest.new(harvest_params)
     @harvest.user_id = current_user.id
     if @harvest.save
+      # must manually set date because date hits controller as String
+      @harvest.update_column :date, @date
       @harvest.user.save_points
       flash[:success] = "Harvest successfully created"
       # runs entire badge comparisons before rewarding badges
@@ -39,8 +42,11 @@ class HarvestsController < ApplicationController
   end
 
   def update
+    @date = Date.strptime(harvest_params[:date], '%m/%d/%Y')
     @harvest = Harvest.find(params[:id])
     if @harvest.update_attributes(harvest_params)
+      # manually update date because date field is nil
+      @harvest.update_column :date, @date
       @harvest.user.save_points
       flash[:success] = "Harvest successfully updated"
       badge_titles = @harvest.reward_badges_if_won

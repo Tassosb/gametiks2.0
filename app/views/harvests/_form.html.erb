@@ -106,6 +106,8 @@
                   </div>
                   <%= f.label :date, class: "sr-only" %>
                   <% if params[:action] == 'edit' && @harvest.date != nil %>
+                  <!-- Convert date to readable string with year at end
+                    String will be converted back to date in backend -->
                     <% @date = @harvest.date.strftime('%m/%d/%Y') %>
                     <%= f.text_field :date, class: 'form-control judes-addition',
                       :data => {provide: "datepicker"},
@@ -113,7 +115,7 @@
                   <% else %>
                   <%= f.text_field :date, class: 'form-control judes-addition',
                     :data => {provide: "datepicker"},
-                    :value => Time.now.strftime('%m/%d/%Y') %>
+                    :value => Date.today.strftime('%m/%d/%Y') %>
                   <% end %>
                 </div>
                 <br>

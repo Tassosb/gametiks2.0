@@ -9,7 +9,7 @@ class Harvest < ActiveRecord::Base
   validates :animal_type, :weapon_type, :weight, :image, :latitude, :longitude, presence: true
   validate :latitude_exists, :longitude_exists
 
-  before_save :review_earned_badges, :rectify_date
+  before_save :review_earned_badges
   after_save :delete_unearned_badges!
 
   def credit(user)
@@ -90,17 +90,17 @@ class Harvest < ActiveRecord::Base
     end
   end
 
-  def rectify_date
-    if self.date.instance_of? Date
-      split_date = self.date.to_s.split('-')
-      month = split_date.last
-      day = split_date[1]
-      year = split_date.first
-      self.date = year + '-' + month + '-' + day
-    else
-      self.date = nil
-    end
-  end
+  # def rectify_date
+    # if self.date.instance_of? Date
+    #   split_date = self.date.to_s.split('-')
+    #   month = split_date.last
+    #   day = split_date[1]
+    #   year = split_date.first
+    #   self.date = year + '-' + month + '-' + day
+    # else
+    #   self.date = nil
+    # end
+  # end
 
   def is_number?(string)
     true if Float(string) rescue false
