@@ -2,16 +2,38 @@
 /* header */
 @import './variables';
 
-#myNavbar {
+.header-main {
+  box-shadow: inset 0 -30px 50px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin: 0;
+}
 
+#myNavbar {
+  .nav {
+    font-family: 'open-sans-regular';
+    li {
+      a {
+        color: $panel-gray;
+        &:hover {
+          color: white;
+        }
+      }
+    }
+    li.bordered {
+      border-right: 1px solid $gray-dark;
+    }
+  }
 }
 #logo {
-  font-family: 'teko-medium';
-  font-size: 40px;
-  color: white;
-  text-transform: uppercase;
-  padding-top: 19px;
-  letter-spacing: 2px;
+  height: 50px;
+  padding: 0 8px;
+  background-color: #222;
+  img#gt-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0;
+    padding: 0;
+  }
   &:hover {
     text-decoration: none;
     background-color: none;
@@ -30,7 +52,7 @@ ul#icons {
   justify-content: space-around;
   align-items: center;
   li#contacts, li#notifications, li#mailbox {
-    color: white;
+    color: $panel-gray;
     cursor: pointer;
     .fa-exclamation-circle {
       font-size: 20px;
@@ -41,6 +63,9 @@ ul#icons {
     }
     .fa-envelope {
       font-size: 17px;
+    }
+    &:hover {
+      color: white;
     }
   }
   .pulse {
@@ -75,50 +100,42 @@ li#search-container {
   height: 50px;
   padding: 10px;
   input#search {
+    background-color: transparent;
+    background-color: $gray-40;
+    border: none;
     width: 177px;
     height: 30px;
     text-indent: 10px;
     box-shadow: none;
     outline: none;
     border-radius: 4px;
-    border: none;
-    color: $gray-dark;
-    font-family: 'open-sans-bold';
+    color: $gray-green-glow;
+    text-shadow: 0 0 12px rgba(140, 140, 140, 0.5);
+    font-family: 'share-tech';
   }
   ul#search-results {
     position: absolute;
-    background-color: transparent;
-    width: 200px;
+    background-color: $gray-40;
+    width: 198px;
     z-index: 100;
     left: 0px;
-    top: 48px;
-    border-radius: 5px;
+    top: 50px;
     box-shadow: 1px 1px 10px $gray-50;
-    font-family: 'open-sans-bold';
+    font-family: 'share-tech';
     li {
-      background-color: white;
       text-indent: 2px;
+      border-bottom: 1px solid $gray-50;
       &:hover {
-        background-color: $gametiks-green;
         a {
           color: white !important;
         }
-      }
-      &:first-child {
-        border-radius: 5px 5px 0 0;
-      }
-      &:last-child {
-        border-radius: 0 0 5px 5px;
-      }
-      &:only-child {
-        border-radius: 5px;
       }
       a {
         display: block;
         padding: 8px;
         width: 100%;
         height: 100%;
-        color: $gray-dark !important;
+        color: $gray-green-glow !important;
       }
     }
   }
