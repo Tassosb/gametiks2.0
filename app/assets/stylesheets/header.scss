@@ -46,26 +46,33 @@
 
 ul#icons {
   position: relative;
-  width: 130px;
-  height: 50px;
+  width: auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  padding: 0 10px;
+  margin: 10px 0 10px 10px;
+  background-color: $gray-40;
   li#contacts, li#notifications, li#mailbox {
-    color: $panel-gray;
     cursor: pointer;
+    margin: 0 8px;
+    i {
+      color: $gray-dark !important;
+      &:hover {
+        color: white !important;
+      }
+    }
     .fa-exclamation-circle {
       font-size: 20px;
-      color: white;
     }
     .fa-user-circle {
       font-size: 17px;
     }
     .fa-envelope {
       font-size: 17px;
-    }
-    &:hover {
-      color: white;
     }
   }
   .pulse {
@@ -95,6 +102,16 @@ ul#icons {
   }
 }
 
+.dropdown-toggle {
+  background-color: transparent !important;
+}
+ul.dropdown-menu {
+  li {
+    a {
+      font-family: 'open-sans-regular';
+    }
+  }
+}
 li#search-container {
   position: relative;
   height: 50px;
