@@ -27,7 +27,7 @@
 #logo {
   height: 50px;
   padding: 0 8px;
-  background-color: #222;
+  background-color: $gray-40;
   img#gt-icon {
     width: 48px;
     height: 48px;
@@ -106,9 +106,22 @@ ul#icons {
   background-color: transparent !important;
 }
 ul.dropdown-menu {
+  border: 1px solid $gray-40;
+  background-color: $gray-40 !important;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: 1px 1px 10px $gray-50;
+  border-bottom: 1px solid $gray-50;
   li {
+    border-bottom: 1px solid $gray-50;
+    // height: 30px;
     a {
-      font-family: 'open-sans-regular';
+      background-color: transparent !important;
+      font-family: 'share-tech';
+      color: $gray-green-glow !important;
+      &:hover {
+        color: white !important;
+      }
     }
   }
 }
