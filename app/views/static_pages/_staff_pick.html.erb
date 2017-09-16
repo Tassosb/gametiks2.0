@@ -6,7 +6,7 @@
     </div>
     <div id='name-container' class='ribbon-container'>
       <div class='ribbon'>
-        <% harvest_id = Rails.env.development? ? 15 : 151 %>
+        <% harvest_id = Rails.env.development? ? 15 : 70 %>
         <% harvest = Harvest.find(harvest_id) %>
         <% username = harvest.user.name %>
         <% @user = User.where('lower(name) = ?', username.downcase).first  %>
