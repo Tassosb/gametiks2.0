@@ -1,21 +1,18 @@
 
 <div class='container-fluid splash-main box-shadow-1'>
-  <div class='row title-container'>
-
     <% unless flash.empty? %>
-      <div id='flash-messages-container' class='col-xs-11 col-sm-7'>
+      <div id='flash-messages-container' class='col-xs-8 col-sm-7'>
         <% flash.each do |message_type, message| %>
-          <div class="flash-message"><%= message %></div>
+          <div class="flash-message">
+            <%= message %>
+          </div>
         <% end %>
       </div>
     <% end %>
-
-    <div class='title-container col-xs-12 col-md-6'>
-        <img src='https://d2m6u6shu0evoe.cloudfront.net/images/gametiks_logo.png' class='title-desktop'/>
-        <img src='https://d2m6u6shu0evoe.cloudfront.net/images/gametiks_logo_head.png' class='title-mobile'/>
-        <img src='https://d2m6u6shu0evoe.cloudfront.net/images/gametiks_condensed.png' id='gametiks-condensed' class='visible-xs'/>
-    </div>
-
+  <div id='title-container' class='col-xs-12 col-md-6'>
+      <img src='https://d2m6u6shu0evoe.cloudfront.net/images/gametiks_logo.png' class='title-desktop'/>
+      <img src='https://d2m6u6shu0evoe.cloudfront.net/images/gametiks_logo_head.png' class='title-mobile'/>
+      <img src='https://d2m6u6shu0evoe.cloudfront.net/images/gametiks_condensed.png' id='gametiks-condensed' class='visible-xs'/>
   </div>
   <div id='bottom-row'>
   </div>
@@ -89,3 +86,18 @@
     <%= render partial: 'maps/main_map' %>
   </div>
 </div>
+
+<script>
+  $(document).ready(function() {
+    if ($('#sign-up-buttons-container').length === 0) {
+      $('#title-container').css('padding-top', '30px');
+      $('#title-container').animate({
+        opacity: 1.0
+      }, 250);
+    } else {
+      $('#title-container').animate({
+        opacity: 1.0
+      }, 250);
+    };
+  });
+</script>
