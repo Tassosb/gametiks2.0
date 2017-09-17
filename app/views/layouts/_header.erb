@@ -13,17 +13,17 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class='bordered'>
-          <a href='/users'>
+          <a href='/users' class='chunky-button'>
             Leaderboard <i class="fa fa-list-ul" aria-hidden="true"></i>
           </a>
         </li>
-        <li  class='bordered'>
-          <a href='/gallery'>
+        <li class='bordered'>
+          <a href='/gallery' class='chunky-button'>
             Gallery <i class="fa fa-camera" aria-hidden="true"></i>
           </a>
         </li>
         <% if user_signed_in? %>
-        <li  class='bordered' id='search-container'>
+        <li id='search-container'>
           <%= form_tag(users_path, :method => "get", id: "search-form", remote: true) do %>
             <%= text_field_tag :search, params[:search], placeholder: "Search Members", autocomplete: "off" %>
           <% end %>
@@ -66,7 +66,7 @@
           </ul>
         </li>
         <% else %>
-          <li>
+          <li class='bordered'>
             <%= link_to "Login", new_user_session_url %>
           </li>
       <% end %>
@@ -95,6 +95,13 @@
         notifications.push(this.id);
       });
 
+      var isVisible = $('#notifications-container').is(':visible');
+      if (isVisible) {
+        $('#notifications > i').css('color', 'white');
+      } else {
+        $('#notifications > i').css('color', '');
+      }
+
       $.ajax({
         url: '/mark_read',
         type: 'POST',
@@ -108,5 +115,10 @@
 
       }); // end click function
 
+      $('#logo').hover(function() {
+        $('#gt-icon').attr('src', 'https://d2m6u6shu0evoe.cloudfront.net/images/gametiks_icon_square.png');
+      }, function() {
+        $('#gt-icon').attr('src', 'https://d2m6u6shu0evoe.cloudfront.net/images/gametiks_icon_gray.png');
+      });
     });
 </script>

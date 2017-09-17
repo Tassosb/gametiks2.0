@@ -12,10 +12,12 @@
   .nav {
     font-family: 'open-sans-regular';
     li {
-      a {
+      a.chunky-button {
         color: $panel-gray;
+        box-shadow: inset 0 0 10px $dark-green;
         &:hover {
           color: white;
+          background-color: $link-blue-transparent;
         }
       }
     }
@@ -60,7 +62,7 @@ ul#icons {
     cursor: pointer;
     margin: 0 8px;
     i {
-      color: $gray-dark !important;
+      color: $gray-dark;
       &:hover {
         color: white !important;
       }
