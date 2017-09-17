@@ -64,7 +64,10 @@
   border-top: 4px solid $cloudy;
   border-bottom: 4px solid $cloudy;
   min-height: calc(100vh - 200px);
-
+  img#gametiks-condensed {
+    margin: 0 auto;
+    width: 300px;
+  }
   &:before {
     position: absolute;
     left: 0;
@@ -245,17 +248,17 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   img.title-desktop {
-    margin: 20px;
     width: 100%;
     max-width: 800px;
   }
   img.title-mobile {
     margin: 20px;
+    margin-top: 0;
     width: 100%;
-    max-width: 400px;
+    max-width: 350px;
     display: none;
   }
   @media (max-width: 768px) {

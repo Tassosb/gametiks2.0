@@ -67,7 +67,10 @@
         </li>
         <% else %>
           <li class='bordered'>
-            <%= link_to "Login", new_user_session_url %>
+            <a href='/users/login' class='chunky-button'>
+              Login
+            </a>
+            <%#= link_to "Login", class: 'chunky-button', new_user_session_url %>
           </li>
       <% end %>
       </ul>
