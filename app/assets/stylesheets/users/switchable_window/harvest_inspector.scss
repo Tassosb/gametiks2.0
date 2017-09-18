@@ -12,7 +12,6 @@
     overflow-y: scroll;
     border: 4px solid $side-panel;
     color: $text-gray;
-    font-weight: 600;
     @media (max-width: 768px) {
       overflow-y: hidden !important;
     }
@@ -41,7 +40,6 @@
       }
     }
     p {
-      font-weight: bold;
       line-height: 20px;
       font-family: 'open-sans-bold';
       max-width: 220px;
@@ -50,9 +48,7 @@
 
   @media (max-width: 768px) {
     #harvest-inspector {
-      background-color: rgb(244, 244, 244);
       margin: 5px;
-      box-shadow: 1px 1px 5px rgb(200, 200, 200);
       width: 100%;
       display: block;
       height: auto;
@@ -63,8 +59,6 @@
       width: 130px;
     }
     h4 {
-      color: rgb(60, 60, 60);
-      font-weight: bold;
       display: block;
       text-align: left;
     }
@@ -93,7 +87,6 @@
       }
     }
     p {
-      font-weight: bold;
       line-height: 20px;
       font-family: 'open-sans-bold';
       display: block;

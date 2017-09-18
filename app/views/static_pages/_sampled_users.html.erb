@@ -36,10 +36,10 @@
           <div id='user-sub-info'>
             <h5 id='activated'>Active: <%= @sampled_users[i].created_at %></h5>
             <% @sampled_users[i].save_points %>
-            <h4><span class='label'>Member Points: </span><span class='field'><%= @sampled_users[i].formatted_points %></span></h4>
-            <h4><span class='label'>Member Rank: </span><span class='field'><%= rank(@sampled_users[i]) %></span></h4>
-            <h4><span class='label'>Common Weapon: </span><span class='field'><%= favorite_weapon(@sampled_users[i]) %></span></h4>
-            <h4><span class='label'>Common Game: </span><span class='field'><%= favorite_animal(@sampled_users[i]) %></span></h4>
+            <h4><span class='stats-label'>Member Points: </span><span class='field'><%= @sampled_users[i].formatted_points %></span></h4>
+            <h4><span class='stats-label'>Member Rank: </span><span class='field'><%= rank(@sampled_users[i]) %></span></h4>
+            <h4><span class='stats-label'>Common Weapon: </span><span class='field'><%= favorite_weapon(@sampled_users[i]) %></span></h4>
+            <h4><span class='stats-label'>Common Game: </span><span class='field'><%= favorite_animal(@sampled_users[i]) %></span></h4>
           </div>
 
           <div class='btn-container'>

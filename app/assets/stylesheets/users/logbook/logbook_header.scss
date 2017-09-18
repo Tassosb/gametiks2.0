@@ -75,6 +75,7 @@
         border-left: 14px solid $gametiks-green;
         border-bottom: 14px solid $gametiks-green;
         border-top: 14px solid transparent;
+        z-index: 1;
       }
       #triangle-right {
         position: absolute;
@@ -92,6 +93,7 @@
         left: calc(-100% - 28px);
         width: calc(100% + 14px);
         border: 1px solid $gray-50;
+        border-right: 2px solid $gray-50;
         height: 28px;
         background-color: $gray-green;
         -webkit-transform: skew(-45deg);
@@ -126,12 +128,14 @@
         right: calc(-100% - 28px);
         width: calc(100% + 14px);
         border: 1px solid $gray-50;
+        border-left: 2px solid $gray-50;
         height: 28px;
         background-color: $gray-green;
         -webkit-transform: skew(45deg);
   	    -moz-transform: skew(45deg);
   	    -o-transform: skew(45deg);
         box-shadow: inset 0 0 25px $gametiks-green;
+        z-index: 2;
         &:hover {
           background-color: $water-blue;
         }

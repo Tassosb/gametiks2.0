@@ -25,11 +25,11 @@
           <div class='img-infoscreen'>
             <div id='text-wrapper'>
               <h5>Registered <%= harvest.created_at %></h5>
-              <h4><span class='label'>Game Type: </span><span class='field'><%= harvest.animal_type %></span></h4>
-              <h4><span class='label'>Weapon Used: </span><span class='field'><%= harvest.weapon_type %></span></h4>
-              <h4><span class='label'>Points Awarded: </span><span class='field'><%= harvest.formatted_points %></span></h4>
-              <h4><span class='label'>Weight: </span><span class='field'><%= formatted_weight(harvest.weight) %></span></h4>
-                <h4><span class='label'>Credits: </span><span class='field' id='credit-count'><%= harvest.credits.length %></span></h4>
+              <h4><span class='stats-label'>Game Type: </span><span class='field'><%= harvest.animal_type %></span></h4>
+              <h4><span class='stats-label'>Weapon Used: </span><span class='field'><%= harvest.weapon_type %></span></h4>
+              <h4><span class='stats-label'>Points Awarded: </span><span class='field'><%= harvest.formatted_points %></span></h4>
+              <h4><span class='stats-label'>Weight: </span><span class='field'><%= formatted_weight(harvest.weight) %></span></h4>
+              <h4><span class='stats-label'>Credits: </span><span class='field' id='credit-count'><%= harvest.credits.length %></span></h4>
               <% if current_user && @user != current_user %>
               <div class='creditor' id='creditor-<%= harvest.id %>'>
                 <% if harvest.credits.any? { |credit| credit.user == current_user } %>
