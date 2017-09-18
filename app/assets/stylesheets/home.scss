@@ -168,26 +168,26 @@
     text-align: center;
     height: auto;
     background-color: $white-half-transparent;
-    margin-left: 30px;
+    margin-left: 40px;
     padding: 0 0 4px 0;
     #left-frame {
       position: absolute;
-      left: -30px;
+      left: -40px;
       background-color: $snow-transparent;
-      width: 30px;
+      width: 40px;
       bottom: 0;
       height: 100%;
       &:before {
         width: 0;
         height: 0;
         left: 0;
-        top: -30px;
+        top: -40px;
         position: absolute;
         content: '';
-        border-left: 15px solid $snow-transparent;
-        border-top: 15px solid transparent;
-        border-right: 15px solid transparent;
-        border-bottom: 15px solid $snow-transparent;
+        border-left: 20px solid $snow-transparent;
+        border-top: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-bottom: 20px solid $snow-transparent;
       }
       &:after {
         width: 0;
@@ -235,35 +235,14 @@
         border-bottom: 15px solid $snow-transparent;
       }
     }
-    #gallery-button {
-      position: relative;
-      z-index: 1000;
-      background-size: contain;
-      background-position: center center;
-      display: flex;
-      color: white;
-      font-family: 'open-sans-regular';
-      font-size: 14px;
-      justify-content: center;
-      align-items: center;
-      background-repeat: no-repeat;
-      height: 35px;
-      width: 100%;
-      margin-top: 4px;
-      background-color: $link-blue;
-      box-shadow: inset 0 0 30px 5px rgba(0, 0, 0, 0.2);
-      .fa {
-        margin-left: 10px;
-        font-size: 20px;
-      }
-      &:hover {
-        background-color: black;
-      }
-    }
-    @media (max-width: 768px) {
-      #gallery-button {
-        font-size: 12px;
-        height: 35px;
+  }
+  @media (max-width: 768px) {
+    #group-1 {
+      margin-left: 15px;
+      #left-frame {
+        &:before {
+          display: none;
+        }
       }
     }
   }
@@ -271,6 +250,7 @@
     height: auto;
     margin: 0;
     padding: 0;
+    position: relative;
     #gallery-button-container {
       position: relative;
       display: flex;
@@ -283,14 +263,33 @@
       &:after {
         width: 0;
         height: 0;
-        right: -44px;
+        right: -42px;
         bottom: 0;
         position: absolute;
         content: '';
-        border-left: 22px solid $snow-transparent;
-        border-top: 22px solid transparent;
-        border-right: 22px solid transparent;
-        border-bottom: 22px solid $snow-transparent;
+        border-left: 21px solid $snow-transparent;
+        border-top: 21px solid transparent;
+        border-right: 21px solid transparent;
+        border-bottom: 21px solid $snow-transparent;
+      }
+      #left-frame {
+        width: 40px;
+        height: 100%;
+        position: absolute;
+        left: -40px;
+        top: 0;
+        background-color: $snow-transparent;
+        &:before {
+          position: absolute;
+          height: 0;
+          width: 0;
+          content: '';
+          top: -40px;
+          border-top: 20px solid transparent;
+          border-right: 20px solid transparent;
+          border-bottom: 20px solid $snow-transparent;
+          border-left: 20px solid $snow-transparent;
+        }
       }
       #gallery-button {
         position: relative;
@@ -314,6 +313,16 @@
         }
         &:hover {
           background-color: black;
+        }
+      }
+      @media (max-width: 768px) {
+        #gallery-button {
+          font-size: 12px;
+          height: 35px;
+          .fa {
+            font-size: 18px;
+          }
+
         }
       }
     }
