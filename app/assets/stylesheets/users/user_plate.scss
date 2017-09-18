@@ -184,19 +184,21 @@
         margin-top: 3px;
         box-shadow: inset 1px 1px 200px rgb(30, 30, 30);
         h4 {
-          font-size: 16px;
-          .label {
+          .stats-label {
             font-size: 15px;
             color: #6b8c88;
+            text-align: left;
             text-shadow: 0 0 15px rgba(190, 200, 210, 0.3);
           }
           @media (max-width: 768px) {
-            .label {
-              font-size: 12px;
+            .stats-label {
+              font-size: 14px;
             }
           }
         }
           .field {
+            font-family: 'share-tech';
+            font-size: 14px;
             text-align: right;
             width: 140px;
             overflow: hidden;
