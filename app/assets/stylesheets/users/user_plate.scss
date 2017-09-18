@@ -12,17 +12,17 @@
 
 .bluepulse {
   -webkit-animation-name: bluepulse; /* Safari 4.0 - 8.0 */
-  -webkit-animation-duration: 1.2s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: .6s; /* Safari 4.0 - 8.0 */
   animation-name: bluepulse;
-  animation-duration: 1.2s;
-  animation-iteration-count: 5;
+  animation-duration: .6s;
+  animation-iteration-count: 7;
 }
   /* Safari 4.0 - 8.0 */
   @-webkit-keyframes bluepulse {
     0% {background-color: $gray-green;}
     25% {background-color: $gray-green}
     50% {background-color: $water-blue;}
-    75% {background-color: $gray-green}
+    75% {background-color: $water-blue}
     100% {background-color: $gray-green};
   }
   /* Standard syntax */
@@ -30,7 +30,7 @@
     0% {background-color: $gray-green;}
     25% {background-color: $gray-green}
     50% {background-color: $water-blue;}
-    75% {background-color: $gray-green}
+    75% {background-color: $water-blue}
     100% {background-color: $gray-green};
   }
 
@@ -324,7 +324,6 @@
     display: block;
   }
 }
-// for mobile
 // for mobile
 #bubble-images-container-block {
   height: 140px;

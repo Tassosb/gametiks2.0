@@ -29,6 +29,14 @@
     background: linear-gradient($link-blue, $link-dark-blue); /* Standard syntax */
 }
 
+.gametiks-gradient-green {
+    background: $gray-green; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient($gray-green, $gray-green-shadow); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient($gray-green, $gray-green-shadow); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient($gray-green, $gray-green-shadow); /* For Firefox 3.6 to 15 */
+    background: linear-gradient($gray-green, $gray-green-shadow); /* Standard syntax */
+}
+
 #flash-messages-container {
   position: relative;
   height: 30px;
