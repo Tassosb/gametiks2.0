@@ -149,8 +149,10 @@
         "<img class='avatar-mobile visible-xs' src=" + avatarUrl + ">"+
         "<h3>" + `${harvestOwner.name}` + "</h3>" +
         "</a>"+
-        "<h4>" + weight + "lbs / " + Math.round(weight*0.453592) + "kgs</h4>"+
-        "<p>" + description.substring(0, 70) + "..." + "</p>";
+        "<h4>" + weight + "lbs / " + Math.round(weight*0.453592) + "kgs</h4>" +
+        "<p id='description-desktop'>" + description.substring(0, 200) + "..." + "</p>" +
+        "<p id='description-mobile'>" + description.substring(0, 70) + "..." + "</p>";
+
 
         marker.addListener('click', function() {
           $('#harvest-inspector').html(contentString);
