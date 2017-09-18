@@ -23,6 +23,7 @@
       ul {
         display: flex;
         justify-content: flex-start;
+        flex-wrap: wrap;
         width: 100%;
         background-color: rgba(220, 220, 220, 1);
         margin-bottom: 5px;
