@@ -182,6 +182,7 @@
   padding: 0;
   background-color: $white-half-transparent;
   max-width: 200px;
+  z-index: 1;
   &:before {
     position: absolute;
     top: 0;
