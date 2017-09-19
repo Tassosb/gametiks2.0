@@ -14,6 +14,11 @@
         <img src='https://d2m6u6shu0evoe.cloudfront.net/images/gametiks_logo_head.png' class='title-mobile'/>
         <img src='https://d2m6u6shu0evoe.cloudfront.net/images/gametiks_condensed.png' id='gametiks-condensed' class='visible-xs'/>
     </div>
+    <div id='slideshow-container-block' class='col-xs-12 col-md-6'>
+      <div id='slideshow-container-flex'>
+
+      </div>
+    </div>
     <%= render partial: 'staff_pick' %>
     <div id='bottom-row'></div>
   </div>
@@ -69,41 +74,6 @@
 </div>
 </div>
 
-<!-- <div class='container-fluid'>
-  <div class='row'>
-    <div class='elevator-pitch-container col-xs-12'>
-      <div class='elevator-pitch'>
-        <p>
-          STAFF PICK OF THE WEEK
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class='row'>
-    <%#= render partial: 'staff_pick' %>
-  </div>
-</div> -->
-  <!-- <div class='row'>
-    <div class='elevator-pitch-container col-xs-12'>
-      <div class='elevator-pitch'>
-        <p>TRACK AND TALLY YOUR HARVESTS</p>
-      </div>
-    </div>
-  </div>
-  <div class='row'>
-    <%#= render partial: 'track_and_tally' %>
-  </div>
-  <div class='row'>
-    <div class='elevator-pitch-container'>
-      <div class='elevator-pitch'>
-        <p>CONNECT WITH HUNTERS IN THE COMMUNITY</p>
-      </div>
-    </div>
-  </div>
-  <div class='row'>
-    <%#= render partial: 'sampled_users' %>
-  </div>
-</div> -->
 <div class='container-fluid'>
   <div class='row'>
     <div class='elevator-pitch-container'>
@@ -123,16 +93,75 @@
       $('#title-container').css('padding-top', '30px');
       $('#title-container').animate({
         opacity: 1.0
-      }, 250);
+      }, 500);
     } else {
       $('#title-container').animate({
         opacity: 1.0
-      }, 250);
+      }, 500);
     };
 
+    var interval = null;
     $('#staff-pick-button').click(function() {
-      $('#title-container, #staff-pick-container, #bottom-row').toggle();
+        var staffPickVisible = ($('#staff-pick-container').css('display') === 'block')
+      if (staffPickVisible) {
+        $('#staff-pick-container').hide();
+        $('#slideshow-container-flex').empty();
+        setTimeout(slideshow, 100);
+      } else {
+        $('#title-container').fadeOut(10);
+        $('#slideshow-container-flex').empty();
+        $('#slideshow-container-block').hide();
+        clearInterval(interval);
+        $('#staff-pick-container').show();
+        $('#bottom-row').hide();
+      }
     });
 
+    // function cycles through harvests from most recent to least recent,
+    // grabbing one image at a time and updating the index
+    // slideshow is viewable on homepage
+    var slideshow = function() {
+      var imageIndex = 0;
+      var totalImages = gon.harvestCount;
+
+      var resumeSlideshow = function() {
+        $('#slideshow-container-flex').empty();
+        $('#slideshow-container-block').show(function() {
+          renderLoadingNotification();
+          getNextImage();
+          interval = setInterval(getNextImage, 3500);
+        });
+      };
+
+      $('#title-container').fadeOut(100, function() {
+        resumeSlideshow();
+      });
+
+      var renderLoadingNotification = function() {
+        $('#slideshow-container-flex').html('loading recent harvests');
+      };
+
+      var getNextImage = function() {
+        $.ajax({
+          type: 'GET',
+          url: '/slideshow',
+          dataType: 'script',
+          data: {
+            harvest: {
+              imageIndex: imageIndex
+            }
+          }
+        }).done(function() {
+          if (imageIndex + 1 < totalImages) {
+            imageIndex ++;
+          } else {
+            imageIndex = 0;
+          };
+        });
+      };
+    }; // end slideshow
+
+    // fires slideshow on page load;
+    setTimeout(slideshow, 2200);
   });
 </script>

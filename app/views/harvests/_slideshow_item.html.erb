@@ -1,0 +1,41 @@
+<div id='slideshow-item-<%= @harvest.id %>' class='slideshow-item col-xs-11 col-sm-8 col-md-7 col-lg-6'>
+  <div id='upper-band'>
+    <% harvest = @harvest %>
+    <a href='/users/<%= @harvest.user.id %>'>
+    <%= avatar_img = @harvest.user.avatar.present? ?
+      image_tag(@harvest.user.avatar.url(:square), class: 'avatar') :
+      image_tag("https://d2m6u6shu0evoe.cloudfront.net/users/avatars/Gametiks_Gamercard.jpg", class: 'avatar') %>
+      <h3 id='username'><%= @harvest.user.name %></h3>
+    </a>
+  </div>
+    <a href='/users/<%= @harvest.user.id %>#log-<%= @harvest.id %>'>
+    <%= image_tag @harvest.image.url(:thumb), class: 'harvest' %>
+    <div id='infoplate'>
+      <h4><span class='stats-label'>Date Harvested: </span>
+        <span class='field'>
+          <% if harvest.date != nil %>
+            <%= harvest.date.strftime('%d %b %Y') %>
+          <% else  %>
+            <%= harvest.created_at.strftime('%d %b %Y') %>
+          <% end %>
+        </span>
+      </h4>
+      <h4><span class='stats-label'>Game Type: </span><span class='field'><%= harvest.animal_type == 'water_fowl' ? 'waterfowl' : harvest.animal_type %></span></h4>
+      <h4><span class='stats-label'>Weapon Used: </span><span class='field'><%= harvest.weapon_type %></span></h4>
+      <h4><span class='stats-label'>Points Awarded: </span><span class='field'><%= harvest.formatted_points %></span></h4>
+      <h4><span class='stats-label'>Weight: </span><span class='field'><%= formatted_weight(harvest.weight) %></span></h4>
+      <h4><span class='stats-label'>Credits: </span><span class='field' id='credit-count'><%= harvest.credits.length %></span></h4>
+    </div>
+  </a>
+  <div id='lower-band'>
+    <% if current_user != @harvest.user %>
+      <div class='creditor' id='creditor-<%= @harvest.id %>'>
+        <% if @harvest.credits.any? { |credit| credit.user == current_user } %>
+          <img id='coin' src='https://d2m6u6shu0evoe.cloudfront.net/images/coin.png' />
+        <% else %>
+          <%= button_to "Credit", credit_path(harvest_id: @harvest.id), data: { disable_with: "" }, remote: true %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

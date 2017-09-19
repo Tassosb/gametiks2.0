@@ -62,6 +62,11 @@ class HarvestsController < ApplicationController
     gon.total_pages = @harvests.total_pages
   end
 
+  def slideshow
+    imageIndex = harvest_params[:imageIndex].to_i
+    @harvest = Harvest.all.order('created_at DESC, id DESC').includes(:user)[imageIndex]
+  end
+
   def show
   end
 
@@ -76,7 +81,7 @@ class HarvestsController < ApplicationController
 
 
   def harvest_params
-    params.require(:harvest).permit(:page, :weapon_type, :animal_type, :weight, :description, :image, :date, :latitude, :longitude)
+    params.require(:harvest).permit(:page, :weapon_type, :animal_type, :weight, :description, :image, :date, :latitude, :longitude, :imageIndex)
   end
 
 end

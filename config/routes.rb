@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :users
   get '/user-harvests' => 'users#harvests'
+  get '/slideshow' => 'harvests#slideshow'
   resources :harvests, except: [:show] do
     resources :comments, only: [:create, :destroy]
   end
