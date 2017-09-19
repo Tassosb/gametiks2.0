@@ -1,0 +1,25 @@
+@import './variables';
+
+.gametiks-gradient-warm {
+    background: $gametiks-orange; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient($gametiks-orange-tint, $gametiks-orange-shade); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient($gametiks-orange-tint, $gametiks-orange-shade); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient($gametiks-orange-tint, $gametiks-orange-shade); /* For Firefox 3.6 to 15 */
+    background: linear-gradient($gametiks-orange-tint, $gametiks-orange-shade); /* Standard syntax */
+}
+
+.gametiks-gradient-cool {
+    background: $gametiks-blue-shadow; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient($link-blue, $link-dark-blue); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient($link-blue, $link-dark-blue); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient($link-blue, $link-dark-blue); /* For Firefox 3.6 to 15 */
+    background: linear-gradient($link-blue, $link-dark-blue); /* Standard syntax */
+}
+
+.gametiks-gradient-green {
+    background: $gray-green; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient($gray-green, $gray-green-shadow); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient($gray-green, $gray-green-shadow); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient($gray-green, $gray-green-shadow); /* For Firefox 3.6 to 15 */
+    background: linear-gradient($gray-green, $gray-green-shadow); /* Standard syntax */
+}

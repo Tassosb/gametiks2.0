@@ -1,0 +1,60 @@
+@import '../variables';
+
+#staff-pick-container {
+  background-color: rgba(0, 0, 0, 0.65);
+  padding: 50px 0 90px;
+  display: none;
+  #first-row {
+    width: 100%;
+    height: auto;
+    display: block;
+    text-align: center;
+    #three-stars {
+      height: 60px;
+      padding-top: 10px;
+      img {
+        margin: 0 auto;
+        display: block;
+        height: 40px;
+      }
+    }
+    #name-container {
+      width: 320px;
+      max-width: 90%;
+      margin: 0 auto;
+      a {
+        color: white;
+        font-family: 'teko-light';
+        font-size: 34px;
+        width: 100%;
+        height: 100%;
+        line-height: 34px;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+    }
+  }
+  #second-row {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 20px;
+    #staff-pick {
+      #log-wrapper {
+        height: 100%;
+        display: inline;
+        .log {
+          box-shadow: none;
+          max-width: 400px;
+        }
+      }
+    }
+    .stars {
+      img {
+        height: 300px;
+        margin: 30px;
+      }
+    }
+  }
+}

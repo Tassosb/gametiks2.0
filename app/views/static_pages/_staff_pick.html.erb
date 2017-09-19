@@ -24,7 +24,15 @@
           <%= image_tag harvest.image.url(:square), class: 'harvest-img'%>
           <div class='img-infoscreen'>
             <div id='text-wrapper'>
-              <h5>Registered <%= harvest.created_at %></h5>
+              <h4><span class='stats-label'>Date Harvested: </span>
+                <span class='field'>
+                  <% if harvest.date != nil %>
+                    <%= harvest.date.strftime('%d %b %Y') %>
+                  <% else  %>
+                    <%= harvest.created_at.strftime('%d %b %Y') %>
+                  <% end %>
+                </span>
+              </h4>
               <h4><span class='stats-label'>Game Type: </span><span class='field'><%= harvest.animal_type %></span></h4>
               <h4><span class='stats-label'>Weapon Used: </span><span class='field'><%= harvest.weapon_type %></span></h4>
               <h4><span class='stats-label'>Points Awarded: </span><span class='field'><%= harvest.formatted_points %></span></h4>
@@ -39,11 +47,11 @@
                 <% end %>
               </div>
               <% end %>
-              <% if !harvest.description.blank? %>
-                <p>
-                  <%= harvest.description.truncate(110) %>
-                </p>
-              <% end %>
+              <%# if !harvest.description.blank? %>
+                <!-- <p>
+                  <%#= harvest.description.truncate(110) %>
+                </p> -->
+              <%# end %>
             </div>
           </div>
         </div>
