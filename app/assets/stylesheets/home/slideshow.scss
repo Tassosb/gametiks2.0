@@ -77,6 +77,31 @@
       padding: 2px;
       height: 60px;
       text-align: left;
+      #record-details {
+        position: absolute;
+        top: -50px;
+        height: 50px;
+        width: 100%;
+        left: 0;
+        color: $gray-50;
+        font-family: 'share-tech';
+        opacity: .8;
+        #hidden {
+          visibility: hidden;
+        }
+        #shown {
+        }
+        #progress-bar {
+          position: absolute;
+          bottom: 0;
+            width: 0%;
+            height: 4px;
+            background-color: $water-blue-transparent-pale;
+            text-align: center; /* To center it horizontally (if you want) */
+            line-height: 30px; /* To center it vertically */
+            color: white;
+        }
+      }
       h3#username {
         font-family: 'teko-medium';
         color: $water-blue;

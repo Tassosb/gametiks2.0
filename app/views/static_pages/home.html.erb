@@ -122,6 +122,23 @@
         $('#slideshow-container-flex').html('loading recent harvests');
       };
 
+      var runProgressBar = function() {
+        setTimeout(animateBar, 2500);
+        function animateBar() {
+          var elem = document.getElementById('progress-bar')
+          var width = 1;
+          var id = setInterval(frame, 10);
+          function frame() {
+            if (width >= 100) {
+              clearInterval(id);
+            } else {
+              width++;
+              elem.style.width = width + '%';
+            }
+          }
+        };
+      };
+
       var getNextImage = function() {
         $.ajax({
           type: 'GET',
@@ -133,6 +150,8 @@
             }
           }
         }).done(function() {
+          runProgressBar();
+          $("#shown").writeText($('#hidden').html());
           if (imageIndex + 1 < totalImages) {
             imageIndex ++;
           } else {
@@ -181,5 +200,20 @@
         imageIndex = 0;
       };
     });
+
+    (function($) {
+        $.fn.writeText = function(content) {
+            var contentArray = content.split(""),
+                current = 0,
+                elem = this;
+            setInterval(function() {
+                if(current < contentArray.length) {
+                    elem.text(elem.text() + contentArray[current++]);
+                }
+            }, 10);
+        };
+    })(jQuery);
+
+
 
 </script>

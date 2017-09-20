@@ -7,6 +7,23 @@
       image_tag("https://d2m6u6shu0evoe.cloudfront.net/users/avatars/Gametiks_Gamercard.jpg", class: 'avatar') %>
       <h3 id='username'><%= @harvest.user.name %></h3>
     </a>
+    <div id='record-details'>
+      <div id='hidden'>
+         <% time_passed_in_mins = ((Time.now - @harvest.created_at.to_time) / 60).round %>
+         Uploaded
+         <% if time_passed_in_mins < 60 %>
+           <%= pluralize(time_passed_in_mins, 'minute') + ' ago' %>
+         <% elsif time_passed_in_mins >= 60 && time_passed_in_mins < 1440 %>
+           <%= pluralize((time_passed_in_mins / 60).round, 'hour') + ' ago' %>
+         <% else %>
+           <%= pluralize((time_passed_in_mins / 1440).round, 'day') + ' ago' %>
+         <% end %>
+      </div>
+      <div id='shown'>
+
+      </div>
+      <div id='progress-bar'></div>
+    </div>
   </div>
     <a href='/users/<%= @harvest.user.id %>#log-<%= @harvest.id %>'>
     <%= image_tag @harvest.image.url(:thumb), class: 'harvest' %>
