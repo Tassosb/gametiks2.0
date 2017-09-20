@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/gallery' => 'harvests#index'
 
   resources :users
+  
   get '/user-harvests' => 'users#harvests'
   get '/slideshow' => 'harvests#slideshow'
   resources :harvests, except: [:show] do

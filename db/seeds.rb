@@ -8,7 +8,8 @@
 
 
 # Legacy Users
-
+# User.delete_all
+#
 # user_attrs = {name:  "Evan Fountain",
 #              email: "sheila194517@yahoo.com",
 #              password:              "Fountain38",
@@ -1021,6 +1022,16 @@
 #
 # user_attrs = {name:  "Jason Loblein",
 #             email: "jason@loblein.com",
+#             password:              "password",
+#             password_confirmation: "password"
+#            }
+#
+#             user = User.new(user_attrs)
+#             user.skip_confirmation!
+#             user.save!
+
+# user_attrs = {name:  "Eldon Loblein",
+#             email: "eldon@loblein.com",
 #             password:              "password",
 #             password_confirmation: "password"
 #            }

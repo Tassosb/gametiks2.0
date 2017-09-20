@@ -28,15 +28,6 @@ class UsersController < ApplicationController
     gon.userId = @user.id
   end
 
-  def new
-  end
-
-  def create
-  end
-
-  def destroy
-  end
-
   def edit
     @user = current_user
   end

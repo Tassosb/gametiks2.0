@@ -20,6 +20,7 @@
 
       </div>
     </div>
+
     <%= render partial: 'staff_pick' %>
     <div id='bottom-row'></div>
   </div>
@@ -89,68 +90,34 @@
 </div>
 
 <script>
-  $(document).ready(function() {
-
-    if ($('#sign-up-buttons-container').length === 0) {
-      $('#title-container').css('padding-top', '30px');
-      $('#title-container').animate({
-        opacity: 1.0
-      }, 500);
-    } else {
-      $('#title-container').animate({
-        opacity: 1.0
-      }, 500);
-    };
 
     var interval = null;
-    $('#staff-pick-button').click(function() {
-        var staffPickVisible = ($('#staff-pick-container').css('display') === 'block')
-      if (staffPickVisible) {
-        $('#staff-pick-container').hide();
-        $('#slideshow-container-flex').empty();
-        setTimeout(slideshow, 100);
-      } else {
-        $('#title-container').fadeOut(10);
-        $('#slideshow-container-flex').empty();
-        $('#slideshow-container-block').hide();
-        clearInterval(interval);
-        $('#staff-pick-container').show();
-        $('#bottom-row').hide();
-      }
-    });
+    var imageIndex = 0;
+
+    $(document).ready(function() {
+      $('#staff-pick-button').click(function() {
+          const staffPickVisible = ($('#staff-pick-container').css('display') === 'block')
+        if (staffPickVisible) {
+          $('#staff-pick-container').hide();
+          $('#slideshow-container-flex').empty();
+          runSlideshow();
+        } else {
+          $('#title-container').fadeOut(10);
+          $('#slideshow-container-flex').empty();
+          $('#slideshow-container-block').hide();
+          clearInterval(interval);
+          $('#staff-pick-container').show();
+          $('#bottom-row').hide();
+        }
+      });
+    })
+
 
     // function cycles through harvests from most recent to least recent,
     // grabbing one image at a time and updating the index
     // slideshow is viewable on homepage
-    var slideshow = function() {
-      var imageIndex = 0;
-      var totalImages = gon.harvestCount;
-
-      $('#back-button').click(function() {
-
-        // clearInterval(interval);
-        // imageIndex -= 2;
-        // getNextImage();
-      });
-
-      $('#resume-button').click(function() {
-
-        // interval = setInterval(getNextImage, 3500);
-      });
-
-      var resumeSlideshow = function() {
-        $('#slideshow-container-flex').empty();
-        $('#slideshow-container-block').show(function() {
-          renderLoadingNotification();
-          getNextImage();
-          interval = setInterval(getNextImage, 3500);
-        });
-      };
-
-      $('#title-container').fadeOut(100, function() {
-        resumeSlideshow();
-      });
-
+    var runSlideshow = function() {
+      const totalImages = gon.harvestCount;
       var renderLoadingNotification = function() {
         $('#slideshow-container-flex').html('loading recent harvests');
       };
@@ -173,11 +140,46 @@
           };
         });
       };
+
+      var resumeSlideshow = function() {
+        // if any slide is remaining, clear it before rendering container
+        $('#slideshow-container-flex').empty();
+        $('#slideshow-container-block').show(function() {
+          renderLoadingNotification();
+          // grab first image initially
+          getNextImage();
+          interval = setInterval(getNextImage, 3500);
+        });
+      };
+
+      $('#title-container').fadeOut(200, function() {
+        resumeSlideshow();
+      });
+
     }; // end slideshow
 
-
     // fires slideshow on page load;
-    setTimeout(slideshow, 2200);
-  });
+    $(document).ready(function() {
+      clearInterval(interval);
+      // fade in main title
+      if (window.location.pathname == '/') {
+        if ($('#sign-up-buttons-container').length === 0) {
+          $('#title-container').css('padding-top', '30px');
+          $('#title-container').animate({
+            opacity: 1.0
+          }, 400);
+        } else {
+          $('#title-container').animate({
+            opacity: 1.0
+          }, 400);
+        };
+        clearInterval(interval);
+        imageIndex = 0;
+        setTimeout(runSlideshow, 1500);
+      } else {
+        clearInterval(interval);
+        imageIndex = 0;
+      };
+    });
 
 </script>
