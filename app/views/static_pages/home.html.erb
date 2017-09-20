@@ -1,5 +1,6 @@
 <div class='container-fluid splash-main box-shadow-1'>
   <div class='row'>
+
     <% unless flash.empty? %>
       <div id='flash-messages-container' class='col-xs-8 col-sm-7'>
         <% flash.each do |message_type, message| %>
@@ -89,6 +90,7 @@
 
 <script>
   $(document).ready(function() {
+
     if ($('#sign-up-buttons-container').length === 0) {
       $('#title-container').css('padding-top', '30px');
       $('#title-container').animate({
@@ -123,6 +125,18 @@
     var slideshow = function() {
       var imageIndex = 0;
       var totalImages = gon.harvestCount;
+
+      $('#back-button').click(function() {
+        alert('clicked');
+        // clearInterval(interval);
+        // imageIndex -= 2;
+        // getNextImage();
+      });
+
+      $('#resume-button').click(function() {
+        debugger;
+        // interval = setInterval(getNextImage, 3500);
+      });
 
       var resumeSlideshow = function() {
         $('#slideshow-container-flex').empty();
@@ -161,7 +175,9 @@
       };
     }; // end slideshow
 
+
     // fires slideshow on page load;
     setTimeout(slideshow, 2200);
   });
+
 </script>

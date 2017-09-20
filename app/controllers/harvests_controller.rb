@@ -64,7 +64,7 @@ class HarvestsController < ApplicationController
 
   def slideshow
     imageIndex = harvest_params[:imageIndex].to_i
-    @harvest = Harvest.all.order('created_at DESC, id DESC').includes(:user)[imageIndex]
+    @harvest = Harvest.all.order('created_at DESC').includes(:user)[imageIndex]
   end
 
   def show

@@ -11,6 +11,7 @@
     <a href='/users/<%= @harvest.user.id %>#log-<%= @harvest.id %>'>
     <%= image_tag @harvest.image.url(:thumb), class: 'harvest' %>
     <div id='infoplate'>
+
       <h4><span class='stats-label'>Date Harvested: </span>
         <span class='field'>
           <% if harvest.date != nil %>
@@ -28,7 +29,7 @@
     </div>
   </a>
   <div id='lower-band'>
-    <% if current_user != @harvest.user %>
+    <% if current_user && current_user != @harvest.user %>
       <div class='creditor' id='creditor-<%= @harvest.id %>'>
         <% if @harvest.credits.any? { |credit| credit.user == current_user } %>
           <img id='coin' src='https://d2m6u6shu0evoe.cloudfront.net/images/coin.png' />
