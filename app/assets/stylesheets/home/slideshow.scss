@@ -6,11 +6,34 @@
   height: 590px;
   color: white;
   display: none;
+  #controls-container {
+    display: none;
+    #controls {
+      position: absolute;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      bottom: 160px;
+      width: 100px;
+      left: calc(50% - 50px);
+      cursor: pointer;
+      z-index: 4;
+      font-size: 20px;
+      #previous {
+        color: $gray-40;
+      }
+      #resume {
+        color: $gray;
+      }
+    }
+  }
   #slideshow-container-flex {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
+
     .slideshow-item {
       height: 200px;
       padding: 0;
@@ -97,8 +120,8 @@
             width: 0%;
             height: 4px;
             background-color: $water-blue-transparent-pale;
-            text-align: center; /* To center it horizontally (if you want) */
-            line-height: 30px; /* To center it vertically */
+            text-align: center;
+            line-height: 30px;
             color: white;
         }
       }
@@ -108,7 +131,6 @@
         text-transform: uppercase;
         display: inline-block;
         height: 60px;
-        // min-width: 220px;
         margin-top: 0;
         padding-left: 4px;
         text-align: left;
@@ -143,7 +165,6 @@
       width: calc(100% - 50px);
       height: 50px;
       z-index: 1;
-
       &:before {
         position: absolute;
         content: '';
@@ -156,6 +177,7 @@
         border-bottom: 25px solid transparent;
         border-left: 25px solid transparent;
       }
+
       .creditor {
         #coin {
           margin-top: 12px;

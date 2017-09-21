@@ -19,6 +19,16 @@
       <div id='slideshow-container-flex'>
 
       </div>
+      <div id='controls-container'>
+        <div id='controls'>
+          <div id='previous'>
+            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+          </div>
+          <div id='resume'>
+            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
     </div>
 
     <%= render partial: 'staff_pick' %>
@@ -93,6 +103,9 @@
 
     var interval = null;
     var imageIndex = 0;
+    var paused = false;
+    var resumeActive = false;
+    var totalImages = gon.harvestCount;
 
     $(document).ready(function() {
       $('#staff-pick-button').click(function() {
@@ -117,7 +130,10 @@
     // grabbing one image at a time and updating the index
     // slideshow is viewable on homepage
     var runSlideshow = function() {
-      const totalImages = gon.harvestCount;
+      var controls = function() {
+        $('#controls-container').show();
+      };
+      setTimeout(controls, 2000);
       var renderLoadingNotification = function() {
         $('#slideshow-container-flex').html('loading recent harvests');
       };
@@ -125,17 +141,19 @@
       var runProgressBar = function() {
         setTimeout(animateBar, 2500);
         function animateBar() {
-          var elem = document.getElementById('progress-bar')
-          var width = 1;
-          var id = setInterval(frame, 10);
-          function frame() {
-            if (width >= 100) {
-              clearInterval(id);
-            } else {
-              width++;
-              elem.style.width = width + '%';
+          if (paused === false) {
+            var elem = document.getElementById('progress-bar')
+            var width = 1;
+            var id = setInterval(frame, 10);
+            function frame() {
+              if (width >= 100) {
+                clearInterval(id);
+              } else {
+                width++;
+                elem.style.width = width + '%';
+              }
             }
-          }
+          };
         };
       };
 
@@ -150,14 +168,32 @@
             }
           }
         }).done(function() {
-          runProgressBar();
-          $("#shown").writeText($('#hidden').html());
-          if (imageIndex + 1 < totalImages) {
-            imageIndex ++;
-          } else {
-            imageIndex = 0;
-          };
-        });
+            if (paused === false) {
+              runProgressBar();
+            } else {
+              clearInterval(interval);
+            }
+            $("#shown").writeText($('#hidden').html());
+            if (imageIndex + 1 < totalImages) {
+              imageIndex ++;
+            } else {
+              imageIndex = 0;
+            }
+          });
+      };
+
+      var setIndexBack = function() {
+        if ((imageIndex - 2) >= 0) {
+          imageIndex -= 2;
+        } else {
+          imageIndex = totalImages - 2;
+        }
+        paused = true;
+        resumeActive = true;
+        $('#resume').css('color', 'rgb(40, 40, 40)');
+        // clear interval both before and after async call
+        clearInterval(interval);
+        getNextImage();
       };
 
       var resumeSlideshow = function() {
@@ -173,6 +209,20 @@
 
       $('#title-container').fadeOut(200, function() {
         resumeSlideshow();
+      });
+
+      $('#previous').click(function() {
+        setIndexBack();
+      });
+
+      $('#resume').click(function() {
+        if (resumeActive) {
+          resumeActive = false;
+          $('#resume').css('color', 'rgb(150, 150, 150)');
+          paused = false;
+          getNextImage();
+          interval = setInterval(getNextImage, 3500);
+        }
       });
 
     }; // end slideshow
@@ -213,7 +263,5 @@
             }, 10);
         };
     })(jQuery);
-
-
 
 </script>
