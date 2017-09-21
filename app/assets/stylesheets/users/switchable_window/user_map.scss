@@ -16,7 +16,7 @@
     padding-top: 15px;
     #map-harvest-inspector-container {
       height: 100%;
-      border-radius: 3px;
+      // border-radius: 3px;
       position: relative;
       display: flex;
       align-items: flex-start;
@@ -81,7 +81,7 @@
 
 #harvest-inspector {
   height: 460px;
-  border-radius: 3px 0 0 3px;
+  // border-radius: 3px 0 0 3px;
   position: relative;
   overflow-y: scroll;
   #images-container {
@@ -137,7 +137,6 @@
       height: 35% !important;
       margin: 0;
       box-shadow: none;
-      border-radius: 3px 3px 0 0 !important;
     }
     #user-map {
       width: 100%;
