@@ -109,11 +109,19 @@
 
     $(document).ready(function() {
       $('#staff-pick-button').click(function() {
+        const reset = function() {
+          clearInterval(interval);
+          imageIndex = 0;
+          paused = false;
+          resumeActive = false;
+        }
           const staffPickVisible = ($('#staff-pick-container').css('display') === 'block')
         if (staffPickVisible) {
           $('#staff-pick-container').hide();
           $('#slideshow-container-flex').empty();
-          runSlideshow();
+          reset();
+          $('#resume').css('color', 'rgb(150, 150, 150)');
+          setTimeout(runSlideshow, 100);
         } else {
           $('#title-container').fadeOut(10);
           $('#slideshow-container-flex').empty();
@@ -143,15 +151,17 @@
         function animateBar() {
           if (paused === false) {
             var elem = document.getElementById('progress-bar')
-            var width = 1;
-            var id = setInterval(frame, 10);
-            function frame() {
-              if (width >= 100) {
-                clearInterval(id);
-              } else {
-                width++;
-                elem.style.width = width + '%';
-              }
+            if (elem !== null) {
+              var width = 1;
+              var id = setInterval(frame, 10);
+              function frame() {
+                if (width >= 100) {
+                  clearInterval(id);
+                } else {
+                  width++;
+                  elem.style.width = width + '%';
+                }
+              };
             }
           };
         };
@@ -168,18 +178,18 @@
             }
           }
         }).done(function() {
-            if (paused === false) {
-              runProgressBar();
-            } else {
-              clearInterval(interval);
-            }
-            $("#shown").writeText($('#hidden').html());
-            if (imageIndex + 1 < totalImages) {
-              imageIndex ++;
-            } else {
-              imageIndex = 0;
-            }
-          });
+          if (paused === false) {
+            runProgressBar();
+          } else {
+            clearInterval(interval);
+          }
+          $("#shown").writeText($('#hidden').html());
+          if (imageIndex + 1 < totalImages) {
+            imageIndex ++;
+          } else {
+            imageIndex = 0;
+          }
+        });
       };
 
       var setIndexBack = function() {
@@ -252,16 +262,16 @@
     });
 
     (function($) {
-        $.fn.writeText = function(content) {
-            var contentArray = content.split(""),
-                current = 0,
-                elem = this;
-            setInterval(function() {
-                if(current < contentArray.length) {
-                    elem.text(elem.text() + contentArray[current++]);
-                }
-            }, 10);
-        };
+      $.fn.writeText = function(content) {
+        var contentArray = content.split(""),
+          current = 0,
+          elem = this;
+        setInterval(function() {
+          if(current < contentArray.length) {
+              elem.text(elem.text() + contentArray[current++]);
+          }
+        }, 10);
+      };
     })(jQuery);
 
 </script>
