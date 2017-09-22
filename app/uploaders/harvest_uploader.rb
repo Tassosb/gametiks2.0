@@ -21,12 +21,13 @@ class HarvestUploader < CarrierWave::Uploader::Base
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
-
+  watermark = MiniMagick::Image.open('https://s3.amazonaws.com/gametiks/images/gametiks_watermark.png')
   # Process files as they are uploaded:
   version :square do
     process :auto_orient
     process :quality => 55
     process resize_to_fill: [800, 800]
+    process watermark: watermark
   end
 
   version :thumb do

@@ -29,5 +29,16 @@ module CarrierWave
       end
     end
 
+    def watermark(watermark)
+      manipulate! do |img|
+        result = img.composite(watermark) do |c|
+          c.compose "Over"
+          c.geometry "+580+700"
+        end
+        result
+      end
+      img = yield(result) if block_given?
+    end
+
   end
 end
