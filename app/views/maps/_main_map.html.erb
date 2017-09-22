@@ -141,11 +141,13 @@
         }
         var contentString =
         "<div id='images-container'>" +
-          "<img class='harvest' src=" + imgUrl + ">" +
-          "<div id='avatar-container'>" +
-            "<img class='avatar' src=" + avatarUrl + "></img>" +
-          "</div>" +
-          "</img>" +
+          "<a href='/users/" + `${userId}` + "#log-" + `${harvest.id}` + "'>" +
+            "<img class='harvest' src=" + imgUrl + ">" +
+              "<div id='avatar-container'>" +
+                "<img class='avatar' src=" + avatarUrl + "></img>" +
+              "</div>" +
+            "</img>" +
+          "</a>" +
         "</div>" +
         "<a id='user-link' href=" + `/users/${userId}` + ">" +
         "<img class='avatar-mobile visible-xs' src=" + avatarUrl + ">"+
