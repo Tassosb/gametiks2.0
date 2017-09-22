@@ -40,7 +40,8 @@ def favorite_weapon(user)
     rifle: 0,
     shotgun: 0,
     pistol: 0,
-    bow: 0
+    bow: 0,
+    trap: 0
   }
 
   user.harvests.each do |harvest|
