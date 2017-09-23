@@ -122,7 +122,6 @@
        var baseURL = 'https://www.gametiks.com/users/';
 
       $(`#log-${logItem.id} .share`).on('click', function() {
-        debugger;
          FB.ui({
            method: 'feed',
            link: baseURL + logItem.user.id,
