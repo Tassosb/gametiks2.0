@@ -124,7 +124,6 @@
       $(`#log-${logItem.id} .share`).on('click', function() {
          FB.ui({
            method: 'share',
-           display: 'popup',
            href: baseURL + logItem.user.id
          }), function(response){});
        });
