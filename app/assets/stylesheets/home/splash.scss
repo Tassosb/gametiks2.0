@@ -7,10 +7,6 @@
   position: relative;
   margin: 0;
   padding: 0;
-  // display: flex;
-  // justify-content: flex-start;
-  // align-items: center;
-  // flex-direction: column;
   width: 100%;
   border-top: 4px solid $cloudy;
   border-bottom: 4px solid $cloudy;
@@ -31,6 +27,7 @@
     border-right: 6px solid transparent;
     border-bottom: 6px solid transparent;
     border-left: 6px solid $snow-transparent;
+    z-index: 3;
   }
   &:after {
     position: absolute;
@@ -43,6 +40,7 @@
     border-right: 6px solid $snow-transparent;
     border-bottom: 6px solid $snow-transparent;
     border-left: 6px solid transparent;
+    z-index: 3;
   }
   @media (max-width: 768px) {
     &:after {

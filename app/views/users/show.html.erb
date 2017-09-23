@@ -123,10 +123,10 @@
 
       $(`#log-${logItem.id} .share`).on('click', function() {
          FB.ui({
-           method: 'feed',
-           link: baseURL + logItem.user.id,
-           caption: 'example caption'
-         });
+           method: 'share',
+           display: 'popup',
+           href: baseURL + logItem.user.id
+         }), function(response){});
        });
      };
    });

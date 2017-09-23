@@ -6,6 +6,7 @@
   height: 590px;
   color: white;
   display: none;
+  z-index: 3;
   #controls-container {
     display: none;
     #controls {
@@ -108,7 +109,8 @@
         left: 0;
         color: $gray-50;
         font-family: 'share-tech';
-        opacity: .8;
+        opacity: 1;
+        z-index: 3;
         #hidden {
           visibility: hidden;
         }
@@ -117,12 +119,13 @@
         #progress-bar {
           position: absolute;
           bottom: 0;
-            width: 0%;
-            height: 4px;
-            background-color: $water-blue-transparent-pale;
-            text-align: center;
-            line-height: 30px;
-            color: white;
+          width: 0%;
+          height: 4px;
+          background-color: $water-blue-transparent-pale;
+          text-align: center;
+          line-height: 30px;
+          color: white;
+          z-index: 3;
         }
       }
       h3#username {
