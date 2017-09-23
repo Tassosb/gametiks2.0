@@ -97,38 +97,38 @@
 
 <script>
 
-  // var myHarvests = [];
-  //
-  // window.fbAsyncInit = function() {
-  //   FB.init({
-  //     appId      : 312117159238027,
-  //     xfbml      : true,
-  //     version    : 'v2.4'
-  //   });
-  // };
-  //
-  // (function(d, s, id){
-  //    var js, fjs = d.getElementsByTagName(s)[0];
-  //    if (d.getElementById(id)) {return;}
-  //    js = d.createElement(s); js.id = id;
-  //    js.src = "//connect.facebook.net/en_US/sdk.js";
-  //    fjs.parentNode.insertBefore(js, fjs);
-  //  }(document, 'script', 'facebook-jssdk'));
-  //
-  //  $(document).ready(function() {
-  //    const harvests = JSON.parse(gon.harvests);
-  //    for (var i = 0; i < harvests.length; i++) {
-  //      var logItem = harvests[i];
-  //      var baseURL = 'https://www.gametiks.com/users/';
-  //
-  //     $(`#log-${logItem.id} .share`).on('click', function() {
-  //        FB.ui({
-  //          method: 'feed',
-  //          link: baseURL + logItem.user.id,
-  //          caption: 'example caption'
-  //        });
-  //      });
-  //    };
-  //  });
+  var myHarvests = [];
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : 312117159238027,
+      xfbml      : true,
+      version    : 'v2.4'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+   $(document).ready(function() {
+     const harvests = JSON.parse(gon.harvests);
+     for (var i = 0; i < harvests.length; i++) {
+       var logItem = harvests[i];
+       var baseURL = 'https://www.gametiks.com/users/';
+
+      $(`#log-${logItem.id} .share`).on('click', function() {
+         FB.ui({
+           method: 'feed',
+           link: baseURL + logItem.user.id,
+           caption: 'example caption'
+         });
+       });
+     };
+   });
 
 </script>
