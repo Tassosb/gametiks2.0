@@ -6,7 +6,7 @@
       <div class='links'>
         <%= link_to 'Edit', edit_harvest_path(harvest) %>
         <%= link_to "Delete", harvest_path(harvest), method: :delete, data: { confirm: 'Confirm Delete?' } %>
-        <%= if current_user.id == 1 %>
+        <% if current_user.id == 1 %>
           <button class='share'>
             Share to facebook
           </button>
