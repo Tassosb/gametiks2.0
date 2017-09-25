@@ -39,6 +39,8 @@ class Harvest < ActiveRecord::Base
         totalPoints += (weight * 10)
       when 'deer'
         totalPoints += (weight * 3.8).round
+      when 'elk'
+        totalPoints += (weight * 1.9).round
       when 'bovid'
         totalPoints += (weight * 3.9).round
       when 'canine'
@@ -89,18 +91,6 @@ class Harvest < ActiveRecord::Base
       errors.add(:longitude, 'must be between -180 and 180')
     end
   end
-
-  # def rectify_date
-    # if self.date.instance_of? Date
-    #   split_date = self.date.to_s.split('-')
-    #   month = split_date.last
-    #   day = split_date[1]
-    #   year = split_date.first
-    #   self.date = year + '-' + month + '-' + day
-    # else
-    #   self.date = nil
-    # end
-  # end
 
   def is_number?(string)
     true if Float(string) rescue false
