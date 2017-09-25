@@ -18,17 +18,11 @@
 }
 
 .harvest-form {
-  margin-top: 30px;
-  margin-bottom: 50px;
+  // margin-bottom: 50px;
   background-color: $transparent-gray;
   padding: 10px 2px 10px 2px;
   height: auto;
-  border-radius: 5px;
-  border-color: $transparent-gray;
-  border-width: 2px;
-  border-style: solid;
-  box-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-
+  z-index: 3;
   .heading-container {
     display: flex;
     justify-content: center;
@@ -182,7 +176,7 @@
   .tech-label {
     width: 160px;
     height: 24px;
-    background: rgba(0,0,0,0.35);
+    background: rgba(0,0,0,0.45);
     margin: 2px 0 10px 27px;
     position: relative;
     text-shadow: 0 0 15px $gametiks-orange-shadow;
@@ -199,12 +193,12 @@
       width: 0;
       height: 0;
       border-top: 12px solid transparent;
-      border-bottom: 12px solid rgba(0,0,0,0.35);
+      border-bottom: 12px solid rgba(0,0,0,0.45);
       border-left: 12px solid transparent;
-      border-right: 12px solid rgba(0,0,0,0.35);
+      border-right: 12px solid rgba(0,0,0,0.45);
       position: absolute;
       top: 0;
-      left: -26px;
+      left: -25px;
     }
 
     &:after {
@@ -214,12 +208,12 @@
       width: 0;
       height: 0;
       border-bottom: 12px solid transparent;
-      border-top: 12px solid rgba(0,0,0,0.35);
-      border-left: 12px solid rgba(0,0,0,0.35);
+      border-top: 12px solid rgba(0,0,0,0.45);
+      border-left: 12px solid rgba(0,0,0,0.45);
       border-right: 12px solid transparent;
       position: absolute;
       top: 0;
-      right: -26px;
+      right: -25px;
     }
   }
   .tech-label-small {
