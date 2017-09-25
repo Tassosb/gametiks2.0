@@ -3,12 +3,15 @@
     <% if notification.is_read? == false %>
       <script>
         $('#notifications').addClass('pulse');
+        $('#empty').hide();
       </script>
     <% end %>
     <!-- who is the actor of the event? -->
     <% actor = notification.notifiable.user %>
     <a href='/users/<%= actor.id %>' id='avatar-container'>
-      <%= image_tag(actor.avatar.url(:square), id: 'actor-img')  %>
+      <%= avatar_img = actor.avatar.present? ?
+        image_tag(actor.avatar.url(:square), id: 'actor-img') :
+        image_tag("https://d2m6u6shu0evoe.cloudfront.net/users/avatars/Gametiks_Gamercard.jpg", id: 'actor-img') %>
     </a>
     <p>
     <a href='/users/<%= notification.notifiable.user.id %>'>
