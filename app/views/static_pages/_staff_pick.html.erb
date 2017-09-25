@@ -22,7 +22,9 @@
     <div id='staff-pick'>
       <div id='log-wrapper'>
         <div class='log'>
-          <%= image_tag harvest.image.url(:square), class: 'harvest-img'%>
+          <a href='/users/<%= @user.id %>#log-<%= harvest.id %>'>
+            <%= image_tag harvest.image.url(:square), class: 'harvest-img'%>
+          </a>
           <div class='img-infoscreen'>
             <div id='text-wrapper'>
               <h4><span class='stats-label'>Date Harvested: </span>
