@@ -1,8 +1,12 @@
 <% @user = harvest.user %>
 <article class='log' id='log-<%= harvest.id %>'>
-  <%= image_tag harvest.image.url(:thumb), class: 'harvest' %>
+  <a href='/users/<%= @user.id %>#log-<%= harvest.id %>'>
+    <%= image_tag harvest.image.url(:thumb), class: 'harvest' %>
+  </a>
   <div class='user-nametag'>
-    <%= link_to @user.name, @user %>
+    <a href='/users/<%= @user.id %>'>
+      <%= @user.name %>
+    </a>
   </div>
   <div class='img-infoscreen clearfix'>
     <div id='text-wrapper'>

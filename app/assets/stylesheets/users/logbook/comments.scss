@@ -4,15 +4,17 @@
   clear: both;
   max-width: 600px;
   margin: 0 auto;
+  margin-top: 0;
+  background-color: $cloudy;
 }
 
 li.comment {
-  margin-top: 5px;
   display: block;
   position: relative;
   width: 100%;
   min-height: 55px;
   border-bottom: 1px solid rgb(200, 200, 200);
+  padding: 4px;
   .author-img-container {
     height: 100%;
     width: 70px;
@@ -25,6 +27,8 @@ li.comment {
   }
   #author-name {
     width: 100%;
+    margin: 0;
+    padding: 0;
     a {
       color: $water-blue;
       font-family: 'open-sans-bold';
@@ -55,10 +59,17 @@ li.comment {
 form#new_comment {
   max-width: 600px;
   margin: 0 auto;
-  margin-top: 10px;
+  padding: 4px;
+  background-color: $cloudy;
+  #comment_body {
+    margin: 0;
+  }
   label {
     font-weight: 500;
     font-family: 'open-sans-semibold';
     color: rgb(80, 80, 80);
+  }
+  input {
+    margin-top: 0;
   }
 }

@@ -31,7 +31,6 @@
 
 .log {
   box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
-  padding: 15px;
   display: inline-block;
   column-break-inside: avoid;
   color: $gray-dark;
@@ -39,12 +38,9 @@
   width: 100%;
   border-radius: 5px;
   background-color: rgb(245, 245, 245);
-  padding: 10px;
-  border-radius: 5px;
   box-shadow: 1px 1px 6px rgba(200,200,200,0.9);
   .img-infoscreen {
     font-family: 'share-tech';
-    border: 1px solid black;
     height: auto;
     max-width: 600px;
     margin: 0 auto;
@@ -53,7 +49,6 @@
     font-size: 14px;
     color: #6b8c88;
     text-shadow: 0 0 15px rgba(190, 200, 210, 0.3);
-    border-radius: 0 0 3px 3px;
     padding-bottom: 10px;
     #text-wrapper {
       max-width: 400px;
@@ -103,32 +98,37 @@
         }
       }
       p {
-        color: #6b8c88;
-        margin-top: 20px;
+        color: $gray-green-glow;
+        font-family: 'open-sans-regular';
+        margin: 0;
         border-top: 1px solid #6b8c88;
-        padding: 14px;
+        display: block;
+        padding: 6px;
       }
     }
   }
   .links {
-    margin-top: 10px;
+    height: 30px;
+    padding: 6px;
     text-align: center;
+    width: auto;
     a {
+      display: inline-block;
       color: white;
+      width: 100px;
       background-color: $gametiks-green;
-      padding: 3px 10px;
-      border-radius: 3px;
+      padding: 3px;
     }
   }
   img {
     margin: 0 10px 5px 0;
   }
   img.harvest-img {
-    border-radius: 3px 3px 0 0;
     width: 100%;
     max-width: 600px;
     position: relative;
     display: block;
+    margin-bottom: 0;
     margin: 0 auto;
   }
 

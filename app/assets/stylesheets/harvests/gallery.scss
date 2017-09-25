@@ -10,36 +10,29 @@
   width: 100%;
   background-color: $cloudy;
   position: relative;
-  padding-top: 30px;
-  padding-bottom: 50px;
   #gallery {
-    margin: 10px;
-    padding: 10px;
+    padding: 14px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 95%;
-    max-width: 100%;
-    border-radius: 10px;
-    background-color: rgb(220, 220, 220);
+    width: 100%;
+    background-color: $gray-light;
     .log {
-      padding: 10px;
+      position: relative;
+      padding: 0;
       color: $gray-dark;
       margin: 5px;
       flex: 1 1 auto;
       flex-basis: 230px;
       max-width: 330px;
-      background-color: rgb(245, 245, 245);
-      border-radius: 10px;
-      box-shadow: 1px 1px 6px rgba(200,200,200,0.9);
+      z-index: 3;
       img.harvest {
         width: 100%;
         margin-bottom: 0;
       }
       .user-nametag {
-        border-top: 1px solid black;
         background-color: $gray-green;
         box-shadow: inset 0 0 30px $gametiks-green;
         height: 30px;
@@ -50,23 +43,24 @@
           width: 100%;
           height: 100%;
           font-family: 'teko-light';
-          line-height: 32px;
+          line-height: 33px;
           letter-spacing: 1px;
           font-size: 23px;
           text-align: center;
         }
+        &:hover {
+          background-color: $water-blue;
+        }
       }
       .img-infoscreen {
+        position: relative;
         font-family: 'share-tech';
-        border: 1px solid black;
+        min-height: 200px;
         max-width: 600px;
         margin: 0 auto;
-        background-color: rgba(0, 0, 0, 0.7);
-        box-shadow: inset 1px 1px 200px rgb(30, 30, 30);
         font-size: 14px;
         color: #6b8c88;
         text-shadow: 0 0 15px rgba(190, 200, 210, 0.3);
-        border-radius: 0 0 3px 3px;
         padding-bottom: 10px;
         height: auto;
         #text-wrapper {
