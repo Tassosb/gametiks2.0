@@ -41,6 +41,10 @@
     align-items: center;
     padding: 5px 20px;
     #staff-pick {
+      max-width: 320px;
+      h4 {
+        margin-top: 0;
+      }
       #log-wrapper {
         height: 100%;
         display: inline;
@@ -48,6 +52,9 @@
           box-shadow: none;
           max-width: 400px;
         }
+      }
+      .img-infoscreen {
+        padding: 6px;
       }
     }
     .stars {
