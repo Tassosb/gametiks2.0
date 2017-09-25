@@ -150,8 +150,10 @@
           "</a>" +
         "</div>" +
         "<a id='user-link' href=" + `/users/${userId}` + ">" +
-        "<img class='avatar-mobile visible-xs' src=" + avatarUrl + ">"+
-        "<h3>" + `${harvestOwner.name}` + "</h3>" +
+          "<img class='avatar-mobile visible-xs' src=" + avatarUrl + ">"+
+        "</a>" +
+        "<a href=" + `/users/${userId}` + ">" +
+          "<h3>" + `${harvestOwner.name}` + "</h3>" +
         "</a>"+
         "<h4>" + weight + "lbs / " + Math.round(weight*0.453592) + "kgs</h4>" +
         "<p id='description-desktop'>" + description.substring(0, 300) + "..." + "</p>" +
