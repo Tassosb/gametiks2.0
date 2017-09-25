@@ -9,7 +9,8 @@ $(document).ready(function() {
     var height = $(childNode).css('height');
     var multiplier = Math.round(parseInt(height.substring(0, height.length - 2)) / 2);
     for (var j = 0; j < multiplier; j++) {
-      var fill = $.parseHTML(`<div id="fill-${j}" class="monitor-fill"></div>`);
+      var html = '<div id="fill" class="monitor-fill"></div>';
+      var fill = $.parseHTML(html);
       $(childNode).append(fill);
     };
   };
