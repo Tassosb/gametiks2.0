@@ -7,7 +7,7 @@ $(document).ready(function() {
     var childNode = $.parseHTML(child);
     $(associatedViews[i]).prepend(childNode);
     var height = $(childNode).css('height');
-    varb multiplier = Math.round(parseInt(height.substring(0, height.length - 2)) / 2);
+    var multiplier = Math.round(parseInt(height.substring(0, height.length - 2)) / 2);
     for (var j = 0; j < multiplier; j++) {
       const fill = $.parseHTML(`<div id="fill-${j}" class="monitor-fill"></div>`);
       $(childNode).append(fill);
