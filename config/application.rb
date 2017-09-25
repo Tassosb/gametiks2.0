@@ -6,10 +6,10 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-config.serve_static_assets = true
 
 module Gametiks
   class Application < Rails::Application
+    config.serve_static_assets = true
 
     config.to_prepare do
       # Load application's model / class decorators
